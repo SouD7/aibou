@@ -1,0 +1,43 @@
+{
+  "version": 5,
+  "checks": [
+    {
+      "scene": "black-overview",
+      "wallParallelAngleDifferenceDegrees": 0.643,
+      "headEnd": "bookshelf",
+      "footEnd": "front-left",
+      "bedZ": 42,
+      "sleepingAvatarZ": 43,
+      "otherFurnitureAndBackground": "byte identical to v4"
+    },
+    {
+      "scene": "black-horizontal",
+      "wallParallelAngleDifferenceDegrees": 0.021,
+      "headEnd": "bookshelf",
+      "footEnd": "front-left",
+      "bedZ": 42,
+      "sleepingAvatarZ": 43,
+      "otherFurnitureAndBackground": "byte identical to v4"
+    },
+    {
+      "scene": "white-overview",
+      "wallParallelAngleDifferenceDegrees": 0.643,
+      "headEnd": "bookshelf",
+      "footEnd": "front-left",
+      "bedZ": 42,
+      "sleepingAvatarZ": 43,
+      "otherFurnitureAndBackground": "byte identical to v4"
+    },
+    {
+      "scene": "white-horizontal",
+      "wallParallelAngleDifferenceDegrees": 0.021,
+      "headEnd": "bookshelf",
+      "footEnd": "front-left",
+      "bedZ": 42,
+      "sleepingAvatarZ": 43,
+      "otherFurnitureAndBackground": "byte identical to v4"
+    }
+  ],
+  "status": "passed",
+  "visualQA": "Final composite contact sheet reviewed; wide bed parallel to left wall in both views; desk legs behind bed"
+}

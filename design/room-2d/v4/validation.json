@@ -1,0 +1,105 @@
+{
+  "version": 4,
+  "canvas": [
+    1672,
+    941
+  ],
+  "scenes": [
+    {
+      "id": "black-overview",
+      "recomposition": "pixel identical",
+      "oraLayers": 18,
+      "oraMaximumChannelRoundingDifference": 0,
+      "uniqueMotionFrames": 24,
+      "fans": [
+        {
+          "id": "fan-1",
+          "uniqueBladeFrames": 12,
+          "changedPixelsOutsideBladeUnion": 0
+        },
+        {
+          "id": "fan-2",
+          "uniqueBladeFrames": 12,
+          "changedPixelsOutsideBladeUnion": 0
+        }
+      ],
+      "cpuBulbCount": 127,
+      "cpuOnOffMeanRGBDelta": 82.08,
+      "uniqueWireFrames": 24,
+      "maximumWireActiveCanvasFraction": 0.0138
+    },
+    {
+      "id": "black-horizontal",
+      "recomposition": "pixel identical",
+      "oraLayers": 18,
+      "oraMaximumChannelRoundingDifference": 0,
+      "uniqueMotionFrames": 24,
+      "fans": [
+        {
+          "id": "fan-1",
+          "uniqueBladeFrames": 12,
+          "changedPixelsOutsideBladeUnion": 0
+        },
+        {
+          "id": "fan-2",
+          "uniqueBladeFrames": 12,
+          "changedPixelsOutsideBladeUnion": 0
+        }
+      ],
+      "cpuBulbCount": 63,
+      "cpuOnOffMeanRGBDelta": 88.19,
+      "uniqueWireFrames": 24,
+      "maximumWireActiveCanvasFraction": 0.0167
+    },
+    {
+      "id": "white-overview",
+      "recomposition": "pixel identical",
+      "oraLayers": 18,
+      "oraMaximumChannelRoundingDifference": 0,
+      "uniqueMotionFrames": 24,
+      "fans": [
+        {
+          "id": "fan-1",
+          "uniqueBladeFrames": 12,
+          "changedPixelsOutsideBladeUnion": 0
+        },
+        {
+          "id": "fan-2",
+          "uniqueBladeFrames": 12,
+          "changedPixelsOutsideBladeUnion": 0
+        }
+      ],
+      "cpuBulbCount": 127,
+      "cpuOnOffMeanRGBDelta": 101.9,
+      "uniqueWireFrames": 24,
+      "maximumWireActiveCanvasFraction": 0.0138
+    },
+    {
+      "id": "white-horizontal",
+      "recomposition": "pixel identical",
+      "oraLayers": 18,
+      "oraMaximumChannelRoundingDifference": 0,
+      "uniqueMotionFrames": 24,
+      "fans": [
+        {
+          "id": "fan-1",
+          "uniqueBladeFrames": 12,
+          "changedPixelsOutsideBladeUnion": 0
+        },
+        {
+          "id": "fan-2",
+          "uniqueBladeFrames": 12,
+          "changedPixelsOutsideBladeUnion": 0
+        }
+      ],
+      "cpuBulbCount": 63,
+      "cpuOnOffMeanRGBDelta": 132.31,
+      "uniqueWireFrames": 24,
+      "maximumWireActiveCanvasFraction": 0.0167
+    }
+  ],
+  "browserQA": "Not run: local URL rejected by browser tool policy.",
+  "furnitureRGBA": 44,
+  "referencedEffectRGBA": 324,
+  "status": "passed"
+}

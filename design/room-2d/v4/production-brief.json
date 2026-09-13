@@ -1,0 +1,74 @@
+{
+  "scope": "Layered screen assets only; native app, backend integration and avatar artwork are excluded from this production pass.",
+  "themes": [
+    "black",
+    "white"
+  ],
+  "views": [
+    "overview",
+    "horizontal"
+  ],
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "horizontalAssumption": "Southeast corner facing northwest, matching former room-concepts/v2/*-02-southeast.png",
+  "layout": "Visibility first. No central standing-area clearance requirement. Bed and chair are primary avatar pose locations. Both views show a larger engraved-brain CPU cabinet against the near end of the right wall; see cpu-revision.json. Other component positions retained.",
+  "objects": [
+    [
+      "bed",
+      "ベッド／バッテリー",
+      "01-bed-battery"
+    ],
+    [
+      "bookshelf",
+      "本棚／ストレージ",
+      "02-bookshelf-storage"
+    ],
+    [
+      "desk-chair",
+      "デスクとチェア／メモリ",
+      "03-desk-chair-memory"
+    ],
+    [
+      "compute",
+      "発光球アレイ／CPU・GPU",
+      "04-compute-lamp-array"
+    ],
+    [
+      "network",
+      "ミニ電波塔／ネットワークI/O",
+      "05-radio-tower-network"
+    ],
+    [
+      "clock",
+      "時計／システムクロック",
+      "06-clock-system"
+    ],
+    [
+      "fans",
+      "ファン2台",
+      "07-dual-fans"
+    ],
+    [
+      "display",
+      "モニタと壁ケーブル",
+      "08-monitor-display-controller"
+    ],
+    [
+      "external",
+      "床ソケットと外部ケーブル",
+      "09-external-cable"
+    ]
+  ],
+  "avatarPolicy": "Pose-specific placement. Provisional lying and seated anchors; avatar artwork and occlusion mattes to be authored later.",
+  "version": 3,
+  "latestRevision": {
+    "CPU": "Larger cabinet against near end of right wall, engraved brain on inward-facing metal panel",
+    "fans": "Only separated blades rotate; housing, grille and hub remain fixed",
+    "wiring": "Off-base room circuitry with finite-length intermittent cyan/blue/lavender pulses",
+    "scope": "Four fixed-camera scene asset packages; no native app or new avatar poses"
+  },
+  "revision": 4,
+  "latestScope": "Cross-camera consistency revision: bed, tower, fans, desk and screen"
+}
