@@ -1,0 +1,1691 @@
+[
+  {
+    "collectionMilliseconds" : 191.72316667390987,
+    "panels" : [
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "logicalCores",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "processCount",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "threadCount",
+            "status" : "partial"
+          },
+          {
+            "hasValue" : false,
+            "id" : "user",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "system",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "idle",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "core0",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "core1",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "core2",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "core3",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "core4",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "core5",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "core6",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "core7",
+            "status" : "waiting"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "cpu"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "physical",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "occupied",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wired",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "uncompressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "compressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "fileCache",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapTotal",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapUsed",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramBandwidth",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramLatency",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "memory"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : false,
+            "id" : "uptimeInterval",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "continuousInterval",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "sleepGap",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "jitter",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "wallStep",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "frequency",
+            "status" : "waiting"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "clock"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "rxBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "rxRate",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "txRate",
+            "status" : "waiting"
+          }
+        ],
+        "rows" : 20,
+        "tab" : "network"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "deviceRead",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWrite",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "deviceReadRate",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : false,
+            "id" : "deviceWriteRate",
+            "status" : "waiting"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceErrors",
+            "status" : "measured"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "storage"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "thermal_state",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "fan_rpm",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "cpu_temperature",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "gpu_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "thermal"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "charge_percent",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "charging",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "time_remaining",
+            "status" : "estimated"
+          },
+          {
+            "hasValue" : true,
+            "id" : "full_charge_capacity",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_voltage",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_current",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_power",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "power_density",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "vrm_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "battery"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : false,
+            "id" : "display_count",
+            "status" : "unavailable"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "display"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 0,
+        "tab" : "devices"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 9,
+        "tab" : "hardware"
+      }
+    ],
+    "processes" : 380,
+    "sample" : 0,
+    "selfCPUPercentOneCore" : -1,
+    "selfFootprintBytes" : 1491968
+  },
+  {
+    "collectionMilliseconds" : 39.904041666886769,
+    "panels" : [
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "logicalCores",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "processCount",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "threadCount",
+            "status" : "partial"
+          },
+          {
+            "hasValue" : true,
+            "id" : "user",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "system",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "idle",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core0",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core1",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core2",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core3",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core4",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core5",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core6",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core7",
+            "status" : "derived"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "cpu"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "physical",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "occupied",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wired",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "uncompressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "compressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "fileCache",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapTotal",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapUsed",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramBandwidth",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramLatency",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "memory"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "uptimeInterval",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "continuousInterval",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "sleepGap",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "jitter",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wallStep",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "frequency",
+            "status" : "waiting"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "clock"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "rxBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "rxRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txRate",
+            "status" : "derived"
+          }
+        ],
+        "rows" : 20,
+        "tab" : "network"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "deviceRead",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWrite",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceReadRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWriteRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceErrors",
+            "status" : "measured"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "storage"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "thermal_state",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "fan_rpm",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "cpu_temperature",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "gpu_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "thermal"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "charge_percent",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "charging",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "time_remaining",
+            "status" : "estimated"
+          },
+          {
+            "hasValue" : true,
+            "id" : "full_charge_capacity",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_voltage",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_current",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_power",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "power_density",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "vrm_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "battery"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : false,
+            "id" : "display_count",
+            "status" : "unavailable"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "display"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 0,
+        "tab" : "devices"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 9,
+        "tab" : "hardware"
+      }
+    ],
+    "processes" : 380,
+    "sample" : 1,
+    "selfCPUPercentOneCore" : 0.13551296587975578,
+    "selfFootprintBytes" : 7652736
+  },
+  {
+    "collectionMilliseconds" : 39.735708327498287,
+    "panels" : [
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "logicalCores",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "processCount",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "threadCount",
+            "status" : "partial"
+          },
+          {
+            "hasValue" : true,
+            "id" : "user",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "system",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "idle",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core0",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core1",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core2",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core3",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core4",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core5",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core6",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core7",
+            "status" : "derived"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "cpu"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "physical",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "occupied",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wired",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "uncompressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "compressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "fileCache",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapTotal",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapUsed",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramBandwidth",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramLatency",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "memory"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "uptimeInterval",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "continuousInterval",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "sleepGap",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "jitter",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wallStep",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "frequency",
+            "status" : "waiting"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "clock"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "rxBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "rxRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txRate",
+            "status" : "derived"
+          }
+        ],
+        "rows" : 20,
+        "tab" : "network"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "deviceRead",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWrite",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceReadRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWriteRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceErrors",
+            "status" : "measured"
+          }
+        ],
+        "rows" : 380,
+        "tab" : "storage"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "thermal_state",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "fan_rpm",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "cpu_temperature",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "gpu_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "thermal"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "charge_percent",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "charging",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "time_remaining",
+            "status" : "estimated"
+          },
+          {
+            "hasValue" : true,
+            "id" : "full_charge_capacity",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_voltage",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_current",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_power",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "power_density",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "vrm_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "battery"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : false,
+            "id" : "display_count",
+            "status" : "unavailable"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "display"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 0,
+        "tab" : "devices"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 9,
+        "tab" : "hardware"
+      }
+    ],
+    "processes" : 380,
+    "sample" : 2,
+    "selfCPUPercentOneCore" : 0.045190733791649888,
+    "selfFootprintBytes" : 7619968
+  },
+  {
+    "collectionMilliseconds" : 131.53645834245253,
+    "panels" : [
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "logicalCores",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "processCount",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "threadCount",
+            "status" : "partial"
+          },
+          {
+            "hasValue" : true,
+            "id" : "user",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "system",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "idle",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core0",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core1",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core2",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core3",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core4",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core5",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core6",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core7",
+            "status" : "derived"
+          }
+        ],
+        "rows" : 381,
+        "tab" : "cpu"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "physical",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "occupied",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wired",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "uncompressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "compressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "fileCache",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapTotal",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapUsed",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramBandwidth",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramLatency",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 381,
+        "tab" : "memory"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "uptimeInterval",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "continuousInterval",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "sleepGap",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "jitter",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wallStep",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "frequency",
+            "status" : "waiting"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "clock"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "rxBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "rxRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txRate",
+            "status" : "derived"
+          }
+        ],
+        "rows" : 20,
+        "tab" : "network"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "deviceRead",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWrite",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceReadRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWriteRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceErrors",
+            "status" : "measured"
+          }
+        ],
+        "rows" : 381,
+        "tab" : "storage"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "thermal_state",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "fan_rpm",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "cpu_temperature",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "gpu_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "thermal"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "charge_percent",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "charging",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "time_remaining",
+            "status" : "estimated"
+          },
+          {
+            "hasValue" : true,
+            "id" : "full_charge_capacity",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_voltage",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_current",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_power",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "power_density",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "vrm_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "battery"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : false,
+            "id" : "display_count",
+            "status" : "unavailable"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "display"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 0,
+        "tab" : "devices"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 9,
+        "tab" : "hardware"
+      }
+    ],
+    "processes" : 381,
+    "sample" : 3,
+    "selfCPUPercentOneCore" : 0.04531065524188272,
+    "selfFootprintBytes" : 7718272
+  },
+  {
+    "collectionMilliseconds" : 67.385291666141711,
+    "panels" : [
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "logicalCores",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "processCount",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "threadCount",
+            "status" : "partial"
+          },
+          {
+            "hasValue" : true,
+            "id" : "user",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "system",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "idle",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core0",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core1",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core2",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core3",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core4",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core5",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core6",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "core7",
+            "status" : "derived"
+          }
+        ],
+        "rows" : 379,
+        "tab" : "cpu"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "physical",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "occupied",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wired",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "uncompressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "compressed",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "fileCache",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapTotal",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "swapUsed",
+            "status" : "unavailable"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramBandwidth",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "ramLatency",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 379,
+        "tab" : "memory"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "uptimeInterval",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "continuousInterval",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "sleepGap",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "jitter",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "wallStep",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "frequency",
+            "status" : "waiting"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "clock"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "rxBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txBytes",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "rxRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "txRate",
+            "status" : "derived"
+          }
+        ],
+        "rows" : 20,
+        "tab" : "network"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "deviceRead",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWrite",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceReadRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceWriteRate",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : true,
+            "id" : "deviceErrors",
+            "status" : "measured"
+          }
+        ],
+        "rows" : 379,
+        "tab" : "storage"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "thermal_state",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : false,
+            "id" : "fan_rpm",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "cpu_temperature",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "gpu_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "thermal"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : true,
+            "id" : "charge_percent",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "charging",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "time_remaining",
+            "status" : "estimated"
+          },
+          {
+            "hasValue" : true,
+            "id" : "full_charge_capacity",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_voltage",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_current",
+            "status" : "measured"
+          },
+          {
+            "hasValue" : true,
+            "id" : "battery_power",
+            "status" : "derived"
+          },
+          {
+            "hasValue" : false,
+            "id" : "power_density",
+            "status" : "unsupported"
+          },
+          {
+            "hasValue" : false,
+            "id" : "vrm_temperature",
+            "status" : "unsupported"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "battery"
+      },
+      {
+        "metrics" : [
+          {
+            "hasValue" : false,
+            "id" : "display_count",
+            "status" : "unavailable"
+          }
+        ],
+        "rows" : 0,
+        "tab" : "display"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 0,
+        "tab" : "devices"
+      },
+      {
+        "metrics" : [
+
+        ],
+        "rows" : 9,
+        "tab" : "hardware"
+      }
+    ],
+    "processes" : 379,
+    "sample" : 4,
+    "selfCPUPercentOneCore" : 0.074632924395597544,
+    "selfFootprintBytes" : 7734656
+  },
+  {
+    "metrics" : [
+      {
+        "id" : "nettop.status",
+        "status" : "denied"
+      }
+    ],
+    "networkDetailRows" : 0
+  }
+]

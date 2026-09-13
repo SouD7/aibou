@@ -1,0 +1,152 @@
+{
+  "pngCount": 18,
+  "crcCheck": "passed",
+  "sourceCopyCheck": "passed",
+  "galleryLocalLinks": "passed",
+  "images": [
+    {
+      "file": "black-01-bed-battery.png",
+      "width": 1536,
+      "height": 1024,
+      "colorType": 2,
+      "bytes": 2000861,
+      "sha256": "737a9e144d13210fb9ba1a1c9ba7b7b2983ea408bb66bc0b8803a6d01a67acdb"
+    },
+    {
+      "file": "white-01-bed-battery.png",
+      "width": 1536,
+      "height": 1024,
+      "colorType": 2,
+      "bytes": 2074336,
+      "sha256": "436f7cf7b363b5272b9ab9419ce77bbe3880da9cb7e54970efa9961172496fb2"
+    },
+    {
+      "file": "black-02-bookshelf-storage.png",
+      "width": 1312,
+      "height": 1199,
+      "colorType": 2,
+      "bytes": 1582006,
+      "sha256": "3d40bb39dcf357ed70635b4f099d1c4abd4bec976b106f863738a2c0ebf9c326"
+    },
+    {
+      "file": "white-02-bookshelf-storage.png",
+      "width": 1312,
+      "height": 1199,
+      "colorType": 2,
+      "bytes": 1601061,
+      "sha256": "d480f0bb7f035a4139752503406803f9fe49ccab7d82060ba253f4db2a64286d"
+    },
+    {
+      "file": "black-03-desk-chair-memory.png",
+      "width": 1433,
+      "height": 1098,
+      "colorType": 2,
+      "bytes": 1872811,
+      "sha256": "e2845f82c3bc3c876f5130bcfd12aa29cb0505d2453b2780153750aff8860ed7"
+    },
+    {
+      "file": "white-03-desk-chair-memory.png",
+      "width": 1433,
+      "height": 1098,
+      "colorType": 2,
+      "bytes": 1854822,
+      "sha256": "d3356827554b231cfb05405f905c30308fe989be2f48bc98350b0b3667c92a67"
+    },
+    {
+      "file": "black-04-compute-lamp-array.png",
+      "width": 1672,
+      "height": 941,
+      "colorType": 2,
+      "bytes": 2070087,
+      "sha256": "2720da828986eb83af7e49f1040b8e3928af8f60fe09e14234adc50c865d52d6"
+    },
+    {
+      "file": "white-04-compute-lamp-array.png",
+      "width": 1672,
+      "height": 941,
+      "colorType": 2,
+      "bytes": 2053176,
+      "sha256": "4478de0c794f695ff78099b159767221e57906d23a2609d7f32d86a8b985aa36"
+    },
+    {
+      "file": "black-05-radio-tower-network.png",
+      "width": 1341,
+      "height": 1173,
+      "colorType": 2,
+      "bytes": 1653328,
+      "sha256": "004e3e7a61037dc11089fdde20f0120a2cc7cd93c0bd4730ce14edd64f3dc2e2"
+    },
+    {
+      "file": "white-05-radio-tower-network.png",
+      "width": 1341,
+      "height": 1173,
+      "colorType": 2,
+      "bytes": 1597688,
+      "sha256": "f8810b4f3abdf006c0ac09dd54447aa906e20ae36a41be9ca172cb7aa7353f7e"
+    },
+    {
+      "file": "black-06-clock-system.png",
+      "width": 1295,
+      "height": 1214,
+      "colorType": 2,
+      "bytes": 2077693,
+      "sha256": "62700aa12ae5899da7f70bf8eea40a64b869f1baaa4844f9773b9a720820bc18"
+    },
+    {
+      "file": "white-06-clock-system.png",
+      "width": 1295,
+      "height": 1214,
+      "colorType": 2,
+      "bytes": 1965855,
+      "sha256": "47405259a2e21ddc35144642c07be8326ef98e17c1514420ce8b93ad83f51e7e"
+    },
+    {
+      "file": "black-07-dual-fans.png",
+      "width": 1672,
+      "height": 941,
+      "colorType": 2,
+      "bytes": 1926880,
+      "sha256": "78a25bbb600cdc1b3f454fcdfe3a8fda3defad6bbbbc2f11d493eec18cb9d0b2"
+    },
+    {
+      "file": "white-07-dual-fans.png",
+      "width": 1672,
+      "height": 941,
+      "colorType": 2,
+      "bytes": 1978375,
+      "sha256": "1336b90d006c8904c1fa8c6cc9c10e95729ca7ad9ae9aa402bc3dc2dc5201352"
+    },
+    {
+      "file": "black-08-monitor-display-controller.png",
+      "width": 1672,
+      "height": 941,
+      "colorType": 2,
+      "bytes": 1669014,
+      "sha256": "28e4a03dc9e53589807fd40a4a90cc62ab08b78fa9e9cda660efd15934525678"
+    },
+    {
+      "file": "white-08-monitor-display-controller.png",
+      "width": 1672,
+      "height": 941,
+      "colorType": 2,
+      "bytes": 1679108,
+      "sha256": "c670e32c81c4da6b7028ec167bcb739626ea31b801db6730931b1eb1b6bfd93f"
+    },
+    {
+      "file": "black-09-external-cable.png",
+      "width": 1672,
+      "height": 941,
+      "colorType": 2,
+      "bytes": 1532995,
+      "sha256": "72ee0484ee078268a12181f349fcff8f3e89a2b17eb1c1ffaaf3934cac88a067"
+    },
+    {
+      "file": "white-09-external-cable.png",
+      "width": 1672,
+      "height": 941,
+      "colorType": 2,
+      "bytes": 1642372,
+      "sha256": "b54562c2e194e864e368c0959c61bf005826d33ce99c00ed488b575cca832fa2"
+    }
+  ]
+}

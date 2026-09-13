@@ -1,0 +1,64 @@
+{
+  "scope": "Layered screen assets only; native app, backend integration and avatar artwork are excluded from this production pass.",
+  "themes": [
+    "black",
+    "white"
+  ],
+  "views": [
+    "overview",
+    "horizontal"
+  ],
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "horizontalAssumption": "Southeast corner facing northwest, matching former room-concepts/v2/*-02-southeast.png",
+  "layout": "Both camera views must represent the SAME furnished square room. Fixed world layout: bed along WEST wall toward SOUTH/front; bookshelf along WEST wall in its middle; desk plus chair at NORTHWEST/back corner with chair accessible toward center; round clock above desk on WEST wall; widescreen monitor on pedestal with a continuous cable plugged into NORTH wall near the middle; exactly two square ventilation fans mounted side by side on NORTH wall above monitor; miniature radio tower at NORTHEAST/back-right corner; low CPU/GPU dense tiny glass bulb array along EAST/right side; thick external umbilical enters EAST wall near SOUTHEAST/front-right and plugs VERTICALLY into floor socket nearby. Leave the CENTRAL and front-center 35% of the floor EMPTY as a stage for a future avatar. No avatar in this image. Keep furniture physically usable with believable human scale and clear silhouettes, avoid object overlap so each will later be separable. Room circuitry cyan/ice-blue and subtle lavender, premium cyberpunk domestic room.",
+  "objects": [
+    [
+      "bed",
+      "ベッド／バッテリー",
+      "01-bed-battery"
+    ],
+    [
+      "bookshelf",
+      "本棚／ストレージ",
+      "02-bookshelf-storage"
+    ],
+    [
+      "desk-chair",
+      "デスクとチェア／メモリ",
+      "03-desk-chair-memory"
+    ],
+    [
+      "compute",
+      "発光球アレイ／CPU・GPU",
+      "04-compute-lamp-array"
+    ],
+    [
+      "network",
+      "ミニ電波塔／ネットワークI/O",
+      "05-radio-tower-network"
+    ],
+    [
+      "clock",
+      "時計／システムクロック",
+      "06-clock-system"
+    ],
+    [
+      "fans",
+      "ファン2台",
+      "07-dual-fans"
+    ],
+    [
+      "display",
+      "モニタと壁ケーブル",
+      "08-monitor-display-controller"
+    ],
+    [
+      "external",
+      "床ソケットと外部ケーブル",
+      "09-external-cable"
+    ]
+  ]
+}

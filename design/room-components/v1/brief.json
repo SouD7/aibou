@@ -1,0 +1,60 @@
+{
+  "tool": "built-in image_gen",
+  "common": "Use case: stylized-concept. Create a polished high-resolution standalone 3D rendered room furniture asset for the AIBOU app. Reference images are STYLE REFERENCES ONLY: room gives hard-surface materials, chamfered panels, fasteners and luminous circuit trim; avatar gives friendly near-future cyberpunk scale and visual restraint, do not include any character. Match reference room: sophisticated realistic stylized PBR, precise clean mechanical geometry, restrained cyan/ice-blue and pale lavender emission, not grungy dystopia, not toy pixel art. Camera fixed three-quarter view from southeast looking northwest, elevated about 28 degrees, near-orthographic lens, full object visible, adequate margin around all extremities. Transparent background with genuine alpha, isolated object, no painted checkerboard, no ground plane, no room, no labels outside object, no watermark. Soft studio key upper left and restrained ambient occlusion, crisp silhouette, glow close to edges. ",
+  "assets": [
+    [
+      "01-bed-battery",
+      "ベッド／バッテリー",
+      "One single-person bed, recognizable comfortable upholstered mattress and pillow, low chamfered armored platform, headboard with a subtle battery-outline symbol and five large segmented charge indicator cells along the visible long side. Cozy enough for the reference avatar to sleep, no capsule lid. Bed only."
+    ],
+    [
+      "02-bookshelf-storage",
+      "本棚／ストレージ",
+      "One freestanding tall bookshelf with three open shelves full of individual physical book-shaped data cartridges, varied heights, visible spines with tiny luminous status bars, several unfilled spaces indicating free capacity, robust side pillars and small drawer at bottom. Clearly a bookshelf, not only a server rack."
+    ],
+    [
+      "03-desk-chair-memory",
+      "デスク＆チェア／メモリ",
+      "One coherent set of a usable writing desk AND a separate ergonomic chair positioned beside the near side so both silhouettes are visible. The desk has thin translucent inset working-memory trays arranged like DIMM slots and a few slim physical data slates on its surface, segmented live-memory indicator on desk edge, generous knee space. Chair has cushioned seat, arm rests and angular back with cyan seams. No monitor, no computer tower."
+    ],
+    [
+      "04-compute-lamp-array",
+      "発光球アレイ／CPU・GPU",
+      "One low rectangular sculptural computing plinth with two distinct dense fields of hundreds of tiny individual round glass light-bulbs protruding from its top in exact rows and columns, like a miniature luminous bulb garden. CPU region smaller with four clusters, GPU region wider with massively parallel grid. Randomly mixed bright cyan ON bulbs and visibly dark glass OFF bulbs signify binary one and zero. Each bulb is distinct, no giant binary numerals, no text-screen substitution. Fine lattice separators, heat-sink side fins, cyan/lavender traces. An attractive room object at low coffee-table height."
+    ],
+    [
+      "05-radio-tower-network",
+      "ミニ電波塔／ネットワークI/O",
+      "One small tabletop-scale miniature radio transmission tower on its own compact freestanding base. Tapered triangular open metal lattice, cross braces, tiny microwave dishes, vertical aerial at top, two tiny separate cyan and lavender TX RX indicator bars on the base, restrained concentric translucent signal arcs close to aerial. Clearly a miniature communications tower, not a router box. No table."
+    ],
+    [
+      "06-clock-system",
+      "時計／システムクロック",
+      "One circular wall clock with substantial beveled machined housing and mounting bracket hidden behind it. Readable analog clock face with twelve slim indices, hour minute and slender second hands, concentric fine timing marks, one small inset digital seconds strip. Elegant readable timepiece with precision quartz oscillator inspired detail, no floating HUD, no surrounding wall. Three-quarter view reveals slight housing depth."
+    ],
+    [
+      "07-dual-fans",
+      "ファン2台",
+      "Exactly TWO matching separate ventilation fan modules side by side with a clear gap, same size, each square beveled frame, one circular seven-blade impeller, visible central hub, protective fine grille and four corner mounting bolts, subtle cyan ring illumination. Slightly different impeller angles. Freestanding isolated wall-mount components, no enclosing wall, no extra fans."
+    ],
+    [
+      "08-monitor-display-controller",
+      "モニタ＆壁接続ケーブル／ディスプレイコントローラ",
+      "One freestanding widescreen monitor on angular pedestal stand, screen shows restrained abstract cyan/lavender waveform UI without paragraphs. A clearly visible thick signal cable emerges from the REAR of the monitor, sweeps out to the side unobscured, and physically plugs into a small vertical opaque wall pass-through plate at the far right. Include the plate as a standalone small wall anchor fragment. Entire continuous cable, connector and wall socket visible, realistic gravity curve. No desk, no chair, no keyboard."
+    ],
+    [
+      "09-external-cable",
+      "外部接続ケーブル",
+      "One very thick flexible ribbed external umbilical cable, visibly originating from a small vertical boundary pass-through flange at rear left representing outside the room, curves downward in a heavy loop and has a large cylindrical locking plug inserted VERTICALLY DOWN into a circular socket mounted flush in a small square motherboard floor tile at front right. Both cable ends connected, unmistakable top-down insertion into floor, luminous contact ring, strain-relief boots, several thin cyan threads running along the heavy cable sheath. Only the small wall flange and small floor tile, no room or furniture."
+    ]
+  ],
+  "variants": {
+    "black": "Matte graphite black anodized alloy and charcoal upholstery.",
+    "white": "Pearl white ceramic-coated alloy, pale silver trim, light gray upholstery. Preserve identical geometry to the corresponding black asset."
+  },
+  "references": [
+    "design/room-concepts/v2/black-01-overview.png",
+    "design/room-concepts/v2/white-01-overview.png",
+    "avatar concept 01 and 01B provided by user"
+  ]
+}

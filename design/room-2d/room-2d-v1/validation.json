@@ -1,0 +1,44 @@
+{
+  "canvas": [
+    1672,
+    941
+  ],
+  "sceneCount": 4,
+  "furnitureRGBA": 44,
+  "effectRGBA": 184,
+  "scenes": [
+    {
+      "id": "black-overview",
+      "recomposition": "pixel-identical to delivered composite",
+      "oraLayers": 12,
+      "motionFrames": 12,
+      "uniqueMotionFrames": 12
+    },
+    {
+      "id": "black-horizontal",
+      "recomposition": "pixel-identical to delivered composite",
+      "oraLayers": 12,
+      "motionFrames": 12,
+      "uniqueMotionFrames": 12
+    },
+    {
+      "id": "white-overview",
+      "recomposition": "pixel-identical to delivered composite",
+      "oraLayers": 12,
+      "motionFrames": 12,
+      "uniqueMotionFrames": 12
+    },
+    {
+      "id": "white-horizontal",
+      "recomposition": "pixel-identical to delivered composite",
+      "oraLayers": 12,
+      "motionFrames": 12,
+      "uniqueMotionFrames": 12
+    }
+  ],
+  "browserQA": "Not run: local file URL rejected by browser tool policy.",
+  "status": "passed",
+  "javascriptSyntax": "passed",
+  "manifestJsJsonParity": "passed",
+  "computeOnOffContrast": "passed: mean RGB difference > 40 in opaque lamp cores for every scene"
+}

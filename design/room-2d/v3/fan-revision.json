@@ -1,0 +1,393 @@
+{
+  "version": 3,
+  "sourceVersion": 2,
+  "frameCount": 12,
+  "frameDurationMs": 100,
+  "contract": {
+    "compositionOrder": [
+      "fixedHousing",
+      "bladeFrame",
+      "fixedGrille",
+      "fixedHub"
+    ],
+    "rotatingPixels": "bladeFrame alpha only",
+    "fixedPixels": "housing, inner rim, grille/supports, and hub"
+  },
+  "scenes": [
+    {
+      "id": "black-overview",
+      "fans": [
+        {
+          "id": "fan-1",
+          "center": [
+            976,
+            151
+          ],
+          "ellipse": {
+            "cx": 976,
+            "cy": 151,
+            "rx": 25,
+            "ry": 31,
+            "rotationDegrees": 6
+          },
+          "bladeCount": 7,
+          "fixedHousing": "black/overview/fan-1/fixed-housing.png",
+          "fixedGrille": "black/overview/fan-1/fixed-grille.png",
+          "fixedHub": "black/overview/fan-1/fixed-hub.png",
+          "bladesStatic": "black/overview/fan-1/blades-static.png",
+          "compositeStatic": "black/overview/fan-1/composite-static.png",
+          "bladeFrames": [
+            "black/overview/fan-1/blades-frame-00.png",
+            "black/overview/fan-1/blades-frame-01.png",
+            "black/overview/fan-1/blades-frame-02.png",
+            "black/overview/fan-1/blades-frame-03.png",
+            "black/overview/fan-1/blades-frame-04.png",
+            "black/overview/fan-1/blades-frame-05.png",
+            "black/overview/fan-1/blades-frame-06.png",
+            "black/overview/fan-1/blades-frame-07.png",
+            "black/overview/fan-1/blades-frame-08.png",
+            "black/overview/fan-1/blades-frame-09.png",
+            "black/overview/fan-1/blades-frame-10.png",
+            "black/overview/fan-1/blades-frame-11.png"
+          ],
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeAlphaBBox": [
+            954,
+            125,
+            1000,
+            179
+          ],
+          "uniqueBladeFrameCount": 12
+        },
+        {
+          "id": "fan-2",
+          "center": [
+            1057,
+            183
+          ],
+          "ellipse": {
+            "cx": 1057,
+            "cy": 183,
+            "rx": 26,
+            "ry": 31,
+            "rotationDegrees": 7
+          },
+          "bladeCount": 7,
+          "fixedHousing": "black/overview/fan-2/fixed-housing.png",
+          "fixedGrille": "black/overview/fan-2/fixed-grille.png",
+          "fixedHub": "black/overview/fan-2/fixed-hub.png",
+          "bladesStatic": "black/overview/fan-2/blades-static.png",
+          "compositeStatic": "black/overview/fan-2/composite-static.png",
+          "bladeFrames": [
+            "black/overview/fan-2/blades-frame-00.png",
+            "black/overview/fan-2/blades-frame-01.png",
+            "black/overview/fan-2/blades-frame-02.png",
+            "black/overview/fan-2/blades-frame-03.png",
+            "black/overview/fan-2/blades-frame-04.png",
+            "black/overview/fan-2/blades-frame-05.png",
+            "black/overview/fan-2/blades-frame-06.png",
+            "black/overview/fan-2/blades-frame-07.png",
+            "black/overview/fan-2/blades-frame-08.png",
+            "black/overview/fan-2/blades-frame-09.png",
+            "black/overview/fan-2/blades-frame-10.png",
+            "black/overview/fan-2/blades-frame-11.png"
+          ],
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeAlphaBBox": [
+            1035,
+            157,
+            1081,
+            211
+          ],
+          "uniqueBladeFrameCount": 12
+        }
+      ]
+    },
+    {
+      "id": "black-horizontal",
+      "fans": [
+        {
+          "id": "fan-1",
+          "center": [
+            1121,
+            284
+          ],
+          "ellipse": {
+            "cx": 1121,
+            "cy": 284,
+            "rx": 36,
+            "ry": 40,
+            "rotationDegrees": 0
+          },
+          "bladeCount": 11,
+          "fixedHousing": "black/horizontal/fan-1/fixed-housing.png",
+          "fixedGrille": "black/horizontal/fan-1/fixed-grille.png",
+          "fixedHub": "black/horizontal/fan-1/fixed-hub.png",
+          "bladesStatic": "black/horizontal/fan-1/blades-static.png",
+          "compositeStatic": "black/horizontal/fan-1/composite-static.png",
+          "bladeFrames": [
+            "black/horizontal/fan-1/blades-frame-00.png",
+            "black/horizontal/fan-1/blades-frame-01.png",
+            "black/horizontal/fan-1/blades-frame-02.png",
+            "black/horizontal/fan-1/blades-frame-03.png",
+            "black/horizontal/fan-1/blades-frame-04.png",
+            "black/horizontal/fan-1/blades-frame-05.png",
+            "black/horizontal/fan-1/blades-frame-06.png",
+            "black/horizontal/fan-1/blades-frame-07.png",
+            "black/horizontal/fan-1/blades-frame-08.png",
+            "black/horizontal/fan-1/blades-frame-09.png",
+            "black/horizontal/fan-1/blades-frame-10.png",
+            "black/horizontal/fan-1/blades-frame-11.png"
+          ],
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeAlphaBBox": [
+            1090,
+            250,
+            1153,
+            320
+          ],
+          "uniqueBladeFrameCount": 12
+        },
+        {
+          "id": "fan-2",
+          "center": [
+            1218,
+            274
+          ],
+          "ellipse": {
+            "cx": 1218,
+            "cy": 274,
+            "rx": 38,
+            "ry": 40,
+            "rotationDegrees": 0
+          },
+          "bladeCount": 11,
+          "fixedHousing": "black/horizontal/fan-2/fixed-housing.png",
+          "fixedGrille": "black/horizontal/fan-2/fixed-grille.png",
+          "fixedHub": "black/horizontal/fan-2/fixed-hub.png",
+          "bladesStatic": "black/horizontal/fan-2/blades-static.png",
+          "compositeStatic": "black/horizontal/fan-2/composite-static.png",
+          "bladeFrames": [
+            "black/horizontal/fan-2/blades-frame-00.png",
+            "black/horizontal/fan-2/blades-frame-01.png",
+            "black/horizontal/fan-2/blades-frame-02.png",
+            "black/horizontal/fan-2/blades-frame-03.png",
+            "black/horizontal/fan-2/blades-frame-04.png",
+            "black/horizontal/fan-2/blades-frame-05.png",
+            "black/horizontal/fan-2/blades-frame-06.png",
+            "black/horizontal/fan-2/blades-frame-07.png",
+            "black/horizontal/fan-2/blades-frame-08.png",
+            "black/horizontal/fan-2/blades-frame-09.png",
+            "black/horizontal/fan-2/blades-frame-10.png",
+            "black/horizontal/fan-2/blades-frame-11.png"
+          ],
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeAlphaBBox": [
+            1186,
+            240,
+            1252,
+            310
+          ],
+          "uniqueBladeFrameCount": 12
+        }
+      ]
+    },
+    {
+      "id": "white-overview",
+      "fans": [
+        {
+          "id": "fan-1",
+          "center": [
+            976,
+            151
+          ],
+          "ellipse": {
+            "cx": 976,
+            "cy": 151,
+            "rx": 25,
+            "ry": 31,
+            "rotationDegrees": 6
+          },
+          "bladeCount": 7,
+          "fixedHousing": "white/overview/fan-1/fixed-housing.png",
+          "fixedGrille": "white/overview/fan-1/fixed-grille.png",
+          "fixedHub": "white/overview/fan-1/fixed-hub.png",
+          "bladesStatic": "white/overview/fan-1/blades-static.png",
+          "compositeStatic": "white/overview/fan-1/composite-static.png",
+          "bladeFrames": [
+            "white/overview/fan-1/blades-frame-00.png",
+            "white/overview/fan-1/blades-frame-01.png",
+            "white/overview/fan-1/blades-frame-02.png",
+            "white/overview/fan-1/blades-frame-03.png",
+            "white/overview/fan-1/blades-frame-04.png",
+            "white/overview/fan-1/blades-frame-05.png",
+            "white/overview/fan-1/blades-frame-06.png",
+            "white/overview/fan-1/blades-frame-07.png",
+            "white/overview/fan-1/blades-frame-08.png",
+            "white/overview/fan-1/blades-frame-09.png",
+            "white/overview/fan-1/blades-frame-10.png",
+            "white/overview/fan-1/blades-frame-11.png"
+          ],
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeAlphaBBox": [
+            954,
+            125,
+            1000,
+            179
+          ],
+          "uniqueBladeFrameCount": 12
+        },
+        {
+          "id": "fan-2",
+          "center": [
+            1057,
+            183
+          ],
+          "ellipse": {
+            "cx": 1057,
+            "cy": 183,
+            "rx": 26,
+            "ry": 31,
+            "rotationDegrees": 7
+          },
+          "bladeCount": 7,
+          "fixedHousing": "white/overview/fan-2/fixed-housing.png",
+          "fixedGrille": "white/overview/fan-2/fixed-grille.png",
+          "fixedHub": "white/overview/fan-2/fixed-hub.png",
+          "bladesStatic": "white/overview/fan-2/blades-static.png",
+          "compositeStatic": "white/overview/fan-2/composite-static.png",
+          "bladeFrames": [
+            "white/overview/fan-2/blades-frame-00.png",
+            "white/overview/fan-2/blades-frame-01.png",
+            "white/overview/fan-2/blades-frame-02.png",
+            "white/overview/fan-2/blades-frame-03.png",
+            "white/overview/fan-2/blades-frame-04.png",
+            "white/overview/fan-2/blades-frame-05.png",
+            "white/overview/fan-2/blades-frame-06.png",
+            "white/overview/fan-2/blades-frame-07.png",
+            "white/overview/fan-2/blades-frame-08.png",
+            "white/overview/fan-2/blades-frame-09.png",
+            "white/overview/fan-2/blades-frame-10.png",
+            "white/overview/fan-2/blades-frame-11.png"
+          ],
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeAlphaBBox": [
+            1035,
+            157,
+            1081,
+            211
+          ],
+          "uniqueBladeFrameCount": 12
+        }
+      ]
+    },
+    {
+      "id": "white-horizontal",
+      "fans": [
+        {
+          "id": "fan-1",
+          "center": [
+            1121,
+            284
+          ],
+          "ellipse": {
+            "cx": 1121,
+            "cy": 284,
+            "rx": 36,
+            "ry": 40,
+            "rotationDegrees": 0
+          },
+          "bladeCount": 11,
+          "fixedHousing": "white/horizontal/fan-1/fixed-housing.png",
+          "fixedGrille": "white/horizontal/fan-1/fixed-grille.png",
+          "fixedHub": "white/horizontal/fan-1/fixed-hub.png",
+          "bladesStatic": "white/horizontal/fan-1/blades-static.png",
+          "compositeStatic": "white/horizontal/fan-1/composite-static.png",
+          "bladeFrames": [
+            "white/horizontal/fan-1/blades-frame-00.png",
+            "white/horizontal/fan-1/blades-frame-01.png",
+            "white/horizontal/fan-1/blades-frame-02.png",
+            "white/horizontal/fan-1/blades-frame-03.png",
+            "white/horizontal/fan-1/blades-frame-04.png",
+            "white/horizontal/fan-1/blades-frame-05.png",
+            "white/horizontal/fan-1/blades-frame-06.png",
+            "white/horizontal/fan-1/blades-frame-07.png",
+            "white/horizontal/fan-1/blades-frame-08.png",
+            "white/horizontal/fan-1/blades-frame-09.png",
+            "white/horizontal/fan-1/blades-frame-10.png",
+            "white/horizontal/fan-1/blades-frame-11.png"
+          ],
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeAlphaBBox": [
+            1090,
+            250,
+            1153,
+            320
+          ],
+          "uniqueBladeFrameCount": 12
+        },
+        {
+          "id": "fan-2",
+          "center": [
+            1218,
+            274
+          ],
+          "ellipse": {
+            "cx": 1218,
+            "cy": 274,
+            "rx": 38,
+            "ry": 40,
+            "rotationDegrees": 0
+          },
+          "bladeCount": 11,
+          "fixedHousing": "white/horizontal/fan-2/fixed-housing.png",
+          "fixedGrille": "white/horizontal/fan-2/fixed-grille.png",
+          "fixedHub": "white/horizontal/fan-2/fixed-hub.png",
+          "bladesStatic": "white/horizontal/fan-2/blades-static.png",
+          "compositeStatic": "white/horizontal/fan-2/composite-static.png",
+          "bladeFrames": [
+            "white/horizontal/fan-2/blades-frame-00.png",
+            "white/horizontal/fan-2/blades-frame-01.png",
+            "white/horizontal/fan-2/blades-frame-02.png",
+            "white/horizontal/fan-2/blades-frame-03.png",
+            "white/horizontal/fan-2/blades-frame-04.png",
+            "white/horizontal/fan-2/blades-frame-05.png",
+            "white/horizontal/fan-2/blades-frame-06.png",
+            "white/horizontal/fan-2/blades-frame-07.png",
+            "white/horizontal/fan-2/blades-frame-08.png",
+            "white/horizontal/fan-2/blades-frame-09.png",
+            "white/horizontal/fan-2/blades-frame-10.png",
+            "white/horizontal/fan-2/blades-frame-11.png"
+          ],
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeAlphaBBox": [
+            1186,
+            240,
+            1252,
+            310
+          ],
+          "uniqueBladeFrameCount": 12
+        }
+      ]
+    }
+  ],
+  "qa": {
+    "fanCount": 8,
+    "outputPngCount": 136,
+    "expectedOutputPngCount": 136,
+    "uniqueBladeFramesAcrossAllFans": 96,
+    "outsideSweptAreaAlphaPixels": 0,
+    "bladeHubAlphaOverlapPixels": 0,
+    "fixedHousingChangedPixelsOutsideRotorEllipse": 0,
+    "compositeVariationOutsideBladeUnionPixels": 0,
+    "passed": true
+  }
+}

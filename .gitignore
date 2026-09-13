@@ -1,0 +1,17 @@
+# Local-only folders (relative to the repository root)
+/mock/
+/pixel-house/
+/design/pixel-house/
+
+# macOS metadata, build artifacts, and local agent state
+.DS_Store
+.build/
+*.app/
+node_modules/
+/.omx/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+!.env.sample

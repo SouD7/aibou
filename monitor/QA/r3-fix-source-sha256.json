@@ -1,0 +1,27 @@
+{
+  "verified_at": "2026-09-13T22:03:14.521772+09:00",
+  "sha256": {
+    "Info.plist": "fb16414705eab71b756289e5b77dd63ac53f60864598d1cfe3bd09dfd603dd4b",
+    "PrivacyInfo.xcprivacy": "97319d85cc0dad1e56412cef8bc22c3a3cacdbc7b1b7fd45f72a0366f408b296",
+    "Sources/AdditionalCollectors.swift": "64f37b95be3a41a0dd5bf7488e032298343a88cbb1c52dc854b83ca245d36c4f",
+    "Sources/App.swift": "9587c399e98fc3ac95435c9387adf8ae54335cd4b92b09cb72298e500a3a5e31",
+    "Sources/Common.swift": "29b2168bf30f8830f1a372bad00d082a9a0b8febe8d23f5e1203798ffdc635b5",
+    "Sources/CoreSampler.swift": "310fd5aceb9a8c18ceed56840c9570a98e0b9ef69cba9aa32a54dc0e63609c72",
+    "Sources/DeviceSampler.swift": "f928577d5182e3f2839dae22d8bb98c9c8d33b31b83a4c7e62109535ecba6309",
+    "Sources/History.swift": "0e46d83d6ad6dff43b070dd8531741809604894ddb8190dcc53da580911ba2d3",
+    "Sources/MonitorStore.swift": "d6f5c336f603dab109c3815476bb56db496ad98583792acd4dd30bd3d43d4b1e",
+    "Sources/Observations.swift": "085dfeb045f26f1631655054740b22b30e12405a21314edfe23f4d8a1a709d59",
+    "Sources/StorageScanner.swift": "b5a95d4de48662a83a1e298111bcff184e501c82355633cca525561ada9ca11e",
+    "Tests/AdditionalTests.swift": "3c1086c9bf4ff12f3644a3a8268534e092f36a0268e3e99fb8395ebe90ecc749",
+    "Tests/CoreTests.swift": "90e26fa791aeda7a57474582399ff48687299e981b648ad82775d8b7324fe7d9",
+    "Tests/DeviceTests.swift": "1861545bbbb9dd6bae27cbf4ddec49b98586bf5fd00a2475c36303ce5507c91c",
+    "Tests/HistoryTests.swift": "b9814480573a8137f3098b6e49f23bd854f1a00e1a61f1d6e26a35593c66e465",
+    "Tests/ObservationTests.swift": "b8e1714c4588cf1a05be6c5140fde5fe12d87ed01d911695072a68334713665a",
+    "Tests/StorageTests.swift": "93d867b1bf4c96d19f8a9a3078a123e45a0eba1a2cfdf07bc3c5c35a8e213cc1",
+    "Tests/StoreTests.swift": "2417870d61e831b0524fa6df35c6937916b63c23991835d6e0ad2faae01e84c7",
+    "Tests/TestMain.swift": "994be6199f15f08fbddb14b4b5d03b2c3453624f4393cb8b7b98d8f949865552",
+    "probe.sh": "ef342ace3022d9eb261c2a708c71c746cc705d8396f448a57ccbcc052bca7b5c",
+    "run.sh": "a29f2c4c1b65c19bf2f9eabe0a9acae5a031c55163d87377a5f4baede21becc1",
+    "test.sh": "a9dc741fe51e3b5aefaae1f05d300389a69dd47df1891aff5e3230dc36371add"
+  }
+}

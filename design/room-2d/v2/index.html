@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIBOU 2D素材ビューア</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d12;
+      --panel: #151923;
+      --panel-2: #1c2230;
+      --line: #30394b;
+      --text: #edf4ff;
+      --muted: #96a2b8;
+      --cyan: #42dcff;
+      --violet: #bd7cff;
+      --warn: #ffc66d;
+      --danger: #ff788a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% -20%, #20283a 0, var(--bg) 42%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button, input { font: inherit; }
+
+    button {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      background: var(--panel-2);
+      cursor: pointer;
+    }
+
+    button:hover { border-color: var(--cyan); }
+    button[aria-pressed="true"] {
+      border-color: var(--cyan);
+      background: #153143;
+      box-shadow: 0 0 16px #42dcff22;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 16px;
+      width: min(1500px, 100%);
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    header {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    h1 { margin: 0; font-size: 20px; letter-spacing: .06em; }
+    .sub { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+
+    .scene-tabs, .view-tabs { display: flex; flex-wrap: wrap; gap: 7px; }
+    .scene-tabs button, .view-tabs button { padding: 7px 11px; }
+
+    .stage-panel, aside {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      box-shadow: 0 16px 40px #0007;
+    }
+
+    .stage-panel { min-width: 0; overflow: hidden; }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 50px;
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .selected-name {
+      min-width: 0;
+      color: var(--cyan);
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .viewport {
+      display: grid;
+      place-items: center;
+      min-height: 520px;
+      padding: 14px;
+      background-color: #07090d;
+      background-image:
+        linear-gradient(45deg, #10141d 25%, transparent 25%),
+        linear-gradient(-45deg, #10141d 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #10141d 75%),
+        linear-gradient(-45deg, transparent 75%, #10141d 75%);
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+      overflow: auto;
+    }
+
+    .canvas {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1672 / 941;
+      isolation: isolate;
+      overflow: hidden;
+      background: #0b0e15;
+      box-shadow: 0 0 0 1px #ffffff18;
+    }
+
+    .canvas img {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      pointer-events: none;
+    }
+
+    .canvas .missing {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 100000;
+      padding: 20px;
+      color: var(--muted);
+      text-align: center;
+      background: #0b0e15dd;
+    }
+
+    .hit-area, .avatar-slot {
+      position: absolute;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      padding: 0;
+    }
+
+    .hit-area:hover, .hit-area:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: -2px;
+      background: #42dcff18;
+    }
+
+    .avatar-slot {
+      border: 2px dashed var(--violet);
+      background: #bd7cff19;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: clamp(9px, 1.2vw, 14px);
+      text-shadow: 0 1px 3px #000;
+      pointer-events: none;
+    }
+
+    aside { padding: 14px; }
+    aside h2 { margin: 0 0 12px; font-size: 16px; }
+
+    .control-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 0;
+      border-bottom: 1px solid #ffffff0d;
+      font-size: 14px;
+    }
+
+    .control-row input { accent-color: var(--cyan); }
+    .control-row small { margin-left: auto; color: var(--muted); }
+    .empty { color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    .status {
+      grid-column: 1 / -1;
+      min-height: 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status[data-kind="warn"] { color: var(--warn); }
+    .status[data-kind="error"] { color: var(--danger); }
+
+    @media (max-width: 900px) {
+      .app { grid-template-columns: 1fr; padding: 10px; }
+      header { align-items: start; flex-direction: column; }
+      .viewport { min-height: 260px; padding: 8px; }
+      .status { grid-column: 1; }
+    }
+  </style>
+  <script src="manifest.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <h1>AIBOU 2D素材ビューア</h1>
+        <p class="sub">俯瞰・水平シーンのレイヤー構成とクリック領域を検品</p>
+      </div>
+      <nav class="scene-tabs" id="sceneTabs" aria-label="シーン選択"></nav>
+    </header>
+
+    <section class="stage-panel" aria-label="素材プレビュー">
+      <div class="toolbar">
+        <div class="view-tabs" id="viewTabs">
+          <button type="button" data-view="layers" aria-pressed="true">レイヤー表示</button>
+          <button type="button" data-view="preview" aria-pressed="false">完成見本</button>
+          <button type="button" data-view="motion" aria-pressed="false">動きの見本</button>
+        </div>
+        <div class="selected-name" id="selectedName" aria-live="polite">コンポーネントをクリックすると名称を表示します</div>
+      </div>
+      <div class="viewport">
+        <div class="canvas" id="canvas" aria-label="シーンキャンバス"></div>
+      </div>
+    </section>
+
+    <aside>
+      <h2>表示レイヤー</h2>
+      <button type="button" id="showAll">全表示</button> <button type="button" id="hideAll">背景のみ</button>
+      <label class="control-row">
+        <input type="checkbox" id="avatarToggle">
+        アバター予約領域
+      </label>
+      <div id="layerControls"></div>
+    </aside>
+
+    <div class="status" id="status" role="status">manifestを読み込んでいます…</div>
+  </main>
+
+  <script>
+    (() => {
+      const els = {
+        sceneTabs: document.querySelector('#sceneTabs'),
+        viewTabs: document.querySelector('#viewTabs'),
+        canvas: document.querySelector('#canvas'),
+        selectedName: document.querySelector('#selectedName'),
+        avatarToggle: document.querySelector('#avatarToggle'),
+        layerControls: document.querySelector('#layerControls'),
+        status: document.querySelector('#status')
+      };
+
+      const state = { manifest: null, scene: null, view: 'layers', visible: new Set() };
+
+      function setStatus(message, kind = '') {
+        els.status.textContent = message;
+        els.status.dataset.kind = kind;
+      }
+
+      function validManifest(value) {
+        return value && value.canvas && Number(value.canvas.width) > 0 &&
+          Number(value.canvas.height) > 0 && Array.isArray(value.scenes);
+      }
+
+      async function loadManifest() {
+        if (validManifest(window.ROOM_MANIFEST)) return window.ROOM_MANIFEST;
+        try {
+          const response = await fetch('manifest.json');
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          if (!validManifest(data)) throw new Error('形式が不正です');
+          return data;
+        } catch (error) {
+          throw new Error(`manifestを読み込めません（${error.message}）。file://で開く場合はmanifest.jsを配置してください。`);
+        }
+      }
+
+      function percent(value, total) {
+        return `${(Number(value || 0) / total) * 100}%`;
+      }
+
+      function addImage(file, z, label, onMissing) {
+        if (!file) return null;
+        const image = document.createElement('img');
+        image.src = file;
+        image.alt = label || '';
+        image.style.zIndex = String(z || 0);
+        image.addEventListener('error', () => {
+          image.hidden = true;
+          onMissing(file);
+        }, { once: true });
+        els.canvas.append(image);
+        return image;
+      }
+
+      function makeHitArea(layer, canvas) {
+        const polygons = layer.hitPolygons || [layer.hitPolygon];
+        for (const polygon of polygons) {
+        if (!Array.isArray(polygon) || polygon.length < 3) continue;
+        const xs = polygon.map(point => Number(point[0]));
+        const ys = polygon.map(point => Number(point[1]));
+        const left = Math.min(...xs);
+        const top = Math.min(...ys);
+        const right = Math.max(...xs);
+        const bottom = Math.max(...ys);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'hit-area';
+        button.setAttribute('aria-label', layer.label || layer.id);
+        button.title = layer.label || layer.id;
+        button.style.left = percent(left, canvas.width);
+        button.style.top = percent(top, canvas.height);
+        button.style.width = percent(right - left, canvas.width);
+        button.style.height = percent(bottom - top, canvas.height);
+        button.style.zIndex = String(Number(layer.z || 0) + 5000);
+        button.style.clipPath = `polygon(${polygon.map(([x, y]) => `${percent(x - left, right - left)} ${percent(y - top, bottom - top)}`).join(', ')})`;
+        button.addEventListener('click', () => {
+          els.selectedName.textContent = layer.label || layer.id;
+        });
+        els.canvas.append(button);
+        }
+      }
+
+      function renderCanvas() {
+        els.canvas.replaceChildren();
+        els.selectedName.textContent = 'コンポーネントをクリックすると名称を表示します';
+        if (!state.scene) return;
+
+        const { canvas } = state.manifest;
+        els.canvas.style.aspectRatio = `${canvas.width} / ${canvas.height}`;
+        const missing = [];
+        const noteMissing = file => {
+          missing.push(file);
+          setStatus(`未配置または読込失敗: ${[...new Set(missing)].join('、')}`, 'warn');
+        };
+
+        if (state.view === 'motion') {
+          const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.hidden;
+          addImage(reduced ? state.scene.preview : state.scene.motionPreview, 0, '演算ライト・ファンの動きの見本', noteMissing);
+          setStatus(reduced ? 'モーション低減設定により静止画を表示' : '12フレームの素材見本（実際のハードウェア値との連動は未実装）');
+          return;
+        }
+        if (state.view === 'preview') {
+          const image = addImage(state.scene.preview, 0, `${state.scene.label} 完成見本`, noteMissing);
+          if (!image) showEmpty('このシーンの完成見本はまだ配置されていません。');
+          return;
+        }
+
+        const background = addImage(state.scene.background, 0, `${state.scene.label} 背景`, noteMissing);
+        if (!background) showEmpty('このシーンの背景素材はまだ配置されていません。');
+
+        (state.scene.layers || []).forEach(layer => {
+          if (!state.visible.has(layer.id)) return;
+          const image = addImage(layer.file, layer.z, layer.label || layer.id, noteMissing);
+          if (image) {
+            image.style.left = percent(layer.x, canvas.width);
+            image.style.top = percent(layer.y, canvas.height);
+            image.style.width = percent(layer.width, canvas.width);
+            image.style.height = percent(layer.height, canvas.height);
+          }
+          makeHitArea(layer, canvas);
+        });
+
+        if (els.avatarToggle.checked) {
+          (state.scene.avatarSlots || []).forEach(slot => {
+            const marker = document.createElement('div');
+            marker.className = 'avatar-slot';
+            marker.textContent = slot.label || slot.id;
+            marker.style.left = percent(slot.x, canvas.width);
+            marker.style.top = percent(slot.y, canvas.height);
+            marker.style.width = percent(slot.width, canvas.width);
+            marker.style.height = percent(slot.height, canvas.height);
+            marker.style.zIndex = String(slot.z || 9000);
+            els.canvas.append(marker);
+          });
+        }
+
+        if (!missing.length) setStatus(`${state.scene.label}：${state.scene.layers?.length || 0}レイヤー`);
+      }
+
+      function showEmpty(message) {
+        const empty = document.createElement('div');
+        empty.className = 'missing';
+        empty.textContent = message;
+        els.canvas.append(empty);
+        setStatus(message, 'warn');
+      }
+
+      function renderControls() {
+        els.layerControls.replaceChildren();
+        const layers = state.scene?.layers || [];
+        if (!layers.length) {
+          const text = document.createElement('p');
+          text.className = 'empty';
+          text.textContent = 'レイヤー情報はまだありません。素材追加後にここへ表示されます。';
+          els.layerControls.append(text);
+          return;
+        }
+
+        layers.forEach(layer => {
+          const label = document.createElement('label');
+          label.className = 'control-row';
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.checked = state.visible.has(layer.id);
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) state.visible.add(layer.id);
+            else state.visible.delete(layer.id);
+            renderCanvas();
+          });
+          const name = document.createElement('span');
+          name.textContent = layer.label || layer.id;
+          const z = document.createElement('small');
+          z.textContent = `z:${layer.z || 0}`;
+          label.append(checkbox, name, z);
+          els.layerControls.append(label);
+        });
+      }
+
+      function selectScene(scene) {
+        state.scene = scene;
+        state.visible = new Set((scene.layers || []).map(layer => layer.id));
+        [...els.sceneTabs.children].forEach(button => {
+          button.setAttribute('aria-pressed', String(button.dataset.scene === scene.id));
+        });
+        renderControls();
+        renderCanvas();
+      }
+
+      document.querySelector('#showAll').addEventListener('click',()=>{state.visible = new Set((state.scene?.layers || []).map(x=>x.id));renderControls();renderCanvas();});
+      document.querySelector('#hideAll').addEventListener('click',()=>{state.visible.clear();renderControls();renderCanvas();});
+      document.addEventListener('visibilitychange',()=>{if(state.view==='motion')renderCanvas();});
+
+      function initialize(manifest) {
+        state.manifest = manifest;
+        if (!manifest.scenes.length) {
+          showEmpty('シーン情報はまだありません。manifestに素材情報を追加してください。');
+          return;
+        }
+        manifest.scenes.forEach(scene => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.dataset.scene = scene.id;
+          button.textContent = scene.label || scene.id;
+          button.setAttribute('aria-pressed', 'false');
+          button.addEventListener('click', () => selectScene(scene));
+          els.sceneTabs.append(button);
+        });
+        selectScene(manifest.scenes[0]);
+      }
+
+      els.viewTabs.addEventListener('click', event => {
+        const button = event.target.closest('button[data-view]');
+        if (!button) return;
+        state.view = button.dataset.view;
+        [...els.viewTabs.children].forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        renderCanvas();
+      });
+
+      els.avatarToggle.addEventListener('change', renderCanvas);
+
+      loadManifest().then(initialize).catch(error => {
+        showEmpty(error.message);
+        setStatus(error.message, 'error');
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "canvas" : [
+    1672,
+    941
+  ],
+  "frames" : [
+    {
+      "blink" : 0,
+      "file" : "reading-t11.15.png",
+      "focus" : true,
+      "pose" : "reading",
+      "speech" : 0,
+      "time" : 11.15
+    }
+  ],
+  "renderSize" : [
+    1003,
+    565
+  ]
+}

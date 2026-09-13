@@ -1,0 +1,44 @@
+{
+  "assets": [
+    {
+      "file": "white-01-overview.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-a15706ed-a93e-4704-976a-a272ca43e9f8.png"
+    },
+    {
+      "file": "black-01-overview.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-c977b80a-8212-4d91-a546-e19240df28c3.png"
+    },
+    {
+      "file": "white-02-southeast.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-8531684e-e417-43b3-962a-426e8bcce53d.png"
+    },
+    {
+      "file": "black-02-southeast.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-dcbe3da5-9520-4448-80cb-b636e61dfb1f.png"
+    },
+    {
+      "file": "white-03-southwest.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-b1bbf564-b916-49fe-9af4-d52ca4a8575f.png"
+    },
+    {
+      "file": "black-03-southwest.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-077b69e3-6fb8-4de8-8e6b-99a6ff919665.png"
+    },
+    {
+      "file": "white-04-northwest.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-f5e71fb9-9552-4b57-8a87-876505cdc4c9.png"
+    },
+    {
+      "file": "black-04-northwest.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-90159062-4c9c-4c9c-92bd-929673ed3e77.png"
+    },
+    {
+      "file": "white-05-northeast.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-e3b5eb1f-3bea-43e1-a813-32f01bc923a5.png"
+    },
+    {
+      "file": "black-05-northeast.png",
+      "source": "/Users/sodaiyamamoto/.codex/generated_images/01a09712-6ecb-7652-94ae-e3af11884706/exec-023670eb-b7af-4c8f-b078-f9e06f988647.png"
+    }
+  ]
+}

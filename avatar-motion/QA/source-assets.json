@@ -1,0 +1,55 @@
+[
+  {
+    "file": "reading.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "backgroundGreenFraction": 0.7601292928059896,
+    "subjectBounds": [
+      307,
+      22,
+      789,
+      1507
+    ]
+  },
+  {
+    "file": "room.png",
+    "size": [
+      1672,
+      941
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "sleeping.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGB",
+    "backgroundGreenFraction": 0.6239303847053915,
+    "subjectBounds": [
+      73,
+      27,
+      2092,
+      693
+    ]
+  },
+  {
+    "file": "standing.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGB",
+    "backgroundGreenFraction": 0.7660363515218099,
+    "subjectBounds": [
+      237,
+      21,
+      799,
+      1489
+    ]
+  }
+]

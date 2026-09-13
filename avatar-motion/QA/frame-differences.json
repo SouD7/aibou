@@ -1,0 +1,35 @@
+[
+  {
+    "pose": "standing",
+    "pixelsChangedAbove3": 80971,
+    "bounds": [
+      1740,
+      741,
+      2129,
+      1758
+    ],
+    "meanAbsoluteChannelDelta": 0.5295542574071155
+  },
+  {
+    "pose": "sleeping",
+    "pixelsChangedAbove3": 42842,
+    "bounds": [
+      190,
+      883,
+      1085,
+      1178
+    ],
+    "meanAbsoluteChannelDelta": 0.2400976280789889
+  },
+  {
+    "pose": "reading",
+    "pixelsChangedAbove3": 35064,
+    "bounds": [
+      1172,
+      499,
+      1418,
+      1249
+    ],
+    "meanAbsoluteChannelDelta": 0.19820855938997334
+  }
+]

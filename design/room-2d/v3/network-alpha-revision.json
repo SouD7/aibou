@@ -1,0 +1,54 @@
+{
+  "version": 3,
+  "method": "deterministic truss geometry intersected with v2 alpha",
+  "scenes": [
+    {
+      "id": "black-horizontal",
+      "file": "scenes/black-horizontal/network.png",
+      "beforeAlphaPixels": 29686,
+      "afterAlphaPixels": 22949,
+      "removedBackgroundPixels": 6737,
+      "baseAlphaRetention": 1.0,
+      "holeSampleClearance": 1.0,
+      "visibleRgbUnchanged": true,
+      "passed": true
+    },
+    {
+      "id": "white-horizontal",
+      "file": "scenes/white-horizontal/network.png",
+      "beforeAlphaPixels": 30859,
+      "afterAlphaPixels": 23710,
+      "removedBackgroundPixels": 7149,
+      "baseAlphaRetention": 1.0,
+      "holeSampleClearance": 1.0,
+      "visibleRgbUnchanged": true,
+      "passed": true
+    },
+    {
+      "id": "black-overview",
+      "file": "scenes/black-overview/network.png",
+      "beforeAlphaPixels": 22923,
+      "afterAlphaPixels": 16342,
+      "removedBackgroundPixels": 6581,
+      "baseAlphaRetention": 0.6617,
+      "holeSampleClearance": 0.25,
+      "visibleRgbUnchanged": true,
+      "passed": true
+    },
+    {
+      "id": "white-overview",
+      "file": "scenes/white-overview/network.png",
+      "beforeAlphaPixels": 22540,
+      "afterAlphaPixels": 16242,
+      "removedBackgroundPixels": 6298,
+      "baseAlphaRetention": 0.6647,
+      "holeSampleClearance": 0.25,
+      "visibleRgbUnchanged": true,
+      "passed": true
+    }
+  ],
+  "qa": {
+    "passed": true,
+    "totalRemovedBackgroundPixels": 26765
+  }
+}

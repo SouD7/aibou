@@ -1,0 +1,1634 @@
+{
+  "version": 3,
+  "feature": "intermittent-room-wiring-pulses",
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "frameCount": 24,
+  "frameDurationMs": 100,
+  "loopDurationMs": 2400,
+  "pulseLengthPx": {
+    "minimum": 32,
+    "nominal": [
+      116,
+      164
+    ],
+    "maximumPathFraction": 0.34
+  },
+  "palette": {
+    "cyan": [
+      72,
+      232,
+      255
+    ],
+    "blue": [
+      89,
+      151,
+      255
+    ],
+    "lavender": [
+      212,
+      126,
+      255
+    ]
+  },
+  "baseState": "All room wiring off: imagegen rebuilt unlit metallic grooves; no emissive background traces",
+  "scope": "room background circuitry only; furniture, CPU bulbs, fans, display, and component indicators are excluded by construction",
+  "integration": {
+    "blend": "source-over",
+    "offBaseRequired": true,
+    "pulseFrameRequired": true,
+    "runtimeFrameIndex": "floor(elapsedMs / 100) % 24"
+  },
+  "scenes": [
+    {
+      "id": "black-overview",
+      "inputBackground": "../scenes/black-overview/background.png",
+      "layering": [
+        "v2 background",
+        "wiring offBase",
+        "wiring pulse frame",
+        "all furniture/component layers",
+        "component-local animated effects"
+      ],
+      "offBase": "effects/wiring/black-overview/off-base.png",
+      "frames": [
+        "effects/wiring/black-overview/pulse-00.png",
+        "effects/wiring/black-overview/pulse-01.png",
+        "effects/wiring/black-overview/pulse-02.png",
+        "effects/wiring/black-overview/pulse-03.png",
+        "effects/wiring/black-overview/pulse-04.png",
+        "effects/wiring/black-overview/pulse-05.png",
+        "effects/wiring/black-overview/pulse-06.png",
+        "effects/wiring/black-overview/pulse-07.png",
+        "effects/wiring/black-overview/pulse-08.png",
+        "effects/wiring/black-overview/pulse-09.png",
+        "effects/wiring/black-overview/pulse-10.png",
+        "effects/wiring/black-overview/pulse-11.png",
+        "effects/wiring/black-overview/pulse-12.png",
+        "effects/wiring/black-overview/pulse-13.png",
+        "effects/wiring/black-overview/pulse-14.png",
+        "effects/wiring/black-overview/pulse-15.png",
+        "effects/wiring/black-overview/pulse-16.png",
+        "effects/wiring/black-overview/pulse-17.png",
+        "effects/wiring/black-overview/pulse-18.png",
+        "effects/wiring/black-overview/pulse-19.png",
+        "effects/wiring/black-overview/pulse-20.png",
+        "effects/wiring/black-overview/pulse-21.png",
+        "effects/wiring/black-overview/pulse-22.png",
+        "effects/wiring/black-overview/pulse-23.png"
+      ],
+      "activePathCounts": [
+        7,
+        8,
+        8,
+        7,
+        8,
+        7,
+        7,
+        8,
+        7,
+        6,
+        7,
+        7,
+        6,
+        8,
+        7,
+        7,
+        8,
+        8,
+        7,
+        9,
+        8,
+        8,
+        9,
+        8
+      ],
+      "paths": [
+        {
+          "id": "wall-cap-left",
+          "color": "cyan",
+          "points": [
+            [
+              204,
+              262
+            ],
+            [
+              413,
+              185
+            ],
+            [
+              619,
+              111
+            ],
+            [
+              806,
+              44
+            ]
+          ]
+        },
+        {
+          "id": "wall-cap-right",
+          "color": "blue",
+          "points": [
+            [
+              867,
+              46
+            ],
+            [
+              1054,
+              123
+            ],
+            [
+              1264,
+              210
+            ],
+            [
+              1453,
+              288
+            ]
+          ]
+        },
+        {
+          "id": "left-wall-bus",
+          "color": "cyan",
+          "points": [
+            [
+              336,
+              246
+            ],
+            [
+              336,
+              349
+            ],
+            [
+              315,
+              379
+            ],
+            [
+              315,
+              481
+            ]
+          ]
+        },
+        {
+          "id": "left-wall-return",
+          "color": "lavender",
+          "points": [
+            [
+              271,
+              297
+            ],
+            [
+              271,
+              410
+            ],
+            [
+              286,
+              438
+            ],
+            [
+              286,
+              495
+            ]
+          ]
+        },
+        {
+          "id": "corner-left-bus",
+          "color": "cyan",
+          "points": [
+            [
+              754,
+              94
+            ],
+            [
+              754,
+              224
+            ],
+            [
+              739,
+              251
+            ],
+            [
+              739,
+              283
+            ]
+          ]
+        },
+        {
+          "id": "corner-right-bus",
+          "color": "blue",
+          "points": [
+            [
+              901,
+              91
+            ],
+            [
+              901,
+              221
+            ],
+            [
+              919,
+              251
+            ],
+            [
+              919,
+              287
+            ]
+          ]
+        },
+        {
+          "id": "right-wall-bus",
+          "color": "cyan",
+          "points": [
+            [
+              1282,
+              241
+            ],
+            [
+              1282,
+              338
+            ],
+            [
+              1308,
+              370
+            ],
+            [
+              1308,
+              477
+            ]
+          ]
+        },
+        {
+          "id": "right-wall-return",
+          "color": "lavender",
+          "points": [
+            [
+              1392,
+              294
+            ],
+            [
+              1392,
+              408
+            ],
+            [
+              1372,
+              438
+            ],
+            [
+              1372,
+              498
+            ]
+          ]
+        },
+        {
+          "id": "rear-floor-rail",
+          "color": "blue",
+          "points": [
+            [
+              292,
+              510
+            ],
+            [
+              548,
+              406
+            ],
+            [
+              814,
+              279
+            ],
+            [
+              1110,
+              404
+            ],
+            [
+              1381,
+              510
+            ]
+          ]
+        },
+        {
+          "id": "floor-left-outer",
+          "color": "lavender",
+          "points": [
+            [
+              287,
+              536
+            ],
+            [
+              341,
+              574
+            ],
+            [
+              337,
+              612
+            ],
+            [
+              449,
+              675
+            ],
+            [
+              573,
+              706
+            ]
+          ]
+        },
+        {
+          "id": "floor-left-inner",
+          "color": "cyan",
+          "points": [
+            [
+              412,
+              524
+            ],
+            [
+              449,
+              554
+            ],
+            [
+              410,
+              589
+            ],
+            [
+              521,
+              656
+            ],
+            [
+              667,
+              668
+            ]
+          ]
+        },
+        {
+          "id": "floor-right-inner",
+          "color": "cyan",
+          "points": [
+            [
+              1002,
+              659
+            ],
+            [
+              1110,
+              621
+            ],
+            [
+              1134,
+              575
+            ],
+            [
+              1260,
+              532
+            ]
+          ]
+        },
+        {
+          "id": "floor-right-outer",
+          "color": "lavender",
+          "points": [
+            [
+              1090,
+              718
+            ],
+            [
+              1208,
+              684
+            ],
+            [
+              1281,
+              637
+            ],
+            [
+              1369,
+              607
+            ],
+            [
+              1394,
+              559
+            ]
+          ]
+        },
+        {
+          "id": "front-rail-left",
+          "color": "blue",
+          "points": [
+            [
+              506,
+              735
+            ],
+            [
+              659,
+              809
+            ],
+            [
+              806,
+              895
+            ]
+          ]
+        },
+        {
+          "id": "front-rail-right",
+          "color": "cyan",
+          "points": [
+            [
+              867,
+              896
+            ],
+            [
+              1024,
+              810
+            ],
+            [
+              1193,
+              719
+            ]
+          ]
+        }
+      ],
+      "neutralization": {
+        "method": "Built-in imagegen unlit background replacement",
+        "source": "repairs/black-overview-background-off.png",
+        "coverage": "entire room background",
+        "opaqueReplacement": true
+      }
+    },
+    {
+      "id": "black-horizontal",
+      "inputBackground": "../scenes/black-horizontal/background.png",
+      "layering": [
+        "v2 background",
+        "wiring offBase",
+        "wiring pulse frame",
+        "all furniture/component layers",
+        "component-local animated effects"
+      ],
+      "offBase": "effects/wiring/black-horizontal/off-base.png",
+      "frames": [
+        "effects/wiring/black-horizontal/pulse-00.png",
+        "effects/wiring/black-horizontal/pulse-01.png",
+        "effects/wiring/black-horizontal/pulse-02.png",
+        "effects/wiring/black-horizontal/pulse-03.png",
+        "effects/wiring/black-horizontal/pulse-04.png",
+        "effects/wiring/black-horizontal/pulse-05.png",
+        "effects/wiring/black-horizontal/pulse-06.png",
+        "effects/wiring/black-horizontal/pulse-07.png",
+        "effects/wiring/black-horizontal/pulse-08.png",
+        "effects/wiring/black-horizontal/pulse-09.png",
+        "effects/wiring/black-horizontal/pulse-10.png",
+        "effects/wiring/black-horizontal/pulse-11.png",
+        "effects/wiring/black-horizontal/pulse-12.png",
+        "effects/wiring/black-horizontal/pulse-13.png",
+        "effects/wiring/black-horizontal/pulse-14.png",
+        "effects/wiring/black-horizontal/pulse-15.png",
+        "effects/wiring/black-horizontal/pulse-16.png",
+        "effects/wiring/black-horizontal/pulse-17.png",
+        "effects/wiring/black-horizontal/pulse-18.png",
+        "effects/wiring/black-horizontal/pulse-19.png",
+        "effects/wiring/black-horizontal/pulse-20.png",
+        "effects/wiring/black-horizontal/pulse-21.png",
+        "effects/wiring/black-horizontal/pulse-22.png",
+        "effects/wiring/black-horizontal/pulse-23.png"
+      ],
+      "activePathCounts": [
+        7,
+        8,
+        8,
+        7,
+        8,
+        7,
+        7,
+        7,
+        6,
+        5,
+        6,
+        6,
+        5,
+        7,
+        6,
+        6,
+        7,
+        7,
+        6,
+        8,
+        8,
+        8,
+        9,
+        8
+      ],
+      "paths": [
+        {
+          "id": "ceiling-left",
+          "color": "blue",
+          "points": [
+            [
+              319,
+              59
+            ],
+            [
+              511,
+              111
+            ],
+            [
+              696,
+              159
+            ],
+            [
+              834,
+              207
+            ]
+          ]
+        },
+        {
+          "id": "ceiling-right",
+          "color": "lavender",
+          "points": [
+            [
+              836,
+              207
+            ],
+            [
+              1042,
+              151
+            ],
+            [
+              1244,
+              99
+            ],
+            [
+              1343,
+              71
+            ]
+          ]
+        },
+        {
+          "id": "wall-rail-left",
+          "color": "cyan",
+          "points": [
+            [
+              102,
+              128
+            ],
+            [
+              303,
+              154
+            ],
+            [
+              505,
+              181
+            ],
+            [
+              755,
+              218
+            ]
+          ]
+        },
+        {
+          "id": "wall-rail-right",
+          "color": "blue",
+          "points": [
+            [
+              865,
+              220
+            ],
+            [
+              1116,
+              180
+            ],
+            [
+              1362,
+              139
+            ],
+            [
+              1573,
+              105
+            ]
+          ]
+        },
+        {
+          "id": "left-bus",
+          "color": "cyan",
+          "points": [
+            [
+              178,
+              168
+            ],
+            [
+              178,
+              322
+            ],
+            [
+              144,
+              365
+            ],
+            [
+              144,
+              512
+            ],
+            [
+              164,
+              548
+            ]
+          ]
+        },
+        {
+          "id": "left-return",
+          "color": "lavender",
+          "points": [
+            [
+              114,
+              171
+            ],
+            [
+              114,
+              350
+            ],
+            [
+              132,
+              382
+            ],
+            [
+              132,
+              530
+            ]
+          ]
+        },
+        {
+          "id": "center-left-bus",
+          "color": "blue",
+          "points": [
+            [
+              721,
+              267
+            ],
+            [
+              721,
+              410
+            ],
+            [
+              701,
+              451
+            ],
+            [
+              701,
+              546
+            ]
+          ]
+        },
+        {
+          "id": "center-right-bus",
+          "color": "lavender",
+          "points": [
+            [
+              858,
+              306
+            ],
+            [
+              858,
+              417
+            ],
+            [
+              876,
+              454
+            ],
+            [
+              876,
+              548
+            ]
+          ]
+        },
+        {
+          "id": "right-bus",
+          "color": "cyan",
+          "points": [
+            [
+              1448,
+              154
+            ],
+            [
+              1448,
+              323
+            ],
+            [
+              1474,
+              356
+            ],
+            [
+              1474,
+              542
+            ]
+          ]
+        },
+        {
+          "id": "right-return",
+          "color": "lavender",
+          "points": [
+            [
+              1549,
+              170
+            ],
+            [
+              1549,
+              351
+            ],
+            [
+              1522,
+              391
+            ],
+            [
+              1522,
+              548
+            ]
+          ]
+        },
+        {
+          "id": "floor-back-left",
+          "color": "cyan",
+          "points": [
+            [
+              83,
+              645
+            ],
+            [
+              317,
+              619
+            ],
+            [
+              550,
+              592
+            ],
+            [
+              789,
+              570
+            ]
+          ]
+        },
+        {
+          "id": "floor-back-right",
+          "color": "blue",
+          "points": [
+            [
+              840,
+              570
+            ],
+            [
+              1064,
+              592
+            ],
+            [
+              1303,
+              620
+            ],
+            [
+              1552,
+              645
+            ]
+          ]
+        },
+        {
+          "id": "floor-front-left",
+          "color": "lavender",
+          "points": [
+            [
+              96,
+              683
+            ],
+            [
+              270,
+              755
+            ],
+            [
+              191,
+              863
+            ],
+            [
+              314,
+              941
+            ]
+          ]
+        },
+        {
+          "id": "floor-front-right",
+          "color": "cyan",
+          "points": [
+            [
+              1575,
+              684
+            ],
+            [
+              1487,
+              781
+            ],
+            [
+              1535,
+              850
+            ],
+            [
+              1481,
+              941
+            ]
+          ]
+        }
+      ],
+      "neutralization": {
+        "method": "Built-in imagegen unlit background replacement",
+        "source": "repairs/black-horizontal-background-off.png",
+        "coverage": "entire room background",
+        "opaqueReplacement": true
+      }
+    },
+    {
+      "id": "white-overview",
+      "inputBackground": "../scenes/white-overview/background.png",
+      "layering": [
+        "v2 background",
+        "wiring offBase",
+        "wiring pulse frame",
+        "all furniture/component layers",
+        "component-local animated effects"
+      ],
+      "offBase": "effects/wiring/white-overview/off-base.png",
+      "frames": [
+        "effects/wiring/white-overview/pulse-00.png",
+        "effects/wiring/white-overview/pulse-01.png",
+        "effects/wiring/white-overview/pulse-02.png",
+        "effects/wiring/white-overview/pulse-03.png",
+        "effects/wiring/white-overview/pulse-04.png",
+        "effects/wiring/white-overview/pulse-05.png",
+        "effects/wiring/white-overview/pulse-06.png",
+        "effects/wiring/white-overview/pulse-07.png",
+        "effects/wiring/white-overview/pulse-08.png",
+        "effects/wiring/white-overview/pulse-09.png",
+        "effects/wiring/white-overview/pulse-10.png",
+        "effects/wiring/white-overview/pulse-11.png",
+        "effects/wiring/white-overview/pulse-12.png",
+        "effects/wiring/white-overview/pulse-13.png",
+        "effects/wiring/white-overview/pulse-14.png",
+        "effects/wiring/white-overview/pulse-15.png",
+        "effects/wiring/white-overview/pulse-16.png",
+        "effects/wiring/white-overview/pulse-17.png",
+        "effects/wiring/white-overview/pulse-18.png",
+        "effects/wiring/white-overview/pulse-19.png",
+        "effects/wiring/white-overview/pulse-20.png",
+        "effects/wiring/white-overview/pulse-21.png",
+        "effects/wiring/white-overview/pulse-22.png",
+        "effects/wiring/white-overview/pulse-23.png"
+      ],
+      "activePathCounts": [
+        7,
+        8,
+        8,
+        7,
+        8,
+        7,
+        7,
+        8,
+        7,
+        6,
+        7,
+        7,
+        6,
+        8,
+        7,
+        7,
+        8,
+        8,
+        7,
+        9,
+        8,
+        8,
+        9,
+        8
+      ],
+      "paths": [
+        {
+          "id": "wall-cap-left",
+          "color": "cyan",
+          "points": [
+            [
+              204,
+              262
+            ],
+            [
+              413,
+              185
+            ],
+            [
+              619,
+              111
+            ],
+            [
+              806,
+              44
+            ]
+          ]
+        },
+        {
+          "id": "wall-cap-right",
+          "color": "blue",
+          "points": [
+            [
+              867,
+              46
+            ],
+            [
+              1054,
+              123
+            ],
+            [
+              1264,
+              210
+            ],
+            [
+              1453,
+              288
+            ]
+          ]
+        },
+        {
+          "id": "left-wall-bus",
+          "color": "cyan",
+          "points": [
+            [
+              336,
+              246
+            ],
+            [
+              336,
+              349
+            ],
+            [
+              315,
+              379
+            ],
+            [
+              315,
+              481
+            ]
+          ]
+        },
+        {
+          "id": "left-wall-return",
+          "color": "lavender",
+          "points": [
+            [
+              271,
+              297
+            ],
+            [
+              271,
+              410
+            ],
+            [
+              286,
+              438
+            ],
+            [
+              286,
+              495
+            ]
+          ]
+        },
+        {
+          "id": "corner-left-bus",
+          "color": "cyan",
+          "points": [
+            [
+              754,
+              94
+            ],
+            [
+              754,
+              224
+            ],
+            [
+              739,
+              251
+            ],
+            [
+              739,
+              283
+            ]
+          ]
+        },
+        {
+          "id": "corner-right-bus",
+          "color": "blue",
+          "points": [
+            [
+              901,
+              91
+            ],
+            [
+              901,
+              221
+            ],
+            [
+              919,
+              251
+            ],
+            [
+              919,
+              287
+            ]
+          ]
+        },
+        {
+          "id": "right-wall-bus",
+          "color": "cyan",
+          "points": [
+            [
+              1282,
+              241
+            ],
+            [
+              1282,
+              338
+            ],
+            [
+              1308,
+              370
+            ],
+            [
+              1308,
+              477
+            ]
+          ]
+        },
+        {
+          "id": "right-wall-return",
+          "color": "lavender",
+          "points": [
+            [
+              1392,
+              294
+            ],
+            [
+              1392,
+              408
+            ],
+            [
+              1372,
+              438
+            ],
+            [
+              1372,
+              498
+            ]
+          ]
+        },
+        {
+          "id": "rear-floor-rail",
+          "color": "blue",
+          "points": [
+            [
+              292,
+              510
+            ],
+            [
+              548,
+              406
+            ],
+            [
+              814,
+              279
+            ],
+            [
+              1110,
+              404
+            ],
+            [
+              1381,
+              510
+            ]
+          ]
+        },
+        {
+          "id": "floor-left-outer",
+          "color": "lavender",
+          "points": [
+            [
+              287,
+              536
+            ],
+            [
+              341,
+              574
+            ],
+            [
+              337,
+              612
+            ],
+            [
+              449,
+              675
+            ],
+            [
+              573,
+              706
+            ]
+          ]
+        },
+        {
+          "id": "floor-left-inner",
+          "color": "cyan",
+          "points": [
+            [
+              412,
+              524
+            ],
+            [
+              449,
+              554
+            ],
+            [
+              410,
+              589
+            ],
+            [
+              521,
+              656
+            ],
+            [
+              667,
+              668
+            ]
+          ]
+        },
+        {
+          "id": "floor-right-inner",
+          "color": "cyan",
+          "points": [
+            [
+              1002,
+              659
+            ],
+            [
+              1110,
+              621
+            ],
+            [
+              1134,
+              575
+            ],
+            [
+              1260,
+              532
+            ]
+          ]
+        },
+        {
+          "id": "floor-right-outer",
+          "color": "lavender",
+          "points": [
+            [
+              1090,
+              718
+            ],
+            [
+              1208,
+              684
+            ],
+            [
+              1281,
+              637
+            ],
+            [
+              1369,
+              607
+            ],
+            [
+              1394,
+              559
+            ]
+          ]
+        },
+        {
+          "id": "front-rail-left",
+          "color": "blue",
+          "points": [
+            [
+              506,
+              735
+            ],
+            [
+              659,
+              809
+            ],
+            [
+              806,
+              895
+            ]
+          ]
+        },
+        {
+          "id": "front-rail-right",
+          "color": "cyan",
+          "points": [
+            [
+              867,
+              896
+            ],
+            [
+              1024,
+              810
+            ],
+            [
+              1193,
+              719
+            ]
+          ]
+        }
+      ],
+      "neutralization": {
+        "method": "Built-in imagegen unlit background replacement",
+        "source": "repairs/white-overview-background-off.png",
+        "coverage": "entire room background",
+        "opaqueReplacement": true
+      }
+    },
+    {
+      "id": "white-horizontal",
+      "inputBackground": "../scenes/white-horizontal/background.png",
+      "layering": [
+        "v2 background",
+        "wiring offBase",
+        "wiring pulse frame",
+        "all furniture/component layers",
+        "component-local animated effects"
+      ],
+      "offBase": "effects/wiring/white-horizontal/off-base.png",
+      "frames": [
+        "effects/wiring/white-horizontal/pulse-00.png",
+        "effects/wiring/white-horizontal/pulse-01.png",
+        "effects/wiring/white-horizontal/pulse-02.png",
+        "effects/wiring/white-horizontal/pulse-03.png",
+        "effects/wiring/white-horizontal/pulse-04.png",
+        "effects/wiring/white-horizontal/pulse-05.png",
+        "effects/wiring/white-horizontal/pulse-06.png",
+        "effects/wiring/white-horizontal/pulse-07.png",
+        "effects/wiring/white-horizontal/pulse-08.png",
+        "effects/wiring/white-horizontal/pulse-09.png",
+        "effects/wiring/white-horizontal/pulse-10.png",
+        "effects/wiring/white-horizontal/pulse-11.png",
+        "effects/wiring/white-horizontal/pulse-12.png",
+        "effects/wiring/white-horizontal/pulse-13.png",
+        "effects/wiring/white-horizontal/pulse-14.png",
+        "effects/wiring/white-horizontal/pulse-15.png",
+        "effects/wiring/white-horizontal/pulse-16.png",
+        "effects/wiring/white-horizontal/pulse-17.png",
+        "effects/wiring/white-horizontal/pulse-18.png",
+        "effects/wiring/white-horizontal/pulse-19.png",
+        "effects/wiring/white-horizontal/pulse-20.png",
+        "effects/wiring/white-horizontal/pulse-21.png",
+        "effects/wiring/white-horizontal/pulse-22.png",
+        "effects/wiring/white-horizontal/pulse-23.png"
+      ],
+      "activePathCounts": [
+        7,
+        8,
+        8,
+        7,
+        8,
+        7,
+        7,
+        7,
+        6,
+        5,
+        6,
+        6,
+        5,
+        7,
+        6,
+        6,
+        7,
+        7,
+        6,
+        8,
+        8,
+        8,
+        9,
+        8
+      ],
+      "paths": [
+        {
+          "id": "ceiling-left",
+          "color": "blue",
+          "points": [
+            [
+              319,
+              59
+            ],
+            [
+              511,
+              111
+            ],
+            [
+              696,
+              159
+            ],
+            [
+              834,
+              207
+            ]
+          ]
+        },
+        {
+          "id": "ceiling-right",
+          "color": "lavender",
+          "points": [
+            [
+              836,
+              207
+            ],
+            [
+              1042,
+              151
+            ],
+            [
+              1244,
+              99
+            ],
+            [
+              1343,
+              71
+            ]
+          ]
+        },
+        {
+          "id": "wall-rail-left",
+          "color": "cyan",
+          "points": [
+            [
+              102,
+              128
+            ],
+            [
+              303,
+              154
+            ],
+            [
+              505,
+              181
+            ],
+            [
+              755,
+              218
+            ]
+          ]
+        },
+        {
+          "id": "wall-rail-right",
+          "color": "blue",
+          "points": [
+            [
+              865,
+              220
+            ],
+            [
+              1116,
+              180
+            ],
+            [
+              1362,
+              139
+            ],
+            [
+              1573,
+              105
+            ]
+          ]
+        },
+        {
+          "id": "left-bus",
+          "color": "cyan",
+          "points": [
+            [
+              178,
+              168
+            ],
+            [
+              178,
+              322
+            ],
+            [
+              144,
+              365
+            ],
+            [
+              144,
+              512
+            ],
+            [
+              164,
+              548
+            ]
+          ]
+        },
+        {
+          "id": "left-return",
+          "color": "lavender",
+          "points": [
+            [
+              114,
+              171
+            ],
+            [
+              114,
+              350
+            ],
+            [
+              132,
+              382
+            ],
+            [
+              132,
+              530
+            ]
+          ]
+        },
+        {
+          "id": "center-left-bus",
+          "color": "blue",
+          "points": [
+            [
+              721,
+              267
+            ],
+            [
+              721,
+              410
+            ],
+            [
+              701,
+              451
+            ],
+            [
+              701,
+              546
+            ]
+          ]
+        },
+        {
+          "id": "center-right-bus",
+          "color": "lavender",
+          "points": [
+            [
+              858,
+              306
+            ],
+            [
+              858,
+              417
+            ],
+            [
+              876,
+              454
+            ],
+            [
+              876,
+              548
+            ]
+          ]
+        },
+        {
+          "id": "right-bus",
+          "color": "cyan",
+          "points": [
+            [
+              1448,
+              154
+            ],
+            [
+              1448,
+              323
+            ],
+            [
+              1474,
+              356
+            ],
+            [
+              1474,
+              542
+            ]
+          ]
+        },
+        {
+          "id": "right-return",
+          "color": "lavender",
+          "points": [
+            [
+              1549,
+              170
+            ],
+            [
+              1549,
+              351
+            ],
+            [
+              1522,
+              391
+            ],
+            [
+              1522,
+              548
+            ]
+          ]
+        },
+        {
+          "id": "floor-back-left",
+          "color": "cyan",
+          "points": [
+            [
+              83,
+              645
+            ],
+            [
+              317,
+              619
+            ],
+            [
+              550,
+              592
+            ],
+            [
+              789,
+              570
+            ]
+          ]
+        },
+        {
+          "id": "floor-back-right",
+          "color": "blue",
+          "points": [
+            [
+              840,
+              570
+            ],
+            [
+              1064,
+              592
+            ],
+            [
+              1303,
+              620
+            ],
+            [
+              1552,
+              645
+            ]
+          ]
+        },
+        {
+          "id": "floor-front-left",
+          "color": "lavender",
+          "points": [
+            [
+              96,
+              683
+            ],
+            [
+              270,
+              755
+            ],
+            [
+              191,
+              863
+            ],
+            [
+              314,
+              941
+            ]
+          ]
+        },
+        {
+          "id": "floor-front-right",
+          "color": "cyan",
+          "points": [
+            [
+              1575,
+              684
+            ],
+            [
+              1487,
+              781
+            ],
+            [
+              1535,
+              850
+            ],
+            [
+              1481,
+              941
+            ]
+          ]
+        }
+      ],
+      "neutralization": {
+        "method": "Built-in imagegen unlit background replacement",
+        "source": "repairs/white-horizontal-background-off.png",
+        "coverage": "entire room background",
+        "opaqueReplacement": true
+      }
+    }
+  ]
+}

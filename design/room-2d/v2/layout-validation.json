@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "horizontalScenes": [
+    {
+      "id": "black-horizontal",
+      "lampCentersInsideCabinet": 52,
+      "opaqueOverlapPixels": {
+        "bookshelf": 0,
+        "network": 0,
+        "clock": 0,
+        "fan-1": 0,
+        "fan-2": 0,
+        "bed": 0,
+        "desk": 0,
+        "display": 0,
+        "external": 0,
+        "chair": 0
+      },
+      "oldLampCentroid": [
+        1454.2653846153844,
+        551.2961538461539
+      ],
+      "newLampCentroid": [
+        1115.8055769230773,
+        664.9415384615385
+      ]
+    },
+    {
+      "id": "white-horizontal",
+      "lampCentersInsideCabinet": 40,
+      "opaqueOverlapPixels": {
+        "bookshelf": 0,
+        "network": 0,
+        "clock": 0,
+        "fan-1": 0,
+        "fan-2": 0,
+        "bed": 0,
+        "desk": 0,
+        "display": 0,
+        "external": 0,
+        "chair": 0
+      },
+      "oldLampCentroid": [
+        1453.4424999999999,
+        550.4275
+      ],
+      "newLampCentroid": [
+        1114.8600000000001,
+        663.9417500000001
+      ]
+    }
+  ],
+  "inlineJavaScriptSyntax": "passed",
+  "manifestJavaScriptJSONParity": "passed"
+}

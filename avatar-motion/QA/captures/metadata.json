@@ -1,0 +1,68 @@
+{
+  "canvas" : [
+    1672,
+    941
+  ],
+  "frames" : [
+    {
+      "blink" : 0,
+      "file" : "standing-t0.00.png",
+      "pose" : "standing",
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-t1.00.png",
+      "pose" : "standing",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "sleeping-t0.00.png",
+      "pose" : "sleeping",
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "sleeping-t1.00.png",
+      "pose" : "sleeping",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.00.png",
+      "pose" : "reading",
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t1.00.png",
+      "pose" : "reading",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 1,
+      "file" : "standing-blink.png",
+      "pose" : "standing",
+      "speech" : 0,
+      "time" : 2
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-speech.png",
+      "pose" : "standing",
+      "speech" : 0.71999999999999997,
+      "time" : 2
+    }
+  ],
+  "renderSize" : [
+    1003,
+    565
+  ]
+}

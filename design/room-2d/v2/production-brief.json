@@ -1,0 +1,65 @@
+{
+  "scope": "Layered screen assets only; native app, backend integration and avatar artwork are excluded from this production pass.",
+  "themes": [
+    "black",
+    "white"
+  ],
+  "views": [
+    "overview",
+    "horizontal"
+  ],
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "horizontalAssumption": "Southeast corner facing northwest, matching former room-concepts/v2/*-02-southeast.png",
+  "layout": "Visibility first. No required central standing-area clearance. Bed and chair are primary avatar pose locations (lying/sitting). Horizontal CPU/GPU is moved toward center/front with the transform in layout-revision.json. Overview layout remains the v1 reference for this revision.",
+  "objects": [
+    [
+      "bed",
+      "ベッド／バッテリー",
+      "01-bed-battery"
+    ],
+    [
+      "bookshelf",
+      "本棚／ストレージ",
+      "02-bookshelf-storage"
+    ],
+    [
+      "desk-chair",
+      "デスクとチェア／メモリ",
+      "03-desk-chair-memory"
+    ],
+    [
+      "compute",
+      "発光球アレイ／CPU・GPU",
+      "04-compute-lamp-array"
+    ],
+    [
+      "network",
+      "ミニ電波塔／ネットワークI/O",
+      "05-radio-tower-network"
+    ],
+    [
+      "clock",
+      "時計／システムクロック",
+      "06-clock-system"
+    ],
+    [
+      "fans",
+      "ファン2台",
+      "07-dual-fans"
+    ],
+    [
+      "display",
+      "モニタと壁ケーブル",
+      "08-monitor-display-controller"
+    ],
+    [
+      "external",
+      "床ソケットと外部ケーブル",
+      "09-external-cable"
+    ]
+  ],
+  "avatarPolicy": "Pose-specific placement. Provisional lying and seated anchors; avatar artwork and occlusion mattes to be authored later."
+}

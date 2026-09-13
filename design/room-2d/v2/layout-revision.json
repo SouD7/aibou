@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "parent": "../v1",
+  "priority": "Component visibility; no central standing-space requirement",
+  "horizontalCompute": {
+    "scale": 1.15,
+    "translation": [
+      -340,
+      125
+    ],
+    "anchor": [
+      1444,
+      627
+    ],
+    "matrix": [
+      [
+        1.149999976158142,
+        0.0,
+        -556.5999755859375
+      ],
+      [
+        0.0,
+        1.149999976158142,
+        30.950000762939453
+      ]
+    ]
+  },
+  "avatarPlacement": "Bed lying / chair sitting; provisional anchors only; actual avatar art and occlusion layers deferred",
+  "method": "Python affine edits of existing CPU RGBA assets; built-in imagegen localized tower pedestal repair"
+}

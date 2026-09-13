@@ -1,0 +1,2 @@
+Swift/ErrorType.swift:254: Fatal error: Error raised at top level: invalid graph accepted: disconnected cycle
+./test.sh: line 12: 20350 Trace/BPT trap: 5       .build/MonitorTests

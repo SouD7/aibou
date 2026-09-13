@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIBOU — Room concepts v2</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;background:#10151d;color:#eaf0f6}*{box-sizing:border-box}body{margin:0;padding:30px clamp(16px,4vw,64px);max-width:1800px;margin-inline:auto}header{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}h1{font-size:clamp(22px,3vw,34px);font-weight:580;margin:4px 0 8px}p{color:#aebbc9;line-height:1.8;font-size:14px;margin:8px 0}.eyebrow{font-size:11px;letter-spacing:.18em;color:#87dfee}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}button{background:#1c2531;color:#dce5f0;border:1px solid #394553;border-radius:8px;font:inherit;font-size:13px;padding:10px 15px;cursor:pointer}button:hover{border-color:#9be6ef}button[aria-pressed=true]{background:#dbf7fa;color:#10252e;border-color:#dbf7fa}button:focus-visible,a:focus-visible{outline:3px solid #ac94ff;outline-offset:4px}a{color:#91e1ec;text-underline-offset:4px}.stage{margin:0;background:#1a2330;border:1px solid #34404e;border-radius:12px;overflow:hidden}.stage img{display:block;width:100%;aspect-ratio:1672/941;object-fit:contain}.caption{display:flex;justify-content:space-between;gap:10px;padding:14px 18px;color:#c6d3df;font-size:13px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}.card{margin:0}.card img{display:block;width:100%;border-radius:9px;border:1px solid #34404e}.card figcaption{font-size:13px;color:#aebbc9;padding:8px 0}.foot{border-top:1px solid #34404e;padding-top:18px;margin-top:24px}.badge{font-size:12px;color:#aebbc9;white-space:nowrap}@media(max-width:650px){header{display:block}.comparison{grid-template-columns:1fr}.caption{flex-wrap:wrap}body{padding-top:20px}}@media(prefers-reduced-motion:no-preference){button{transition:background .15s,border-color .15s}}
+</style>
+<header><div><div class="eyebrow">AIBOU / SPATIAL CONCEPT 02</div><h1>基板の正方形ルーム</h1><p>不透明な壁と天井、正方形の床、光の回路。アバターと家具を迎えるための空間。</p></div><span class="badge">2 COLORS × 5 VIEWS</span></header>
+<div class="controls" id="colors" role="group" aria-label="部屋の色"><button data-color="white" aria-pressed="true">Pearl white</button><button data-color="black" aria-pressed="false">Graphite black</button></div>
+<div class="controls" id="views" role="group" aria-label="カメラ視点"></div>
+<figure class="stage"><img id="hero" src="white-01-overview.png" alt="白基調の部屋・俯瞰"><figcaption class="caption"><span id="caption" aria-live="polite">Pearl white / 俯瞰</span><a id="original" href="white-01-overview.png" target="_blank" rel="noopener">画像を開く ↗</a></figcaption></figure>
+<p id="direction">南東上空 → 北西。部屋全体、北壁と西壁。</p>
+<div class="comparison" id="comparison" aria-label="全5視点の白黒比較"></div>
+<div class="foot"><p>正方形・不透明な壁と天井に修正した静止画コンセプトです。俯瞰では天井と手前の壁を表示上だけ外しています。視点間で回路・金具・扉などの細部に差があります。アバター、家具、発光アニメーションは後工程です。</p><p><a href="README.md">設計メモ</a> · <a href="prompts.json">生成プロンプト</a> · <a href="room-concepts-v2.zip" download>10枚＋設計資料をまとめて保存</a></p></div>
+<script>
+const views=[['01-overview','俯瞰','南東上空 → 北西。部屋全体、北壁と西壁。'],['02-southeast','南東の隅','南東 → 北西。左：西壁 ／ 右：北壁。'],['03-southwest','南西の隅','南西 → 北東。左：北壁 ／ 右：東壁。'],['04-northwest','北西の隅','北西 → 南東。左：東壁 ／ 右：南壁。'],['05-northeast','北東の隅','北東 → 南西。左：南壁 ／ 右：西壁。']];
+const names={white:'Pearl white',black:'Graphite black'};let color='white',view=0;
+const hero=document.querySelector('#hero'),caption=document.querySelector('#caption'),original=document.querySelector('#original');
+function render(){const file=color+'-'+views[view][0]+'.png';hero.src=file;hero.alt=names[color]+' / '+views[view][1];caption.textContent=hero.alt;original.href=file;document.querySelector('#direction').textContent=views[view][2];document.querySelectorAll('[data-color]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.color===color)));document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.view)===view)));}
+views.forEach((v,i)=>{const b=document.createElement('button');b.textContent=v[1];b.dataset.view=i;b.setAttribute('aria-pressed',String(i===0));b.onclick=()=>{view=i;render()};document.querySelector('#views').append(b);for(const c of ['white','black']){const figure=document.createElement('figure');figure.className='card';const a=document.createElement('a');a.href=c+'-'+v[0]+'.png';a.target='_blank';a.rel='noopener';const img=document.createElement('img');img.src=a.getAttribute('href');img.alt=names[c]+' / '+v[1];img.loading='lazy';a.append(img);const label=document.createElement('figcaption');label.textContent=names[c]+' / '+v[1];figure.append(a,label);document.querySelector('#comparison').append(figure);}});
+document.querySelectorAll('[data-color]').forEach(b=>b.onclick=()=>{color=b.dataset.color;render()});
+</script>
+</html>

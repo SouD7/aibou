@@ -1,0 +1,2 @@
+cache_probe reads=1 cachedRowOlderThanStatus=true cachedRowOlderThanPanel=true
+archive_probe status=saved completedAtMissing=true count=999999 nodes=1 total=999999 rootBytes=12
