@@ -112,18 +112,49 @@ func runStorageTests() throws {
         throw StorageTestFailure.assertion("index with duplicate node IDs unexpectedly loaded")
     } catch { }
 
-    func checkArchive(_ nodes: [StorageNode], valid: Bool, reason: String) throws {
+    func checkState(_ state: StorageScanState, valid: Bool, reason: String) throws {
         struct Archive: Encodable { var schemaVersion = 1; var state: StorageScanState }
-        var state = result
-        state.nodes = nodes
         let encoder = JSONEncoder(); encoder.dateEncodingStrategy = .iso8601
-        try encoder.encode(Archive(state: state)).write(to: corruptURL)
+        let data = try encoder.encode(Archive(state: state))
+        try data.write(to: corruptURL)
         do {
             _ = try StorageScanner.load(from: corruptURL)
             try storageExpect(valid, "invalid graph accepted: \(reason)")
         } catch is StorageScannerError {
             try storageExpect(!valid, "valid graph rejected: \(reason)")
         }
+        let after = try Data(contentsOf: corruptURL)
+        try storageExpect(after == data, "loading must never rewrite the saved archive")
+    }
+    for defect in ["completion", "count", "logical", "allocated", "rootKind", "errors"] {
+        var state = result
+        switch defect {
+        case "completion": state.completedAt = nil
+        case "count": state.scannedCount += 1
+        case "logical": state.totalLogicalBytes += 1
+        case "allocated": state.totalAllocatedBytes = nil
+        case "rootKind": state.nodes[0].kind = .file
+        default: state.errorCount = -1
+        }
+        try checkState(state, valid: false, reason: "inconsistent summary: \(defect)")
+    }
+    var partial = result
+    partial.nodes[0].aggregateComplete = false
+    partial.errors = [StorageScanError(path: result.rootPath + "/protected", message: "fixture denied")]
+    partial.errorCount = nil // Older schema-1 archives omit this optional field.
+    partial.nodes[0].allocatedBytes = nil; partial.totalAllocatedBytes = nil
+    try checkState(partial, valid: true, reason: "completed traversal with inaccessible data and unknown allocation")
+    partial.errorCount = 0
+    try checkState(partial, valid: false, reason: "fewer errors than retained details")
+    partial.errorCount = 300
+    try checkState(partial, valid: true, reason: "error details are capped independently of total errors")
+
+    func checkArchive(_ nodes: [StorageNode], valid: Bool, reason: String) throws {
+        var state = result
+        state.nodes = nodes; state.scannedCount = nodes.count
+        state.totalLogicalBytes = nodes.first?.logicalBytes ?? 0
+        state.totalAllocatedBytes = nodes.first?.allocatedBytes
+        try checkState(state, valid: valid, reason: reason)
     }
     let graphRoot = result.nodes[0]
     var a = graphRoot, b = graphRoot

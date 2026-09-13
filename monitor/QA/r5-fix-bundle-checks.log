@@ -1,0 +1,6 @@
+AIBOUMonitor.app: valid on disk
+AIBOUMonitor.app: satisfies its Designated Requirement
+Info.plist: OK
+PrivacyInfo.xcprivacy: OK
+AIBOUMonitor.app/Contents/Info.plist: OK
+AIBOUMonitor.app/Contents/Resources/PrivacyInfo.xcprivacy: OK

@@ -14,6 +14,60 @@ func runDeviceTests() throws {
     }
 
     let sampler = DeviceSampler()
+    var inventoryReads = 0
+    let cachedSampler = DeviceSampler(registryReader: { name, _ in
+        if name == "IOUSBHostDevice" {
+            inventoryReads += 1
+            return .success([.init(id: 1, properties: ["USB Product Name": "Cache fixture"])])
+        }
+        return .success([])
+    }, powerSourceReader: { .success([]) })
+    let firstInventory = cachedSampler.sample()
+    Thread.sleep(forTimeInterval: 0.02)
+    let secondInventory = cachedSampler.sample()
+    try expect(inventoryReads == 1, "TTL must reuse the inventory")
+    for tab in [MonitorTab.devices, .hardware] {
+        let first = firstInventory.first { $0.tab == tab }!
+        let second = secondInventory.first { $0.tab == tab }!
+        try expect(second.capturedAt == first.capturedAt && second.metrics[0].recordedAt == first.metrics[0].recordedAt,
+                   "cached inventory must preserve its actual acquisition date")
+    }
+    var wallTime = Date(timeIntervalSince1970: 1_800_000_000)
+    let initialWall = wallTime
+    let startInstant = ContinuousClock().now
+    var instant = startInstant
+    var clockedReads = 0, failInventory = false
+    let clocked = DeviceSampler(registryReader: { name, _ in
+        if name == "IOUSBHostDevice" { clockedReads += 1 }
+        if failInventory { return .failure("fixture denied") }
+        if name == "IOUSBHostDevice" {
+            return .success([.init(id: 2, properties: ["USB Product Name": "Clock fixture"])])
+        }
+        return .success([])
+    }, powerSourceReader: { .success([]) }, wallClock: { wallTime }, continuousClock: { instant })
+    func checkClockedInventory(date: Date, reads: Int) throws {
+        for panel in clocked.sample() where [.devices, .hardware].contains(panel.tab) {
+            try expect(panel.capturedAt == date && panel.metrics.allSatisfy { $0.recordedAt == date },
+                       "inventory acquisition date must survive TTL reuse and clock corrections")
+            try expect(panel.rows.allSatisfy { $0.metrics.allSatisfy { $0.recordedAt == date } },
+                       "inventory row and panel dates must agree")
+        }
+        try expect(clockedReads == reads, "inventory expiration must depend only on the continuous clock")
+    }
+    try checkClockedInventory(date: initialWall, reads: 1)
+    wallTime = initialWall.addingTimeInterval(3600); instant = startInstant.advanced(by: .seconds(29))
+    try checkClockedInventory(date: initialWall, reads: 1)
+    wallTime = initialWall.addingTimeInterval(-3600)
+    try checkClockedInventory(date: initialWall, reads: 1)
+    instant = startInstant.advanced(by: .seconds(30))
+    try checkClockedInventory(date: wallTime, reads: 2)
+    failInventory = true; instant = startInstant.advanced(by: .seconds(60))
+    let failureDate = wallTime
+    try checkClockedInventory(date: failureDate, reads: 3)
+    wallTime = wallTime.addingTimeInterval(10); instant = startInstant.advanced(by: .seconds(61))
+    try checkClockedInventory(date: failureDate, reads: 3)
+    let failurePanel = clocked.sample().first { $0.tab == .devices }!
+    try expect(failurePanel.metrics[0].status == .unavailable, "cached failure must keep its status and acquisition date")
     let panels = sampler.sample()
     let expected: Set<MonitorTab> = [.thermal, .battery, .display, .devices, .hardware]
     try expect(Set(panels.map(\.tab)) == expected, "DeviceSampler must return exactly the five owned panels")

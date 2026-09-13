@@ -11,7 +11,8 @@ final class MonitoringEngine: @unchecked Sendable {
         let panels = result.panels + device.sample()
         return (result, panels, (ProcessInfo.processInfo.systemUptime - start) * 1000)
     }
-    /// UI-independent entry point for future avatar consumers; do not call concurrently.
+    /// One-shot (.snapshot), not a continuity session; do not call concurrently.
+    /// Use MonitorStore.diagnosticResults for the two sustained CPU diagnostic rules.
     func collectObservations(interval: Double) -> ObservationSnapshot {
         let result = collect(interval: interval)
         return ObservationSnapshot(panels: result.1, processes: result.0.processes, capturedAt: result.0.capturedAt)
