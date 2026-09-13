@@ -9,12 +9,12 @@
       "image": "standing.png",
       "chromaKey": true,
       "center": [
-        965,
-        630
+        836,
+        636
       ],
       "size": [
-        353.3333,
-        530
+        706.6667,
+        1060
       ],
       "head": [
         0.49,
@@ -50,12 +50,12 @@
       ],
       "skin": "#F9E4D8",
       "shadowCenter": [
-        963,
-        880
+        836,
+        1145
       ],
       "shadowSize": [
-        158,
-        24
+        280,
+        35
       ],
       "shadowOpacity": 0.2,
       "blinkImage": "standing-blink.png"
@@ -137,6 +137,118 @@
         15
       ],
       "shadowOpacity": 0.18
+    },
+    {
+      "id": "standing-back-hands",
+      "image": "standing-back-hands.png",
+      "chromaKey": true,
+      "center": [
+        836,
+        636
+      ],
+      "size": [
+        706.6667,
+        1060
+      ],
+      "head": [
+        0.49,
+        0.113
+      ],
+      "chest": [
+        0.5,
+        0.265
+      ],
+      "hip": [
+        0.5,
+        0.43
+      ],
+      "eyes": [
+        [
+          0.427,
+          0.1,
+          0.055,
+          0.031
+        ],
+        [
+          0.504,
+          0.1,
+          0.055,
+          0.031
+        ]
+      ],
+      "mouth": [
+        0.479,
+        0.137,
+        0.033,
+        0.014
+      ],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        836,
+        1145
+      ],
+      "shadowSize": [
+        280,
+        35
+      ],
+      "shadowOpacity": 0.2,
+      "blinkImage": "standing-blink.png"
+    },
+    {
+      "id": "standing-front-hands",
+      "image": "standing-front-hands.png",
+      "chromaKey": true,
+      "center": [
+        836,
+        636
+      ],
+      "size": [
+        706.6667,
+        1060
+      ],
+      "head": [
+        0.49,
+        0.113
+      ],
+      "chest": [
+        0.5,
+        0.265
+      ],
+      "hip": [
+        0.5,
+        0.43
+      ],
+      "eyes": [
+        [
+          0.427,
+          0.1,
+          0.055,
+          0.031
+        ],
+        [
+          0.504,
+          0.1,
+          0.055,
+          0.031
+        ]
+      ],
+      "mouth": [
+        0.479,
+        0.137,
+        0.033,
+        0.014
+      ],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        836,
+        1145
+      ],
+      "shadowSize": [
+        280,
+        35
+      ],
+      "shadowOpacity": 0.2,
+      "blinkImage": "standing-blink.png"
     }
   ]
 }

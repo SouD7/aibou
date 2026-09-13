@@ -1,0 +1,28 @@
+{
+  "mode": "built-in image_gen",
+  "created": "2026-09-14",
+  "prompts": [
+    {
+      "key": "back",
+      "paths": [
+        "/Users/sodaiyamamoto/aibou/avatar-motion/Assets/standing.png",
+        "/Users/sodaiyamamoto/Downloads/後ろ手２.jpeg",
+        "/Users/sodaiyamamoto/Downloads/後ろ手１.jpeg"
+      ],
+      "prompt": "Use case: identity-preserve. Edit target image1 is the exact existing full-body game avatar. Create ONE full-body 1024x1536 sprite of this SAME character with only her ARM POSE changed. Preserve exact black chin-length bob, hair clip, cyan circular ear devices, same gentle blue-violet eyes, face shape and facial expression, modest white high-collar undershirt, dark graphite oversized cyber jacket with ivory shoulder panels/cyan piping/straps, black belted shorts, opaque black tights and sneakers. Keep frontal view, exact head position, face size, torso and legs proportions and canvas alignment of image1. Keep the same flat pure chroma green #00ff00 background, no environment or ground shadows, no text. Do NOT copy the reference characters' clothes, body emphasis, hair or background. Only take arm gesture from the supporting pose references. Full body head to shoes with unchanged margins. Soft clean anime illustration matching image1, anatomically credible limbs. ARM POSE: both hands gently clasped together behind the lower back. Both forearms and hands are occluded behind the torso, elbows angled subtly outward and backward, sleeves naturally bend from shoulders toward the back. Slight relaxed shoulder opening and barely perceptible forward lean, but keep face forward and at its original aligned location. No hands visible in front, no extra limbs. References2,3 show the behind-the-back gesture only. Keep jacket open at front as original and keep neckline fully covered."
+    },
+    {
+      "key": "front",
+      "paths": [
+        "/Users/sodaiyamamoto/aibou/avatar-motion/Assets/standing.png",
+        "/Users/sodaiyamamoto/Downloads/前手２.jpeg",
+        "/Users/sodaiyamamoto/Downloads/前手１.jpeg"
+      ],
+      "prompt": "Use case: identity-preserve. Edit target image1 is the exact existing full-body game avatar. Create ONE full-body 1024x1536 sprite of this SAME character with only her ARM POSE changed. Preserve exact black chin-length bob, hair clip, cyan circular ear devices, same gentle blue-violet eyes, face shape and facial expression, modest white high-collar undershirt, dark graphite oversized cyber jacket with ivory shoulder panels/cyan piping/straps, black belted shorts, opaque black tights and sneakers. Keep frontal view, exact head position, face size, torso and legs proportions and canvas alignment of image1. Keep the same flat pure chroma green #00ff00 background, no environment or ground shadows, no text. Do NOT copy the reference characters' clothes, body emphasis, hair or background. Only take arm gesture from the supporting pose references. Full body head to shoes with unchanged margins. Soft clean anime illustration matching image1, anatomically credible limbs. ARM POSE: both arms descend naturally in front of torso, elbows softly bent inward, hands gently clasped together at low abdomen just below belt height, one hand resting naturally over the fingers of the other. Fingers relaxed, clear believable anatomy with two hands only; not prayer, not crossed arms, not clenched fists. Oversized sleeves gather at wrists in front of the shorts. Reference2,3 indicate front clasped-hand posture only. Retain original leg and head alignment."
+    }
+  ],
+  "outputs": {
+    "back": "/Users/sodaiyamamoto/.codex/generated_images/01a09652-6a56-7222-a7bc-bb15f155ebd4/exec-932dc9b0-091b-4cdf-8049-944f454ca9a3.png",
+    "front": "/Users/sodaiyamamoto/.codex/generated_images/01a09652-6a56-7222-a7bc-bb15f155ebd4/exec-8c97ea33-8fdf-49e0-9235-5420a6094a15.png"
+  }
+}

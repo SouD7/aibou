@@ -51,7 +51,7 @@ enum MotionMath {
     }
 
     static func output(for pose: AvatarPoseID, input: MotionInput) -> MotionOutput {
-        let faceIsActive = pose == .standing
+        let faceIsActive = pose.isStanding
         return MotionOutput(
             blink: faceIsActive ? clamp(input.forceBlink ?? blinkAmount(at: input.time)) : 0,
             mouthOpen: faceIsActive ? clamp(input.speechAmplitude * 1.45) : 0,
@@ -71,7 +71,7 @@ enum MotionMath {
         let edgeSoftening = clamp(point.x / 0.08) * clamp((1 - point.x) / 0.08)
 
         switch pose.id {
-        case .standing:
+        case .standing, .standingBackHands, .standingFrontHands:
             let contactLock = 1 - pow(clamp((point.y - 0.72) / 0.28), 1.35)
             let breath = sin(input.time * .pi * 0.72)
             let secondary = sin(input.time * .pi * 0.49 + 1.1)

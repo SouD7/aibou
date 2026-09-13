@@ -18,9 +18,16 @@ struct CaptureRequest {
             $0 + 1 < arguments.count ? Double(arguments[$0 + 1]) : nil
         }
         let qa = arguments.contains("--qa")
+        let sequenceDuration: Double? = arguments.firstIndex(of: "--sequence").flatMap {
+            $0 + 1 < arguments.count ? Double(arguments[$0 + 1]) : nil
+        }
+        let sequenceTimes: [Double]? = sequenceDuration.flatMap { duration in
+            guard duration.isFinite, duration > 0, duration <= 30 else { return nil }
+            return (0..<Int((duration * 10).rounded(.up))).map { Double($0) / 10 }
+        }
         return CaptureRequest(directory: directory,
                               poses: pose.map { [$0] } ?? (qa ? AvatarPoseID.allCases : [.standing]),
-                              times: time.map { [$0] } ?? (qa ? [0, 1] : [0]), qa: qa,
+                              times: sequenceTimes ?? time.map { [$0] } ?? (qa ? [0, 1] : [0]), qa: qa,
                               focus: arguments.contains("--focus"))
     }
 }
@@ -42,7 +49,7 @@ enum SceneCapture {
                 try save(scene: scene, view: view, url: request.directory.appendingPathComponent(name + ".png"))
                 records.append(["file": name + ".png", "pose": pose.rawValue, "time": time,
                                 "blink": MotionMath.output(for: pose, input: MotionInput(time: time)).blink,
-                                "speech": 0, "focus": request.focus])
+                                "speech": 0, "focus": request.focus, "roomFrame": scene.roomFrameIndex])
             }
         }
         if request.qa {
@@ -55,12 +62,15 @@ enum SceneCapture {
                 records.append(["file": name + ".png", "pose": pose.rawValue, "time": 1,
                                 "blink": 0, "speech": 0, "focus": true])
             }
-            scene.selectPose(.standing)
-            for variant in [("standing-blink", 1.0, 0.0), ("standing-speech", 0.0, 0.72)] {
-                scene.forceBlink = variant.1; scene.speechAmplitude = variant.2; scene.setDeterministicTime(2)
-                try save(scene: scene, view: view, url: request.directory.appendingPathComponent(variant.0 + ".png"))
-                records.append(["file": variant.0 + ".png", "pose": "standing", "time": 2,
-                                "blink": variant.1, "speech": variant.2, "focus": true])
+            for pose in request.poses.filter(\.isStanding) {
+                scene.selectPose(pose)
+                for variant in [("blink", 1.0, 0.0), ("speech", 0.0, 0.72)] {
+                    let name = "\(pose.rawValue)-\(variant.0)"
+                    scene.forceBlink = variant.1; scene.speechAmplitude = variant.2; scene.setDeterministicTime(2)
+                    try save(scene: scene, view: view, url: request.directory.appendingPathComponent(name + ".png"))
+                    records.append(["file": name + ".png", "pose": pose.rawValue, "time": 2,
+                                    "blink": variant.1, "speech": variant.2, "focus": true])
+                }
             }
         }
         let metadata: [String: Any] = ["canvas": [scene.size.width, scene.size.height],
@@ -70,7 +80,7 @@ enum SceneCapture {
     }
 
     private static func save(scene: SKScene, view: SKView, url: URL) throws {
-        guard let texture = view.texture(from: scene) else {
+        guard let texture = view.texture(from: scene, crop: CGRect(origin: .zero, size: scene.size)) else {
             throw NSError(domain: "AIBOUCapture", code: 1,
                           userInfo: [NSLocalizedDescriptionKey: "SpriteKit のフレーム取得に失敗しました。"])
         }

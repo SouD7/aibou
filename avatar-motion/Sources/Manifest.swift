@@ -43,18 +43,34 @@ struct Rect4: Codable, Equatable {
 }
 
 enum AvatarPoseID: String, CaseIterable, Codable, Identifiable {
-    case standing, sleeping, reading
+    case standing
+    case standingBackHands = "standing-back-hands"
+    case standingFrontHands = "standing-front-hands"
+    case sleeping, reading
+
+    static let primaryModes: [AvatarPoseID] = [.standing, .sleeping, .reading]
+    static let standingVariants: [AvatarPoseID] = [.standing, .standingBackHands, .standingFrontHands]
+
     var id: String { rawValue }
+    var isStanding: Bool { Self.standingVariants.contains(self) }
     var japaneseTitle: String {
         switch self {
-        case .standing: return "立つ"
+        case .standing, .standingBackHands, .standingFrontHands: return "立つ"
         case .sleeping: return "眠る"
         case .reading: return "読む"
         }
     }
+    var standingVariantTitle: String {
+        switch self {
+        case .standing: return "通常"
+        case .standingBackHands: return "後ろで組む"
+        case .standingFrontHands: return "前で組む"
+        case .sleeping, .reading: return japaneseTitle
+        }
+    }
     var symbol: String {
         switch self {
-        case .standing: return "figure.stand"
+        case .standing, .standingBackHands, .standingFrontHands: return "figure.stand"
         case .sleeping: return "bed.double.fill"
         case .reading: return "book.fill"
         }

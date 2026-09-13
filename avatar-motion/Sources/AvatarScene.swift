@@ -179,6 +179,7 @@ final class PoseVisual: SKNode {
 final class AvatarScene: SKScene {
     let manifest: RigManifest
     private let room: SKSpriteNode
+    var roomFrameIndex: Int { (room as? AnimatedRoomNode)?.frameIndex ?? 0 }
     private var visuals: [AvatarPoseID: PoseVisual] = [:]
     private(set) var currentPose: AvatarPoseID = .standing
     var motionStrength = 1.0
@@ -194,7 +195,10 @@ final class AvatarScene: SKScene {
     init(manifest: RigManifest, resourceDirectory: URL) throws {
         self.manifest = manifest
         let sceneSize = CGSize(width: manifest.canvas.x, height: manifest.canvas.y)
-        if let image = NSImage(contentsOf: resourceDirectory.appendingPathComponent("room.png")) {
+        let roomDirectory = resourceDirectory.appendingPathComponent("RoomAnimation")
+        if FileManager.default.fileExists(atPath: roomDirectory.appendingPathComponent("manifest.json").path) {
+            room = try AnimatedRoomNode(directory: roomDirectory, canvas: manifest.canvas)
+        } else if let image = NSImage(contentsOf: resourceDirectory.appendingPathComponent("room.png")) {
             room = SKSpriteNode(texture: SKTexture(image: image), size: sceneSize)
         } else {
             room = SKSpriteNode(color: NSColor(red: 0.12, green: 0.105, blue: 0.13, alpha: 1), size: sceneSize)
@@ -254,6 +258,7 @@ final class AvatarScene: SKScene {
     }
 
     func applyFrame(_ time: Double) {
+        (room as? AnimatedRoomNode)?.apply(time: time, reducedMotion: reducedMotion)
         let input = MotionInput(time: time, strength: motionStrength, reducedMotion: reducedMotion,
                                 speechAmplitude: speechAmplitude, forceBlink: forceBlink)
         visuals[currentPose]?.apply(input: input)
