@@ -1,6 +1,6 @@
 # AIBOU Monitor ソースコードレビュー
 
-> 最新：[独立レビューR4（22:14固定対象）](CODE_REVIEW_R4_2026-09-13.md)。判定COMMENT、新規MEDIUM 1・LOW 1。並行開発により確認対象時刻を固定しているため詳細の対象範囲を参照。前回の改善は[R3修正結果](R3_FIX_RESULTS.md)。
+> 最新：[最新版の独立再レビューR6](CODE_REVIEW_R6_2026-09-13.md)。判定COMMENT、新規MEDIUM 2（保存treeの親種別検証不足、nettopのPID不明行への前行帰属混入）。全テスト・ビルド・署名検証成功。前回の確定3修正は成立。既知の設計WATCHも継続。前回の改善は[R5修正結果](R5_FIX_RESULTS.md)。
 
 > 以下は2026-09-12の修正前レビューです。2026-09-13にコードを改善しました。最新の対応状況・再レビュー判定・検証は [REMEDIATION_RESULTS.md](REMEDIATION_RESULTS.md) を参照してください。
 

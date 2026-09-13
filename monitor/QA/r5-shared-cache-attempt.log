@@ -1,0 +1,31 @@
+Sources/MonitorStore.swift:112:39: error: type 'UserDefaults' has no member 'standard'
+110 |         archiveQueue = historyQueue
+111 |         archiveDirectory = directory
+112 |         historyEnabled = UserDefaults.standard.object(forKey: "saveAggregateHistory") as? Bool ?? true
+    |                                       `- error: type 'UserDefaults' has no member 'standard'
+113 |         if FileManager.default.fileExists(atPath: historyURL.path) {
+114 |             do {
+
+Sources/MonitorStore.swift:154:110: error: type 'OperationQueue?' has no member 'main'
+152 |         }
+153 |         let center = NSWorkspace.shared.notificationCenter
+154 |         observers.append(center.addObserver(forName: NSWorkspace.willSleepNotification, object: nil, queue: .main) { [weak self] _ in
+    |                                                                                                              `- error: type 'OperationQueue?' has no member 'main'
+155 |             Task { @MainActor in
+156 |                 guard let self else { return }
+
+Sources/MonitorStore.swift:162:108: error: type 'OperationQueue?' has no member 'main'
+160 |             }
+161 |         })
+162 |         observers.append(center.addObserver(forName: NSWorkspace.didWakeNotification, object: nil, queue: .main) { [weak self] _ in
+    |                                                                                                            `- error: type 'OperationQueue?' has no member 'main'
+163 |             Task { @MainActor in
+164 |                 guard let self else { return }
+
+Sources/MonitorStore.swift:247:22: error: type 'UserDefaults' has no member 'standard'
+245 |     func setHistoryEnabled(_ enabled: Bool) {
+246 |         historyEnabled = enabled
+247 |         UserDefaults.standard.set(enabled, forKey: "saveAggregateHistory")
+    |                      `- error: type 'UserDefaults' has no member 'standard'
+248 |         segment = UUID().uuidString
+249 |         message = enabled ? "全体集計の24時間保存を開始しました" : "新しい履歴の保存を停止しました。既存履歴は「履歴削除」で削除できます。"

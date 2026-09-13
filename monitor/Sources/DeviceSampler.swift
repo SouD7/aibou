@@ -44,24 +44,31 @@ final class DeviceSampler {
 
     private struct Cache {
         var date: Date
+        var expiresAt: ContinuousClock.Instant
         var devices: Acquisition<[ReadingRow]>
         var hardware: Acquisition<[ReadingRow]>
     }
 
     private let lock = NSLock()
     private var cache: Cache?
-    private let inventoryTTL: TimeInterval = 30
+    private let inventoryTTL: Duration = .seconds(30)
     private let registryReader: RegistryReader
     private let powerSourceReader: PowerSourceReader
+    private let wallClock: () -> Date
+    private let continuousClock: () -> ContinuousClock.Instant
 
     init(registryReader: @escaping RegistryReader = DeviceSampler.liveRegistryEntries,
-         powerSourceReader: @escaping PowerSourceReader = DeviceSampler.livePowerSources) {
+         powerSourceReader: @escaping PowerSourceReader = DeviceSampler.livePowerSources,
+         wallClock: @escaping () -> Date = { Date() },
+         continuousClock: @escaping () -> ContinuousClock.Instant = { ContinuousClock().now }) {
         self.registryReader = registryReader
         self.powerSourceReader = powerSourceReader
+        self.wallClock = wallClock
+        self.continuousClock = continuousClock
     }
 
     func sample() -> [PanelReading] {
-        let now = Date()
+        let now = wallClock()
         let inventory = cachedInventory(at: now)
         return [
             thermalPanel(at: now),
@@ -69,18 +76,18 @@ final class DeviceSampler {
             displayPanel(at: now),
             PanelReading(tab: .devices,
                          metrics: [acquisitionMetric("device_inventory_status", "外部機器一覧", inventory.devices,
-                                                     count: inventory.devices.value?.count, source: "IORegistry", at: now)],
+                                                     count: inventory.devices.value?.count, source: "IORegistry", at: inventory.date)],
                          columns: [TableColumn("kind", "接続方式"), TableColumn("vendor", "メーカー"), TableColumn("location", "接続位置")],
                          rows: inventory.devices.value ?? [],
                          notes: ["IORegistryを30秒ごとに再列挙します。接続・切断は前回一覧との差として呼び出し側で判定できます。シリアル番号は収集しません。"],
-                         capturedAt: now),
+                         capturedAt: inventory.date),
             PanelReading(tab: .hardware,
                          metrics: [acquisitionMetric("hardware_inventory_status", "ハードウェア一覧", inventory.hardware,
-                                                     count: inventory.hardware.value?.count, source: "sysctl / IORegistry", at: now)],
+                                                     count: inventory.hardware.value?.count, source: "sysctl / IORegistry", at: inventory.date)],
                          columns: [TableColumn("value", "値", width: 260), TableColumn("source", "取得元", width: 170)],
                          rows: inventory.hardware.value ?? [],
                          notes: ["macOSが公開する機種情報です。非公開の部品型番は推測しません。"],
-                         capturedAt: now)
+                         capturedAt: inventory.date)
         ]
     }
 
@@ -264,15 +271,17 @@ final class DeviceSampler {
                             rows: rows, notes: ["画素解像度と論理解像度を分離しています。"], capturedAt: now)
     }
 
-    private func cachedInventory(at now: Date) -> (devices: Acquisition<[ReadingRow]>, hardware: Acquisition<[ReadingRow]>) {
+    private func cachedInventory(at now: Date) -> Cache {
         lock.lock()
         defer { lock.unlock() }
-        if let cache, now.timeIntervalSince(cache.date) < inventoryTTL {
-            return (cache.devices, cache.hardware)
+        let instant = continuousClock()
+        if let cache, instant < cache.expiresAt {
+            return cache
         }
-        let result = (Self.externalDeviceRows(at: now, registryReader: registryReader),
-                      Self.hardwareRows(at: now, registryReader: registryReader))
-        cache = Cache(date: now, devices: result.0, hardware: result.1)
+        let result = Cache(date: now, expiresAt: instant.advanced(by: inventoryTTL),
+                           devices: Self.externalDeviceRows(at: now, registryReader: registryReader),
+                           hardware: Self.hardwareRows(at: now, registryReader: registryReader))
+        cache = result
         return result
     }
 

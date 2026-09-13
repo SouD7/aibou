@@ -63,6 +63,8 @@ struct DiagnosticEngine {
 
     mutating func reset() { runs.removeAll(); segment = nil }
 
+    /// Continuity requires a running producer with a stable segment (owned by MonitorStore).
+    /// One-shot snapshots reset continuity; evaluate can still assess their instantaneous rules.
     mutating func ingest(_ snapshot: ObservationSnapshot, now: Date) {
         guard snapshot.collection.state == .running,
               Self.collectionIssue(snapshot, now: now) == nil else { reset(); return }

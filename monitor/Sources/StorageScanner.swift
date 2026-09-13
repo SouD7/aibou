@@ -256,7 +256,13 @@ final class StorageScanner {
               result.status == .completed,
               !result.rootPath.isEmpty,
               result.nodes.count <= 500_000,
-              result.nodes.first?.id == result.rootPath,
+              let root = result.nodes.first,
+              root.id == result.rootPath, root.kind == .directory,
+              result.completedAt != nil,
+              result.scannedCount == result.nodes.count,
+              result.totalLogicalBytes == root.logicalBytes,
+              result.totalAllocatedBytes == root.allocatedBytes,
+              result.reportedErrorCount >= result.errors.count,
               Self.validTree(result.nodes) else { throw StorageScannerError.invalidSavedIndex }
         result.status = .saved
         return result
