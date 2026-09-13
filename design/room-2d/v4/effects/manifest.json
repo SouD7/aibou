@@ -1,0 +1,4392 @@
+{
+  "version": 4,
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "coordinateSpace": "source-image-pixels",
+  "frameDurationMs": 100,
+  "frameCount": 12,
+  "scenes": [
+    {
+      "id": "black-overview",
+      "source": "repairs/black-overview-cpu-source.png",
+      "display": {
+        "quad": [
+          [
+            812,
+            132
+          ],
+          [
+            941,
+            184
+          ],
+          [
+            941,
+            258
+          ],
+          [
+            812,
+            203
+          ]
+        ],
+        "screen": "black/overview/display-screen.png",
+        "blank": "black/overview/display-blank.png",
+        "blend": "source-over"
+      },
+      "battery": {
+        "polygon": [
+          [
+            276,
+            415
+          ],
+          [
+            333,
+            406
+          ],
+          [
+            338,
+            413
+          ],
+          [
+            337,
+            437
+          ],
+          [
+            329,
+            443
+          ],
+          [
+            271,
+            452
+          ],
+          [
+            264,
+            445
+          ],
+          [
+            265,
+            425
+          ]
+        ],
+        "indicator": "black/overview/battery-indicator.png",
+        "blend": "source-over"
+      },
+      "compute": {
+        "off": "black/overview/compute-off.png",
+        "on": "black/overview/compute-on.png",
+        "frames": [
+          "black/overview/compute-00.png",
+          "black/overview/compute-01.png",
+          "black/overview/compute-02.png",
+          "black/overview/compute-03.png",
+          "black/overview/compute-04.png",
+          "black/overview/compute-05.png",
+          "black/overview/compute-06.png",
+          "black/overview/compute-07.png",
+          "black/overview/compute-08.png",
+          "black/overview/compute-09.png",
+          "black/overview/compute-10.png",
+          "black/overview/compute-11.png"
+        ],
+        "roiPolygon": [
+          [
+            1153,
+            400
+          ],
+          [
+            1236,
+            354
+          ],
+          [
+            1390,
+            415
+          ],
+          [
+            1288,
+            465
+          ]
+        ],
+        "centers": [
+          [
+            1240.9,
+            358.1
+          ],
+          [
+            1232.8,
+            362.0
+          ],
+          [
+            1252.2,
+            362.9
+          ],
+          [
+            1244.8,
+            364.2
+          ],
+          [
+            1225.5,
+            366.2
+          ],
+          [
+            1217.6,
+            370.8
+          ],
+          [
+            1254.0,
+            369.6
+          ],
+          [
+            1264.8,
+            368.3
+          ],
+          [
+            1235.5,
+            370.5
+          ],
+          [
+            1245.6,
+            372.0
+          ],
+          [
+            1275.9,
+            372.0
+          ],
+          [
+            1209.5,
+            373.5
+          ],
+          [
+            1226.1,
+            374.4
+          ],
+          [
+            1266.4,
+            376.7
+          ],
+          [
+            1201.4,
+            378.1
+          ],
+          [
+            1238.6,
+            376.4
+          ],
+          [
+            1256.9,
+            374.9
+          ],
+          [
+            1287.8,
+            377.1
+          ],
+          [
+            1218.0,
+            379.0
+          ],
+          [
+            1233.6,
+            379.1
+          ],
+          [
+            1246.5,
+            379.5
+          ],
+          [
+            1278.0,
+            381.2
+          ],
+          [
+            1227.0,
+            383.0
+          ],
+          [
+            1239.8,
+            383.4
+          ],
+          [
+            1257.8,
+            382.0
+          ],
+          [
+            1209.5,
+            383.0
+          ],
+          [
+            1267.8,
+            385.5
+          ],
+          [
+            1289.5,
+            385.9
+          ],
+          [
+            1308.2,
+            385.6
+          ],
+          [
+            1218.1,
+            387.7
+          ],
+          [
+            1247.2,
+            387.1
+          ],
+          [
+            1181.9,
+            388.1
+          ],
+          [
+            1232.4,
+            389.3
+          ],
+          [
+            1258.2,
+            390.7
+          ],
+          [
+            1299.9,
+            390.4
+          ],
+          [
+            1199.5,
+            389.0
+          ],
+          [
+            1277.0,
+            389.5
+          ],
+          [
+            1173.5,
+            391.5
+          ],
+          [
+            1211.0,
+            392.5
+          ],
+          [
+            1288.8,
+            396.4
+          ],
+          [
+            1326.2,
+            393.2
+          ],
+          [
+            1169.5,
+            393.5
+          ],
+          [
+            1207.1,
+            394.6
+          ],
+          [
+            1248.2,
+            395.8
+          ],
+          [
+            1270.5,
+            393.0
+          ],
+          [
+            1199.7,
+            398.5
+          ],
+          [
+            1278.6,
+            396.6
+          ],
+          [
+            1318.0,
+            396.5
+          ],
+          [
+            1336.2,
+            398.0
+          ],
+          [
+            1169.2,
+            400.8
+          ],
+          [
+            1178.9,
+            396.9
+          ],
+          [
+            1185.1,
+            397.9
+          ],
+          [
+            1224.5,
+            397.0
+          ],
+          [
+            1264.0,
+            397.5
+          ],
+          [
+            1234.8,
+            402.4
+          ],
+          [
+            1327.9,
+            401.8
+          ],
+          [
+            1178.4,
+            405.6
+          ],
+          [
+            1192.2,
+            402.8
+          ],
+          [
+            1209.0,
+            403.3
+          ],
+          [
+            1225.7,
+            405.0
+          ],
+          [
+            1270.7,
+            404.4
+          ],
+          [
+            1186.4,
+            405.2
+          ],
+          [
+            1253.0,
+            403.0
+          ],
+          [
+            1278.5,
+            402.5
+          ],
+          [
+            1339.3,
+            405.8
+          ],
+          [
+            1355.3,
+            406.3
+          ],
+          [
+            1300.1,
+            405.1
+          ],
+          [
+            1319.5,
+            405.5
+          ],
+          [
+            1202.2,
+            407.5
+          ],
+          [
+            1218.1,
+            407.9
+          ],
+          [
+            1262.7,
+            407.5
+          ],
+          [
+            1289.6,
+            410.2
+          ],
+          [
+            1211.0,
+            412.0
+          ],
+          [
+            1236.4,
+            411.9
+          ],
+          [
+            1254.4,
+            413.4
+          ],
+          [
+            1328.3,
+            411.1
+          ],
+          [
+            1345.8,
+            411.0
+          ],
+          [
+            1193.6,
+            411.9
+          ],
+          [
+            1281.9,
+            412.9
+          ],
+          [
+            1202.8,
+            417.2
+          ],
+          [
+            1319.9,
+            415.6
+          ],
+          [
+            1356.6,
+            415.2
+          ],
+          [
+            1375.0,
+            414.3
+          ],
+          [
+            1246.4,
+            416.9
+          ],
+          [
+            1273.3,
+            419.2
+          ],
+          [
+            1300.6,
+            420.7
+          ],
+          [
+            1227.4,
+            417.7
+          ],
+          [
+            1329.8,
+            420.8
+          ],
+          [
+            1367.1,
+            419.3
+          ],
+          [
+            1293.5,
+            418.5
+          ],
+          [
+            1347.9,
+            419.4
+          ],
+          [
+            1236.7,
+            421.9
+          ],
+          [
+            1257.5,
+            423.4
+          ],
+          [
+            1308.5,
+            421.5
+          ],
+          [
+            1358.0,
+            423.8
+          ],
+          [
+            1218.1,
+            423.1
+          ],
+          [
+            1228.1,
+            428.3
+          ],
+          [
+            1248.6,
+            426.8
+          ],
+          [
+            1266.5,
+            427.7
+          ],
+          [
+            1290.6,
+            428.0
+          ],
+          [
+            1307.6,
+            428.2
+          ],
+          [
+            1337.5,
+            425.5
+          ],
+          [
+            1340.5,
+            424.5
+          ],
+          [
+            1348.6,
+            429.0
+          ],
+          [
+            1318.1,
+            426.8
+          ],
+          [
+            1258.0,
+            431.1
+          ],
+          [
+            1277.3,
+            432.4
+          ],
+          [
+            1284.1,
+            430.5
+          ],
+          [
+            1236.5,
+            430.5
+          ],
+          [
+            1240.5,
+            432.5
+          ],
+          [
+            1338.7,
+            434.6
+          ],
+          [
+            1319.0,
+            433.5
+          ],
+          [
+            1249.2,
+            437.9
+          ],
+          [
+            1269.6,
+            436.6
+          ],
+          [
+            1290.6,
+            437.4
+          ],
+          [
+            1310.3,
+            437.9
+          ],
+          [
+            1327.6,
+            438.6
+          ],
+          [
+            1261.0,
+            442.0
+          ],
+          [
+            1279.1,
+            441.6
+          ],
+          [
+            1300.8,
+            442.2
+          ],
+          [
+            1319.4,
+            443.4
+          ],
+          [
+            1270.4,
+            447.5
+          ],
+          [
+            1292.0,
+            446.3
+          ],
+          [
+            1310.8,
+            447.8
+          ],
+          [
+            1282.3,
+            451.5
+          ],
+          [
+            1302.3,
+            451.4
+          ],
+          [
+            1292.4,
+            457.1
+          ]
+        ],
+        "frameDurationMs": 100,
+        "placement": "right wall near front; engraved brain side",
+        "binaryMeaning": {
+          "0": "off",
+          "1": "on"
+        },
+        "offBase": "Entire top bulb field dimmed to remove baked-on lights; seeded independent bulb activation"
+      },
+      "fans": [
+        {
+          "id": "fan-1",
+          "center": [
+            979.802490234375,
+            159.47982788085938
+          ],
+          "worldCenter": [
+            0,
+            0.23,
+            0.72
+          ],
+          "wallQuad": [
+            [
+              936.3980712890625,
+              99.267333984375
+            ],
+            [
+              1023.5714721679688,
+              132.05984497070312
+            ],
+            [
+              1023.5714721679688,
+              220.063720703125
+            ],
+            [
+              936.3980712890625,
+              186.80465698242188
+            ]
+          ],
+          "worldQuad": [
+            [
+              0,
+              0.16125,
+              0.83
+            ],
+            [
+              0,
+              0.29875,
+              0.83
+            ],
+            [
+              0,
+              0.29875,
+              0.61
+            ],
+            [
+              0,
+              0.16125,
+              0.61
+            ]
+          ],
+          "canonicalToCanvas": [
+            [
+              0.32057621440415657,
+              0.0,
+              936.3980712890625
+            ],
+            [
+              0.1258525310210449,
+              0.34328361960018383,
+              99.267333984375
+            ],
+            [
+              -2.0790204447672045e-05,
+              0.0,
+              1.0
+            ]
+          ],
+          "bladeCount": 7,
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeFrames": [
+            "black/overview/fan-1/blades-frame-00.png",
+            "black/overview/fan-1/blades-frame-01.png",
+            "black/overview/fan-1/blades-frame-02.png",
+            "black/overview/fan-1/blades-frame-03.png",
+            "black/overview/fan-1/blades-frame-04.png",
+            "black/overview/fan-1/blades-frame-05.png",
+            "black/overview/fan-1/blades-frame-06.png",
+            "black/overview/fan-1/blades-frame-07.png",
+            "black/overview/fan-1/blades-frame-08.png",
+            "black/overview/fan-1/blades-frame-09.png",
+            "black/overview/fan-1/blades-frame-10.png",
+            "black/overview/fan-1/blades-frame-11.png"
+          ],
+          "fixedHousing": "black/overview/fan-1/fixed-housing.png",
+          "fixedGrille": "black/overview/fan-1/fixed-grille.png",
+          "fixedHub": "black/overview/fan-1/fixed-hub.png",
+          "bladesStatic": "black/overview/fan-1/blades-static.png",
+          "compositeStatic": "black/overview/fan-1/composite-static.png"
+        },
+        {
+          "id": "fan-2",
+          "center": [
+            1075.77490234375,
+            195.83912658691406
+          ],
+          "worldCenter": [
+            0,
+            0.38,
+            0.72
+          ],
+          "wallQuad": [
+            [
+              1031.5689697265625,
+              135.06832885742188
+            ],
+            [
+              1120.35546875,
+              168.46766662597656
+            ],
+            [
+              1120.35546875,
+              256.989501953125
+            ],
+            [
+              1031.5689697265625,
+              223.114990234375
+            ]
+          ],
+          "worldQuad": [
+            [
+              0,
+              0.31125,
+              0.83
+            ],
+            [
+              0,
+              0.44875,
+              0.83
+            ],
+            [
+              0,
+              0.44875,
+              0.61
+            ],
+            [
+              0,
+              0.31125,
+              0.61
+            ]
+          ],
+          "canonicalToCanvas": [
+            [
+              0.32459832849864373,
+              0.0,
+              1031.5689697265625
+            ],
+            [
+              0.12743147012490344,
+              0.34528102500765934,
+              135.06832885742188
+            ],
+            [
+              -2.1050479337415677e-05,
+              0.0,
+              1.0
+            ]
+          ],
+          "bladeCount": 7,
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeFrames": [
+            "black/overview/fan-2/blades-frame-00.png",
+            "black/overview/fan-2/blades-frame-01.png",
+            "black/overview/fan-2/blades-frame-02.png",
+            "black/overview/fan-2/blades-frame-03.png",
+            "black/overview/fan-2/blades-frame-04.png",
+            "black/overview/fan-2/blades-frame-05.png",
+            "black/overview/fan-2/blades-frame-06.png",
+            "black/overview/fan-2/blades-frame-07.png",
+            "black/overview/fan-2/blades-frame-08.png",
+            "black/overview/fan-2/blades-frame-09.png",
+            "black/overview/fan-2/blades-frame-10.png",
+            "black/overview/fan-2/blades-frame-11.png"
+          ],
+          "fixedHousing": "black/overview/fan-2/fixed-housing.png",
+          "fixedGrille": "black/overview/fan-2/fixed-grille.png",
+          "fixedHub": "black/overview/fan-2/fixed-hub.png",
+          "bladesStatic": "black/overview/fan-2/blades-static.png",
+          "compositeStatic": "black/overview/fan-2/composite-static.png"
+        }
+      ],
+      "clock": {
+        "center": [
+          668,
+          159
+        ],
+        "ellipse": {
+          "cx": 668,
+          "cy": 160,
+          "rx": 30,
+          "ry": 37,
+          "rotationDegrees": 8
+        },
+        "face": "black/overview/clock-face.png",
+        "blankFace": "black/overview/clock-face-blank.png",
+        "hands": "black/overview/clock-hands.png",
+        "hourHand": "black/overview/clock-hour-hand.png",
+        "minuteHand": "black/overview/clock-minute-hand.png",
+        "handEndpoints": {
+          "hour": [
+            654,
+            151
+          ],
+          "minute": [
+            679,
+            141
+          ]
+        },
+        "blend": "source-over"
+      },
+      "wiring": {
+        "id": "black-overview",
+        "inputBackground": "../scenes/black-overview/background.png",
+        "layering": [
+          "v2 background",
+          "wiring offBase",
+          "wiring pulse frame",
+          "all furniture/component layers",
+          "component-local animated effects"
+        ],
+        "offBase": "wiring/black-overview/off-base.png",
+        "frames": [
+          "wiring/black-overview/pulse-00.png",
+          "wiring/black-overview/pulse-01.png",
+          "wiring/black-overview/pulse-02.png",
+          "wiring/black-overview/pulse-03.png",
+          "wiring/black-overview/pulse-04.png",
+          "wiring/black-overview/pulse-05.png",
+          "wiring/black-overview/pulse-06.png",
+          "wiring/black-overview/pulse-07.png",
+          "wiring/black-overview/pulse-08.png",
+          "wiring/black-overview/pulse-09.png",
+          "wiring/black-overview/pulse-10.png",
+          "wiring/black-overview/pulse-11.png",
+          "wiring/black-overview/pulse-12.png",
+          "wiring/black-overview/pulse-13.png",
+          "wiring/black-overview/pulse-14.png",
+          "wiring/black-overview/pulse-15.png",
+          "wiring/black-overview/pulse-16.png",
+          "wiring/black-overview/pulse-17.png",
+          "wiring/black-overview/pulse-18.png",
+          "wiring/black-overview/pulse-19.png",
+          "wiring/black-overview/pulse-20.png",
+          "wiring/black-overview/pulse-21.png",
+          "wiring/black-overview/pulse-22.png",
+          "wiring/black-overview/pulse-23.png"
+        ],
+        "activePathCounts": [
+          7,
+          8,
+          8,
+          7,
+          8,
+          7,
+          7,
+          8,
+          7,
+          6,
+          7,
+          7,
+          6,
+          8,
+          7,
+          7,
+          8,
+          8,
+          7,
+          9,
+          8,
+          8,
+          9,
+          8
+        ],
+        "paths": [
+          {
+            "id": "wall-cap-left",
+            "color": "cyan",
+            "points": [
+              [
+                204,
+                262
+              ],
+              [
+                413,
+                185
+              ],
+              [
+                619,
+                111
+              ],
+              [
+                806,
+                44
+              ]
+            ]
+          },
+          {
+            "id": "wall-cap-right",
+            "color": "blue",
+            "points": [
+              [
+                867,
+                46
+              ],
+              [
+                1054,
+                123
+              ],
+              [
+                1264,
+                210
+              ],
+              [
+                1453,
+                288
+              ]
+            ]
+          },
+          {
+            "id": "left-wall-bus",
+            "color": "cyan",
+            "points": [
+              [
+                336,
+                246
+              ],
+              [
+                336,
+                349
+              ],
+              [
+                315,
+                379
+              ],
+              [
+                315,
+                481
+              ]
+            ]
+          },
+          {
+            "id": "left-wall-return",
+            "color": "lavender",
+            "points": [
+              [
+                271,
+                297
+              ],
+              [
+                271,
+                410
+              ],
+              [
+                286,
+                438
+              ],
+              [
+                286,
+                495
+              ]
+            ]
+          },
+          {
+            "id": "corner-left-bus",
+            "color": "cyan",
+            "points": [
+              [
+                754,
+                94
+              ],
+              [
+                754,
+                224
+              ],
+              [
+                739,
+                251
+              ],
+              [
+                739,
+                283
+              ]
+            ]
+          },
+          {
+            "id": "corner-right-bus",
+            "color": "blue",
+            "points": [
+              [
+                901,
+                91
+              ],
+              [
+                901,
+                221
+              ],
+              [
+                919,
+                251
+              ],
+              [
+                919,
+                287
+              ]
+            ]
+          },
+          {
+            "id": "right-wall-bus",
+            "color": "cyan",
+            "points": [
+              [
+                1282,
+                241
+              ],
+              [
+                1282,
+                338
+              ],
+              [
+                1308,
+                370
+              ],
+              [
+                1308,
+                477
+              ]
+            ]
+          },
+          {
+            "id": "right-wall-return",
+            "color": "lavender",
+            "points": [
+              [
+                1392,
+                294
+              ],
+              [
+                1392,
+                408
+              ],
+              [
+                1372,
+                438
+              ],
+              [
+                1372,
+                498
+              ]
+            ]
+          },
+          {
+            "id": "rear-floor-rail",
+            "color": "blue",
+            "points": [
+              [
+                292,
+                510
+              ],
+              [
+                548,
+                406
+              ],
+              [
+                814,
+                279
+              ],
+              [
+                1110,
+                404
+              ],
+              [
+                1381,
+                510
+              ]
+            ]
+          },
+          {
+            "id": "floor-left-outer",
+            "color": "lavender",
+            "points": [
+              [
+                287,
+                536
+              ],
+              [
+                341,
+                574
+              ],
+              [
+                337,
+                612
+              ],
+              [
+                449,
+                675
+              ],
+              [
+                573,
+                706
+              ]
+            ]
+          },
+          {
+            "id": "floor-left-inner",
+            "color": "cyan",
+            "points": [
+              [
+                412,
+                524
+              ],
+              [
+                449,
+                554
+              ],
+              [
+                410,
+                589
+              ],
+              [
+                521,
+                656
+              ],
+              [
+                667,
+                668
+              ]
+            ]
+          },
+          {
+            "id": "floor-right-inner",
+            "color": "cyan",
+            "points": [
+              [
+                1002,
+                659
+              ],
+              [
+                1110,
+                621
+              ],
+              [
+                1134,
+                575
+              ],
+              [
+                1260,
+                532
+              ]
+            ]
+          },
+          {
+            "id": "floor-right-outer",
+            "color": "lavender",
+            "points": [
+              [
+                1090,
+                718
+              ],
+              [
+                1208,
+                684
+              ],
+              [
+                1281,
+                637
+              ],
+              [
+                1369,
+                607
+              ],
+              [
+                1394,
+                559
+              ]
+            ]
+          },
+          {
+            "id": "front-rail-left",
+            "color": "blue",
+            "points": [
+              [
+                506,
+                735
+              ],
+              [
+                659,
+                809
+              ],
+              [
+                806,
+                895
+              ]
+            ]
+          },
+          {
+            "id": "front-rail-right",
+            "color": "cyan",
+            "points": [
+              [
+                867,
+                896
+              ],
+              [
+                1024,
+                810
+              ],
+              [
+                1193,
+                719
+              ]
+            ]
+          }
+        ],
+        "neutralization": {
+          "method": "Built-in imagegen unlit background replacement",
+          "source": "repairs/black-overview-background-off.png",
+          "coverage": "entire room background",
+          "opaqueReplacement": true
+        },
+        "frameDurationMs": 100,
+        "baseAlreadyApplied": true,
+        "z": 1
+      }
+    },
+    {
+      "id": "black-horizontal",
+      "source": "repairs/black-horizontal-cpu-source.png",
+      "display": {
+        "quad": [
+          [
+            718.2000122070312,
+            379.0
+          ],
+          [
+            905.1599731445312,
+            367.0
+          ],
+          [
+            905.1599731445312,
+            449.0
+          ],
+          [
+            718.2000122070312,
+            450.0
+          ]
+        ],
+        "screen": "black/horizontal/display-screen.png",
+        "blank": "black/horizontal/display-blank.png",
+        "blend": "source-over"
+      },
+      "battery": {
+        "polygon": [
+          [
+            148.0,
+            453.43
+          ],
+          [
+            236.0,
+            447.71
+          ],
+          [
+            240.0,
+            476.46
+          ],
+          [
+            147.0,
+            485.1
+          ]
+        ],
+        "indicator": "black/horizontal/battery-indicator.png",
+        "blend": "source-over"
+      },
+      "compute": {
+        "off": "black/horizontal/compute-off.png",
+        "on": "black/horizontal/compute-on.png",
+        "frames": [
+          "black/horizontal/compute-00.png",
+          "black/horizontal/compute-01.png",
+          "black/horizontal/compute-02.png",
+          "black/horizontal/compute-03.png",
+          "black/horizontal/compute-04.png",
+          "black/horizontal/compute-05.png",
+          "black/horizontal/compute-06.png",
+          "black/horizontal/compute-07.png",
+          "black/horizontal/compute-08.png",
+          "black/horizontal/compute-09.png",
+          "black/horizontal/compute-10.png",
+          "black/horizontal/compute-11.png"
+        ],
+        "roiPolygon": [
+          [
+            1403,
+            512
+          ],
+          [
+            1609,
+            510
+          ],
+          [
+            1581,
+            543
+          ],
+          [
+            1397,
+            537
+          ]
+        ],
+        "centers": [
+          [
+            1464.0,
+            513.5
+          ],
+          [
+            1479.6,
+            512.9
+          ],
+          [
+            1499.2,
+            516.7
+          ],
+          [
+            1522.1,
+            514.7
+          ],
+          [
+            1543.8,
+            514.7
+          ],
+          [
+            1567.5,
+            514.5
+          ],
+          [
+            1475.0,
+            515.0
+          ],
+          [
+            1485.4,
+            517.8
+          ],
+          [
+            1506.3,
+            515.9
+          ],
+          [
+            1586.6,
+            517.1
+          ],
+          [
+            1465.5,
+            517.5
+          ],
+          [
+            1469.5,
+            517.5
+          ],
+          [
+            1493.0,
+            519.3
+          ],
+          [
+            1516.4,
+            517.9
+          ],
+          [
+            1537.7,
+            517.5
+          ],
+          [
+            1561.7,
+            517.5
+          ],
+          [
+            1444.4,
+            520.4
+          ],
+          [
+            1449.9,
+            520.4
+          ],
+          [
+            1511.4,
+            520.1
+          ],
+          [
+            1528.4,
+            520.9
+          ],
+          [
+            1533.1,
+            519.6
+          ],
+          [
+            1572.0,
+            519.0
+          ],
+          [
+            1583.0,
+            520.0
+          ],
+          [
+            1436.9,
+            526.1
+          ],
+          [
+            1479.4,
+            524.1
+          ],
+          [
+            1504.5,
+            522.0
+          ],
+          [
+            1522.5,
+            522.7
+          ],
+          [
+            1487.5,
+            524.0
+          ],
+          [
+            1516.7,
+            525.5
+          ],
+          [
+            1535.5,
+            523.5
+          ],
+          [
+            1579.5,
+            523.0
+          ],
+          [
+            1428.0,
+            526.6
+          ],
+          [
+            1455.0,
+            525.0
+          ],
+          [
+            1573.4,
+            525.6
+          ],
+          [
+            1585.8,
+            526.4
+          ],
+          [
+            1419.7,
+            529.2
+          ],
+          [
+            1446.7,
+            527.5
+          ],
+          [
+            1502.7,
+            529.4
+          ],
+          [
+            1509.3,
+            529.7
+          ],
+          [
+            1536.9,
+            529.6
+          ],
+          [
+            1568.0,
+            528.0
+          ],
+          [
+            1579.4,
+            529.6
+          ],
+          [
+            1410.7,
+            533.1
+          ],
+          [
+            1489.5,
+            528.5
+          ],
+          [
+            1523.5,
+            529.5
+          ],
+          [
+            1547.4,
+            531.1
+          ],
+          [
+            1562.5,
+            531.0
+          ],
+          [
+            1451.3,
+            531.5
+          ],
+          [
+            1463.6,
+            532.1
+          ],
+          [
+            1488.5,
+            536.4
+          ],
+          [
+            1496.3,
+            532.5
+          ],
+          [
+            1531.5,
+            534.2
+          ],
+          [
+            1572.5,
+            533.2
+          ],
+          [
+            1425.5,
+            535.5
+          ],
+          [
+            1457.7,
+            536.9
+          ],
+          [
+            1477.5,
+            533.5
+          ],
+          [
+            1515.9,
+            534.4
+          ],
+          [
+            1541.1,
+            534.1
+          ],
+          [
+            1502.0,
+            535.5
+          ],
+          [
+            1549.9,
+            536.4
+          ],
+          [
+            1564.5,
+            537.0
+          ],
+          [
+            1521.2,
+            539.3
+          ],
+          [
+            1556.2,
+            540.8
+          ]
+        ],
+        "frameDurationMs": 100,
+        "placement": "right wall near front; engraved brain side",
+        "binaryMeaning": {
+          "0": "off",
+          "1": "on"
+        },
+        "offBase": "Entire top bulb field dimmed to remove baked-on lights; seeded independent bulb activation"
+      },
+      "fans": [
+        {
+          "id": "fan-1",
+          "center": [
+            936.4877319335938,
+            327.6282653808594
+          ],
+          "worldCenter": [
+            0,
+            0.23,
+            0.72
+          ],
+          "wallQuad": [
+            [
+              897.8826293945312,
+              292.003662109375
+            ],
+            [
+              977.2875366210938,
+              282.4747009277344
+            ],
+            [
+              977.2875366210938,
+              365.2781066894531
+            ],
+            [
+              897.8826293945312,
+              370.3529052734375
+            ]
+          ],
+          "worldQuad": [
+            [
+              0,
+              0.16125,
+              0.83
+            ],
+            [
+              0,
+              0.29875,
+              0.83
+            ],
+            [
+              0,
+              0.29875,
+              0.61
+            ],
+            [
+              0,
+              0.16125,
+              0.61
+            ]
+          ],
+          "canonicalToCanvas": [
+            [
+              0.1052338445283576,
+              0.0,
+              897.8826293945312
+            ],
+            [
+              -0.09695626253648444,
+              0.3072519339767157,
+              292.003662109375
+            ],
+            [
+              -0.00021094911742059708,
+              0.0,
+              1.0
+            ]
+          ],
+          "bladeCount": 7,
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeFrames": [
+            "black/horizontal/fan-1/blades-frame-00.png",
+            "black/horizontal/fan-1/blades-frame-01.png",
+            "black/horizontal/fan-1/blades-frame-02.png",
+            "black/horizontal/fan-1/blades-frame-03.png",
+            "black/horizontal/fan-1/blades-frame-04.png",
+            "black/horizontal/fan-1/blades-frame-05.png",
+            "black/horizontal/fan-1/blades-frame-06.png",
+            "black/horizontal/fan-1/blades-frame-07.png",
+            "black/horizontal/fan-1/blades-frame-08.png",
+            "black/horizontal/fan-1/blades-frame-09.png",
+            "black/horizontal/fan-1/blades-frame-10.png",
+            "black/horizontal/fan-1/blades-frame-11.png"
+          ],
+          "fixedHousing": "black/horizontal/fan-1/fixed-housing.png",
+          "fixedGrille": "black/horizontal/fan-1/fixed-grille.png",
+          "fixedHub": "black/horizontal/fan-1/fixed-hub.png",
+          "bladesStatic": "black/horizontal/fan-1/blades-static.png",
+          "compositeStatic": "black/horizontal/fan-1/composite-static.png"
+        },
+        {
+          "id": "fan-2",
+          "center": [
+            1028.599853515625,
+            319.1578369140625
+          ],
+          "worldCenter": [
+            0,
+            0.38,
+            0.72
+          ],
+          "wallQuad": [
+            [
+              984.9561767578125,
+              281.5544128417969
+            ],
+            [
+              1074.888671875,
+              270.7620849609375
+            ],
+            [
+              1074.888671875,
+              359.04034423828125
+            ],
+            [
+              984.9561767578125,
+              364.7879943847656
+            ]
+          ],
+          "worldQuad": [
+            [
+              0,
+              0.31125,
+              0.83
+            ],
+            [
+              0,
+              0.44875,
+              0.83
+            ],
+            [
+              0,
+              0.44875,
+              0.61
+            ],
+            [
+              0,
+              0.31125,
+              0.61
+            ]
+          ],
+          "canonicalToCanvas": [
+            [
+              0.11179525425489129,
+              0.0,
+              984.9561767578125
+            ],
+            [
+              -0.10300029042136995,
+              0.3264062021292892,
+              281.5544128417969
+            ],
+            [
+              -0.00022409872898723296,
+              0.0,
+              1.0
+            ]
+          ],
+          "bladeCount": 7,
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeFrames": [
+            "black/horizontal/fan-2/blades-frame-00.png",
+            "black/horizontal/fan-2/blades-frame-01.png",
+            "black/horizontal/fan-2/blades-frame-02.png",
+            "black/horizontal/fan-2/blades-frame-03.png",
+            "black/horizontal/fan-2/blades-frame-04.png",
+            "black/horizontal/fan-2/blades-frame-05.png",
+            "black/horizontal/fan-2/blades-frame-06.png",
+            "black/horizontal/fan-2/blades-frame-07.png",
+            "black/horizontal/fan-2/blades-frame-08.png",
+            "black/horizontal/fan-2/blades-frame-09.png",
+            "black/horizontal/fan-2/blades-frame-10.png",
+            "black/horizontal/fan-2/blades-frame-11.png"
+          ],
+          "fixedHousing": "black/horizontal/fan-2/fixed-housing.png",
+          "fixedGrille": "black/horizontal/fan-2/fixed-grille.png",
+          "fixedHub": "black/horizontal/fan-2/fixed-hub.png",
+          "bladesStatic": "black/horizontal/fan-2/blades-static.png",
+          "compositeStatic": "black/horizontal/fan-2/composite-static.png"
+        }
+      ],
+      "clock": {
+        "center": [
+          675,
+          330
+        ],
+        "ellipse": {
+          "cx": 675,
+          "cy": 330,
+          "rx": 28,
+          "ry": 37,
+          "rotationDegrees": 0
+        },
+        "face": "black/horizontal/clock-face.png",
+        "blankFace": "black/horizontal/clock-face-blank.png",
+        "hands": "black/horizontal/clock-hands.png",
+        "hourHand": "black/horizontal/clock-hour-hand.png",
+        "minuteHand": "black/horizontal/clock-minute-hand.png",
+        "handEndpoints": {
+          "hour": [
+            693,
+            311
+          ],
+          "minute": [
+            650,
+            309
+          ]
+        },
+        "blend": "source-over"
+      },
+      "wiring": {
+        "id": "black-horizontal",
+        "inputBackground": "../scenes/black-horizontal/background.png",
+        "layering": [
+          "v2 background",
+          "wiring offBase",
+          "wiring pulse frame",
+          "all furniture/component layers",
+          "component-local animated effects"
+        ],
+        "offBase": "wiring/black-horizontal/off-base.png",
+        "frames": [
+          "wiring/black-horizontal/pulse-00.png",
+          "wiring/black-horizontal/pulse-01.png",
+          "wiring/black-horizontal/pulse-02.png",
+          "wiring/black-horizontal/pulse-03.png",
+          "wiring/black-horizontal/pulse-04.png",
+          "wiring/black-horizontal/pulse-05.png",
+          "wiring/black-horizontal/pulse-06.png",
+          "wiring/black-horizontal/pulse-07.png",
+          "wiring/black-horizontal/pulse-08.png",
+          "wiring/black-horizontal/pulse-09.png",
+          "wiring/black-horizontal/pulse-10.png",
+          "wiring/black-horizontal/pulse-11.png",
+          "wiring/black-horizontal/pulse-12.png",
+          "wiring/black-horizontal/pulse-13.png",
+          "wiring/black-horizontal/pulse-14.png",
+          "wiring/black-horizontal/pulse-15.png",
+          "wiring/black-horizontal/pulse-16.png",
+          "wiring/black-horizontal/pulse-17.png",
+          "wiring/black-horizontal/pulse-18.png",
+          "wiring/black-horizontal/pulse-19.png",
+          "wiring/black-horizontal/pulse-20.png",
+          "wiring/black-horizontal/pulse-21.png",
+          "wiring/black-horizontal/pulse-22.png",
+          "wiring/black-horizontal/pulse-23.png"
+        ],
+        "activePathCounts": [
+          7,
+          8,
+          8,
+          7,
+          8,
+          7,
+          7,
+          7,
+          6,
+          5,
+          6,
+          6,
+          5,
+          7,
+          6,
+          6,
+          7,
+          7,
+          6,
+          8,
+          8,
+          8,
+          9,
+          8
+        ],
+        "paths": [
+          {
+            "id": "ceiling-left",
+            "color": "blue",
+            "points": [
+              [
+                319,
+                59
+              ],
+              [
+                511,
+                111
+              ],
+              [
+                696,
+                159
+              ],
+              [
+                834,
+                207
+              ]
+            ]
+          },
+          {
+            "id": "ceiling-right",
+            "color": "lavender",
+            "points": [
+              [
+                836,
+                207
+              ],
+              [
+                1042,
+                151
+              ],
+              [
+                1244,
+                99
+              ],
+              [
+                1343,
+                71
+              ]
+            ]
+          },
+          {
+            "id": "wall-rail-left",
+            "color": "cyan",
+            "points": [
+              [
+                102,
+                128
+              ],
+              [
+                303,
+                154
+              ],
+              [
+                505,
+                181
+              ],
+              [
+                755,
+                218
+              ]
+            ]
+          },
+          {
+            "id": "wall-rail-right",
+            "color": "blue",
+            "points": [
+              [
+                865,
+                220
+              ],
+              [
+                1116,
+                180
+              ],
+              [
+                1362,
+                139
+              ],
+              [
+                1573,
+                105
+              ]
+            ]
+          },
+          {
+            "id": "left-bus",
+            "color": "cyan",
+            "points": [
+              [
+                178,
+                168
+              ],
+              [
+                178,
+                322
+              ],
+              [
+                144,
+                365
+              ],
+              [
+                144,
+                512
+              ],
+              [
+                164,
+                548
+              ]
+            ]
+          },
+          {
+            "id": "left-return",
+            "color": "lavender",
+            "points": [
+              [
+                114,
+                171
+              ],
+              [
+                114,
+                350
+              ],
+              [
+                132,
+                382
+              ],
+              [
+                132,
+                530
+              ]
+            ]
+          },
+          {
+            "id": "center-left-bus",
+            "color": "blue",
+            "points": [
+              [
+                721,
+                267
+              ],
+              [
+                721,
+                410
+              ],
+              [
+                701,
+                451
+              ],
+              [
+                701,
+                546
+              ]
+            ]
+          },
+          {
+            "id": "center-right-bus",
+            "color": "lavender",
+            "points": [
+              [
+                858,
+                306
+              ],
+              [
+                858,
+                417
+              ],
+              [
+                876,
+                454
+              ],
+              [
+                876,
+                548
+              ]
+            ]
+          },
+          {
+            "id": "right-bus",
+            "color": "cyan",
+            "points": [
+              [
+                1448,
+                154
+              ],
+              [
+                1448,
+                323
+              ],
+              [
+                1474,
+                356
+              ],
+              [
+                1474,
+                542
+              ]
+            ]
+          },
+          {
+            "id": "right-return",
+            "color": "lavender",
+            "points": [
+              [
+                1549,
+                170
+              ],
+              [
+                1549,
+                351
+              ],
+              [
+                1522,
+                391
+              ],
+              [
+                1522,
+                548
+              ]
+            ]
+          },
+          {
+            "id": "floor-back-left",
+            "color": "cyan",
+            "points": [
+              [
+                83,
+                645
+              ],
+              [
+                317,
+                619
+              ],
+              [
+                550,
+                592
+              ],
+              [
+                789,
+                570
+              ]
+            ]
+          },
+          {
+            "id": "floor-back-right",
+            "color": "blue",
+            "points": [
+              [
+                840,
+                570
+              ],
+              [
+                1064,
+                592
+              ],
+              [
+                1303,
+                620
+              ],
+              [
+                1552,
+                645
+              ]
+            ]
+          },
+          {
+            "id": "floor-front-left",
+            "color": "lavender",
+            "points": [
+              [
+                96,
+                683
+              ],
+              [
+                270,
+                755
+              ],
+              [
+                191,
+                863
+              ],
+              [
+                314,
+                941
+              ]
+            ]
+          },
+          {
+            "id": "floor-front-right",
+            "color": "cyan",
+            "points": [
+              [
+                1575,
+                684
+              ],
+              [
+                1487,
+                781
+              ],
+              [
+                1535,
+                850
+              ],
+              [
+                1481,
+                941
+              ]
+            ]
+          }
+        ],
+        "neutralization": {
+          "method": "Built-in imagegen unlit background replacement",
+          "source": "repairs/black-horizontal-background-off.png",
+          "coverage": "entire room background",
+          "opaqueReplacement": true
+        },
+        "frameDurationMs": 100,
+        "baseAlreadyApplied": true,
+        "z": 1
+      }
+    },
+    {
+      "id": "white-overview",
+      "source": "repairs/white-overview-cpu-source.png",
+      "display": {
+        "quad": [
+          [
+            812,
+            132
+          ],
+          [
+            941,
+            184
+          ],
+          [
+            941,
+            258
+          ],
+          [
+            812,
+            203
+          ]
+        ],
+        "screen": "white/overview/display-screen.png",
+        "blank": "white/overview/display-blank.png",
+        "blend": "source-over"
+      },
+      "battery": {
+        "polygon": [
+          [
+            276,
+            415
+          ],
+          [
+            333,
+            406
+          ],
+          [
+            338,
+            413
+          ],
+          [
+            337,
+            437
+          ],
+          [
+            329,
+            443
+          ],
+          [
+            271,
+            452
+          ],
+          [
+            264,
+            445
+          ],
+          [
+            265,
+            425
+          ]
+        ],
+        "indicator": "white/overview/battery-indicator.png",
+        "blend": "source-over"
+      },
+      "compute": {
+        "off": "white/overview/compute-off.png",
+        "on": "white/overview/compute-on.png",
+        "frames": [
+          "white/overview/compute-00.png",
+          "white/overview/compute-01.png",
+          "white/overview/compute-02.png",
+          "white/overview/compute-03.png",
+          "white/overview/compute-04.png",
+          "white/overview/compute-05.png",
+          "white/overview/compute-06.png",
+          "white/overview/compute-07.png",
+          "white/overview/compute-08.png",
+          "white/overview/compute-09.png",
+          "white/overview/compute-10.png",
+          "white/overview/compute-11.png"
+        ],
+        "roiPolygon": [
+          [
+            1153,
+            400
+          ],
+          [
+            1236,
+            354
+          ],
+          [
+            1390,
+            415
+          ],
+          [
+            1288,
+            465
+          ]
+        ],
+        "centers": [
+          [
+            1240.9,
+            358.1
+          ],
+          [
+            1232.8,
+            362.0
+          ],
+          [
+            1252.2,
+            362.9
+          ],
+          [
+            1244.8,
+            364.2
+          ],
+          [
+            1225.5,
+            366.2
+          ],
+          [
+            1217.6,
+            370.8
+          ],
+          [
+            1254.0,
+            369.6
+          ],
+          [
+            1264.8,
+            368.3
+          ],
+          [
+            1235.5,
+            370.5
+          ],
+          [
+            1245.6,
+            372.0
+          ],
+          [
+            1275.9,
+            372.0
+          ],
+          [
+            1209.5,
+            373.5
+          ],
+          [
+            1226.1,
+            374.4
+          ],
+          [
+            1266.4,
+            376.7
+          ],
+          [
+            1201.4,
+            378.1
+          ],
+          [
+            1238.6,
+            376.4
+          ],
+          [
+            1256.9,
+            374.9
+          ],
+          [
+            1287.8,
+            377.1
+          ],
+          [
+            1218.0,
+            379.0
+          ],
+          [
+            1233.6,
+            379.1
+          ],
+          [
+            1246.5,
+            379.5
+          ],
+          [
+            1278.0,
+            381.2
+          ],
+          [
+            1227.0,
+            383.0
+          ],
+          [
+            1239.8,
+            383.4
+          ],
+          [
+            1257.8,
+            382.0
+          ],
+          [
+            1209.5,
+            383.0
+          ],
+          [
+            1267.8,
+            385.5
+          ],
+          [
+            1289.5,
+            385.9
+          ],
+          [
+            1308.2,
+            385.6
+          ],
+          [
+            1218.1,
+            387.7
+          ],
+          [
+            1247.2,
+            387.1
+          ],
+          [
+            1181.9,
+            388.1
+          ],
+          [
+            1232.4,
+            389.3
+          ],
+          [
+            1258.2,
+            390.7
+          ],
+          [
+            1299.9,
+            390.4
+          ],
+          [
+            1199.5,
+            389.0
+          ],
+          [
+            1277.0,
+            389.5
+          ],
+          [
+            1173.5,
+            391.5
+          ],
+          [
+            1211.0,
+            392.5
+          ],
+          [
+            1288.8,
+            396.4
+          ],
+          [
+            1326.2,
+            393.2
+          ],
+          [
+            1169.5,
+            393.5
+          ],
+          [
+            1207.1,
+            394.6
+          ],
+          [
+            1248.2,
+            395.8
+          ],
+          [
+            1270.5,
+            393.0
+          ],
+          [
+            1199.7,
+            398.5
+          ],
+          [
+            1278.6,
+            396.6
+          ],
+          [
+            1318.0,
+            396.5
+          ],
+          [
+            1336.2,
+            398.0
+          ],
+          [
+            1169.2,
+            400.8
+          ],
+          [
+            1178.9,
+            396.9
+          ],
+          [
+            1185.1,
+            397.9
+          ],
+          [
+            1224.5,
+            397.0
+          ],
+          [
+            1264.0,
+            397.5
+          ],
+          [
+            1234.8,
+            402.4
+          ],
+          [
+            1327.9,
+            401.8
+          ],
+          [
+            1178.4,
+            405.6
+          ],
+          [
+            1192.2,
+            402.8
+          ],
+          [
+            1209.0,
+            403.3
+          ],
+          [
+            1225.7,
+            405.0
+          ],
+          [
+            1270.7,
+            404.4
+          ],
+          [
+            1186.4,
+            405.2
+          ],
+          [
+            1253.0,
+            403.0
+          ],
+          [
+            1278.5,
+            402.5
+          ],
+          [
+            1339.3,
+            405.8
+          ],
+          [
+            1355.3,
+            406.3
+          ],
+          [
+            1300.1,
+            405.1
+          ],
+          [
+            1319.5,
+            405.5
+          ],
+          [
+            1202.2,
+            407.5
+          ],
+          [
+            1218.1,
+            407.9
+          ],
+          [
+            1262.7,
+            407.5
+          ],
+          [
+            1289.6,
+            410.2
+          ],
+          [
+            1211.0,
+            412.0
+          ],
+          [
+            1236.4,
+            411.9
+          ],
+          [
+            1254.4,
+            413.4
+          ],
+          [
+            1328.3,
+            411.1
+          ],
+          [
+            1345.8,
+            411.0
+          ],
+          [
+            1193.6,
+            411.9
+          ],
+          [
+            1281.9,
+            412.9
+          ],
+          [
+            1202.8,
+            417.2
+          ],
+          [
+            1319.9,
+            415.6
+          ],
+          [
+            1356.6,
+            415.2
+          ],
+          [
+            1375.0,
+            414.3
+          ],
+          [
+            1246.4,
+            416.9
+          ],
+          [
+            1273.3,
+            419.2
+          ],
+          [
+            1300.6,
+            420.7
+          ],
+          [
+            1227.4,
+            417.7
+          ],
+          [
+            1329.8,
+            420.8
+          ],
+          [
+            1367.1,
+            419.3
+          ],
+          [
+            1293.5,
+            418.5
+          ],
+          [
+            1347.9,
+            419.4
+          ],
+          [
+            1236.7,
+            421.9
+          ],
+          [
+            1257.5,
+            423.4
+          ],
+          [
+            1308.5,
+            421.5
+          ],
+          [
+            1358.0,
+            423.8
+          ],
+          [
+            1218.1,
+            423.1
+          ],
+          [
+            1228.1,
+            428.3
+          ],
+          [
+            1248.6,
+            426.8
+          ],
+          [
+            1266.5,
+            427.7
+          ],
+          [
+            1290.6,
+            428.0
+          ],
+          [
+            1307.6,
+            428.2
+          ],
+          [
+            1337.5,
+            425.5
+          ],
+          [
+            1340.5,
+            424.5
+          ],
+          [
+            1348.6,
+            429.0
+          ],
+          [
+            1318.1,
+            426.8
+          ],
+          [
+            1258.0,
+            431.1
+          ],
+          [
+            1277.3,
+            432.4
+          ],
+          [
+            1284.1,
+            430.5
+          ],
+          [
+            1236.5,
+            430.5
+          ],
+          [
+            1240.5,
+            432.5
+          ],
+          [
+            1338.7,
+            434.6
+          ],
+          [
+            1319.0,
+            433.5
+          ],
+          [
+            1249.2,
+            437.9
+          ],
+          [
+            1269.6,
+            436.6
+          ],
+          [
+            1290.6,
+            437.4
+          ],
+          [
+            1310.3,
+            437.9
+          ],
+          [
+            1327.6,
+            438.6
+          ],
+          [
+            1261.0,
+            442.0
+          ],
+          [
+            1279.1,
+            441.6
+          ],
+          [
+            1300.8,
+            442.2
+          ],
+          [
+            1319.4,
+            443.4
+          ],
+          [
+            1270.4,
+            447.5
+          ],
+          [
+            1292.0,
+            446.3
+          ],
+          [
+            1310.8,
+            447.8
+          ],
+          [
+            1282.3,
+            451.5
+          ],
+          [
+            1302.3,
+            451.4
+          ],
+          [
+            1292.4,
+            457.1
+          ]
+        ],
+        "frameDurationMs": 100,
+        "placement": "right wall near front; engraved brain side",
+        "binaryMeaning": {
+          "0": "off",
+          "1": "on"
+        },
+        "offBase": "Entire top bulb field dimmed to remove baked-on lights; seeded independent bulb activation"
+      },
+      "fans": [
+        {
+          "id": "fan-1",
+          "center": [
+            979.802490234375,
+            159.47982788085938
+          ],
+          "worldCenter": [
+            0,
+            0.23,
+            0.72
+          ],
+          "wallQuad": [
+            [
+              936.3980712890625,
+              99.267333984375
+            ],
+            [
+              1023.5714721679688,
+              132.05984497070312
+            ],
+            [
+              1023.5714721679688,
+              220.063720703125
+            ],
+            [
+              936.3980712890625,
+              186.80465698242188
+            ]
+          ],
+          "worldQuad": [
+            [
+              0,
+              0.16125,
+              0.83
+            ],
+            [
+              0,
+              0.29875,
+              0.83
+            ],
+            [
+              0,
+              0.29875,
+              0.61
+            ],
+            [
+              0,
+              0.16125,
+              0.61
+            ]
+          ],
+          "canonicalToCanvas": [
+            [
+              0.32057621440415657,
+              0.0,
+              936.3980712890625
+            ],
+            [
+              0.1258525310210449,
+              0.34328361960018383,
+              99.267333984375
+            ],
+            [
+              -2.0790204447672045e-05,
+              0.0,
+              1.0
+            ]
+          ],
+          "bladeCount": 7,
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeFrames": [
+            "white/overview/fan-1/blades-frame-00.png",
+            "white/overview/fan-1/blades-frame-01.png",
+            "white/overview/fan-1/blades-frame-02.png",
+            "white/overview/fan-1/blades-frame-03.png",
+            "white/overview/fan-1/blades-frame-04.png",
+            "white/overview/fan-1/blades-frame-05.png",
+            "white/overview/fan-1/blades-frame-06.png",
+            "white/overview/fan-1/blades-frame-07.png",
+            "white/overview/fan-1/blades-frame-08.png",
+            "white/overview/fan-1/blades-frame-09.png",
+            "white/overview/fan-1/blades-frame-10.png",
+            "white/overview/fan-1/blades-frame-11.png"
+          ],
+          "fixedHousing": "white/overview/fan-1/fixed-housing.png",
+          "fixedGrille": "white/overview/fan-1/fixed-grille.png",
+          "fixedHub": "white/overview/fan-1/fixed-hub.png",
+          "bladesStatic": "white/overview/fan-1/blades-static.png",
+          "compositeStatic": "white/overview/fan-1/composite-static.png"
+        },
+        {
+          "id": "fan-2",
+          "center": [
+            1075.77490234375,
+            195.83912658691406
+          ],
+          "worldCenter": [
+            0,
+            0.38,
+            0.72
+          ],
+          "wallQuad": [
+            [
+              1031.5689697265625,
+              135.06832885742188
+            ],
+            [
+              1120.35546875,
+              168.46766662597656
+            ],
+            [
+              1120.35546875,
+              256.989501953125
+            ],
+            [
+              1031.5689697265625,
+              223.114990234375
+            ]
+          ],
+          "worldQuad": [
+            [
+              0,
+              0.31125,
+              0.83
+            ],
+            [
+              0,
+              0.44875,
+              0.83
+            ],
+            [
+              0,
+              0.44875,
+              0.61
+            ],
+            [
+              0,
+              0.31125,
+              0.61
+            ]
+          ],
+          "canonicalToCanvas": [
+            [
+              0.32459832849864373,
+              0.0,
+              1031.5689697265625
+            ],
+            [
+              0.12743147012490344,
+              0.34528102500765934,
+              135.06832885742188
+            ],
+            [
+              -2.1050479337415677e-05,
+              0.0,
+              1.0
+            ]
+          ],
+          "bladeCount": 7,
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeFrames": [
+            "white/overview/fan-2/blades-frame-00.png",
+            "white/overview/fan-2/blades-frame-01.png",
+            "white/overview/fan-2/blades-frame-02.png",
+            "white/overview/fan-2/blades-frame-03.png",
+            "white/overview/fan-2/blades-frame-04.png",
+            "white/overview/fan-2/blades-frame-05.png",
+            "white/overview/fan-2/blades-frame-06.png",
+            "white/overview/fan-2/blades-frame-07.png",
+            "white/overview/fan-2/blades-frame-08.png",
+            "white/overview/fan-2/blades-frame-09.png",
+            "white/overview/fan-2/blades-frame-10.png",
+            "white/overview/fan-2/blades-frame-11.png"
+          ],
+          "fixedHousing": "white/overview/fan-2/fixed-housing.png",
+          "fixedGrille": "white/overview/fan-2/fixed-grille.png",
+          "fixedHub": "white/overview/fan-2/fixed-hub.png",
+          "bladesStatic": "white/overview/fan-2/blades-static.png",
+          "compositeStatic": "white/overview/fan-2/composite-static.png"
+        }
+      ],
+      "clock": {
+        "center": [
+          668,
+          159
+        ],
+        "ellipse": {
+          "cx": 668,
+          "cy": 160,
+          "rx": 30,
+          "ry": 37,
+          "rotationDegrees": 8
+        },
+        "face": "white/overview/clock-face.png",
+        "blankFace": "white/overview/clock-face-blank.png",
+        "hands": "white/overview/clock-hands.png",
+        "hourHand": "white/overview/clock-hour-hand.png",
+        "minuteHand": "white/overview/clock-minute-hand.png",
+        "handEndpoints": {
+          "hour": [
+            654,
+            151
+          ],
+          "minute": [
+            679,
+            141
+          ]
+        },
+        "blend": "source-over"
+      },
+      "wiring": {
+        "id": "white-overview",
+        "inputBackground": "../scenes/white-overview/background.png",
+        "layering": [
+          "v2 background",
+          "wiring offBase",
+          "wiring pulse frame",
+          "all furniture/component layers",
+          "component-local animated effects"
+        ],
+        "offBase": "wiring/white-overview/off-base.png",
+        "frames": [
+          "wiring/white-overview/pulse-00.png",
+          "wiring/white-overview/pulse-01.png",
+          "wiring/white-overview/pulse-02.png",
+          "wiring/white-overview/pulse-03.png",
+          "wiring/white-overview/pulse-04.png",
+          "wiring/white-overview/pulse-05.png",
+          "wiring/white-overview/pulse-06.png",
+          "wiring/white-overview/pulse-07.png",
+          "wiring/white-overview/pulse-08.png",
+          "wiring/white-overview/pulse-09.png",
+          "wiring/white-overview/pulse-10.png",
+          "wiring/white-overview/pulse-11.png",
+          "wiring/white-overview/pulse-12.png",
+          "wiring/white-overview/pulse-13.png",
+          "wiring/white-overview/pulse-14.png",
+          "wiring/white-overview/pulse-15.png",
+          "wiring/white-overview/pulse-16.png",
+          "wiring/white-overview/pulse-17.png",
+          "wiring/white-overview/pulse-18.png",
+          "wiring/white-overview/pulse-19.png",
+          "wiring/white-overview/pulse-20.png",
+          "wiring/white-overview/pulse-21.png",
+          "wiring/white-overview/pulse-22.png",
+          "wiring/white-overview/pulse-23.png"
+        ],
+        "activePathCounts": [
+          7,
+          8,
+          8,
+          7,
+          8,
+          7,
+          7,
+          8,
+          7,
+          6,
+          7,
+          7,
+          6,
+          8,
+          7,
+          7,
+          8,
+          8,
+          7,
+          9,
+          8,
+          8,
+          9,
+          8
+        ],
+        "paths": [
+          {
+            "id": "wall-cap-left",
+            "color": "cyan",
+            "points": [
+              [
+                204,
+                262
+              ],
+              [
+                413,
+                185
+              ],
+              [
+                619,
+                111
+              ],
+              [
+                806,
+                44
+              ]
+            ]
+          },
+          {
+            "id": "wall-cap-right",
+            "color": "blue",
+            "points": [
+              [
+                867,
+                46
+              ],
+              [
+                1054,
+                123
+              ],
+              [
+                1264,
+                210
+              ],
+              [
+                1453,
+                288
+              ]
+            ]
+          },
+          {
+            "id": "left-wall-bus",
+            "color": "cyan",
+            "points": [
+              [
+                336,
+                246
+              ],
+              [
+                336,
+                349
+              ],
+              [
+                315,
+                379
+              ],
+              [
+                315,
+                481
+              ]
+            ]
+          },
+          {
+            "id": "left-wall-return",
+            "color": "lavender",
+            "points": [
+              [
+                271,
+                297
+              ],
+              [
+                271,
+                410
+              ],
+              [
+                286,
+                438
+              ],
+              [
+                286,
+                495
+              ]
+            ]
+          },
+          {
+            "id": "corner-left-bus",
+            "color": "cyan",
+            "points": [
+              [
+                754,
+                94
+              ],
+              [
+                754,
+                224
+              ],
+              [
+                739,
+                251
+              ],
+              [
+                739,
+                283
+              ]
+            ]
+          },
+          {
+            "id": "corner-right-bus",
+            "color": "blue",
+            "points": [
+              [
+                901,
+                91
+              ],
+              [
+                901,
+                221
+              ],
+              [
+                919,
+                251
+              ],
+              [
+                919,
+                287
+              ]
+            ]
+          },
+          {
+            "id": "right-wall-bus",
+            "color": "cyan",
+            "points": [
+              [
+                1282,
+                241
+              ],
+              [
+                1282,
+                338
+              ],
+              [
+                1308,
+                370
+              ],
+              [
+                1308,
+                477
+              ]
+            ]
+          },
+          {
+            "id": "right-wall-return",
+            "color": "lavender",
+            "points": [
+              [
+                1392,
+                294
+              ],
+              [
+                1392,
+                408
+              ],
+              [
+                1372,
+                438
+              ],
+              [
+                1372,
+                498
+              ]
+            ]
+          },
+          {
+            "id": "rear-floor-rail",
+            "color": "blue",
+            "points": [
+              [
+                292,
+                510
+              ],
+              [
+                548,
+                406
+              ],
+              [
+                814,
+                279
+              ],
+              [
+                1110,
+                404
+              ],
+              [
+                1381,
+                510
+              ]
+            ]
+          },
+          {
+            "id": "floor-left-outer",
+            "color": "lavender",
+            "points": [
+              [
+                287,
+                536
+              ],
+              [
+                341,
+                574
+              ],
+              [
+                337,
+                612
+              ],
+              [
+                449,
+                675
+              ],
+              [
+                573,
+                706
+              ]
+            ]
+          },
+          {
+            "id": "floor-left-inner",
+            "color": "cyan",
+            "points": [
+              [
+                412,
+                524
+              ],
+              [
+                449,
+                554
+              ],
+              [
+                410,
+                589
+              ],
+              [
+                521,
+                656
+              ],
+              [
+                667,
+                668
+              ]
+            ]
+          },
+          {
+            "id": "floor-right-inner",
+            "color": "cyan",
+            "points": [
+              [
+                1002,
+                659
+              ],
+              [
+                1110,
+                621
+              ],
+              [
+                1134,
+                575
+              ],
+              [
+                1260,
+                532
+              ]
+            ]
+          },
+          {
+            "id": "floor-right-outer",
+            "color": "lavender",
+            "points": [
+              [
+                1090,
+                718
+              ],
+              [
+                1208,
+                684
+              ],
+              [
+                1281,
+                637
+              ],
+              [
+                1369,
+                607
+              ],
+              [
+                1394,
+                559
+              ]
+            ]
+          },
+          {
+            "id": "front-rail-left",
+            "color": "blue",
+            "points": [
+              [
+                506,
+                735
+              ],
+              [
+                659,
+                809
+              ],
+              [
+                806,
+                895
+              ]
+            ]
+          },
+          {
+            "id": "front-rail-right",
+            "color": "cyan",
+            "points": [
+              [
+                867,
+                896
+              ],
+              [
+                1024,
+                810
+              ],
+              [
+                1193,
+                719
+              ]
+            ]
+          }
+        ],
+        "neutralization": {
+          "method": "Built-in imagegen unlit background replacement",
+          "source": "repairs/white-overview-background-off.png",
+          "coverage": "entire room background",
+          "opaqueReplacement": true
+        },
+        "frameDurationMs": 100,
+        "baseAlreadyApplied": true,
+        "z": 1
+      }
+    },
+    {
+      "id": "white-horizontal",
+      "source": "repairs/white-horizontal-cpu-source.png",
+      "display": {
+        "quad": [
+          [
+            718.2000122070312,
+            379.0
+          ],
+          [
+            905.1599731445312,
+            367.0
+          ],
+          [
+            905.1599731445312,
+            449.0
+          ],
+          [
+            718.2000122070312,
+            450.0
+          ]
+        ],
+        "screen": "white/horizontal/display-screen.png",
+        "blank": "white/horizontal/display-blank.png",
+        "blend": "source-over"
+      },
+      "battery": {
+        "polygon": [
+          [
+            148.0,
+            453.43
+          ],
+          [
+            236.0,
+            447.71
+          ],
+          [
+            240.0,
+            476.46
+          ],
+          [
+            147.0,
+            485.1
+          ]
+        ],
+        "indicator": "white/horizontal/battery-indicator.png",
+        "blend": "source-over"
+      },
+      "compute": {
+        "off": "white/horizontal/compute-off.png",
+        "on": "white/horizontal/compute-on.png",
+        "frames": [
+          "white/horizontal/compute-00.png",
+          "white/horizontal/compute-01.png",
+          "white/horizontal/compute-02.png",
+          "white/horizontal/compute-03.png",
+          "white/horizontal/compute-04.png",
+          "white/horizontal/compute-05.png",
+          "white/horizontal/compute-06.png",
+          "white/horizontal/compute-07.png",
+          "white/horizontal/compute-08.png",
+          "white/horizontal/compute-09.png",
+          "white/horizontal/compute-10.png",
+          "white/horizontal/compute-11.png"
+        ],
+        "roiPolygon": [
+          [
+            1403,
+            512
+          ],
+          [
+            1609,
+            510
+          ],
+          [
+            1581,
+            543
+          ],
+          [
+            1397,
+            537
+          ]
+        ],
+        "centers": [
+          [
+            1464.0,
+            513.5
+          ],
+          [
+            1479.6,
+            512.9
+          ],
+          [
+            1499.2,
+            516.7
+          ],
+          [
+            1522.1,
+            514.7
+          ],
+          [
+            1543.8,
+            514.7
+          ],
+          [
+            1567.5,
+            514.5
+          ],
+          [
+            1475.0,
+            515.0
+          ],
+          [
+            1485.4,
+            517.8
+          ],
+          [
+            1506.3,
+            515.9
+          ],
+          [
+            1586.6,
+            517.1
+          ],
+          [
+            1465.5,
+            517.5
+          ],
+          [
+            1469.5,
+            517.5
+          ],
+          [
+            1493.0,
+            519.3
+          ],
+          [
+            1516.4,
+            517.9
+          ],
+          [
+            1537.7,
+            517.5
+          ],
+          [
+            1561.7,
+            517.5
+          ],
+          [
+            1444.4,
+            520.4
+          ],
+          [
+            1449.9,
+            520.4
+          ],
+          [
+            1511.4,
+            520.1
+          ],
+          [
+            1528.4,
+            520.9
+          ],
+          [
+            1533.1,
+            519.6
+          ],
+          [
+            1572.0,
+            519.0
+          ],
+          [
+            1583.0,
+            520.0
+          ],
+          [
+            1436.9,
+            526.1
+          ],
+          [
+            1479.4,
+            524.1
+          ],
+          [
+            1504.5,
+            522.0
+          ],
+          [
+            1522.5,
+            522.7
+          ],
+          [
+            1487.5,
+            524.0
+          ],
+          [
+            1516.7,
+            525.5
+          ],
+          [
+            1535.5,
+            523.5
+          ],
+          [
+            1579.5,
+            523.0
+          ],
+          [
+            1428.0,
+            526.6
+          ],
+          [
+            1455.0,
+            525.0
+          ],
+          [
+            1573.4,
+            525.6
+          ],
+          [
+            1585.8,
+            526.4
+          ],
+          [
+            1419.7,
+            529.2
+          ],
+          [
+            1446.7,
+            527.5
+          ],
+          [
+            1502.7,
+            529.4
+          ],
+          [
+            1509.3,
+            529.7
+          ],
+          [
+            1536.9,
+            529.6
+          ],
+          [
+            1568.0,
+            528.0
+          ],
+          [
+            1579.4,
+            529.6
+          ],
+          [
+            1410.7,
+            533.1
+          ],
+          [
+            1489.5,
+            528.5
+          ],
+          [
+            1523.5,
+            529.5
+          ],
+          [
+            1547.4,
+            531.1
+          ],
+          [
+            1562.5,
+            531.0
+          ],
+          [
+            1451.3,
+            531.5
+          ],
+          [
+            1463.6,
+            532.1
+          ],
+          [
+            1488.5,
+            536.4
+          ],
+          [
+            1496.3,
+            532.5
+          ],
+          [
+            1531.5,
+            534.2
+          ],
+          [
+            1572.5,
+            533.2
+          ],
+          [
+            1425.5,
+            535.5
+          ],
+          [
+            1457.7,
+            536.9
+          ],
+          [
+            1477.5,
+            533.5
+          ],
+          [
+            1515.9,
+            534.4
+          ],
+          [
+            1541.1,
+            534.1
+          ],
+          [
+            1502.0,
+            535.5
+          ],
+          [
+            1549.9,
+            536.4
+          ],
+          [
+            1564.5,
+            537.0
+          ],
+          [
+            1521.2,
+            539.3
+          ],
+          [
+            1556.2,
+            540.8
+          ]
+        ],
+        "frameDurationMs": 100,
+        "placement": "right wall near front; engraved brain side",
+        "binaryMeaning": {
+          "0": "off",
+          "1": "on"
+        },
+        "offBase": "Entire top bulb field dimmed to remove baked-on lights; seeded independent bulb activation"
+      },
+      "fans": [
+        {
+          "id": "fan-1",
+          "center": [
+            936.4877319335938,
+            327.6282653808594
+          ],
+          "worldCenter": [
+            0,
+            0.23,
+            0.72
+          ],
+          "wallQuad": [
+            [
+              897.8826293945312,
+              292.003662109375
+            ],
+            [
+              977.2875366210938,
+              282.4747009277344
+            ],
+            [
+              977.2875366210938,
+              365.2781066894531
+            ],
+            [
+              897.8826293945312,
+              370.3529052734375
+            ]
+          ],
+          "worldQuad": [
+            [
+              0,
+              0.16125,
+              0.83
+            ],
+            [
+              0,
+              0.29875,
+              0.83
+            ],
+            [
+              0,
+              0.29875,
+              0.61
+            ],
+            [
+              0,
+              0.16125,
+              0.61
+            ]
+          ],
+          "canonicalToCanvas": [
+            [
+              0.1052338445283576,
+              0.0,
+              897.8826293945312
+            ],
+            [
+              -0.09695626253648444,
+              0.3072519339767157,
+              292.003662109375
+            ],
+            [
+              -0.00021094911742059708,
+              0.0,
+              1.0
+            ]
+          ],
+          "bladeCount": 7,
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeFrames": [
+            "white/horizontal/fan-1/blades-frame-00.png",
+            "white/horizontal/fan-1/blades-frame-01.png",
+            "white/horizontal/fan-1/blades-frame-02.png",
+            "white/horizontal/fan-1/blades-frame-03.png",
+            "white/horizontal/fan-1/blades-frame-04.png",
+            "white/horizontal/fan-1/blades-frame-05.png",
+            "white/horizontal/fan-1/blades-frame-06.png",
+            "white/horizontal/fan-1/blades-frame-07.png",
+            "white/horizontal/fan-1/blades-frame-08.png",
+            "white/horizontal/fan-1/blades-frame-09.png",
+            "white/horizontal/fan-1/blades-frame-10.png",
+            "white/horizontal/fan-1/blades-frame-11.png"
+          ],
+          "fixedHousing": "white/horizontal/fan-1/fixed-housing.png",
+          "fixedGrille": "white/horizontal/fan-1/fixed-grille.png",
+          "fixedHub": "white/horizontal/fan-1/fixed-hub.png",
+          "bladesStatic": "white/horizontal/fan-1/blades-static.png",
+          "compositeStatic": "white/horizontal/fan-1/composite-static.png"
+        },
+        {
+          "id": "fan-2",
+          "center": [
+            1028.599853515625,
+            319.1578369140625
+          ],
+          "worldCenter": [
+            0,
+            0.38,
+            0.72
+          ],
+          "wallQuad": [
+            [
+              984.9561767578125,
+              281.5544128417969
+            ],
+            [
+              1074.888671875,
+              270.7620849609375
+            ],
+            [
+              1074.888671875,
+              359.04034423828125
+            ],
+            [
+              984.9561767578125,
+              364.7879943847656
+            ]
+          ],
+          "worldQuad": [
+            [
+              0,
+              0.31125,
+              0.83
+            ],
+            [
+              0,
+              0.44875,
+              0.83
+            ],
+            [
+              0,
+              0.44875,
+              0.61
+            ],
+            [
+              0,
+              0.31125,
+              0.61
+            ]
+          ],
+          "canonicalToCanvas": [
+            [
+              0.11179525425489129,
+              0.0,
+              984.9561767578125
+            ],
+            [
+              -0.10300029042136995,
+              0.3264062021292892,
+              281.5544128417969
+            ],
+            [
+              -0.00022409872898723296,
+              0.0,
+              1.0
+            ]
+          ],
+          "bladeCount": 7,
+          "frameDurationMs": 100,
+          "blend": "source-over",
+          "bladeFrames": [
+            "white/horizontal/fan-2/blades-frame-00.png",
+            "white/horizontal/fan-2/blades-frame-01.png",
+            "white/horizontal/fan-2/blades-frame-02.png",
+            "white/horizontal/fan-2/blades-frame-03.png",
+            "white/horizontal/fan-2/blades-frame-04.png",
+            "white/horizontal/fan-2/blades-frame-05.png",
+            "white/horizontal/fan-2/blades-frame-06.png",
+            "white/horizontal/fan-2/blades-frame-07.png",
+            "white/horizontal/fan-2/blades-frame-08.png",
+            "white/horizontal/fan-2/blades-frame-09.png",
+            "white/horizontal/fan-2/blades-frame-10.png",
+            "white/horizontal/fan-2/blades-frame-11.png"
+          ],
+          "fixedHousing": "white/horizontal/fan-2/fixed-housing.png",
+          "fixedGrille": "white/horizontal/fan-2/fixed-grille.png",
+          "fixedHub": "white/horizontal/fan-2/fixed-hub.png",
+          "bladesStatic": "white/horizontal/fan-2/blades-static.png",
+          "compositeStatic": "white/horizontal/fan-2/composite-static.png"
+        }
+      ],
+      "clock": {
+        "center": [
+          675,
+          330
+        ],
+        "ellipse": {
+          "cx": 675,
+          "cy": 330,
+          "rx": 28,
+          "ry": 37,
+          "rotationDegrees": 0
+        },
+        "face": "white/horizontal/clock-face.png",
+        "blankFace": "white/horizontal/clock-face-blank.png",
+        "hands": "white/horizontal/clock-hands.png",
+        "hourHand": "white/horizontal/clock-hour-hand.png",
+        "minuteHand": "white/horizontal/clock-minute-hand.png",
+        "handEndpoints": {
+          "hour": [
+            693,
+            311
+          ],
+          "minute": [
+            650,
+            309
+          ]
+        },
+        "blend": "source-over"
+      },
+      "wiring": {
+        "id": "white-horizontal",
+        "inputBackground": "../scenes/white-horizontal/background.png",
+        "layering": [
+          "v2 background",
+          "wiring offBase",
+          "wiring pulse frame",
+          "all furniture/component layers",
+          "component-local animated effects"
+        ],
+        "offBase": "wiring/white-horizontal/off-base.png",
+        "frames": [
+          "wiring/white-horizontal/pulse-00.png",
+          "wiring/white-horizontal/pulse-01.png",
+          "wiring/white-horizontal/pulse-02.png",
+          "wiring/white-horizontal/pulse-03.png",
+          "wiring/white-horizontal/pulse-04.png",
+          "wiring/white-horizontal/pulse-05.png",
+          "wiring/white-horizontal/pulse-06.png",
+          "wiring/white-horizontal/pulse-07.png",
+          "wiring/white-horizontal/pulse-08.png",
+          "wiring/white-horizontal/pulse-09.png",
+          "wiring/white-horizontal/pulse-10.png",
+          "wiring/white-horizontal/pulse-11.png",
+          "wiring/white-horizontal/pulse-12.png",
+          "wiring/white-horizontal/pulse-13.png",
+          "wiring/white-horizontal/pulse-14.png",
+          "wiring/white-horizontal/pulse-15.png",
+          "wiring/white-horizontal/pulse-16.png",
+          "wiring/white-horizontal/pulse-17.png",
+          "wiring/white-horizontal/pulse-18.png",
+          "wiring/white-horizontal/pulse-19.png",
+          "wiring/white-horizontal/pulse-20.png",
+          "wiring/white-horizontal/pulse-21.png",
+          "wiring/white-horizontal/pulse-22.png",
+          "wiring/white-horizontal/pulse-23.png"
+        ],
+        "activePathCounts": [
+          7,
+          8,
+          8,
+          7,
+          8,
+          7,
+          7,
+          7,
+          6,
+          5,
+          6,
+          6,
+          5,
+          7,
+          6,
+          6,
+          7,
+          7,
+          6,
+          8,
+          8,
+          8,
+          9,
+          8
+        ],
+        "paths": [
+          {
+            "id": "ceiling-left",
+            "color": "blue",
+            "points": [
+              [
+                319,
+                59
+              ],
+              [
+                511,
+                111
+              ],
+              [
+                696,
+                159
+              ],
+              [
+                834,
+                207
+              ]
+            ]
+          },
+          {
+            "id": "ceiling-right",
+            "color": "lavender",
+            "points": [
+              [
+                836,
+                207
+              ],
+              [
+                1042,
+                151
+              ],
+              [
+                1244,
+                99
+              ],
+              [
+                1343,
+                71
+              ]
+            ]
+          },
+          {
+            "id": "wall-rail-left",
+            "color": "cyan",
+            "points": [
+              [
+                102,
+                128
+              ],
+              [
+                303,
+                154
+              ],
+              [
+                505,
+                181
+              ],
+              [
+                755,
+                218
+              ]
+            ]
+          },
+          {
+            "id": "wall-rail-right",
+            "color": "blue",
+            "points": [
+              [
+                865,
+                220
+              ],
+              [
+                1116,
+                180
+              ],
+              [
+                1362,
+                139
+              ],
+              [
+                1573,
+                105
+              ]
+            ]
+          },
+          {
+            "id": "left-bus",
+            "color": "cyan",
+            "points": [
+              [
+                178,
+                168
+              ],
+              [
+                178,
+                322
+              ],
+              [
+                144,
+                365
+              ],
+              [
+                144,
+                512
+              ],
+              [
+                164,
+                548
+              ]
+            ]
+          },
+          {
+            "id": "left-return",
+            "color": "lavender",
+            "points": [
+              [
+                114,
+                171
+              ],
+              [
+                114,
+                350
+              ],
+              [
+                132,
+                382
+              ],
+              [
+                132,
+                530
+              ]
+            ]
+          },
+          {
+            "id": "center-left-bus",
+            "color": "blue",
+            "points": [
+              [
+                721,
+                267
+              ],
+              [
+                721,
+                410
+              ],
+              [
+                701,
+                451
+              ],
+              [
+                701,
+                546
+              ]
+            ]
+          },
+          {
+            "id": "center-right-bus",
+            "color": "lavender",
+            "points": [
+              [
+                858,
+                306
+              ],
+              [
+                858,
+                417
+              ],
+              [
+                876,
+                454
+              ],
+              [
+                876,
+                548
+              ]
+            ]
+          },
+          {
+            "id": "right-bus",
+            "color": "cyan",
+            "points": [
+              [
+                1448,
+                154
+              ],
+              [
+                1448,
+                323
+              ],
+              [
+                1474,
+                356
+              ],
+              [
+                1474,
+                542
+              ]
+            ]
+          },
+          {
+            "id": "right-return",
+            "color": "lavender",
+            "points": [
+              [
+                1549,
+                170
+              ],
+              [
+                1549,
+                351
+              ],
+              [
+                1522,
+                391
+              ],
+              [
+                1522,
+                548
+              ]
+            ]
+          },
+          {
+            "id": "floor-back-left",
+            "color": "cyan",
+            "points": [
+              [
+                83,
+                645
+              ],
+              [
+                317,
+                619
+              ],
+              [
+                550,
+                592
+              ],
+              [
+                789,
+                570
+              ]
+            ]
+          },
+          {
+            "id": "floor-back-right",
+            "color": "blue",
+            "points": [
+              [
+                840,
+                570
+              ],
+              [
+                1064,
+                592
+              ],
+              [
+                1303,
+                620
+              ],
+              [
+                1552,
+                645
+              ]
+            ]
+          },
+          {
+            "id": "floor-front-left",
+            "color": "lavender",
+            "points": [
+              [
+                96,
+                683
+              ],
+              [
+                270,
+                755
+              ],
+              [
+                191,
+                863
+              ],
+              [
+                314,
+                941
+              ]
+            ]
+          },
+          {
+            "id": "floor-front-right",
+            "color": "cyan",
+            "points": [
+              [
+                1575,
+                684
+              ],
+              [
+                1487,
+                781
+              ],
+              [
+                1535,
+                850
+              ],
+              [
+                1481,
+                941
+              ]
+            ]
+          }
+        ],
+        "neutralization": {
+          "method": "Built-in imagegen unlit background replacement",
+          "source": "repairs/white-horizontal-background-off.png",
+          "coverage": "entire room background",
+          "opaqueReplacement": true
+        },
+        "frameDurationMs": 100,
+        "baseAlreadyApplied": true,
+        "z": 1
+      }
+    }
+  ]
+}

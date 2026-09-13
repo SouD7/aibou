@@ -1,0 +1,105 @@
+{
+  "version": 4,
+  "status": "passed",
+  "checks": [
+    {
+      "scene": "black-overview",
+      "fan": "fan-1",
+      "centerProjectionErrorPx": 1.7e-05,
+      "bladeCount": 7
+    },
+    {
+      "scene": "black-overview",
+      "fan": "fan-2",
+      "centerProjectionErrorPx": 3.6e-05,
+      "bladeCount": 7
+    },
+    {
+      "scene": "black-overview",
+      "networkVisibleAlphaFraction": 0.7533,
+      "networkBase": [
+        1087.174072265625,
+        466.2450256347656
+      ],
+      "networkTip": [
+        1087.174072265625,
+        314.7931823730469
+      ]
+    },
+    {
+      "scene": "black-horizontal",
+      "fan": "fan-1",
+      "centerProjectionErrorPx": 1.5e-05,
+      "bladeCount": 7
+    },
+    {
+      "scene": "black-horizontal",
+      "fan": "fan-2",
+      "centerProjectionErrorPx": 5.8e-05,
+      "bladeCount": 7
+    },
+    {
+      "scene": "black-horizontal",
+      "networkVisibleAlphaFraction": 1.0,
+      "networkBase": [
+        1070.2591552734375,
+        622.5776977539062
+      ],
+      "networkTip": [
+        1070.2591552734375,
+        359.55517578125
+      ]
+    },
+    {
+      "scene": "white-overview",
+      "fan": "fan-1",
+      "centerProjectionErrorPx": 1.7e-05,
+      "bladeCount": 7
+    },
+    {
+      "scene": "white-overview",
+      "fan": "fan-2",
+      "centerProjectionErrorPx": 3.6e-05,
+      "bladeCount": 7
+    },
+    {
+      "scene": "white-overview",
+      "networkVisibleAlphaFraction": 0.7524,
+      "networkBase": [
+        1087.174072265625,
+        466.2450256347656
+      ],
+      "networkTip": [
+        1087.174072265625,
+        314.7931823730469
+      ]
+    },
+    {
+      "scene": "white-horizontal",
+      "fan": "fan-1",
+      "centerProjectionErrorPx": 1.5e-05,
+      "bladeCount": 7
+    },
+    {
+      "scene": "white-horizontal",
+      "fan": "fan-2",
+      "centerProjectionErrorPx": 5.8e-05,
+      "bladeCount": 7
+    },
+    {
+      "scene": "white-horizontal",
+      "networkVisibleAlphaFraction": 1.0,
+      "networkBase": [
+        1070.2591552734375,
+        622.5776977539062
+      ],
+      "networkTip": [
+        1070.2591552734375,
+        359.55517578125
+      ]
+    }
+  ],
+  "themeFanGeometry": "identical",
+  "visualReview": "4 final composites reviewed; bed and shelf alpha repaired; overview tower plinth added",
+  "limits": "Layout guides plus 2D painted art, not an exact 3D reconstruction. Overview fan plate height has explicit art compensation."
+}
