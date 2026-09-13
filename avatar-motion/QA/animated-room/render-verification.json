@@ -1,0 +1,11 @@
+{
+  "capturedFrames": 48,
+  "roomFrameSequence": "0\u202623 repeated twice",
+  "changedPixelsAt0Vs1Seconds": {
+    "ceilingFlow": 38706,
+    "fans": 27713,
+    "compute": 19436,
+    "avatar": 85627
+  },
+  "threshold": 3
+}

@@ -24,10 +24,12 @@ final class AvatarAppDelegate: NSObject, NSApplicationDelegate {
 
 @MainActor
 final class AvatarStore: ObservableObject {
+    @Published private(set) var selectedStandingVariant: AvatarPoseID = .standing
     @Published var selectedPose: AvatarPoseID = .standing {
         didSet {
             scene?.selectPose(selectedPose)
-            if selectedPose != .standing { voice.stop() }
+            if selectedPose.isStanding { selectedStandingVariant = selectedPose }
+            else { voice.stop() }
         }
     }
     @Published var paused = false { didSet { updatePause(); if paused { voice.stop() } } }
@@ -78,11 +80,23 @@ final class AvatarStore: ObservableObject {
         NotificationCenter.default.publisher(for: NSApplication.didUnhideNotification).sink { [weak self] _ in
             self?.windowVisible = true; self?.updatePause()
         }.store(in: &subscriptions)
+        scene?.reducedMotion = reducedMotion
     }
 
     func togglePause() { paused.toggle() }
-    func playSample() { if let sampleURL { selectedPose = .standing; paused = false; voice.play(url: sampleURL) } }
-    func playImported(_ url: URL) { selectedPose = .standing; paused = false; voice.play(url: url) }
+    func selectPrimaryMode(_ pose: AvatarPoseID) {
+        selectedPose = pose == .standing ? selectedStandingVariant : pose
+    }
+    func selectStandingVariant(_ pose: AvatarPoseID) {
+        guard pose.isStanding else { return }
+        selectedPose = pose
+    }
+    func playSample() {
+        if let sampleURL { selectedPose = selectedStandingVariant; paused = false; voice.play(url: sampleURL) }
+    }
+    func playImported(_ url: URL) {
+        selectedPose = selectedStandingVariant; paused = false; voice.play(url: url)
+    }
 
     private func updatePause() {
         effectivelyPaused = paused || !windowVisible
@@ -153,13 +167,13 @@ struct AvatarWindow: View {
     private var controls: some View {
         VStack(spacing: 13) {
             HStack(spacing: 8) {
-                ForEach(AvatarPoseID.allCases) { pose in
-                    Button { store.selectedPose = pose } label: {
+                ForEach(AvatarPoseID.primaryModes) { pose in
+                    Button { store.selectPrimaryMode(pose) } label: {
                         Label(pose.japaneseTitle, systemImage: pose.symbol)
                             .font(.system(size: 13, weight: .medium))
                             .frame(minWidth: 72)
                     }
-                    .buttonStyle(PoseButtonStyle(selected: store.selectedPose == pose))
+                    .buttonStyle(PoseButtonStyle(selected: pose == .standing ? store.selectedPose.isStanding : store.selectedPose == pose))
                 }
                 Divider().frame(height: 24).overlay(.white.opacity(0.18)).padding(.horizontal, 3)
                 Button(action: store.togglePause) {
@@ -173,14 +187,29 @@ struct AvatarWindow: View {
                 Button { importingAudio = true } label: { Label("音声を選ぶ…", systemImage: "music.note") }
                     .buttonStyle(.borderedProminent).tint(Color(red: 0.18, green: 0.61, blue: 0.65))
             }
+            if store.selectedPose.isStanding {
+                HStack(spacing: 12) {
+                    Text("立ち姿").font(.caption).foregroundStyle(.white.opacity(0.62))
+                    Picker("立ち姿", selection: Binding(get: { store.selectedStandingVariant },
+                                                        set: { store.selectStandingVariant($0) })) {
+                        ForEach(AvatarPoseID.standingVariants) { pose in
+                            Text(pose.standingVariantTitle).tag(pose)
+                        }
+                    }
+                    .labelsHidden().pickerStyle(.segmented).frame(width: 285)
+                    Spacer()
+                    Text("声の再生中も立ち姿を切り替えられます")
+                        .font(.caption2).foregroundStyle(.white.opacity(0.42))
+                }
+            }
             HStack(spacing: 14) {
-                Label("動き", systemImage: "dial.low").font(.caption).foregroundStyle(.white.opacity(0.62))
+                Label("アバターの動き", systemImage: "dial.low").font(.caption).foregroundStyle(.white.opacity(0.62))
                 Slider(value: $store.strength, in: 0...1.5).frame(maxWidth: 260)
                 Text(String(format: "%.0f%%", store.strength * 100)).font(.caption.monospacedDigit())
                     .foregroundStyle(.white.opacity(0.68)).frame(width: 42, alignment: .trailing)
                 Spacer()
                 Toggle("動きを抑える", isOn: $store.reducedMotion).toggleStyle(.switch).controlSize(.small)
-                Toggle("キャラクターを大きく", isOn: $store.focused).toggleStyle(.switch).controlSize(.small)
+                Toggle("キャラクターのみ", isOn: $store.focused).toggleStyle(.switch).controlSize(.small)
             }
         }.padding(.horizontal, 16).padding(.vertical, 14)
             .background(.ultraThinMaterial.opacity(0.35)).frame(minHeight: 104)
@@ -190,6 +219,8 @@ struct AvatarWindow: View {
         if store.voice.isPlaying { return "声に合わせて話しています" }
         switch store.selectedPose {
         case .standing: return "部屋でひと休み"
+        case .standingBackHands: return "手を後ろで組んでひと休み"
+        case .standingFrontHands: return "手を前で組んでひと休み"
         case .sleeping: return "静かに眠っています"
         case .reading: return "本を読んでいます"
         }

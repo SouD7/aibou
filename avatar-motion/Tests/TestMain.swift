@@ -34,6 +34,11 @@ func testManifest() throws {
     try expect(standing.blinkImage == "standing-blink.png", "blink image option")
     let sleeping = try XCTUnwrap(rig.pose(.sleeping), "sleeping pose")
     try expect(sleeping.eyes.isEmpty && sleeping.mouth == nil && !sleeping.chromaKey, "optional defaults")
+    try expect(AvatarPoseID.primaryModes == [.standing, .sleeping, .reading], "primary modes stay compact")
+    try expect(AvatarPoseID.standingVariants == [.standing, .standingBackHands, .standingFrontHands],
+               "standing variant order")
+    try expect(AvatarPoseID.standingVariants.allSatisfy(\.isStanding), "all standing variants identify as standing")
+    try expect(!AvatarPoseID.sleeping.isStanding && !AvatarPoseID.reading.isStanding, "nonstanding modes stay distinct")
 }
 
 func testMotion() throws {
@@ -60,6 +65,19 @@ func testMotion() throws {
                "SKWarp normalized corner bounds")
     let sleeping = MotionMath.output(for: .sleeping, input: MotionInput(time: 4.42, speechAmplitude: 1, forceBlink: 1))
     try expect(sleeping.blink == 0 && sleeping.mouthOpen == 0, "sleeping face remains closed")
+    for variant in AvatarPoseID.standingVariants {
+        var pose = standing; pose.id = variant
+        let face = MotionMath.output(for: variant,
+            input: MotionInput(time: 4.42, speechAmplitude: 0.8, forceBlink: 1))
+        try expect(face.blink == 1 && face.mouthOpen > 0, "\(variant.rawValue) has active blink and lip sync")
+        let variantStill = MotionMath.displacement(at: pose.chest, pose: pose,
+            input: MotionInput(time: 1, strength: 0))
+        try expect(variantStill == Point2(0, 0), "\(variant.rawValue) respects zero strength")
+        let variantContact = MotionMath.displacement(at: Point2(0.5, 1), pose: pose,
+            input: MotionInput(time: 1, strength: 1))
+        try expect(abs(variantContact.x) < 0.000001 && abs(variantContact.y) < 0.000001,
+                   "\(variant.rawValue) preserves foot contact")
+    }
     let reading = MotionMath.output(for: .reading, input: MotionInput(time: 11.15))
     try expect(reading.pageTurn > 0.8, "infrequent reading page turn")
 }
@@ -69,6 +87,46 @@ func testEnvelope() throws {
     try expect(abs(envelope.amplitude(at: 0.05) - 0.2) < 0.000001, "envelope interpolation")
     try expect(envelope.amplitude(at: 10) == 1, "envelope clamps at end")
     try expect(envelope.amplitude(at: -1) == 0, "negative time")
+}
+
+func testRoomAnimationTiming() throws {
+    let manifest = try RoomAnimationManifest(source: "test",
+        frames: ["a.png", "b.png", "c.png"], durations: [0.10, 0.25, 0.05])
+    try expect(abs(manifest.totalDuration - 0.40) < 0.000001, "nonuniform total duration")
+    try expect(manifest.frameIndex(at: 0) == 0, "starts at first room frame")
+    try expect(manifest.frameIndex(at: 0.099) == 0, "first frame upper interior")
+    try expect(manifest.frameIndex(at: 0.10) == 1, "first duration boundary")
+    try expect(manifest.frameIndex(at: 0.349) == 1, "long middle frame")
+    try expect(manifest.frameIndex(at: 0.35) == 2, "second duration boundary")
+    try expect(manifest.frameIndex(at: 0.399) == 2, "last frame upper interior")
+    try expect(manifest.frameIndex(at: 0.40) == 0, "exact loop boundary")
+    try expect(manifest.frameIndex(at: 0.50) == 1, "second loop timing")
+    try expect(manifest.frameIndex(at: -1) == 0, "negative time freezes first frame")
+    try expect(manifest.frameIndex(at: .infinity) == 0, "infinite time freezes first frame")
+    try expect(manifest.frameIndex(at: .nan) == 0, "NaN time freezes first frame")
+
+    let uniform = try RoomAnimationManifest(source: "test",
+        frames: (0..<24).map { "\($0)" }, durations: Array(repeating: 0.1, count: 24))
+    try expect(uniform.frameIndex(at: 0.3) == 3, "decimal frame boundary remains accurate")
+    try expect(uniform.frameIndex(at: 1.2) == 12, "half-loop boundary remains accurate")
+    try expect(uniform.frameIndex(at: 2.4) == 0, "decimal total loops exactly")
+    try expect(uniform.frameIndex(at: 4.8) == 0, "multiple decimal loops remain exact")
+}
+
+func testRoomAnimationValidation() throws {
+    func rejects(_ json: String) -> Bool {
+        do { _ = try JSONDecoder().decode(RoomAnimationManifest.self, from: Data(json.utf8)); return false }
+        catch { return true }
+    }
+    try expect(rejects(#"{"source":"x","frames":[],"durations":[]}"#), "rejects empty frames")
+    try expect(rejects(#"{"source":"x","frames":["a"],"durations":[]}"#), "rejects count mismatch")
+    try expect(rejects(#"{"source":"x","frames":["a"],"durations":[0]}"#), "rejects zero duration")
+    try expect(rejects(#"{"source":"x","frames":["a"],"durations":[-0.1]}"#), "rejects negative duration")
+    do {
+        _ = try RoomAnimationManifest(source: "x", frames: ["a", "b"],
+                                      durations: [Double.greatestFiniteMagnitude, Double.greatestFiniteMagnitude])
+        throw TestFailure(message: "accepts overflowing total duration")
+    } catch is RoomAnimationError { }
 }
 
 func testChromaKey() throws {
@@ -125,14 +183,43 @@ func testFeatheredEyeCrop() throws {
 
 func testRealAssets() throws {
     let assets = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appendingPathComponent("Assets")
+    let roomDirectory = assets.appendingPathComponent("RoomAnimation")
+    let roomManifest = try RoomAnimationManifest.load(from: roomDirectory.appendingPathComponent("manifest.json"))
+    try expect(roomManifest.source == "design/room-2d/v3/previews/white-horizontal-motion.webp",
+               "real room animation source")
+    try expect(roomManifest.frames.count == 24 && roomManifest.durations.count == 24,
+               "real room animation frame contract")
+    try expect(abs(roomManifest.totalDuration - 2.4) < 0.000001, "real room animation duration")
     let rig = try RigManifest.load(from: assets.appendingPathComponent("rig.json"))
     try expect(rig.canvas == Point2(1672, 941), "real rig canvas")
     try expect(Set(rig.poses.map(\.id)) == Set(AvatarPoseID.allCases), "real rig has all poses")
+    for variant in AvatarPoseID.standingVariants {
+        let pose = try XCTUnwrap(rig.pose(variant), "real \(variant.rawValue) pose")
+        try expect(abs(pose.center.x - rig.canvas.x / 2) <= rig.canvas.x * 0.12,
+                   "\(variant.rawValue) is centered in foreground")
+        try expect(pose.size.y > 900, "\(variant.rawValue) has foreground scale")
+        try expect(FileManager.default.fileExists(atPath: assets.appendingPathComponent(pose.image).path),
+                   "\(variant.rawValue) image resource")
+        let blink = try XCTUnwrap(pose.blinkImage, "\(variant.rawValue) blink declaration")
+        try expect(FileManager.default.fileExists(atPath: assets.appendingPathComponent(blink).path),
+                   "\(variant.rawValue) blink resource")
+    }
     let standing = try XCTUnwrap(rig.pose(.standing), "real standing pose")
     let blinkName = try XCTUnwrap(standing.blinkImage, "real blink image declaration")
     try expect(FileManager.default.fileExists(atPath: assets.appendingPathComponent(blinkName).path),
                "real blink image resource")
     let scene = try AvatarScene(manifest: rig, resourceDirectory: assets)
+    scene.reducedMotion = false
+    scene.applyFrame(0); try expect(scene.roomFrameIndex == 0, "room starts at frame zero")
+    scene.applyFrame(1); try expect(scene.roomFrameIndex == 10, "room advances at one second")
+    scene.applyFrame(2.4); try expect(scene.roomFrameIndex == 0, "room loops at total duration")
+    scene.reducedMotion = true
+    scene.applyFrame(1.2); try expect(scene.roomFrameIndex == 0, "reduced motion freezes room")
+    scene.reducedMotion = false
+    scene.applyFrame(0.3); try expect(scene.roomFrameIndex == 3, "room reaches exact decimal boundary")
+    scene.setAnimationPaused(true)
+    scene.update(20); try expect(scene.roomFrameIndex == 3, "paused scene preserves room frame")
+    scene.setAnimationPaused(false)
     for pose in AvatarPoseID.allCases {
         scene.selectPose(pose); scene.setDeterministicTime(1.0)
         try expect(scene.currentPose == pose, "scene switches to \(pose.rawValue)")
@@ -152,7 +239,9 @@ enum TestMain {
     static func main() {
         let tests: [(String, () throws -> Void)] = [
             ("manifest", testManifest), ("motion", testMotion),
-            ("audio envelope", testEnvelope), ("chroma key", testChromaKey),
+            ("audio envelope", testEnvelope),
+            ("room timing", testRoomAnimationTiming), ("room validation", testRoomAnimationValidation),
+            ("chroma key", testChromaKey),
             ("feathered eye crop", testFeatheredEyeCrop),
             ("real assets", testRealAssets)
         ]

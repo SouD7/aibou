@@ -2,6 +2,12 @@
 
 採用したアバター01（黒髪ボブ・短パン・タイツ）を、指定の白い電脳部屋に配置するmacOS試作です。SwiftUI・SpriteKit・AVFoundationを使用し、外部パッケージやAPIキーは不要です。
 
+背景は指定された `design/room-2d/v3/previews/white-horizontal-motion.webp` の動作版です。配線の流光・ファン回転・CPU点滅を、元と同じ24フレーム／2.4秒で繰り返し、アバターはその上で連続的に動きます。
+
+合成した見本は `previews/white-room-avatar-motion.webp`、今回の検証記録は `QA/animated-room/VERIFICATION.md` です。
+
+2026-09-14の立ち姿更新：中央・手前へ約2倍に拡大し、通常／後ろ手／前手の3種類を追加しました。現在の見本は `QA/standing-variants/standing-t1.00.png`、`standing-back-hands-t1.00.png`、`standing-front-hands-t1.00.png`。上記WebPは拡大前の記録です。
+
 ## 起動
 
 `AIBOUAvatarMotion.app` を開きます。ソースから作る場合は、このフォルダで `./run.sh`。ビルドだけなら `./run.sh --build`。
@@ -11,8 +17,10 @@ macOS 13以降、ソースからのビルドにはXcode Command Line Toolsが必
 ## 操作
 
 - 「立つ」「眠る」「読む」で姿勢を切り替えます。
+- 「立つ」の下の「立ち姿」で通常／後ろで組む／前で組むを選べます。別のモーションから戻った場合も選択を保持し、音声再生中にも切り替えられます。
 - 一時停止、動きの強さ、モーション低減を変更できます。
-- 「キャラクターを大きく」で原画・変形・目口を近くで確認できます。
+- 一時停止は部屋とアバターの両方に効きます。「動きを抑える」は部屋を静止させ、アバターの変形を弱めます。強さのスライダーはアバターに作用します。
+- 「キャラクターのみ」で背景を隠して全身を確認できます。立ち姿は部屋表示で大きく、脚の下部が画面外に出る配置です。
 - 「サンプル音声」でmacOSのKyoko音声を再生し、音量に同期して口を動かします。
 - 「音声を選ぶ…」でローカル音声を再生できます。音声の処理は端末内です。
 
@@ -27,11 +35,14 @@ macOS 13以降、ソースからのビルドにはXcode Command Line Toolsが必
 ## 素材と座標
 
 - `Assets/room.png`：今回ユーザーが指定した部屋画像（1672×941）。
+- `Assets/RoomAnimation/`：指定WebPを画素とフレーム時間を保って展開した背景。`manifest.json` に元ファイルとSHA-256を記録しています。動作背景がある場合はこちらを優先し、`room.png` は静止背景の予備です。
 - `Assets/standing.png`、`sleeping.png`、`reading.png`：姿勢ごとの原画。
+- `Assets/standing-back-hands.png`、`standing-front-hands.png`：後ろ手／前手の立ち姿差分。元の顔・衣装・画角を保って内蔵image_genで制作し、顔の位置が揃っているため閉眼原画の目のパッチを共有します。
 - `Assets/standing-blink.png`：閉眼原画。アプリ側で目の領域だけを取り出し、境界をぼかして瞬きに使用します。
 - `Assets/rig.json`：部屋内の位置と表示サイズ、画像内の顔・胸・腰・目口・本の位置。部屋も画像内のランドマークも左上を原点とします。
 - `Assets/sample.aiff`：macOS `say` のKyokoで生成したテスト音声。
 - `artwork/generation-prompts.json`：内蔵image_genの参照画像とプロンプト。
+- `artwork/standing-variants-prompts.json`：追加2姿勢の最終プロンプト、参照画像、生成元ファイル。
 
 原画PNGは緑の単色背景で保存し、アプリの読み込み時に一度だけ背景を除去します。衣装のシアンを残すよう緑成分の優勢を判定し、キャッシュした透過テクスチャを再生に使います。原画の見た目を変える場合は、元のデザイン資料を参照して差し替えてください。
 
@@ -40,3 +51,11 @@ macOS 13以降、ソースからのビルドにはXcode Command Line Toolsが必
 `./test.sh` で座標・動き・音声・透過処理の検証を実行します。`./run.sh --qa QA/captures` は実際のSpriteKitレンダリングから比較用PNGとメタデータを出力します。検証結果と残る制限は `QA/VERIFICATION.md` に記録します。
 
 部屋の新しいレイヤー版やバックエンドへの接続は、この試作のシーンと音声制御を既存アプリへ移す次の段階です。
+
+## 動作背景の再現
+
+`scripts/import_room_animation.py` は指定WebPをPNG連番へ展開します。素材の再展開時のみPythonとPillowが必要で、アプリ実行時には不要です。背景は合成済みの動作見本を再生する方式で、家具ごとの制御は含みません。
+
+`./run.sh --capture-dir QA/animated-room/sequence --pose standing --sequence 4.8` で部屋とアバターを一緒に描画した連番を10fpsで取得できます。`--sequence` の値は秒数です。背景は24枚を読み込んで保持するため、背景テクスチャだけで約150MB（展開後）を使用します。
+
+動画書き出し用の `QA/animated-room/sequence/*.png` は生成物としてGit対象外です。確認用WebPと撮影メタデータ、各姿勢の代表PNGを収録しています。旧WebPは拡大前の記録で、現在のソースから連番を再生成すると更新後の中央・拡大表示になります。
