@@ -1,0 +1,10 @@
+2026-09-14 21:54:12.140 MonitorTests[24001:3536359] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 21:54:12.141 MonitorTests[24001:3536359] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 21:54:13.502 MonitorTests[24001:3536359] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 21:54:13.503 MonitorTests[24001:3536359] IOPMScheduleUserActivityLevelNotification returned 0
+Diagnostic symptom/cause selection tests passed (five tabs, overrides, shared causes, missing data).
+Consultation tests passed (fixtures; no paid inference).
+Application launcher tests passed (no installed applications launched).
+Application usage aggregation tests passed.
+Application detail collection ownership tests passed.
+AIBOU Monitor: ALL TESTS PASSED
