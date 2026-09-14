@@ -5,25 +5,35 @@ import Charts
 @MainActor
 final class MonitorDelegate: NSObject, NSApplicationDelegate {
     weak var store: MonitorStore?
+    weak var consultation: ConsultationModel?
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        consultation?.disconnect()
         guard let store else { return .terminateNow }
         store.shutdown()
-        store.afterPendingSaves { sender.reply(toApplicationShouldTerminate: true) }
+        let cleanup = DispatchGroup()
+        cleanup.enter()
+        store.afterPendingSaves { cleanup.leave() }
+        if let consultation {
+            cleanup.enter()
+            consultation.afterPendingShutdown { cleanup.leave() }
+        }
+        cleanup.notify(queue: .main) { sender.reply(toApplicationShouldTerminate: true) }
         return .terminateLater
     }
-    func applicationWillTerminate(_ notification: Notification) { store?.shutdown() }
+    func applicationWillTerminate(_ notification: Notification) { consultation?.disconnect(); store?.shutdown() }
 }
 
 @main
 struct AIBOUMonitorApp: App {
     @NSApplicationDelegateAdaptor(MonitorDelegate.self) private var delegate
     @StateObject private var store = MonitorStore()
+    @StateObject private var consultation = ConsultationModel()
     var body: some Scene {
         WindowGroup("AIBOU Monitor") {
-            MonitorWindow(store: store)
+            MonitorWindow(store: store, consultation: consultation)
                 .frame(minWidth: 1050, minHeight: 660)
-                .onAppear { delegate.store = store }
+                .onAppear { delegate.store = store; delegate.consultation = consultation }
         }
         .defaultSize(width: 1400, height: 900)
         .commands { CommandGroup(replacing: .newItem) {} }
@@ -32,12 +42,16 @@ struct AIBOUMonitorApp: App {
 
 struct MonitorWindow: View {
     @ObservedObject var store: MonitorStore
+    @ObservedObject var consultation: ConsultationModel
+    @StateObject private var launcher = ApplicationLauncher()
     @State private var search = ""
     @State private var sortKey = ""
     @State private var inspected: ReadingRow?
     @State private var showingRelated = false
     @State private var chartMetric = ""
     @State private var showingDiagnostics = ProcessInfo.processInfo.arguments.contains("--diagnostics")
+    @State private var showingConsultation = ProcessInfo.processInfo.arguments.contains("--consultation")
+    @State private var showingApplications = ProcessInfo.processInfo.arguments.contains("--applications")
 
     private var panel: PanelReading {
         store.panels[store.selectedTab] ?? PanelReading(tab: store.selectedTab,
@@ -46,8 +60,14 @@ struct MonitorWindow: View {
     }
     var body: some View {
         NavigationSplitView {
-            List(selection: Binding<MonitorTab?>(get: { showingDiagnostics ? nil : store.selectedTab }, set: { if let tab = $0 { store.selectedTab = tab; showingDiagnostics = false } })) {
-                Button { showingDiagnostics = true } label: {
+            List(selection: Binding<MonitorTab?>(get: { showingDiagnostics || showingConsultation || showingApplications ? nil : store.selectedTab }, set: { if let tab = $0 { store.selectedTab = tab; showingDiagnostics = false; showingConsultation = false; showingApplications = false } })) {
+                Button { showingApplications = true; showingConsultation = false; showingDiagnostics = false } label: {
+                    Label("アプリ", systemImage: "square.grid.2x2").fontWeight(showingApplications ? .bold : .regular)
+                }.buttonStyle(.plain).padding(.vertical, 8)
+                Button { showingConsultation = true; showingDiagnostics = false; showingApplications = false } label: {
+                    Label("相談", systemImage: "bubble.left.and.bubble.right").fontWeight(showingConsultation ? .bold : .regular)
+                }.buttonStyle(.plain).padding(.vertical, 8)
+                Button { showingDiagnostics = true; showingConsultation = false; showingApplications = false } label: {
                     Label("状態チェック", systemImage: "checklist").fontWeight(showingDiagnostics ? .bold : .regular)
                 }.buttonStyle(.plain).padding(.vertical, 8)
                 ForEach(MonitorTab.allCases) { tab in
@@ -67,7 +87,11 @@ struct MonitorWindow: View {
                 controlBar
                 Divider()
                 ScrollView {
-                    if showingDiagnostics {
+                    if showingApplications {
+                        ApplicationLauncherView(launcher: launcher, store: store)
+                    } else if showingConsultation {
+                        ConsultationView(model: consultation, store: store)
+                    } else if showingDiagnostics {
                         DiagnosticsView(store: store)
                     } else {
                     VStack(alignment: .leading, spacing: 18) {
