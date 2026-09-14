@@ -26,6 +26,7 @@ final class AvatarAppDelegate: NSObject, NSApplicationDelegate {
 final class AvatarStore: ObservableObject {
     @Published private(set) var componentWarnings: [String: ComponentWarning] = [:]
     @Published private(set) var selectedComponent: RoomComponent?
+    @Published private(set) var roomVisualState = RoomVisualState()
     @Published private(set) var selectedStandingVariant: AvatarPoseID = .standing
     @Published var selectedPose: AvatarPoseID = .standing {
         didSet {
@@ -87,6 +88,8 @@ final class AvatarStore: ObservableObject {
             self?.selectedComponent = component
         }
         scene?.onWarningsChange = { [weak self] warnings in self?.componentWarnings = warnings }
+        if let scene { roomVisualState = scene.visualState }
+        scene?.onVisualStateChange = { [weak self] state in self?.roomVisualState = state }
     }
 
     func togglePause() { paused.toggle() }
@@ -94,12 +97,35 @@ final class AvatarStore: ObservableObject {
     func setComponentWarning(_ warning: ComponentWarning?, for id: String) {
         scene?.setComponentWarning(warning, for: id)
     }
+    func componentWarning(for id: String) -> ComponentWarning? {
+        guard id == "fans" else { return componentWarnings[id] }
+        let messages = ["fan-1", "fan-2"].compactMap { componentWarnings[$0]?.message }
+            .filter { !$0.isEmpty }
+        let distinct = messages.reduce(into: [String]()) { result, message in
+            if !result.contains(message) { result.append(message) }
+        }
+        guard !distinct.isEmpty else {
+            return componentWarnings["fan-1"] != nil || componentWarnings["fan-2"] != nil
+                ? ComponentWarning(message: "ファンに警告があります。") : nil
+        }
+        return ComponentWarning(message: distinct.joined(separator: "\n"))
+    }
+    func hasComponentWarning(_ id: String) -> Bool { componentWarning(for: id) != nil }
     func replaceComponentWarnings(_ warnings: [String: ComponentWarning]) {
-        scene?.replaceComponentWarnings(warnings)
+        var expanded = warnings
+        if let fans = expanded.removeValue(forKey: "fans") {
+            expanded["fan-1"] = fans; expanded["fan-2"] = fans
+        }
+        scene?.replaceComponentWarnings(expanded)
     }
     func toggleWarningDemo(for id: String) {
-        setComponentWarning(componentWarnings[id] == nil ?
-            ComponentWarning(message: "表示テスト用の警告です。実際の異常ではありません。") : nil, for: id)
+        setComponentWarning(hasComponentWarning(id) ? nil :
+            ComponentWarning(message: "表示テスト用の警告です。実際の異常ではありません。"), for: id)
+    }
+    func setComponentVisualState(_ optionID: String, for id: String) {
+        guard scene?.setComponentVisualState(optionID, for: id) == true else {
+            errorMessage = "この表示状態は選択できません。"; return
+        }
     }
     func selectPrimaryMode(_ pose: AvatarPoseID) {
         selectedPose = pose == .standing ? selectedStandingVariant : pose
@@ -161,9 +187,9 @@ struct AvatarWindow: View {
             Spacer()
             if let scene = store.scene {
                 Menu {
-                    ForEach(scene.componentCatalog.components) { component in
+                    ForEach(scene.componentCatalog.selectionComponents) { component in
                         Button { store.selectComponent(component.id) } label: {
-                            Label("\(store.componentWarnings[component.id] == nil ? "" : "⚠︎ ")\(component.title)（\(component.category)）", systemImage: component.symbol)
+                            Label("\(store.hasComponentWarning(component.id) ? "⚠︎ " : "")\(component.title)（\(component.category)）", systemImage: component.symbol)
                         }
                     }
                 } label: {
@@ -173,22 +199,23 @@ struct AvatarWindow: View {
                 .help("部屋のコンポーネントを一覧から選択します")
                 Menu {
                     Text("警告マークの表示テスト")
-                    ForEach(scene.componentCatalog.components) { component in
+                    ForEach(scene.componentCatalog.selectionComponents) { component in
                         Toggle(component.title, isOn: Binding(
-                            get: { store.componentWarnings[component.id] != nil },
+                            get: { store.hasComponentWarning(component.id) },
                             set: { _ in store.toggleWarningDemo(for: component.id) }))
                     }
                     Divider()
                     Button("すべてに表示（デモ）") {
                         store.replaceComponentWarnings(Dictionary(uniqueKeysWithValues:
-                            scene.componentCatalog.components.map {
+                            scene.componentCatalog.selectionComponents.map {
                                 ($0.id, ComponentWarning(message: "表示テスト用の警告です。実際の異常ではありません。"))
                             }))
                     }
                     Button("すべて解除") { store.replaceComponentWarnings([:]) }
                         .disabled(store.componentWarnings.isEmpty)
                 } label: {
-                    Label(store.componentWarnings.isEmpty ? "警告デモ" : "警告デモ \(store.componentWarnings.count)",
+                    let warningCount = scene.componentCatalog.selectionComponents.filter { store.hasComponentWarning($0.id) }.count
+                    Label(warningCount == 0 ? "警告デモ" : "警告デモ \(warningCount)",
                           systemImage: "exclamationmark.bubble")
                 }.fixedSize().help("検知は行わず、警告表示だけを切り替えます")
             }
@@ -207,7 +234,12 @@ struct AvatarWindow: View {
                 .background(Color(red: 0.075, green: 0.068, blue: 0.085))
                 .overlay(alignment: .topTrailing) {
                     if let component = store.selectedComponent {
-                        RoomComponentDetail(component: component, warning: store.componentWarnings[component.id]) { store.selectComponent(nil) }
+                        RoomComponentDetail(component: component,
+                                            warning: store.componentWarning(for: component.id),
+                                            visualState: store.roomVisualState,
+                                            setVisualState: { store.setComponentVisualState($0, for: component.id) }) {
+                            store.selectComponent(nil)
+                        }
                             .padding(16)
                     }
                 }

@@ -17,7 +17,7 @@ macOS 13以降、ソースからのビルドにはXcode Command Line Toolsが必
 ## 操作
 
 - 部屋の部品にポインタを合わせるとシアンの輪郭と名称が表示されます。クリックすると右上に詳細パネルを開き、選択中の部品をラベンダーで示します。
-- ヘッダーの「コンポーネント」一覧からも11個の部品を選べます。アバターに隠れた部品も一覧から開けます。
+- ヘッダーの「コンポーネント」一覧からも10個の部品を選べます。アバターに隠れた部品も一覧から開けます。
 - 詳細は×、Esc、または部屋の何もない場所をクリックすると閉じます。詳細データは準備中表示です。
 - 「警告デモ」から各部品の警告マークを表示・解除できます。「すべてに表示（デモ）」と「すべて解除」もあります。起動時は警告なしで、実際の異常検知は行いません。
 - 黄色い「!」の吹き出しをクリックすると、その部品の詳細と警告文を開きます。詳細を閉じても警告状態は維持します。
@@ -106,4 +106,44 @@ store.replaceComponentWarnings(["fan-1": ComponentWarning(message: "警告内容
 
 ```bash
 ./run.sh --capture-dir QA/electric-transition-v2/reading-to-standing --transition-from reading --pose standing --sequence 0.7 --fps 30
+```
+
+## コンポーネントの表示状態
+
+部屋の部品をクリックするか「コンポーネント」メニューから選び、詳細の「表示状態」で切り替えます。「初期値」でその部品だけを戻せます。ファンは2基のオブジェクト・当たり判定を残し、選択・詳細・警告デモでは「ファン」に統合しています。
+
+| 対象ID | 表示状態 | 初期値 |
+| --- | --- | --- |
+| `bed` | `0` / `1` / `2` / `3` / `4` 灯 | `4` |
+| `bookshelf` | `sparse`（スカスカ）/ `normal`（中くらい）/ `overflow` | `normal` |
+| `desk` | `normal` / `stacked`（書類の山）/ `overflow`（床にも書類）| `normal` |
+| `display` | `normal` / `staticNoise`（砂嵐）| `normal` |
+| `fans` | `stopped` / `slow` / `fast` | `slow` |
+| `network` | `cyan` / `yellow` / `red` | `cyan` |
+| `compute`（CPU）| `cyan` / `yellow` / `red` | `cyan` |
+
+ベッドは枕上・側面とも4灯です。本棚の通常状態とデスクの通常状態は元画像を使い、本の差分は通常画像から切り出した原寸の本を使い、背表紙・厚さ・質感を統一しています。書類とランプはコードで生成したキャッシュ済みテクスチャを重ねます。ファンとCPUはv3で分離済みの素材を小さく切り出して再利用します。高速ファンは5回転／秒（300RPM、12フレーム／回転を毎秒60フレームで再生）で、羽根のブラーを重ねています。状態は互いに独立し、再起動すると初期値に戻ります。
+
+バックエンド未接続で、観測値から状態への閾値判定は行いません。後でモニターからメインスレッドで下記を呼び出せます。
+
+```swift
+// 部品単位。未知の部品・状態や範囲外の灯数にはfalseを返し、既存状態を保持します。
+scene.setComponentVisualState("2", for: "bed")
+scene.setComponentVisualState("fast", for: "fans")
+scene.setComponentVisualState("red", for: "compute")
+
+// 全体のスナップショット。型付きCodableデータとして受け取れます。
+let state = try JSONDecoder().decode(RoomVisualState.self, from: data)
+scene.setRoomVisualState(state)
+// onVisualStateChangeでUIに反映。同一状態の再送では通知を繰り返しません。
+```
+
+`fan-1` / `fan-2` も状態指定の別名として受け付け、両方のファンをまとめて変更します。警告は引き続き実オブジェクト単位で保持でき、`fans` を指定すると両方へ設定・解除します。詳細には両者の警告を集約します。
+
+「動きを抑える」ではファン・CPU・砂嵐の時間変化も停止します。一時停止中でも手動の状態変更はでき、「キャラクターのみ」では状態を保持したまま部屋を隠します。
+
+実装：`RoomVisualState.swift`（データ）、`RoomStateRenderer.swift`（描画）、`RoomStateArtwork.swift`（冊数・書類・ランプ・砂嵐）。素材の再切り出しは `scripts/import_room_state_assets.py`。確認画像は `QA/room-states/` にあります。
+
+```bash
+./run.sh --capture-dir QA/room-states/captures --room-states-qa
 ```

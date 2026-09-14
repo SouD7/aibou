@@ -223,6 +223,9 @@ final class AvatarScene: SKScene {
     private(set) var hoveredComponent: RoomComponent?
     private(set) var selectedComponent: RoomComponent?
     var onComponentSelection: ((RoomComponent?) -> Void)?
+    private let stateRenderer: RoomStateRenderer
+    private(set) var visualState = RoomVisualState()
+    var onVisualStateChange: ((RoomVisualState) -> Void)?
     private let room: SKSpriteNode
     var roomFrameIndex: Int { (room as? AnimatedRoomNode)?.frameIndex ?? 0 }
     private var visuals: [AvatarPoseID: PoseVisual] = [:]
@@ -251,6 +254,7 @@ final class AvatarScene: SKScene {
             from: resourceDirectory.appendingPathComponent("room-components.json"), canvas: manifest.canvas)
         componentHighlights = RoomComponentHighlights(canvas: manifest.canvas)
         warningBadges = RoomWarningBadges(catalog: componentCatalog)
+        stateRenderer = try RoomStateRenderer(directory:resourceDirectory.appendingPathComponent("RoomStates"),canvas:manifest.canvas)
         let sceneSize = CGSize(width: manifest.canvas.x, height: manifest.canvas.y)
         let roomDirectory = resourceDirectory.appendingPathComponent("RoomAnimation")
         if FileManager.default.fileExists(atPath: roomDirectory.appendingPathComponent("manifest.json").path) {
@@ -265,6 +269,7 @@ final class AvatarScene: SKScene {
         backgroundColor = NSColor(red: 0.075, green: 0.068, blue: 0.085, alpha: 1)
         room.position = CGPoint(x: sceneSize.width / 2, y: sceneSize.height / 2)
         room.zPosition = -10; addChild(room)
+        addChild(stateRenderer)
         addChild(componentHighlights)
         addChild(warningBadges)
         addChild(electricEffect)
@@ -307,17 +312,20 @@ final class AvatarScene: SKScene {
     private func roomComponent(at point: CGPoint) -> RoomComponent? {
         guard !focused else { return nil }
         if let id = warningBadges.componentID(at: point) {
-            return componentCatalog.components.first { $0.id == id }
+            return componentCatalog.selectionComponent(for:id)
         }
-        return componentCatalog.component(at: Point2(point.x, size.height - point.y))
+        return componentCatalog.component(at: Point2(point.x, size.height - point.y)).flatMap {
+            componentCatalog.selectionComponent(for:$0.id)
+        }
     }
 
     /// Invoke on the main thread when a backend status changes. nil clears only this component.
     @discardableResult
     func setComponentWarning(_ warning: ComponentWarning?, for id: String) -> Bool {
-        guard componentCatalog.components.contains(where: { $0.id == id }) else { return false }
+        let ids = id == "fans" ? ["fan-1", "fan-2"] : [id]
+        guard ids.allSatisfy({ target in componentCatalog.components.contains(where:{ $0.id == target }) }) else { return false }
         var next = componentWarnings
-        next[id] = warning
+        for target in ids { next[target] = warning }
         replaceComponentWarnings(next)
         return true
     }
@@ -325,7 +333,11 @@ final class AvatarScene: SKScene {
     /// Complete backend snapshot: missing component IDs are cleared; unknown IDs are ignored.
     func replaceComponentWarnings(_ warnings: [String: ComponentWarning]) {
         let known = Set(componentCatalog.components.map(\.id))
-        let next = warnings.filter { known.contains($0.key) }
+        var expanded = warnings
+        if let fans = expanded.removeValue(forKey:"fans") {
+            expanded["fan-1"] = fans; expanded["fan-2"] = fans
+        }
+        let next = expanded.filter { known.contains($0.key) }
         guard next != componentWarnings else { return }
         componentWarnings = next
         warningBadges.update(next, reducedMotion: reducedMotion || animationPaused)
@@ -334,10 +346,26 @@ final class AvatarScene: SKScene {
 
     func selectRoomComponent(_ id: String?) {
         hoverRoom(at: nil)
-        let component = focused ? nil : componentCatalog.components.first { $0.id == id }
+        let component = focused ? nil : id.flatMap { componentCatalog.selectionComponent(for:$0) }
         selectedComponent = component
         componentHighlights.showSelection(component)
         onComponentSelection?(component)
+    }
+
+    /// Main-thread display state supplied by the monitor later, or manual controls now.
+    @discardableResult
+    func setRoomVisualState(_ state: RoomVisualState) -> Bool {
+        guard visualState != state else { return true }
+        visualState = state
+        stateRenderer.apply(state:state,time:frameTime,reducedMotion:reducedMotion)
+        onVisualStateChange?(state)
+        return true
+    }
+
+    @discardableResult
+    func setComponentVisualState(_ optionID:String, for id:String) -> Bool {
+        guard let next = visualState.applying(optionID:optionID,for:id) else { return false }
+        return setRoomVisualState(next)
     }
 
     func selectPose(_ pose: AvatarPoseID, animated: Bool = true) {
@@ -399,6 +427,7 @@ final class AvatarScene: SKScene {
     func applyFrame(_ time: Double) {
         frameTime = time
         (room as? AnimatedRoomNode)?.apply(time: time, reducedMotion: reducedMotion)
+        stateRenderer.apply(state:visualState,time:time,reducedMotion:reducedMotion)
         let input = MotionInput(time: time, strength: motionStrength, reducedMotion: reducedMotion,
                                 speechAmplitude: speechAmplitude, forceBlink: forceBlink)
         guard let transition = poseTransition else {
@@ -426,6 +455,7 @@ final class AvatarScene: SKScene {
     private func applyFocus() {
         finishPoseTransition()
         room.isHidden = focused
+        stateRenderer.isHidden = focused
         componentHighlights.isHidden = focused
         warningBadges.isHidden = focused
         hoverRoom(at: nil)

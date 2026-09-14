@@ -8,6 +8,7 @@ struct CaptureRequest {
     let qa: Bool
     let focus: Bool
     let transitionFrom: AvatarPoseID?
+    let roomStatesQA: Bool
 
     static func parse(_ arguments: [String]) -> CaptureRequest? {
         guard let index = arguments.firstIndex(of: "--capture-dir"), index + 1 < arguments.count else { return nil }
@@ -35,7 +36,7 @@ struct CaptureRequest {
                               focus: arguments.contains("--focus"),
                               transitionFrom: arguments.firstIndex(of: "--transition-from").flatMap {
                                   $0 + 1 < arguments.count ? AvatarPoseID(rawValue: arguments[$0 + 1]) : nil
-                              })
+                              }, roomStatesQA: arguments.contains("--room-states-qa"))
     }
 }
 
@@ -47,6 +48,10 @@ enum SceneCapture {
         let view = SKView(frame: CGRect(x: 0, y: 0, width: 1003, height: 565))
         view.presentScene(scene)
         scene.focused = request.focus
+        if request.roomStatesQA {
+            try captureRoomStates(scene:scene,view:view,directory:request.directory)
+            return
+        }
         var records: [[String: Any]] = []
         for pose in request.poses {
             scene.selectPose(request.transitionFrom ?? pose, animated: false)
@@ -86,6 +91,27 @@ enum SceneCapture {
                                        "renderSize": [view.frame.width, view.frame.height], "frames": records]
         let data = try JSONSerialization.data(withJSONObject: metadata, options: [.prettyPrinted, .sortedKeys])
         try data.write(to: request.directory.appendingPathComponent("metadata.json"), options: .atomic)
+    }
+
+    private static func captureRoomStates(scene:AvatarScene,view:SKView,directory:URL) throws {
+        scene.focused = false
+        let ids = ["bed","bookshelf","desk","display","fans","network","compute"]
+        for id in ids {
+            for option in RoomVisualState.options(for:id) {
+                scene.setRoomVisualState(RoomVisualState())
+                scene.setComponentVisualState(option.id,for:id)
+                scene.setDeterministicTime(0.33)
+                scene.children.filter { $0 is PoseVisual }.forEach { $0.isHidden = true }
+                try save(scene:scene,view:view,url:directory.appendingPathComponent("\(id)-\(option.id).png"))
+            }
+        }
+        for (id,value) in [("bed","1"),("bookshelf","overflow"),("desk","overflow"),("display","staticNoise"),
+                           ("fans","fast"),("network","yellow"),("compute","red")] {
+            scene.setComponentVisualState(value,for:id)
+        }
+        scene.setDeterministicTime(0.33)
+        scene.children.filter { $0 is PoseVisual }.forEach { $0.isHidden = true }
+        try save(scene:scene,view:view,url:directory.appendingPathComponent("combined.png"))
     }
 
     private static func save(scene: SKScene, view: SKView, url: URL) throws {
