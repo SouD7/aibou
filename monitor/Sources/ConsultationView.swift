@@ -78,6 +78,16 @@ struct ConsultationView: View {
             if model.busy { HStack { ProgressView().controlSize(.small); Text("回答を待っています…"); Button("回答を停止") { Task { await model.interrupt() } } } }
             VStack(alignment: .leading, spacing: 8) {
                 Text("質問・追加質問").font(.headline)
+                HStack {
+                    Text("回答の長さ")
+                    Picker("回答の長さ", selection: $model.responseLength) {
+                        ForEach(ConsultationResponseLength.allCases, id: \.self) { length in
+                            Text(length.label).tag(length)
+                        }
+                    }.pickerStyle(.segmented).labelsHidden().frame(maxWidth: 300)
+                }
+                Text("このアプリの相談に適用し、次回もこの設定を使います。「詳しく」と質問すると、選択にかかわらず説明を広げます。")
+                    .font(.caption).foregroundStyle(.secondary)
                 TextEditor(text: $model.question).font(.body).frame(minHeight: 90, maxHeight: 140)
                     .overlay(RoundedRectangle(cornerRadius: 5).stroke(.secondary.opacity(0.3)))
                     .accessibilityLabel("相談する内容")
@@ -99,6 +109,7 @@ struct ConsultationView: View {
             VStack(alignment: .leading, spacing: 16) {
                 Text("この内容をCodexへ送信します").font(.title2.bold())
                 Text("質問と添付情報をOpenAIへ送信し、Codex利用枠を消費します。添付は以下の確認時点の値です。")
+                Text("回答の長さ：\(draft?.responseLength.label ?? "標準")").font(.headline)
                 ScrollView { Text(draft?.transmittedText ?? "").font(.system(.body, design: .monospaced)).textSelection(.enabled).frame(maxWidth: .infinity, alignment: .leading) }
                 HStack {
                     Button("戻る") { previewing = false }
@@ -115,7 +126,7 @@ struct ConsultationView: View {
     private func prepare() {
         do {
             let attachment = model.attachReadings ? try store.consultationAttachment().json() : nil
-            draft = ConsultationDraft(question: model.question, attachment: attachment)
+            draft = model.makeDraft(attachment: attachment)
             preparationError = ""; previewing = true
         } catch { preparationError = "添付情報を作成できません: \(error.localizedDescription)" }
     }

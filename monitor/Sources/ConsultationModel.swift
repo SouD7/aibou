@@ -28,6 +28,9 @@ final class ConsultationModel: ObservableObject {
     @Published private(set) var messages: [ConsultationMessage] = []
     @Published var question = ""
     @Published var attachReadings = true
+    @Published var responseLength: ConsultationResponseLength {
+        didSet { preferences.set(responseLength.rawValue, forKey: "consultationResponseLength") }
+    }
     @Published var executablePath = CodexConsultationRuntime.findExecutable()?.path ?? ""
     private var client: ConsultationRPC?
     private var connection = UUID()
@@ -43,9 +46,16 @@ final class ConsultationModel: ObservableObject {
     private var responseBytes = 0
     private let pendingShutdown = DispatchGroup()
     private let directory: URL
+    private let preferences: UserDefaults
     private let factory: @MainActor (URL, URL) throws -> ConsultationRPC
     static let instructions = """
     あなたはAIBOUのMacトラブルシューティング相談担当です。日本語で、確認できた事実・原因候補・次の確認方法を簡潔に説明してください。
+    親しみのある、落ち着いた「です・ます」調で話してください。結論から伝え、次に試すことは1〜2個に絞ってください。前置きや同じ説明の繰り返しは避けてください。
+    少女らしい柔らかさと素直さを、控えめに表現してください。「〜ですね」「まずは〜を見てみましょう」「〜してみてくださいね」など、やさしく寄り添う自然な言い回しを使ってください。語尾の「ね」の連発、幼児語、過度な甘えや芝居がかった口調、絵文字の多用は避け、説明の正確さと簡潔さを保ってください。
+    回答の1文目と最後の文の文末は、句点「。」ではなく全角の「！」1つで締めてください。1文だけの回答では、その文末に「！」を1つ付けてください。それ以外の文は通常の句読点を使い、感嘆符を連続させないでください。
+    通常は200字程度、3〜5文を目安にしてください。各質問の冒頭にある「今回の回答の長さ」の最新の指定を、その回答に適用してください。過去のターンの長さ指定は引き継がないでください。
+    ユーザーが今回の質問で「詳しく」などと明示的に頼んだ場合、または「詳しめ」を選んだ場合だけ説明を広げてください。質問本文で明示した詳しさの希望は長さ設定より優先し、その回答だけに適用してください。
+    文字数と文数は目安です。必要な注意点や不確実性を省いたり、文の途中で切ったりしないでください。
     添付は質問時点の許可された全体指標のみです。プロセス名、ファイル、接続先などは添付されません。必要ならユーザーに尋ねてください。
     collection.state、lastSampleAt、preparedAt、各recordedAt/statusを確認し、停止中・古い値・欠測・partialを現在の正常/異常の断定に使わないでください。
     snapshot一回から継続負荷を断定しないでください。swap使用だけで現在のメモリ不足や故障を断定しないでください。
@@ -55,9 +65,17 @@ final class ConsultationModel: ObservableObject {
     """
 
     init(directory: URL = CodexConsultationRuntime.defaultDirectory,
+         preferences: UserDefaults = .standard,
          factory: (@MainActor (URL, URL) throws -> ConsultationRPC)? = nil) {
         self.directory = directory
+        self.preferences = preferences
+        self.responseLength = preferences.string(forKey: "consultationResponseLength")
+            .flatMap(ConsultationResponseLength.init(rawValue:)) ?? .standard
         self.factory = factory ?? { try CodexRPC(executable: $0, directory: $1) }
+    }
+
+    func makeDraft(attachment: String?) -> ConsultationDraft {
+        ConsultationDraft(question: question, attachment: attachment, responseLength: responseLength)
     }
 
     func connect() async {

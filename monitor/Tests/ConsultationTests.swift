@@ -61,6 +61,44 @@ func runConsultationTests() async throws {
     try consultationExpect(attachment.readings.last?.value == nil && json.contains("重大"), "nonfinite number omitted; critical thermal retained")
     let draft = ConsultationDraft(question: "重いです", attachment: json)
     try consultationExpect(draft.transmittedText.contains(json), "preview bytes passed unchanged")
+    let expectedLengths: [(ConsultationResponseLength, String, String)] = [
+        (.short, "短め", "100字程度"),
+        (.standard, "標準", "200字程度"),
+        (.detailed, "詳しめ", "400字程度")
+    ]
+    try consultationExpect(ConsultationResponseLength.allCases.count == expectedLengths.count, "three response lengths are available")
+    for (length, label, guidanceFragment) in expectedLengths {
+        let payload = ConsultationDraft(question: "質問-\(label)", attachment: json, responseLength: length).transmittedText
+        try consultationExpect(length.label == label && length.guidance.contains(guidanceFragment), "\(label) label and guidance")
+        try consultationExpect(payload.contains("今回の回答の長さ：\(label)") && payload.contains(length.guidance), "\(label) guidance included in payload")
+        try consultationExpect(payload.contains("質問-\(label)") && payload.contains(json), "\(label) payload preserves question and attachment")
+    }
+
+    let preferencesName = "aibou-consultation-tests-\(UUID().uuidString)"
+    guard let preferences = UserDefaults(suiteName: preferencesName) else {
+        throw ConsultationError.message("Consultation test: isolated preferences unavailable")
+    }
+    preferences.removePersistentDomain(forName: preferencesName)
+    defer { preferences.removePersistentDomain(forName: preferencesName) }
+    let preferenceModel = ConsultationModel(directory: FileManager.default.temporaryDirectory, preferences: preferences)
+    try consultationExpect(preferenceModel.responseLength == .standard, "missing response length defaults to standard")
+    preferenceModel.responseLength = .detailed
+    try consultationExpect(preferences.string(forKey: "consultationResponseLength") == ConsultationResponseLength.detailed.rawValue,
+                           "response length persists")
+    let restoredModel = ConsultationModel(directory: FileManager.default.temporaryDirectory, preferences: preferences)
+    try consultationExpect(restoredModel.responseLength == .detailed, "persisted response length restores")
+    preferences.set("future-value", forKey: "consultationResponseLength")
+    let fallbackModel = ConsultationModel(directory: FileManager.default.temporaryDirectory, preferences: preferences)
+    try consultationExpect(fallbackModel.responseLength == .standard, "unknown response length falls back to standard")
+    fallbackModel.question = "確認画面の質問"
+    fallbackModel.responseLength = .detailed
+    let previewDraft = fallbackModel.makeDraft(attachment: json)
+    fallbackModel.question = "確認後の質問"
+    fallbackModel.responseLength = .short
+    try consultationExpect(previewDraft.question == "確認画面の質問" && previewDraft.responseLength == .detailed,
+                           "preview fixes question and response length")
+    try consultationExpect(previewDraft.transmittedText.contains("詳しめ") && previewDraft.transmittedText.contains(json),
+                           "preview payload remains unchanged after settings change")
 
     var parser = CodexJSONLines()
     let wire = Data("{\"method\":\"delta\",\"params\":{\"delta\":\"日本語\"}}\n{\"id\":1,\"result\":{}}\n".utf8)
@@ -80,8 +118,9 @@ func runConsultationTests() async throws {
     try consultationExpect(environment["OPENAI_API_KEY"] == nil && environment["CODEX_API_KEY"] == nil && environment["CODEX_HOME"] == directory.appendingPathComponent("codex-home").path, "isolated auth environment")
     try consultationExpect(CodexConsultationRuntime.arguments().contains("forced_login_method=\"chatgpt\"") && CodexConsultationRuntime.arguments().contains("features.shell_tool=false"), "subscription-only and shell disabled")
 
+    preferences.removePersistentDomain(forName: preferencesName)
     let rpc = FixtureConsultationRPC()
-    let model = ConsultationModel(directory: directory, factory: { _, _ in rpc })
+    let model = ConsultationModel(directory: directory, preferences: preferences, factory: { _, _ in rpc })
     model.executablePath = "/fixture/codex"
     await model.connect()
     try consultationExpect(model.connected && model.signedIn, "handshake and ChatGPT login state")
@@ -89,6 +128,11 @@ func runConsultationTests() async throws {
     try consultationExpect(model.busy && rpc.requests.filter { $0.0 == "thread/start" }.count == 1, "starts one ephemeral thread")
     let threadParams = rpc.requests.first { $0.0 == "thread/start" }!.1
     try consultationExpect(threadParams["ephemeral"] as? Bool == true && threadParams["sandbox"] as? String == "read-only", "thread safety policy")
+    let instructions = threadParams["developerInstructions"] as? String ?? ""
+    try consultationExpect(instructions.contains("親しみのある、落ち着いた「です・ます」調") && instructions.contains("結論から伝え") && instructions.contains("1〜2個"),
+                           "thread instructions define tone, conclusion-first structure, and next actions")
+    try consultationExpect(instructions.contains("明示的に頼んだ場合") && instructions.contains("最新の指定"),
+                           "thread instructions expand only on request and use the latest turn setting")
     let input = rpc.requests.last { $0.0 == "turn/start" }!.1["input"] as? [[String: Any]]
     try consultationExpect(input?.first?["text"] as? String == draft.transmittedText, "exact preview is submitted")
     rpc.delta("wrong thread", thread: "foreign")
@@ -98,7 +142,14 @@ func runConsultationTests() async throws {
         "item": ["type": "agentMessage", "id": "turn-1-answer", "text": "最初の回答"]])
     rpc.complete("turn-1")
     try consultationExpect(!model.busy && model.messages.last?.text == "最初の回答", "stream reconciled without duplicates")
-    await model.send(ConsultationDraft(question: "続き", attachment: nil))
+    model.question = "続き"
+    model.responseLength = .short
+    let followup = model.makeDraft(attachment: nil)
+    model.responseLength = .detailed
+    await model.send(followup)
+    let followupInput = rpc.requests.last { $0.0 == "turn/start" }!.1["input"] as? [[String: Any]]
+    try consultationExpect(followupInput?.first?["text"] as? String == followup.transmittedText && followup.transmittedText.contains("短め"),
+                           "same-thread followup sends the previewed length unchanged")
     rpc.delta("late old turn")
     try consultationExpect(model.messages.last?.isUser == true, "old-turn events ignored")
     try consultationExpect(rpc.requests.filter { $0.0 == "thread/start" }.count == 1, "followup uses same thread")
@@ -107,8 +158,16 @@ func runConsultationTests() async throws {
     model.newConversation()
     try consultationExpect(model.messages.isEmpty, "new conversation clears context")
     rpc.earlyCompletion = true
-    await model.send(ConsultationDraft(question: "早い回答", attachment: nil))
+    model.question = "早い回答"
+    model.responseLength = .detailed
+    let newConversationDraft = model.makeDraft(attachment: nil)
+    await model.send(newConversationDraft)
     try consultationExpect(!model.busy, "completion before turn/start response does not re-lock")
+    try consultationExpect(rpc.requests.filter { $0.0 == "thread/start" }.count == 2, "new conversation starts a new thread")
+    let newConversationInput = rpc.requests.last { $0.0 == "turn/start" }!.1["input"] as? [[String: Any]]
+    try consultationExpect(newConversationInput?.first?["text"] as? String == newConversationDraft.transmittedText
+                           && newConversationDraft.transmittedText.contains("詳しめ"),
+                           "new conversation uses the current response length")
     model.disconnect()
     try consultationExpect(rpc.closed && !model.connected, "disconnect closes runtime")
 
