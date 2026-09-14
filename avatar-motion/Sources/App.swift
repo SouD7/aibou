@@ -24,6 +24,8 @@ final class AvatarAppDelegate: NSObject, NSApplicationDelegate {
 
 @MainActor
 final class AvatarStore: ObservableObject {
+    @Published private(set) var componentWarnings: [String: ComponentWarning] = [:]
+    @Published private(set) var selectedComponent: RoomComponent?
     @Published private(set) var selectedStandingVariant: AvatarPoseID = .standing
     @Published var selectedPose: AvatarPoseID = .standing {
         didSet {
@@ -81,9 +83,24 @@ final class AvatarStore: ObservableObject {
             self?.windowVisible = true; self?.updatePause()
         }.store(in: &subscriptions)
         scene?.reducedMotion = reducedMotion
+        scene?.onComponentSelection = { [weak self] component in
+            self?.selectedComponent = component
+        }
+        scene?.onWarningsChange = { [weak self] warnings in self?.componentWarnings = warnings }
     }
 
     func togglePause() { paused.toggle() }
+    func selectComponent(_ id: String?) { scene?.selectRoomComponent(id) }
+    func setComponentWarning(_ warning: ComponentWarning?, for id: String) {
+        scene?.setComponentWarning(warning, for: id)
+    }
+    func replaceComponentWarnings(_ warnings: [String: ComponentWarning]) {
+        scene?.replaceComponentWarnings(warnings)
+    }
+    func toggleWarningDemo(for id: String) {
+        setComponentWarning(componentWarnings[id] == nil ?
+            ComponentWarning(message: "表示テスト用の警告です。実際の異常ではありません。") : nil, for: id)
+    }
     func selectPrimaryMode(_ pose: AvatarPoseID) {
         selectedPose = pose == .standing ? selectedStandingVariant : pose
     }
@@ -142,6 +159,39 @@ struct AvatarWindow: View {
                 Text(statusText).font(.caption).foregroundStyle(.white.opacity(0.58))
             }
             Spacer()
+            if let scene = store.scene {
+                Menu {
+                    ForEach(scene.componentCatalog.components) { component in
+                        Button { store.selectComponent(component.id) } label: {
+                            Label("\(store.componentWarnings[component.id] == nil ? "" : "⚠︎ ")\(component.title)（\(component.category)）", systemImage: component.symbol)
+                        }
+                    }
+                } label: {
+                    Label("コンポーネント", systemImage: "square.grid.2x2")
+                }
+                .fixedSize().disabled(store.focused)
+                .help("部屋のコンポーネントを一覧から選択します")
+                Menu {
+                    Text("警告マークの表示テスト")
+                    ForEach(scene.componentCatalog.components) { component in
+                        Toggle(component.title, isOn: Binding(
+                            get: { store.componentWarnings[component.id] != nil },
+                            set: { _ in store.toggleWarningDemo(for: component.id) }))
+                    }
+                    Divider()
+                    Button("すべてに表示（デモ）") {
+                        store.replaceComponentWarnings(Dictionary(uniqueKeysWithValues:
+                            scene.componentCatalog.components.map {
+                                ($0.id, ComponentWarning(message: "表示テスト用の警告です。実際の異常ではありません。"))
+                            }))
+                    }
+                    Button("すべて解除") { store.replaceComponentWarnings([:]) }
+                        .disabled(store.componentWarnings.isEmpty)
+                } label: {
+                    Label(store.componentWarnings.isEmpty ? "警告デモ" : "警告デモ \(store.componentWarnings.count)",
+                          systemImage: "exclamationmark.bubble")
+                }.fixedSize().help("検知は行わず、警告表示だけを切り替えます")
+            }
             HStack(spacing: 5) {
                 Circle().fill(store.effectivelyPaused ? Color.orange : Color.green).frame(width: 7, height: 7)
                 Text(store.effectivelyPaused ? "一時停止" : "ゆっくり動作中").font(.caption).foregroundStyle(.white.opacity(0.72))
@@ -151,10 +201,17 @@ struct AvatarWindow: View {
 
     @ViewBuilder private var stage: some View {
         if let scene = store.scene {
-            SpriteView(scene: scene, options: [.shouldCullNonVisibleNodes])
+            InteractiveRoomView(scene: scene)
                 .aspectRatio(CGFloat(scene.size.width / scene.size.height), contentMode: .fit)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color(red: 0.075, green: 0.068, blue: 0.085))
+                .overlay(alignment: .topTrailing) {
+                    if let component = store.selectedComponent {
+                        RoomComponentDetail(component: component, warning: store.componentWarnings[component.id]) { store.selectComponent(nil) }
+                            .padding(16)
+                    }
+                }
+                .onExitCommand { store.selectComponent(nil) }
         } else {
             VStack(spacing: 10) {
                 Image(systemName: "photo.badge.exclamationmark").font(.largeTitle)

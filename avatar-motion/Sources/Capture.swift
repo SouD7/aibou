@@ -7,6 +7,7 @@ struct CaptureRequest {
     let times: [Double]
     let qa: Bool
     let focus: Bool
+    let transitionFrom: AvatarPoseID?
 
     static func parse(_ arguments: [String]) -> CaptureRequest? {
         guard let index = arguments.firstIndex(of: "--capture-dir"), index + 1 < arguments.count else { return nil }
@@ -21,14 +22,20 @@ struct CaptureRequest {
         let sequenceDuration: Double? = arguments.firstIndex(of: "--sequence").flatMap {
             $0 + 1 < arguments.count ? Double(arguments[$0 + 1]) : nil
         }
+        let fps = arguments.firstIndex(of: "--fps").flatMap {
+            $0 + 1 < arguments.count ? Double(arguments[$0 + 1]) : nil
+        } ?? 10
         let sequenceTimes: [Double]? = sequenceDuration.flatMap { duration in
-            guard duration.isFinite, duration > 0, duration <= 30 else { return nil }
-            return (0..<Int((duration * 10).rounded(.up))).map { Double($0) / 10 }
+            guard duration.isFinite, duration > 0, duration <= 30, fps.isFinite, fps >= 1, fps <= 60 else { return nil }
+            return (0..<Int((duration * fps).rounded(.up))).map { Double($0) / fps }
         }
         return CaptureRequest(directory: directory,
                               poses: pose.map { [$0] } ?? (qa ? AvatarPoseID.allCases : [.standing]),
                               times: sequenceTimes ?? time.map { [$0] } ?? (qa ? [0, 1] : [0]), qa: qa,
-                              focus: arguments.contains("--focus"))
+                              focus: arguments.contains("--focus"),
+                              transitionFrom: arguments.firstIndex(of: "--transition-from").flatMap {
+                                  $0 + 1 < arguments.count ? AvatarPoseID(rawValue: arguments[$0 + 1]) : nil
+                              })
     }
 }
 
@@ -42,7 +49,9 @@ enum SceneCapture {
         scene.focused = request.focus
         var records: [[String: Any]] = []
         for pose in request.poses {
-            scene.selectPose(pose)
+            scene.selectPose(request.transitionFrom ?? pose, animated: false)
+            scene.setDeterministicTime(0)
+            if request.transitionFrom != nil { scene.selectPose(pose) }
             for time in request.times {
                 scene.forceBlink = nil; scene.speechAmplitude = 0; scene.setDeterministicTime(time)
                 let name = "\(pose.rawValue)-t\(String(format: "%.2f", time))"
@@ -55,7 +64,7 @@ enum SceneCapture {
         if request.qa {
             scene.focused = true
             for pose in request.poses {
-                scene.selectPose(pose); scene.forceBlink = nil; scene.speechAmplitude = 0
+                scene.selectPose(pose, animated: false); scene.forceBlink = nil; scene.speechAmplitude = 0
                 scene.setDeterministicTime(1)
                 let name = "\(pose.rawValue)-focus"
                 try save(scene: scene, view: view, url: request.directory.appendingPathComponent(name + ".png"))
@@ -63,7 +72,7 @@ enum SceneCapture {
                                 "blink": 0, "speech": 0, "focus": true])
             }
             for pose in request.poses.filter(\.isStanding) {
-                scene.selectPose(pose)
+                scene.selectPose(pose, animated: false)
                 for variant in [("blink", 1.0, 0.0), ("speech", 0.0, 0.72)] {
                     let name = "\(pose.rawValue)-\(variant.0)"
                     scene.forceBlink = variant.1; scene.speechAmplitude = variant.2; scene.setDeterministicTime(2)

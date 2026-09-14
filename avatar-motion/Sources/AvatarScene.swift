@@ -27,6 +27,8 @@ final class PoseVisual: SKNode {
     private var eyeOverlays: [(rect: Rect4, cover: SKShapeNode, lash: SKShapeNode, patch: SKSpriteNode?)] = []
     private var mouthOverlay: (rect: Rect4, cover: SKShapeNode, mouth: SKShapeNode)?
     private var pageOverlay: (rect: Rect4, page: SKShapeNode)?
+    private let glitchLayer = SKNode()
+    private var glitchStrips: [SKSpriteNode] = []
     private let columns = 16
     private let rows = 24
 
@@ -52,6 +54,8 @@ final class PoseVisual: SKNode {
         }
         addChild(shadowEffect); shadowEffect.addChild(shadow)
         sprite.zPosition = 0; addChild(sprite)
+        glitchLayer.name = "arrival-noise"
+        glitchLayer.zPosition = 1; glitchLayer.isHidden = true; addChild(glitchLayer)
         createFaceOverlays(blinkTextures: blinkTextures)
         createPageOverlay()
         apply(input: MotionInput(time: 0))
@@ -159,6 +163,39 @@ final class PoseVisual: SKNode {
         }
     }
 
+    /// Texture slices create brief horizontal signal interference on the avatar only.
+    /// The shadow and room remain stable. Cached subtextures share the original atlas.
+    func setArrivalNoise(progress: Double?) {
+        guard let progress else {
+            glitchLayer.isHidden = true; sprite.isHidden = false; return
+        }
+        if glitchStrips.isEmpty, let texture = sprite.texture {
+            let count = 32
+            for index in 0..<count {
+                let strip = SKSpriteNode(texture: SKTexture(rect: CGRect(x: 0, y: Double(index) / Double(count),
+                    width: 1, height: 1 / Double(count)), in: texture),
+                    size: CGSize(width: manifest.size.x, height: manifest.size.y / Double(count)))
+                strip.color = NSColor(hex: "#B8EAFF")
+                glitchLayer.addChild(strip); glitchStrips.append(strip)
+            }
+        }
+        sprite.isHidden = true; glitchLayer.isHidden = false
+        let tick = floor(progress * 12)
+        let strength = 1 - progress * 0.75
+        for (index, strip) in glitchStrips.enumerated() {
+            let seed = sin(Double(index) * 17.17 + tick * 9.31)
+            let affected = abs(seed) > 0.56
+            strip.position = CGPoint(x: affected ? seed * 19 * strength : 0,
+                y: -manifest.size.y / 2 + (Double(index) + 0.5) * manifest.size.y / Double(glitchStrips.count))
+            strip.colorBlendFactor = affected ? 0.45 * strength : 0
+            strip.alpha = affected ? 0.78 : 1
+        }
+    }
+
+    var electricAnchor: CGPoint {
+        convert(localPoint(manifest.chest), to: parent!)
+    }
+
     func setFocus(_ focused: Bool) {
         if focused {
             let desired = manifest.focusSize ?? Point2(canvas.x * 0.50, canvas.y * 0.88)
@@ -178,12 +215,28 @@ final class PoseVisual: SKNode {
 
 final class AvatarScene: SKScene {
     let manifest: RigManifest
+    let componentCatalog: RoomComponentCatalog
+    private let componentHighlights: RoomComponentHighlights
+    private let warningBadges: RoomWarningBadges
+    private(set) var componentWarnings: [String: ComponentWarning] = [:]
+    var onWarningsChange: (([String: ComponentWarning]) -> Void)?
+    private(set) var hoveredComponent: RoomComponent?
+    private(set) var selectedComponent: RoomComponent?
+    var onComponentSelection: ((RoomComponent?) -> Void)?
     private let room: SKSpriteNode
     var roomFrameIndex: Int { (room as? AnimatedRoomNode)?.frameIndex ?? 0 }
     private var visuals: [AvatarPoseID: PoseVisual] = [:]
     private(set) var currentPose: AvatarPoseID = .standing
+    private let electricEffect = ElectricTransitionEffect()
+    private(set) var poseTransition: ElectricTransition?
+    private var frameTime = 0.0
     var motionStrength = 1.0
-    var reducedMotion = false
+    var reducedMotion = false {
+        didSet {
+            warningBadges.update(componentWarnings, reducedMotion: reducedMotion || animationPaused)
+            if reducedMotion { finishPoseTransition() }
+        }
+    }
     var speechAmplitude = 0.0
     var forceBlink: Double?
     var focused = false { didSet { applyFocus() } }
@@ -194,6 +247,10 @@ final class AvatarScene: SKScene {
 
     init(manifest: RigManifest, resourceDirectory: URL) throws {
         self.manifest = manifest
+        componentCatalog = try RoomComponentCatalog.load(
+            from: resourceDirectory.appendingPathComponent("room-components.json"), canvas: manifest.canvas)
+        componentHighlights = RoomComponentHighlights(canvas: manifest.canvas)
+        warningBadges = RoomWarningBadges(catalog: componentCatalog)
         let sceneSize = CGSize(width: manifest.canvas.x, height: manifest.canvas.y)
         let roomDirectory = resourceDirectory.appendingPathComponent("RoomAnimation")
         if FileManager.default.fileExists(atPath: roomDirectory.appendingPathComponent("manifest.json").path) {
@@ -208,6 +265,9 @@ final class AvatarScene: SKScene {
         backgroundColor = NSColor(red: 0.075, green: 0.068, blue: 0.085, alpha: 1)
         room.position = CGPoint(x: sceneSize.width / 2, y: sceneSize.height / 2)
         room.zPosition = -10; addChild(room)
+        addChild(componentHighlights)
+        addChild(warningBadges)
+        addChild(electricEffect)
         for pose in manifest.poses {
             let url = resourceDirectory.appendingPathComponent(pose.image)
             guard var image = NSImage(contentsOf: url) else { throw ManifestError.resourceMissing(pose.image) }
@@ -230,17 +290,96 @@ final class AvatarScene: SKScene {
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    func selectPose(_ pose: AvatarPoseID) {
+    func hoverRoom(at point: CGPoint?) {
+        let component = point.flatMap { point in
+            roomComponent(at: point)
+        }
+        hoveredComponent = component
+        componentHighlights.showHover(component, at: point)
+    }
+
+    func selectRoom(at point: CGPoint) {
+        guard !focused else { return }
+        let component = roomComponent(at: point)
+        selectRoomComponent(component?.id)
+    }
+
+    private func roomComponent(at point: CGPoint) -> RoomComponent? {
+        guard !focused else { return nil }
+        if let id = warningBadges.componentID(at: point) {
+            return componentCatalog.components.first { $0.id == id }
+        }
+        return componentCatalog.component(at: Point2(point.x, size.height - point.y))
+    }
+
+    /// Invoke on the main thread when a backend status changes. nil clears only this component.
+    @discardableResult
+    func setComponentWarning(_ warning: ComponentWarning?, for id: String) -> Bool {
+        guard componentCatalog.components.contains(where: { $0.id == id }) else { return false }
+        var next = componentWarnings
+        next[id] = warning
+        replaceComponentWarnings(next)
+        return true
+    }
+
+    /// Complete backend snapshot: missing component IDs are cleared; unknown IDs are ignored.
+    func replaceComponentWarnings(_ warnings: [String: ComponentWarning]) {
+        let known = Set(componentCatalog.components.map(\.id))
+        let next = warnings.filter { known.contains($0.key) }
+        guard next != componentWarnings else { return }
+        componentWarnings = next
+        warningBadges.update(next, reducedMotion: reducedMotion || animationPaused)
+        onWarningsChange?(next)
+    }
+
+    func selectRoomComponent(_ id: String?) {
+        hoverRoom(at: nil)
+        let component = focused ? nil : componentCatalog.components.first { $0.id == id }
+        selectedComponent = component
+        componentHighlights.showSelection(component)
+        onComponentSelection?(component)
+    }
+
+    func selectPose(_ pose: AvatarPoseID, animated: Bool = true) {
         guard visuals[pose] != nil else { return }
+        let previous = currentPose
         currentPose = pose
-        for (id, visual) in visuals { visual.isHidden = id != pose }
-        applyFocus()
+        guard animated, !animationPaused, !isPaused, !reducedMotion, !focused else {
+            finishPoseTransition(); return
+        }
+        // During a jump, remember only the latest requested destination. Complete the
+        // current transition first so rapid clicks never leave detached effects or two bodies.
+        guard poseTransition == nil else { return }
+        guard previous != pose else { return }
+        beginPoseTransition(from: previous, to: pose, at: frameTime)
+    }
+
+    private func beginPoseTransition(from: AvatarPoseID, to: AvatarPoseID, at time: Double) {
+        guard !(from.isStanding && to.isStanding),
+              let source = visuals[from], let target = visuals[to] else {
+            finishPoseTransition(); return
+        }
+        poseTransition = ElectricTransition(from: from, to: to, startedAt: time,
+                                            origin: source.electricAnchor, destination: target.electricAnchor)
+        applyFrame(time)
+    }
+
+    private func finishPoseTransition() {
+        poseTransition = nil; electricEffect.isHidden = true
+        for (id, visual) in visuals {
+            visual.isHidden = id != currentPose; visual.alpha = 1
+            visual.setArrivalNoise(progress: nil)
+        }
     }
 
     func setDeterministicTime(_ time: Double?) { deterministicTime = time; applyFrame(time ?? 0) }
 
     func setAnimationPaused(_ paused: Bool) {
         animationPaused = paused
+        if paused {
+            finishPoseTransition()
+            warningBadges.update(componentWarnings, reducedMotion: true)
+        }
         isPaused = paused
         lastFrameTime = nil
     }
@@ -258,14 +397,39 @@ final class AvatarScene: SKScene {
     }
 
     func applyFrame(_ time: Double) {
+        frameTime = time
         (room as? AnimatedRoomNode)?.apply(time: time, reducedMotion: reducedMotion)
         let input = MotionInput(time: time, strength: motionStrength, reducedMotion: reducedMotion,
                                 speechAmplitude: speechAmplitude, forceBlink: forceBlink)
-        visuals[currentPose]?.apply(input: input)
+        guard let transition = poseTransition else {
+            visuals[currentPose]?.apply(input: input); return
+        }
+        let sample = transition.sample(at: time)
+        if sample.finished {
+            let arrived = transition.to
+            finishPoseTransition()
+            if arrived != currentPose {
+                beginPoseTransition(from: arrived, to: currentPose, at: time)
+            } else { visuals[currentPose]?.apply(input: input) }
+            return
+        }
+        for (id, visual) in visuals {
+            let opacity = id == transition.from ? sample.outgoingAlpha :
+                (id == transition.to ? sample.incomingAlpha : 0)
+            visual.alpha = opacity; visual.isHidden = opacity == 0
+            if opacity > 0 { visual.apply(input: input) }
+            visual.setArrivalNoise(progress: id == transition.to ? sample.noiseProgress : nil)
+        }
+        electricEffect.render(transition, at: time)
     }
 
     private func applyFocus() {
+        finishPoseTransition()
         room.isHidden = focused
+        componentHighlights.isHidden = focused
+        warningBadges.isHidden = focused
+        hoverRoom(at: nil)
+        if focused { selectRoomComponent(nil) }
         visuals.values.forEach { $0.setFocus(focused) }
     }
 }

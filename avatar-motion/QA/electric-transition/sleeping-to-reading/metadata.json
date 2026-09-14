@@ -1,0 +1,129 @@
+{
+  "canvas" : [
+    1672,
+    941
+  ],
+  "frames" : [
+    {
+      "blink" : 0,
+      "file" : "reading-t0.00.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.10.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 1,
+      "speech" : 0,
+      "time" : 0.10000000000000001
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.20.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 2,
+      "speech" : 0,
+      "time" : 0.20000000000000001
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.30.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 3,
+      "speech" : 0,
+      "time" : 0.29999999999999999
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.40.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 4,
+      "speech" : 0,
+      "time" : 0.40000000000000002
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.50.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 5,
+      "speech" : 0,
+      "time" : 0.5
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.60.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 6,
+      "speech" : 0,
+      "time" : 0.59999999999999998
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.70.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 7,
+      "speech" : 0,
+      "time" : 0.69999999999999996
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.80.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 8,
+      "speech" : 0,
+      "time" : 0.80000000000000004
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.90.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 9,
+      "speech" : 0,
+      "time" : 0.90000000000000002
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t1.00.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t1.10.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 11,
+      "speech" : 0,
+      "time" : 1.1000000000000001
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t1.20.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 12,
+      "speech" : 0,
+      "time" : 1.2
+    }
+  ],
+  "renderSize" : [
+    1003,
+    565
+  ]
+}

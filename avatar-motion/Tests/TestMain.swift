@@ -243,7 +243,8 @@ enum TestMain {
             ("room timing", testRoomAnimationTiming), ("room validation", testRoomAnimationValidation),
             ("chroma key", testChromaKey),
             ("feathered eye crop", testFeatheredEyeCrop),
-            ("real assets", testRealAssets)
+            ("real assets", testRealAssets), ("room components", testRoomComponents),
+            ("room warnings", testRoomWarnings), ("electric transitions", testElectricTransition)
         ]
         var failures = 0
         for (name, test) in tests {
