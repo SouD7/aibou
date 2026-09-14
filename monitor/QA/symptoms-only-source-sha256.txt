@@ -1,0 +1,2 @@
+0998aff61e69e07c1132f2c987bc050a3f06987ac9324fcb953d9870a11b85d6  monitor/Sources/DiagnosticSelection.swift
+d1827155b1aee4780bf3833e0da8b644e2ba9d98dca0027483010f47f52044ba  monitor/Tests/DiagnosticSelectionTests.swift

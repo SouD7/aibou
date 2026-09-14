@@ -60,6 +60,7 @@ final class MonitorStore: ObservableObject {
     @Published var deviceEvents: [String] = []
     @Published var diagnosticSymptoms: Set<String> = []
     @Published var diagnosticChecks: Set<String> = []
+    @Published var diagnosticCauseSelection = DiagnosticCauseSelection()
 
     private let engine = MonitoringEngine()
     private var diagnosticEngine = DiagnosticEngine()

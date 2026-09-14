@@ -4,6 +4,9 @@ import Darwin
 @main
 struct MonitorTestMain {
     @MainActor static func main() async throws {
+        if CommandLine.arguments.count == 3, CommandLine.arguments[1] == "--diagnostics-preview" {
+            try await renderDiagnosticsPreviews(to: URL(fileURLWithPath: CommandLine.arguments[2])); return
+        }
         if CommandLine.arguments.count == 3, CommandLine.arguments[1] == "--app-detail-preview" {
             try await renderApplicationDetailPreview(to: URL(fileURLWithPath: CommandLine.arguments[2])); return
         }
@@ -33,6 +36,7 @@ struct MonitorTestMain {
         try runHistoryTests()
         try runObservationTests()
         try runDiagnosticTests()
+        try runDiagnosticSelectionTests()
         try await runStoreTests()
         try await runConsultationTests()
         try await runApplicationLauncherTests()
