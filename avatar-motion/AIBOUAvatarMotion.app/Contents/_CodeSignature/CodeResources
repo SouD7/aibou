@@ -112,6 +112,10 @@
 		<data>
 		tl2f5gGCnftlGp4017t17O6BoW4=
 		</data>
+		<key>Resources/Assets/room-components.json</key>
+		<data>
+		J60EwJua0x2MHxjuQbTlb+r7zLk=
+		</data>
 		<key>Resources/Assets/room.png</key>
 		<data>
 		hfCmPXxykz9a1oPyHWEuqmtfQB4=
@@ -330,6 +334,13 @@
 			<key>hash2</key>
 			<data>
 			kScPzsoibmtvPm/+BCpD8Q6jTrqfTqYubua+a+uwQTc=
+			</data>
+		</dict>
+		<key>Resources/Assets/room-components.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Vj8xELYgPF1V42hrVu8NNx717pNCqA7+rGszmEM4c18=
 			</data>
 		</dict>
 		<key>Resources/Assets/room.png</key>
