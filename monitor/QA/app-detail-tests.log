@@ -1,0 +1,9 @@
+2026-09-14 05:36:32.525 AppDetailMonitorTests[24903:3005421] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 05:36:32.526 AppDetailMonitorTests[24903:3005421] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 05:36:34.424 AppDetailMonitorTests[24903:3005421] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 05:36:34.426 AppDetailMonitorTests[24903:3005421] IOPMScheduleUserActivityLevelNotification returned 0
+Consultation tests passed (fixtures; no paid inference).
+Application launcher tests passed (no installed applications launched).
+Application usage aggregation tests passed.
+Application detail collection ownership tests passed.
+AIBOU Monitor: ALL TESTS PASSED

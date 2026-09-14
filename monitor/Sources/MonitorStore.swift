@@ -51,6 +51,7 @@ final class MonitorStore: ObservableObject {
     @Published var relatedFolders: [StorageAssociatedFolder] = []
     @Published var relatedApp = ""
     @Published var networkDetail: PanelReading?
+    @Published var networkStableProcessIDs: Set<String> = []
     @Published var powerDetails: [MonitorTab: PanelReading] = [:]
     @Published var networkBusy = false
     @Published var powerBusy = false
@@ -104,6 +105,13 @@ final class MonitorStore: ObservableObject {
         diagnosticEngine.evaluate(observationSnapshot(), now: now)
     }
     var interval: Double { detailed ? 1 : 2 }
+    /// Aggregate-only projection for consultation; avoids materializing process and file rows.
+    func consultationAttachment(now: Date = Date()) -> ConsultationAttachment {
+        let collection = ObservationCollection(state: shuttingDown ? .stopped : (isRunning ? .running : .paused),
+            segmentID: segment, sampleSegmentID: sampleSegment, lastSampleAt: lastSample)
+        return ConsultationAttachment.make(collection: collection,
+            panels: MonitorTab.allCases.compactMap { panels[$0] }, now: now)
+    }
     var historyURL: URL { archiveDirectory.appendingPathComponent("history.json") }
     var storageURL: URL { archiveDirectory.appendingPathComponent("storage.json") }
 
@@ -183,7 +191,7 @@ final class MonitorStore: ObservableObject {
         diagnosticEngine.reset()
         isRunning = false; generation = UUID(); timer?.invalidate(); timer = nil
         isSampling = false
-        networkCollector.runner.cancel(); networkOperation = nil; networkBusy = false
+        cancelNetworkCollection()
         archiveHistory()
     }
     func setDetailed(_ value: Bool) {
@@ -331,19 +339,29 @@ final class MonitorStore: ObservableObject {
             }
         }
     }
-    func collectNetwork() {
-        guard !networkBusy, isRunning, !shuttingDown, let operation = networkCollector.runner.reserveOperation() else { return }
+    @discardableResult
+    func collectNetwork() -> CommandOperation? {
+        guard !networkBusy, isRunning, !shuttingDown, let operation = networkCollector.runner.reserveOperation() else { return nil }
         networkBusy = true; networkOperation = operation
         let collector = StoreTransfer(value: networkCollector)
         let processes = StoreTransfer(value: processes)
         DispatchQueue.global(qos: .utility).async { [weak self] in
+            let before = Set(processes.value.filter { ApplicationNetworkUsage.identity($0.pid) == $0.id }.map(\.id))
             let result = collector.value.sample(operation: operation, processes: processes.value)
+            let stable = Set(processes.value.filter { before.contains($0.id) && ApplicationNetworkUsage.identity($0.pid) == $0.id }.map(\.id))
             DispatchQueue.main.async {
                 guard let self, !self.shuttingDown, self.networkOperation == operation else { return }
                 self.networkOperation = nil
+                self.networkStableProcessIDs = stable
                 self.networkDetail = result; self.networkBusy = false
             }
         }
+        return operation
+    }
+    func cancelNetworkCollection(operation: CommandOperation? = nil) {
+        if let operation, networkOperation != operation { return }
+        networkCollector.runner.cancel(); networkOperation = nil; networkBusy = false
+        networkStableProcessIDs = []
     }
     func collectPower(administrator: Bool) {
         guard !powerBusy, !shuttingDown, let operation = powerCollector.runner.reserveOperation() else { return }

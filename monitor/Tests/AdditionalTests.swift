@@ -58,6 +58,11 @@ private func testNettopFirstSampleAndMissingValues() throws {
     let first = NetworkDetailCollector.parse(CommandOutput(text: firstOnly, code: 0, timedOut: false, truncated: false))
     try additionalExpect(first.rows.first?.metric("receiveRate")?.status == .waiting, "first sample must not fabricate a byte rate")
     try additionalExpect(first.rows.first?.metric("receiveRate")?.value == nil, "first sample rate must be absent")
+    let stamped = "time,process,bytes_in,bytes_out,\n12:00:01.000,sample.10,200,300,\n"
+    let stampedFirst = NetworkDetailCollector.parse(CommandOutput(text: stamped, code: 0, timedOut: false, truncated: false))
+    try additionalExpect(stampedFirst.rows.first?.metric("receiveRate")?.status == .waiting, "one timestamp is not evidence of a second sample")
+    let stampedSecond = NetworkDetailCollector.parse(CommandOutput(text: stamped + "12:00:02.000,sample.10,40,50,\n", code: 0, timedOut: false, truncated: false))
+    try additionalExpect(stampedSecond.rows.count == 1 && stampedSecond.rows.first?.metric("receiveRate")?.value == 40, "two timestamp groups use only final delta")
 
     let malformed = """
     ,state,bytes_in,bytes_out,
