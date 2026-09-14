@@ -33,7 +33,7 @@ func testRoomComponents() throws {
     scene.onComponentSelection = { lastSelection = $0?.id }
     scene.setAnimationPaused(true)
     scene.hoverRoom(at: CGPoint(x: 1120, y: 941 - 280))
-    try expect(scene.hoveredComponent?.id == "fan-1", "hover converts SpriteKit bottom-left coordinates while paused")
+    try expect(scene.hoveredComponent?.id == "fans", "hover converts SpriteKit bottom-left coordinates while paused")
     scene.selectRoom(at: CGPoint(x: 1500, y: 941 - 600))
     try expect(lastSelection == "compute" && scene.selectedComponent?.id == "compute", "click forwards stable component ID")
     scene.selectRoomComponent("chair")
@@ -47,5 +47,5 @@ func testRoomComponents() throws {
     scene.hoverRoom(at: CGPoint(x: 1120, y: 941 - 280)); scene.selectRoomComponent("fan-1")
     try expect(scene.hoveredComponent == nil && scene.selectedComponent == nil, "hidden room cannot be selected")
     scene.focused = false; scene.selectRoomComponent("fan-2")
-    try expect(lastSelection == "fan-2", "selection resumes when room is visible")
+    try expect(lastSelection == "fans", "selection resumes when room is visible")
 }

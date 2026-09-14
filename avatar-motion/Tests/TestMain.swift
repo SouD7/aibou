@@ -244,7 +244,7 @@ enum TestMain {
             ("chroma key", testChromaKey),
             ("feathered eye crop", testFeatheredEyeCrop),
             ("real assets", testRealAssets), ("room components", testRoomComponents),
-            ("room warnings", testRoomWarnings), ("electric transitions", testElectricTransition)
+            ("room warnings", testRoomWarnings), ("electric transitions", testElectricTransition), ("room visual states", testRoomVisualStates)
         ]
         var failures = 0
         for (name, test) in tests {

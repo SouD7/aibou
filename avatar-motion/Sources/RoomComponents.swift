@@ -41,6 +41,35 @@ struct RoomComponentCatalog: Codable {
     let canvas: Point2
     let components: [RoomComponent]
 
+    /// UI-facing catalog. The scene retains both raw fan hit regions, while menus and
+    /// detail presentation expose one combined cooling component.
+    var selectionComponents: [RoomComponent] {
+        let rawFans = components.filter { ["fan-1", "fan-2"].contains($0.id) }
+        var includedFans = false
+        return components.compactMap { component in
+            if ["fan-1", "fan-2"].contains(component.id) {
+                guard !includedFans else { return nil }
+                includedFans = true
+                return RoomComponent(id: "fans", title: "ファン", category: component.category,
+                                     symbol: component.symbol,
+                                     summary: "2基のファンの回転状態をまとめて切り替えます。",
+                                     z: rawFans.map(\.z).max() ?? component.z,
+                                     polygons: rawFans.flatMap(\.polygons))
+            }
+            if component.id == "compute" {
+                return RoomComponent(id: component.id, title: "CPU", category: component.category,
+                                     symbol: component.symbol, summary: component.summary,
+                                     z: component.z, polygons: component.polygons)
+            }
+            return component
+        }
+    }
+
+    func selectionComponent(for id: String) -> RoomComponent? {
+        let canonicalID = ["fan-1", "fan-2", "fans"].contains(id) ? "fans" : id
+        return selectionComponents.first { $0.id == canonicalID }
+    }
+
     func component(at point: Point2) -> RoomComponent? {
         guard point.x.isFinite, point.y.isFinite,
               point.x >= 0, point.x <= canvas.x, point.y >= 0, point.y <= canvas.y else { return nil }

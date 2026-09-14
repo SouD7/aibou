@@ -1,2 +1,4 @@
 # Reproducible full-resolution video capture frames; keep metadata and the WebP preview.
 /QA/animated-room/sequence/*.png
+/QA/room-states/captures/*.png
+/QA/room-states/book-match/*.png
