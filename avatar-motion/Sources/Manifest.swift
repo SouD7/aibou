@@ -46,18 +46,25 @@ enum AvatarPoseID: String, CaseIterable, Codable, Identifiable {
     case standing
     case standingBackHands = "standing-back-hands"
     case standingFrontHands = "standing-front-hands"
-    case sleeping, reading
+    case sleeping, reading, writing, glitch
+    case cpuRest = "cpu-rest"
+    case closeUp = "close-up"
 
-    static let primaryModes: [AvatarPoseID] = [.standing, .sleeping, .reading]
+    static let primaryModes: [AvatarPoseID] = [.standing, .sleeping, .reading, .writing, .cpuRest, .glitch, .closeUp]
     static let standingVariants: [AvatarPoseID] = [.standing, .standingBackHands, .standingFrontHands]
 
     var id: String { rawValue }
     var isStanding: Bool { Self.standingVariants.contains(self) }
+    var hasActiveFace: Bool { isStanding || self == .glitch || self == .closeUp }
     var japaneseTitle: String {
         switch self {
         case .standing, .standingBackHands, .standingFrontHands: return "立つ"
         case .sleeping: return "眠る"
         case .reading: return "読む"
+        case .writing: return "書く"
+        case .cpuRest: return "突っ伏す"
+        case .glitch: return "ノイズ"
+        case .closeUp: return "顔アップ"
         }
     }
     var standingVariantTitle: String {
@@ -65,7 +72,7 @@ enum AvatarPoseID: String, CaseIterable, Codable, Identifiable {
         case .standing: return "通常"
         case .standingBackHands: return "後ろで組む"
         case .standingFrontHands: return "前で組む"
-        case .sleeping, .reading: return japaneseTitle
+        case .sleeping, .reading, .writing, .cpuRest, .glitch, .closeUp: return japaneseTitle
         }
     }
     var symbol: String {
@@ -73,6 +80,10 @@ enum AvatarPoseID: String, CaseIterable, Codable, Identifiable {
         case .standing, .standingBackHands, .standingFrontHands: return "figure.stand"
         case .sleeping: return "bed.double.fill"
         case .reading: return "book.fill"
+        case .writing: return "pencil.line"
+        case .cpuRest: return "zzz"
+        case .glitch: return "waveform.path"
+        case .closeUp: return "face.smiling"
         }
     }
 }
@@ -95,10 +106,11 @@ struct PoseManifest: Codable, Equatable, Identifiable {
     var focusSize: Point2?
     var chromaKey: Bool
     var blinkImage: String?
+    var entranceImage: String?
 
     enum CodingKeys: String, CodingKey {
         case id, image, center, size, head, chest, hip, eyes, mouth, book, skin
-        case shadowCenter, shadowSize, shadowOpacity, focusSize, chromaKey, blinkImage
+        case shadowCenter, shadowSize, shadowOpacity, focusSize, chromaKey, blinkImage, entranceImage
     }
 
     init(from decoder: Decoder) throws {
@@ -120,6 +132,7 @@ struct PoseManifest: Codable, Equatable, Identifiable {
         focusSize = try values.decodeIfPresent(Point2.self, forKey: .focusSize)
         chromaKey = try values.decodeIfPresent(Bool.self, forKey: .chromaKey) ?? false
         blinkImage = try values.decodeIfPresent(String.self, forKey: .blinkImage)
+        entranceImage = try values.decodeIfPresent(String.self, forKey: .entranceImage)
     }
 }
 

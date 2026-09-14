@@ -22,6 +22,8 @@ final class PoseVisual: SKNode {
     private let manifest: PoseManifest
     private let canvas: Point2
     private let sprite: SKSpriteNode
+    private let standardTexture: SKTexture
+    private let entranceTexture: SKTexture?
     private let shadow: SKShapeNode
     private let shadowEffect: SKEffectNode
     private var eyeOverlays: [(rect: Rect4, cover: SKShapeNode, lash: SKShapeNode, patch: SKSpriteNode?)] = []
@@ -31,10 +33,13 @@ final class PoseVisual: SKNode {
     private var glitchStrips: [SKSpriteNode] = []
     private let columns = 16
     private let rows = 24
+    private var isFocused = false
+    private(set) var isUsingEntranceArtwork = false
 
     init(manifest: PoseManifest, canvas: Point2, texture: SKTexture,
-         blinkTextures: [SKTexture?] = []) {
+         blinkTextures: [SKTexture?] = [], entranceTexture: SKTexture? = nil) {
         self.manifest = manifest; self.canvas = canvas
+        standardTexture = texture; self.entranceTexture = entranceTexture
         sprite = SKSpriteNode(texture: texture, size: CGSize(width: manifest.size.x, height: manifest.size.y))
         let shadowSize = manifest.shadowSize ?? Point2(manifest.size.x * 0.45, manifest.size.y * 0.045)
         shadow = SKShapeNode(ellipseOf: CGSize(width: shadowSize.x, height: shadowSize.y))
@@ -131,12 +136,13 @@ final class PoseVisual: SKNode {
             item.cover.position = position; item.lash.position = position; item.patch?.position = position
             if let patch = item.patch {
                 item.cover.isHidden = true; item.lash.isHidden = true
-                patch.isHidden = output.blink < 0.01
-                patch.alpha = CGFloat(output.blink)
+                patch.isHidden = isUsingEntranceArtwork || output.blink < 0.01
+                patch.alpha = isUsingEntranceArtwork ? 0 : CGFloat(output.blink)
             } else {
-                item.cover.isHidden = output.blink < 0.06; item.lash.isHidden = output.blink < 0.06
+                item.cover.isHidden = isUsingEntranceArtwork || output.blink < 0.06
+                item.lash.isHidden = isUsingEntranceArtwork || output.blink < 0.06
                 item.cover.yScale = max(0.12, output.blink)
-                item.lash.alpha = output.blink
+                item.lash.alpha = isUsingEntranceArtwork ? 0 : output.blink
             }
         }
         if let item = mouthOverlay {
@@ -144,8 +150,8 @@ final class PoseVisual: SKNode {
             let delta = MotionMath.displacement(at: point, pose: manifest, input: input)
             let position = localPoint(Point2(point.x + delta.x, point.y + delta.y))
             item.cover.position = position; item.mouth.position = position
-            item.cover.isHidden = output.mouthOpen < 0.015
-            item.mouth.isHidden = output.mouthOpen < 0.015
+            item.cover.isHidden = isUsingEntranceArtwork || output.mouthOpen < 0.015
+            item.mouth.isHidden = isUsingEntranceArtwork || output.mouthOpen < 0.015
             let baseHeight = max(1.4, item.rect.height * manifest.size.y * 0.10)
             let openHeight = item.rect.height * manifest.size.y * (0.18 + output.mouthOpen * 0.82)
             let width = item.rect.width * manifest.size.x * (0.62 - output.mouthOpen * 0.16)
@@ -192,12 +198,48 @@ final class PoseVisual: SKNode {
         }
     }
 
+    func setCloseUpEntrance(_ sample: CloseUpEntranceSample?) {
+        applyPlacement(focused: isFocused)
+        guard let sample else {
+            setEntranceArtwork(active: false)
+            return
+        }
+        setEntranceArtwork(active: !sample.finished)
+        let baseScale = xScale
+        let faceAnchor = localPoint(manifest.head)
+        position.x += faceAnchor.x * baseScale * (1 - sample.scale)
+        position.y += faceAnchor.y * baseScale * (1 - sample.scale)
+        position.y += sample.verticalOffset
+        setScale(baseScale * sample.scale)
+    }
+
+    private func setEntranceArtwork(active: Bool) {
+        let shouldUse = active && entranceTexture != nil
+        guard shouldUse != isUsingEntranceArtwork else { return }
+        isUsingEntranceArtwork = shouldUse
+        sprite.texture = shouldUse ? entranceTexture : standardTexture
+        if shouldUse {
+            for item in eyeOverlays {
+                item.cover.isHidden = true; item.lash.isHidden = true
+                item.patch?.isHidden = true; item.patch?.alpha = 0
+            }
+            mouthOverlay?.cover.isHidden = true
+            mouthOverlay?.mouth.isHidden = true
+        }
+    }
+
     var electricAnchor: CGPoint {
-        convert(localPoint(manifest.chest), to: parent!)
+        let anchor = manifest.id == .closeUp ? manifest.head : manifest.chest
+        return convert(localPoint(anchor), to: parent!)
     }
 
     func setFocus(_ focused: Bool) {
-        if focused {
+        isFocused = focused
+        applyPlacement(focused: focused)
+    }
+
+    private func applyPlacement(focused: Bool) {
+        if focused, manifest.id != .closeUp {
             let desired = manifest.focusSize ?? Point2(canvas.x * 0.50, canvas.y * 0.88)
             let factor = min(desired.x / manifest.size.x, desired.y / manifest.size.y)
             position = CGPoint(x: canvas.x / 2, y: canvas.y / 2)
@@ -285,8 +327,19 @@ final class AvatarScene: SKScene {
                     ImageProcessing.featheredCrop(from: aligned, normalized: $0).map(SKTexture.init(image:))
                 }
             }
+            var entranceTexture: SKTexture?
+            if let entranceImage = pose.entranceImage {
+                let entranceURL = resourceDirectory.appendingPathComponent(entranceImage)
+                guard var entrance = NSImage(contentsOf: entranceURL) else {
+                    throw ManifestError.resourceMissing(entranceImage)
+                }
+                if pose.chromaKey, let processed = ImageProcessing.removeGreenScreen(from: entrance) {
+                    entrance = processed
+                }
+                entranceTexture = SKTexture(image: entrance)
+            }
             let visual = PoseVisual(manifest: pose, canvas: manifest.canvas, texture: SKTexture(image: image),
-                                    blinkTextures: blinkTextures)
+                                    blinkTextures: blinkTextures, entranceTexture: entranceTexture)
             visual.isHidden = pose.id != currentPose
             visuals[pose.id] = visual; addChild(visual)
         }
@@ -357,7 +410,8 @@ final class AvatarScene: SKScene {
     func setRoomVisualState(_ state: RoomVisualState) -> Bool {
         guard visualState != state else { return true }
         visualState = state
-        stateRenderer.apply(state:state,time:frameTime,reducedMotion:reducedMotion)
+        stateRenderer.apply(state:state,time:frameTime,reducedMotion:reducedMotion,
+                            roomFrameIndex:roomFrameIndex)
         onVisualStateChange?(state)
         return true
     }
@@ -383,7 +437,7 @@ final class AvatarScene: SKScene {
     }
 
     private func beginPoseTransition(from: AvatarPoseID, to: AvatarPoseID, at time: Double) {
-        guard !(from.isStanding && to.isStanding),
+        guard ElectricTransition.requiresEffect(from: from, to: to),
               let source = visuals[from], let target = visuals[to] else {
             finishPoseTransition(); return
         }
@@ -397,7 +451,19 @@ final class AvatarScene: SKScene {
         for (id, visual) in visuals {
             visual.isHidden = id != currentPose; visual.alpha = 1
             visual.setArrivalNoise(progress: nil)
+            visual.setCloseUpEntrance(nil)
         }
+        updateWritingOccupancy()
+    }
+
+    private func updateWritingOccupancy(sample: ElectricTransition.Sample? = nil) {
+        let occupied: Bool
+        if let transition = poseTransition {
+            occupied = transition.to == .writing && (sample ?? transition.sample(at: frameTime)).incomingAlpha > 0
+        } else {
+            occupied = currentPose == .writing
+        }
+        stateRenderer.setWritingOccupied(occupied)
     }
 
     func setDeterministicTime(_ time: Double?) { deterministicTime = time; applyFrame(time ?? 0) }
@@ -427,13 +493,22 @@ final class AvatarScene: SKScene {
     func applyFrame(_ time: Double) {
         frameTime = time
         (room as? AnimatedRoomNode)?.apply(time: time, reducedMotion: reducedMotion)
-        stateRenderer.apply(state:visualState,time:time,reducedMotion:reducedMotion)
+        stateRenderer.apply(state:visualState,time:time,reducedMotion:reducedMotion,
+                            roomFrameIndex:roomFrameIndex)
         let input = MotionInput(time: time, strength: motionStrength, reducedMotion: reducedMotion,
                                 speechAmplitude: speechAmplitude, forceBlink: forceBlink)
         guard let transition = poseTransition else {
-            visuals[currentPose]?.apply(input: input); return
+            updateWritingOccupancy()
+            guard let visual = visuals[currentPose] else { return }
+            visual.apply(input: input)
+            visual.setCloseUpEntrance(nil)
+            let persistentNoise = currentPose == .glitch && !reducedMotion && !animationPaused && !focused
+                ? GlitchCadence.noiseProgress(at: time) : nil
+            visual.setArrivalNoise(progress: persistentNoise)
+            return
         }
         let sample = transition.sample(at: time)
+        updateWritingOccupancy(sample: sample)
         if sample.finished {
             let arrived = transition.to
             finishPoseTransition()
@@ -443,11 +518,20 @@ final class AvatarScene: SKScene {
             return
         }
         for (id, visual) in visuals {
-            let opacity = id == transition.from ? sample.outgoingAlpha :
+            var opacity = id == transition.from ? sample.outgoingAlpha :
                 (id == transition.to ? sample.incomingAlpha : 0)
+            if id == transition.to, transition.to == .closeUp {
+                let entrance = CloseUpEntranceTiming.sample(
+                    atTransitionElapsed: max(0, time - transition.startedAt), canvasHeight: manifest.canvas.y)
+                opacity *= entrance.alpha
+                visual.setCloseUpEntrance(entrance)
+            } else {
+                visual.setCloseUpEntrance(nil)
+            }
             visual.alpha = opacity; visual.isHidden = opacity == 0
             if opacity > 0 { visual.apply(input: input) }
-            visual.setArrivalNoise(progress: id == transition.to ? sample.noiseProgress : nil)
+            let noise = id == transition.to && transition.to != .closeUp ? sample.noiseProgress : nil
+            visual.setArrivalNoise(progress: noise)
         }
         electricEffect.render(transition, at: time)
     }

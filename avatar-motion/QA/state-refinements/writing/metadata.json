@@ -1,0 +1,84 @@
+{
+  "canvas" : [
+    1672,
+    941
+  ],
+  "frames" : [
+    {
+      "blink" : 0,
+      "file" : "writing-t0.00.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t0.25.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 2,
+      "speech" : 0,
+      "time" : 0.25
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t0.50.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 5,
+      "speech" : 0,
+      "time" : 0.5
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t0.75.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 7,
+      "speech" : 0,
+      "time" : 0.75
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t1.00.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t1.25.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 12,
+      "speech" : 0,
+      "time" : 1.25
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t1.50.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 15,
+      "speech" : 0,
+      "time" : 1.5
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t1.75.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 17,
+      "speech" : 0,
+      "time" : 1.75
+    }
+  ],
+  "renderSize" : [
+    1003,
+    565
+  ]
+}

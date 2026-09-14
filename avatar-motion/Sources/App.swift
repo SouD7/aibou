@@ -32,7 +32,7 @@ final class AvatarStore: ObservableObject {
         didSet {
             scene?.selectPose(selectedPose)
             if selectedPose.isStanding { selectedStandingVariant = selectedPose }
-            else { voice.stop() }
+            else if !selectedPose.hasActiveFace { voice.stop() }
         }
     }
     @Published var paused = false { didSet { updatePause(); if paused { voice.stop() } } }
@@ -264,7 +264,9 @@ struct AvatarWindow: View {
                     }
                     .buttonStyle(PoseButtonStyle(selected: pose == .standing ? store.selectedPose.isStanding : store.selectedPose == pose))
                 }
-                Divider().frame(height: 24).overlay(.white.opacity(0.18)).padding(.horizontal, 3)
+                Spacer(minLength: 0)
+            }
+            HStack(spacing: 8) {
                 Button(action: store.togglePause) {
                     Label(store.paused ? "再開" : "止める", systemImage: store.paused ? "play.fill" : "pause.fill")
                         .frame(minWidth: 61)
@@ -312,6 +314,10 @@ struct AvatarWindow: View {
         case .standingFrontHands: return "手を前で組んでひと休み"
         case .sleeping: return "静かに眠っています"
         case .reading: return "本を読んでいます"
+        case .writing: return "デスクで書きものをしています"
+        case .cpuRest: return "CPUに突っ伏してひと休み"
+        case .glitch: return "ときどき信号が乱れています"
+        case .closeUp: return "すぐそばからこんにちは"
         }
     }
 }

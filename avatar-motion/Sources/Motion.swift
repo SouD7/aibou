@@ -51,7 +51,7 @@ enum MotionMath {
     }
 
     static func output(for pose: AvatarPoseID, input: MotionInput) -> MotionOutput {
-        let faceIsActive = pose.isStanding
+        let faceIsActive = pose.hasActiveFace
         return MotionOutput(
             blink: faceIsActive ? clamp(input.forceBlink ?? blinkAmount(at: input.time)) : 0,
             mouthOpen: faceIsActive ? clamp(input.speechAmplitude * 1.45) : 0,
@@ -71,7 +71,7 @@ enum MotionMath {
         let edgeSoftening = clamp(point.x / 0.08) * clamp((1 - point.x) / 0.08)
 
         switch pose.id {
-        case .standing, .standingBackHands, .standingFrontHands:
+        case .standing, .standingBackHands, .standingFrontHands, .glitch, .closeUp:
             let contactLock = 1 - pow(clamp((point.y - 0.72) / 0.28), 1.35)
             let breath = sin(input.time * .pi * 0.72)
             let secondary = sin(input.time * .pi * 0.49 + 1.1)
@@ -98,6 +98,31 @@ enum MotionMath {
             let dx = (0.0035 * headSway * headWeight + 0.002 * breath * chestWeight) * groundLock
             let dy = -0.0048 * breath * chestWeight * groundLock
             return Point2(dx * amount * edgeSoftening, dy * amount)
+
+        case .writing:
+            // The chair is painted into this pose. Only the exposed upper body and
+            // writing hand deform; the chair back, seat and wheels remain rigid.
+            let chairLock = (1 - clamp((point.y - 0.40) / 0.10)) * clamp((point.x - 0.35) / 0.22)
+            let breath = sin(input.time * .pi * 0.62)
+            let penStroke = sin(input.time * .pi * 2.35)
+            let writingHand = Point2(0.83, 0.31)
+            let handWeight = gaussian(point, around: writingHand, radiusX: 0.10, radiusY: 0.08)
+            let upperBodyWeight = gaussian(point, around: pose.chest, radiusX: 0.13, radiusY: 0.10)
+            let dx = 0.0070 * penStroke * handWeight + 0.0018 * breath * upperBodyWeight
+            let dy = -0.0036 * breath * upperBodyWeight + 0.0023 * cos(input.time * .pi * 2.35) * handWeight
+            return Point2(dx * amount * chairLock * edgeSoftening, dy * amount * chairLock)
+
+        case .cpuRest:
+            // The head is resting on the CPU: keep that contact point fixed while the
+            // shoulders and torso move subtly with slow breathing.
+            let headContactLock = 1 - gaussian(point, around: pose.head, radiusX: 0.16, radiusY: 0.13)
+            let kneeLock = 1 - gaussian(point, around: Point2(0.50, 0.88), radiusX: 0.30, radiusY: 0.13)
+            let breath = sin(input.time * .pi * 0.46)
+            let armWeight = gaussian(point, around: Point2(0.70, 0.68), radiusX: 0.11, radiusY: 0.24)
+            let dx = breath * (0.0042 * chestWeight + 0.0018 * armWeight)
+            let dy = -0.0068 * breath * chestWeight
+            return Point2(dx * amount * headContactLock * kneeLock * edgeSoftening,
+                          dy * amount * headContactLock * kneeLock)
         }
     }
 

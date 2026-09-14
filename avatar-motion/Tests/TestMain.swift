@@ -18,7 +18,15 @@ func fixtureManifest(chromaKey: Bool = false) throws -> RigManifest {
       {"id":"sleeping","image":"sleeping.png","center":[900,650],"size":[520,280],
        "head":[0.72,0.45],"chest":[0.50,0.48],"hip":[0.30,0.55]},
       {"id":"reading","image":"reading.png","center":[900,580],"size":[350,460],
-       "head":[0.5,0.16],"chest":[0.5,0.38],"hip":[0.5,0.64],"book":[0.35,0.38,0.3,0.16]}
+       "head":[0.5,0.16],"chest":[0.5,0.38],"hip":[0.5,0.64],"book":[0.35,0.38,0.3,0.16]},
+      {"id":"writing","image":"writing.png","center":[900,580],"size":[350,460],
+       "head":[0.5,0.16],"chest":[0.5,0.38],"hip":[0.5,0.64]},
+      {"id":"cpu-rest","image":"cpu-rest.png","center":[900,580],"size":[350,460],
+       "head":[0.5,0.16],"chest":[0.5,0.38],"hip":[0.5,0.64]},
+      {"id":"glitch","image":"glitch.png","center":[870,615],"size":[300,450],
+       "head":[0.5,0.16],"chest":[0.5,0.36],"hip":[0.5,0.60]},
+      {"id":"close-up","image":"close-up.png","center":[836,470],"size":[900,900],
+       "head":[0.5,0.5],"chest":[0.5,0.8],"hip":[0.5,0.95]}
     ]}
     """
     return try JSONDecoder().decode(RigManifest.self, from: Data(json.utf8))
@@ -34,11 +42,16 @@ func testManifest() throws {
     try expect(standing.blinkImage == "standing-blink.png", "blink image option")
     let sleeping = try XCTUnwrap(rig.pose(.sleeping), "sleeping pose")
     try expect(sleeping.eyes.isEmpty && sleeping.mouth == nil && !sleeping.chromaKey, "optional defaults")
-    try expect(AvatarPoseID.primaryModes == [.standing, .sleeping, .reading], "primary modes stay compact")
+    try expect(AvatarPoseID.primaryModes == [.standing, .sleeping, .reading, .writing, .cpuRest, .glitch, .closeUp],
+               "primary modes expose every user-selectable state")
     try expect(AvatarPoseID.standingVariants == [.standing, .standingBackHands, .standingFrontHands],
                "standing variant order")
     try expect(AvatarPoseID.standingVariants.allSatisfy(\.isStanding), "all standing variants identify as standing")
-    try expect(!AvatarPoseID.sleeping.isStanding && !AvatarPoseID.reading.isStanding, "nonstanding modes stay distinct")
+    try expect([AvatarPoseID.sleeping, .reading, .writing, .cpuRest, .glitch, .closeUp]
+        .allSatisfy { !$0.isStanding }, "nonstanding modes stay distinct")
+    try expect(AvatarPoseID.glitch.rawValue == "glitch", "glitch raw identifier")
+    try expect(AvatarPoseID.cpuRest.rawValue == "cpu-rest", "CPU-rest raw identifier")
+    try expect(AvatarPoseID.closeUp.rawValue == "close-up", "close-up raw identifier")
 }
 
 func testMotion() throws {
@@ -192,7 +205,14 @@ func testRealAssets() throws {
     try expect(abs(roomManifest.totalDuration - 2.4) < 0.000001, "real room animation duration")
     let rig = try RigManifest.load(from: assets.appendingPathComponent("rig.json"))
     try expect(rig.canvas == Point2(1672, 941), "real rig canvas")
+    try expect(AvatarPoseID.allCases.count == 9, "three original variants plus four new states")
     try expect(Set(rig.poses.map(\.id)) == Set(AvatarPoseID.allCases), "real rig has all poses")
+    for poseID in AvatarPoseID.allCases {
+        let pose = try XCTUnwrap(rig.pose(poseID), "real \(poseID.rawValue) pose")
+        try expect(pose.size.x > 0 && pose.size.y > 0, "\(poseID.rawValue) has positive dimensions")
+        try expect(FileManager.default.fileExists(atPath: assets.appendingPathComponent(pose.image).path),
+                   "\(poseID.rawValue) image resource")
+    }
     for variant in AvatarPoseID.standingVariants {
         let pose = try XCTUnwrap(rig.pose(variant), "real \(variant.rawValue) pose")
         try expect(abs(pose.center.x - rig.canvas.x / 2) <= rig.canvas.x * 0.12,
@@ -243,6 +263,7 @@ enum TestMain {
             ("room timing", testRoomAnimationTiming), ("room validation", testRoomAnimationValidation),
             ("chroma key", testChromaKey),
             ("feathered eye crop", testFeatheredEyeCrop),
+            ("avatar states", testAvatarStates),
             ("real assets", testRealAssets), ("room components", testRoomComponents),
             ("room warnings", testRoomWarnings), ("electric transitions", testElectricTransition), ("room visual states", testRoomVisualStates)
         ]

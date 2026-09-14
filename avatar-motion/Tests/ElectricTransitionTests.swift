@@ -17,6 +17,17 @@ func testElectricTransition() throws {
     try expect(transition.sample(at: 0.499).noiseProgress != nil, "noise lasts until 0.5 seconds")
     try expect(transition.sample(at: 0.5).finished && transition.sample(at: 0.5).noiseProgress == nil,
                "noise ends after exactly 0.3 seconds")
+    let closeUpTransition = ElectricTransition(from: .standing, to: .closeUp, startedAt: 0,
+                                               origin: .zero, destination: .zero)
+    try expect(!closeUpTransition.sample(at: ElectricTransition.duration).finished,
+               "close-up keeps its post-beam entrance alive past the standard transition")
+    try expect(closeUpTransition.sample(at: 0.999).incomingAlpha == 0 &&
+                   closeUpTransition.sample(at: 1.0).incomingAlpha == 1,
+               "close-up stays absent for one second before entrance begins")
+    try expect(closeUpTransition.sample(at: 0.3).noiseProgress != nil,
+               "close-up effect clock continues during the invisible wait")
+    try expect(closeUpTransition.sample(at: CloseUpEntranceTiming.transitionDuration).finished,
+               "close-up transition completes when its bounce settles")
     let effect = ElectricTransitionEffect()
     effect.render(transition, at: 0.11)
     let path1 = (effect.children.first as? SKShapeNode)?.path
@@ -45,13 +56,20 @@ func testElectricTransition() throws {
                 try expect(visible().isEmpty, "\(from) to \(to) hides bodies during beam")
                 try expect(scene.childNode(withName: "electric-transition")?.isHidden == false, "beam visible")
             }
-            scene.setDeterministicTime(0.2)
-            try expect(visible() == [to.rawValue], "target appears instantly after beam")
-            if !(from.isStanding && to.isStanding) {
+            scene.setDeterministicTime(to == .closeUp ? 1.0 : 0.2)
+            if to == .closeUp {
+                try expect(visible().isEmpty, "close-up entrance starts below the frame after the beam")
+            } else {
+                try expect(visible() == [to.rawValue], "target appears instantly after beam")
+            }
+            if !(from.isStanding && to.isStanding), to != .closeUp {
                 try expect(scene.childNode(withName: "\(to.rawValue)/arrival-noise")?.isHidden == false,
                            "arrival displays texture interference")
+            } else if to == .closeUp {
+                try expect(scene.childNode(withName: "\(to.rawValue)/arrival-noise")?.isHidden == true,
+                           "close-up never reveals arrival interference")
             }
-            scene.setDeterministicTime(0.5)
+            scene.setDeterministicTime(to == .closeUp ? 1.62 : 0.5)
             try expect(scene.childNode(withName: "\(to.rawValue)/arrival-noise")?.isHidden == true,
                        "noise layer clears at completion")
             try expect(visible() == [to.rawValue] && scene.poseTransition == nil, "route completes with exactly one target")

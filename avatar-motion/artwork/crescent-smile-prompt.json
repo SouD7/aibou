@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "target": "Assets/standing-smile.png",
+  "reference": "/Users/sodaiyamamoto/Downloads/笑顔.jpeg",
+  "output": "Assets/standing-smile-crescent.png",
+  "prompt": "Use case: identity-preserve. Edit target: image 1, standing-smile.png, an aligned game sprite expression frame. Image 2 is ONLY a reference for closed happy crescent-shaped smiling eyes (三日月目). Change ONLY both eyes and immediately surrounding eyelids of image 1 to happy CLOSED upward-arched crescent eyes like image 2: clear dark eyelash arcs like ∩, softly lifted cheeks, no visible iris or pupil, friendly smiling rather than sleepy. Preserve image 1's existing open smiling mouth EXACTLY, including its size, position, teeth and interior. Preserve the exact head angle, face shape, hairstyle, hair silhouette, character identity, full-body pose, outfit, hands, shoes, lighting, framing and 1024x1536 pixel layout. No zoom or reposition. Keep solid pure bright green #00FF00 background exactly unchanged. Do not copy image 2's character, outfit, hair, pose, watermark or text. Only change the eye expression; this must align with original frame when swapping in animation."
+}

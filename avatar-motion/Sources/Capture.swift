@@ -76,7 +76,7 @@ enum SceneCapture {
                 records.append(["file": name + ".png", "pose": pose.rawValue, "time": 1,
                                 "blink": 0, "speech": 0, "focus": true])
             }
-            for pose in request.poses.filter(\.isStanding) {
+            for pose in request.poses.filter(\.hasActiveFace) {
                 scene.selectPose(pose, animated: false)
                 for variant in [("blink", 1.0, 0.0), ("speech", 0.0, 0.72)] {
                     let name = "\(pose.rawValue)-\(variant.0)"
