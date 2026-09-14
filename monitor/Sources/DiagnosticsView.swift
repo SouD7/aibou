@@ -3,152 +3,215 @@ import SwiftUI
 struct DiagnosticsView: View {
     @ObservedObject var store: MonitorStore
     @State private var search = ""
-    @State private var filter = "all"
+    @State private var filter: DiagnosticFilter
     @State private var category = "すべての分類"
-    @State private var expanded: Set<String> = []
+    @State private var inspected: DiagnosticSymptom?
+
+    init(store: MonitorStore, initialFilter: DiagnosticFilter = .all) {
+        self.store = store
+        _filter = State(initialValue: initialFilter)
+    }
 
     var body: some View {
-        // Refresh freshness even when collection has stopped or stalled.
-        TimelineView(.periodic(from: .now, by: 2)) { _ in
-            let results = store.diagnosticResults(now: Date())
-            let byID = Dictionary(uniqueKeysWithValues: results.map { ($0.id, $0) })
-            let entries = DiagnosticCatalog.cases.filter { entry in
-                let result = byID[entry.id]
-                let inFilter = filter == "all" ||
-                    (filter == "current" && (store.diagnosticSymptoms.contains(entry.id) || result?.state == .matched || result?.state == .observing)) ||
-                    (filter == "manual" && entry.rule == .manual) || (filter == "auto" && entry.rule != .manual)
-                let text = ([entry.title, entry.category] + entry.symptoms + entry.causes + entry.actions).joined(separator: " ")
-                return inFilter && (category == "すべての分類" || entry.category == category) &&
-                    (search.isEmpty || text.localizedCaseInsensitiveContains(search))
-            }
+        TimelineView(.periodic(from: .now, by: 2)) { timeline in
+            let results = Dictionary(uniqueKeysWithValues: store.diagnosticResults(now: timeline.date).map { ($0.id, $0) })
+            let presentation = DiagnosticPresentation(results: results, selection: store.diagnosticCauseSelection,
+                                                     selectedSymptoms: store.diagnosticSymptoms)
+            let selectedCategory = category == "すべての分類" ? nil : category
+            let symptoms = presentation.symptoms(in: filter, search: search, category: selectedCategory)
+            let causes = presentation.causes(in: filter, search: search, category: selectedCategory)
+            let checked = presentation.checkedCauseIDs
             VStack(alignment: .leading, spacing: 16) {
                 Label("このMacの状態チェック", systemImage: "checklist").font(.title2.bold())
-                Text("症状・原因候補・対処法を、現在の観測値と照合します。条件に該当しても故障や原因の確定ではありません。")
+                Text("気になる症状を選び、詳細から原因候補を確認できます。症状の選択と原因候補のチェックは別々に管理します。")
                 HStack(spacing: 18) {
-                    Text("条件該当 \(results.filter { $0.state == .matched }.count)")
-                    Text("継続確認 \(results.filter { $0.state == .observing }.count)")
-                    Text("情報不足 \(results.filter { $0.state == .unknown }.count)")
-                    Text("手動確認 \(results.filter { $0.state == .manual }.count)")
+                    Text("選択した症状 \(store.diagnosticSymptoms.count)")
+                    Text("チェック中の原因候補 \(checked.count)")
+                    Text("自動条件に該当 \(results.filter { $0.value.state == .matched }.count)")
                 }.font(.callout.monospacedDigit())
-                Text("未取得の項目は正常とは判断しません。「該当せず」は今回の条件だけの結果です。症状と確認済みチェックは起動中のみ保持します。")
+                Text("原因候補のチェックは故障や原因の確定ではありません。自動判定を手動で変更すると、その選択を保持します。「自動に戻す」で観測に追従します。チェックは起動中のみ保持します。")
                     .font(.caption).foregroundStyle(.secondary)
                 if !store.isRunning {
-                    Label("監視停止中 — 自動判定は情報不足です。再開すると再評価します。", systemImage: "pause.circle")
+                    Label("監視停止中 — 自動判定は情報不足です。手動の選択は保持しています。", systemImage: "pause.circle")
                         .foregroundStyle(.orange)
                 }
                 HStack {
                     TextField("症状・原因・対処法を検索", text: $search).textFieldStyle(.roundedBorder)
                     Picker("分類", selection: $category) {
                         Text("すべての分類").tag("すべての分類")
-                        ForEach(Array(Set(DiagnosticCatalog.cases.map(\.category))).sorted(), id: \.self) { Text($0).tag($0) }
+                        ForEach(Array(Set(DiagnosticCatalog.symptoms.map(\.category))).sorted(), id: \.self) { Text($0).tag($0) }
                     }.frame(width: 240)
                 }
+                Picker("表示する項目", selection: $filter) {
+                    ForEach(DiagnosticFilter.allCases) { Text($0.rawValue).tag($0) }
+                }.pickerStyle(.segmented)
                 HStack {
-                    Picker("表示するケース", selection: $filter) {
-                        Text("すべて").tag("all")
-                        Text("今の候補・選択した症状").tag("current")
-                        Text("自動判定").tag("auto")
-                        Text("手動確認").tag("manual")
-                    }.pickerStyle(.segmented)
-                    Button("チェックをリセット") { store.diagnosticSymptoms.removeAll(); store.diagnosticChecks.removeAll() }
-                        .disabled(store.diagnosticSymptoms.isEmpty && store.diagnosticChecks.isEmpty)
+                    Text(filter.showsCauses ? "原因候補 \(causes.count)件" : "症状 \(symptoms.count)件")
+                        .font(.caption).foregroundStyle(.secondary)
+                    Spacer()
+                    Button("手動のチェックをリセット") {
+                        store.diagnosticSymptoms.removeAll()
+                        store.diagnosticChecks.removeAll()
+                        store.diagnosticCauseSelection.reset()
+                    }.disabled(store.diagnosticSymptoms.isEmpty && store.diagnosticChecks.isEmpty && store.diagnosticCauseSelection.isEmpty)
+                        .help("症状と手動チェックを解除し、自動対応の原因候補は観測結果に戻します。")
                 }
-                Text("\(entries.count) / \(DiagnosticCatalog.cases.count) ケース").font(.caption).foregroundStyle(.secondary)
-                if entries.isEmpty {
-                    Text("この条件で表示する候補はありません。症状がある場合は「すべて」から探してください。故障がないことを示す結果ではありません。")
+                Text(filterExplanation).font(.caption).foregroundStyle(.secondary)
+                if symptoms.isEmpty && causes.isEmpty {
+                    Text("該当する項目はありません。検索や分類を変更するか、「すべて」から症状を選んでください。項目がないことは正常の証明ではありません。")
                         .padding().frame(maxWidth: .infinity, alignment: .leading)
                 }
-                LazyVStack(alignment: .leading, spacing: 10) {
-                    ForEach(entries) { entry in
-                        if let result = byID[entry.id] { caseCard(entry, result: result) }
+                LazyVStack(alignment: .leading, spacing: 12) {
+                    if filter.showsCauses {
+                        ForEach(causes) { cause in
+                            DiagnosticCauseCard(cause: cause, result: results[cause.context.id], store: store)
+                        }
+                    } else {
+                        ForEach(symptoms) { symptom in
+                            symptomCard(symptom, checked: checked)
+                        }
                     }
                 }
             }.padding(22)
         }
+        .sheet(item: $inspected) { symptom in
+            DiagnosticSymptomDetail(symptom: symptom, store: store)
+        }
     }
 
-    private func caseCard(_ entry: DiagnosticCase, result: DiagnosticResult) -> some View {
-        VStack(alignment: .leading, spacing: 9) {
-            HStack(alignment: .top) {
-                Toggle("この症状がある", isOn: membership(entry.id, in: $store.diagnosticSymptoms)).toggleStyle(.checkbox)
-                    .accessibilityLabel("\(entry.title): この症状がある")
+    private var filterExplanation: String {
+        switch filter {
+        case .all: return "ユーザーから見える不具合・症状の一覧です。「詳細」で原因候補を開きます。"
+        case .current: return "原因候補に1つ以上チェックが付いている症状です。症状自体を選択していなくても表示します。"
+        case .selected: return "「この症状がある」を手動で選択した症状です。原因候補のチェックとは連動しません。"
+        case .automatic: return "観測結果に追従できる原因候補です。未取得・古い値・継続確認中は自動でチェックしません。"
+        case .manual: return "観測だけでは判定できない原因候補です。確認した内容に応じて手動でチェックしてください。"
+        }
+    }
+
+    private func symptomCard(_ symptom: DiagnosticSymptom, checked: Set<String>) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(symptom.category).font(.caption).foregroundStyle(.secondary)
+            Text(symptom.title).font(.headline)
+            Text(symptom.examples.joined(separator: " / ")).font(.caption).foregroundStyle(.secondary)
+            HStack {
+                Toggle("この症状がある", isOn: diagnosticMembership(symptom.id, in: $store.diagnosticSymptoms))
+                    .toggleStyle(.checkbox).accessibilityLabel("\(symptom.title): この症状がある")
                 Spacer()
-                Label(result.state.title, systemImage: symbol(result.state))
-                    .font(.caption.bold()).foregroundStyle(color(result.state))
+                Text("原因候補 \(symptom.causeIDs.filter { checked.contains($0) }.count) / \(symptom.causeIDs.count) チェック中")
+                    .font(.caption).foregroundStyle(.secondary)
+                Button("詳細") { inspected = symptom }.accessibilityLabel("\(symptom.title)の原因候補を開く")
             }
-            DisclosureGroup(isExpanded: membership(entry.id, in: $expanded)) {
-                VStack(alignment: .leading, spacing: 13) {
-                    lines("起こりうる症状", entry.symptoms)
-                    if !result.evidence.isEmpty {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("観測データのチェック（自動）").font(.subheadline.bold())
-                            ForEach(result.evidence) { evidence in
-                                HStack(alignment: .top, spacing: 8) {
-                                    Image(systemName: evidence.met == true ? "checkmark.square.fill" : (evidence.met == false ? "square" : "questionmark.square"))
-                                        .accessibilityLabel(evidence.met == true ? "条件成立" : (evidence.met == false ? "条件不成立" : "評価不能"))
-                                    VStack(alignment: .leading, spacing: 3) {
-                                        Text(evidence.condition)
-                                        Text(evidence.detail).foregroundStyle(.secondary)
-                                        if let source = evidence.source { Text("取得元: \(source)").foregroundStyle(.secondary) }
-                                        if let date = evidence.recordedAt {
-                                            Text("取得: \(date.formatted(date: .abbreviated, time: .standard))").foregroundStyle(.secondary)
-                                        }
-                                    }
-                                }.font(.caption)
-                            }
+        }.padding(16).background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 10))
+    }
+}
+
+struct DiagnosticSymptomDetail: View {
+    let symptom: DiagnosticSymptom
+    @ObservedObject var store: MonitorStore
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                Text(symptom.title).font(.title2.bold())
+                Spacer()
+                Button("閉じる") { dismiss() }.keyboardShortcut(.cancelAction)
+            }
+            Toggle("この症状がある", isOn: diagnosticMembership(symptom.id, in: $store.diagnosticSymptoms))
+                .toggleStyle(.checkbox)
+            Text("原因候補のチェックと症状の選択は独立しています。同じ原因候補のチェックは、ほかの症状や原因一覧にも反映されます。")
+                .font(.caption).foregroundStyle(.secondary)
+            ScrollView {
+                TimelineView(.periodic(from: .now, by: 2)) { timeline in
+                    let results = Dictionary(uniqueKeysWithValues: store.diagnosticResults(now: timeline.date).map { ($0.id, $0) })
+                    LazyVStack(alignment: .leading, spacing: 12) {
+                        ForEach(symptom.causeIDs.compactMap { DiagnosticCatalog.causesByID[$0] }) { cause in
+                            DiagnosticCauseCard(cause: cause, result: results[cause.context.id], store: store)
                         }
                     }
-                    lines("考えられる原因・切り分け", entry.causes)
-                    lines("対処法", entry.actions)
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text("確認を終えた項目（手動）").font(.subheadline.bold())
-                        ForEach(Array(entry.checks.enumerated()), id: \.offset) { index, check in
-                            Toggle(check, isOn: membership("\(entry.id).\(index)", in: $store.diagnosticChecks)).toggleStyle(.checkbox).font(.caption)
-                        }
-                        Text("確認済みの記録です。チェックしても自動判定や原因の確度は変わりません。")
-                            .font(.caption2).foregroundStyle(.secondary)
+                }
+            }
+        }.padding(22).frame(width: 840, height: 700)
+    }
+}
+
+private struct DiagnosticCauseCard: View {
+    let cause: DiagnosticCause
+    let result: DiagnosticResult?
+    @ObservedObject var store: MonitorStore
+
+    private var checked: Binding<Bool> {
+        Binding(get: {
+            store.diagnosticCauseSelection.isChecked(cause, results: result.map { [$0.id: $0] } ?? [:])
+        }, set: { store.diagnosticCauseSelection.set($0, for: cause) })
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .top) {
+                Toggle(cause.title, isOn: checked).toggleStyle(.checkbox).font(.headline)
+                    .accessibilityLabel(cause.accessibilityLabel)
+                Spacer()
+                Text(cause.isAutomatic ? "自動判定対応" : "手動判定").font(.caption).foregroundStyle(.secondary)
+            }
+            if !cause.isAutomatic {
+                Text(cause.contextLabel).font(.caption).foregroundStyle(.secondary)
+            }
+            if cause.isAutomatic {
+                HStack {
+                    let overridden = store.diagnosticCauseSelection.manualValue(for: cause) != nil
+                    Text(overridden ? "手動で\(checked.wrappedValue ? "チェック" : "解除")・観測への追従を停止中" : "観測結果に追従中")
+                        .font(.caption)
+                    Spacer()
+                    if overridden {
+                        Button("自動に戻す") { store.diagnosticCauseSelection.followObservation(for: cause) }.font(.caption)
                     }
-                    Text("判定の限界: \(entry.limitation)").font(.caption).foregroundStyle(.secondary)
+                }
+                Text("観測結果: \(result?.state.title ?? DiagnosticState.unknown.title)")
+                    .font(.caption).foregroundStyle(result?.state == .matched ? Color.orange : Color.secondary)
+            } else {
+                Text("手動で確認する候補です。チェックしても観測結果や原因の確度は変わりません。")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
+            DisclosureGroup("根拠・確認・対処法") {
+                VStack(alignment: .leading, spacing: 12) {
+                    if cause.isAutomatic, let result {
+                        ForEach(result.evidence) { evidence in
+                            VStack(alignment: .leading, spacing: 4) {
+                                Label(evidence.condition, systemImage: evidence.met == true ? "checkmark.circle" : evidence.met == false ? "minus.circle" : "questionmark.circle")
+                                Text(evidence.detail).foregroundStyle(.secondary)
+                                if let source = evidence.source { Text("取得元: \(source)").foregroundStyle(.secondary) }
+                                if let date = evidence.recordedAt {
+                                    Text("取得: \(date.formatted(date: .abbreviated, time: .standard))").foregroundStyle(.secondary)
+                                }
+                            }.font(.caption)
+                        }
+                    }
+                    Text("この確認対象に共通する確認項目").font(.subheadline.bold())
+                    ForEach(Array(cause.context.checks.enumerated()), id: \.offset) { index, item in
+                        Toggle(item, isOn: diagnosticMembership("\(cause.context.id).\(index)", in: $store.diagnosticChecks))
+                            .toggleStyle(.checkbox).font(.caption)
+                    }
+                    Text("上のチェックは同じ確認対象の原因カードで共有する作業記録です。原因候補や症状の選択には影響しません。")
+                        .font(.caption2).foregroundStyle(.secondary)
+                    Text("対処法").font(.subheadline.bold())
+                    ForEach(cause.context.actions, id: \.self) { Text("・\($0)").font(.caption) }
+                    Text("判定の限界: \(cause.context.limitation)").font(.caption).foregroundStyle(.secondary)
                     HStack {
-                        ForEach(Array(entry.sources.enumerated()), id: \.offset) { index, source in
+                        ForEach(Array(cause.context.sources.enumerated()), id: \.offset) { index, source in
                             if let url = URL(string: source) { Link("Apple公式資料 \(index + 1)", destination: url).font(.caption) }
                         }
                     }
-                }.padding(.top, 10).frame(maxWidth: .infinity, alignment: .leading).textSelection(.enabled)
-            } label: {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("\(entry.category) · \(entry.title)").font(.headline)
-                    Text(entry.symptoms.joined(separator: " / ")).font(.caption).foregroundStyle(.secondary)
-                }
+                }.padding(.top, 10).frame(maxWidth: .infinity, alignment: .leading)
             }
-        }.padding(14).background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 8))
+        }.padding(16).frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 10))
     }
+}
 
-    private func membership(_ key: String, in set: Binding<Set<String>>) -> Binding<Bool> {
-        Binding(get: { set.wrappedValue.contains(key) }, set: { value in
-            if value { set.wrappedValue.insert(key) } else { set.wrappedValue.remove(key) }
-        })
-    }
-    private func lines(_ title: String, _ values: [String]) -> some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(title).font(.subheadline.bold())
-            ForEach(values, id: \.self) { Text("・\($0)").font(.caption) }
-        }
-    }
-    private func symbol(_ state: DiagnosticState) -> String {
-        switch state {
-        case .matched: return "checkmark.square.fill"
-        case .observing: return "clock"
-        case .notMatched: return "square"
-        case .unknown: return "questionmark.square"
-        case .manual: return "hand.point.up.left"
-        }
-    }
-    private func color(_ state: DiagnosticState) -> Color {
-        switch state {
-        case .matched: return .orange
-        case .observing: return .blue
-        case .notMatched, .manual, .unknown: return .secondary
-        }
-    }
+private func diagnosticMembership(_ key: String, in set: Binding<Set<String>>) -> Binding<Bool> {
+    Binding(get: { set.wrappedValue.contains(key) }, set: { value in
+        if value { set.wrappedValue.insert(key) } else { set.wrappedValue.remove(key) }
+    })
 }

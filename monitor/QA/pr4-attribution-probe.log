@@ -1,0 +1,6 @@
+shallow count=500 included=5 seconds=0.00634816667297855
+deep-reversed count=500 included=500 seconds=0.056263208331074566
+shallow count=1000 included=5 seconds=0.010923541674856097
+deep-reversed count=1000 included=1000 seconds=0.21550983333145268
+shallow count=2000 included=5 seconds=0.021071249997476116
+deep-reversed count=2000 included=2000 seconds=0.8384792083525099

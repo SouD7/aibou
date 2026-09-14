@@ -1,0 +1,9 @@
+2026-09-14 16:35:53.791 aibou-pr4-review-tests[73256:3283950] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 16:35:53.792 aibou-pr4-review-tests[73256:3283950] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 16:35:55.203 aibou-pr4-review-tests[73256:3283950] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 16:35:55.204 aibou-pr4-review-tests[73256:3283950] IOPMScheduleUserActivityLevelNotification returned 0
+Consultation tests passed (fixtures; no paid inference).
+Application launcher tests passed (no installed applications launched).
+Application usage aggregation tests passed.
+Application detail collection ownership tests passed.
+AIBOU Monitor: ALL TESTS PASSED

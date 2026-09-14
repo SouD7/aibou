@@ -1,0 +1,10 @@
+2026-09-14 21:59:45.682 aibou-pr6-rereview-tests[27306:3546708] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 21:59:45.683 aibou-pr6-rereview-tests[27306:3546708] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 21:59:47.040 aibou-pr6-rereview-tests[27306:3546708] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-14 21:59:47.040 aibou-pr6-rereview-tests[27306:3546708] IOPMScheduleUserActivityLevelNotification returned 0
+Diagnostic symptom/cause selection tests passed (five tabs, overrides, shared causes, missing data).
+Consultation tests passed (fixtures; no paid inference).
+Application launcher tests passed (no installed applications launched).
+Application usage aggregation tests passed.
+Application detail collection ownership tests passed.
+AIBOU Monitor: ALL TESTS PASSED

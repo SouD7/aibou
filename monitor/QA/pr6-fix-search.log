@@ -1,0 +1,5 @@
+Mac全体の操作が遅い: linked=16 search=16
+ファイルを保存できない・更新に失敗する: linked=3 search=3
+本体が異常に熱くなる: linked=8 search=8
+duplicate cause titles=1
+通常の放電または充電機会不足: battery-low,battery-critical

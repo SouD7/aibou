@@ -192,6 +192,11 @@ final class NetworkDetailCollector {
             last.contains { $0[index].range(of: datePattern, options: .regularExpression) != nil }
         }
         let lastStamp = stampIndex.flatMap { index in last.reversed().first { $0[index].range(of: datePattern, options: .regularExpression) != nil }?[index] }
+        let timestamps = Set(last.compactMap { line -> String? in
+            guard let index = stampIndex, line[index].range(of: datePattern, options: .regularExpression) != nil else { return nil }
+            return line[index]
+        })
+        let hasDelta = batches.count >= 2 || timestamps.count >= 2
         var active = lastStamp == nil, selected: [[String]] = []
         for line in last {
             if let index = stampIndex, line[index].range(of: datePattern, options: .regularExpression) != nil { active = line[index] == lastStamp }
@@ -231,8 +236,8 @@ final class NetworkDetailCollector {
                     source: source, detail: "nettopの\(key)。RTT等は出力の単位表記を保持します。", interval: 1))
                 if key == "bytes_in" || key == "bytes_out" {
                     metrics.append(Metric(key == "bytes_in" ? "receiveRate" : "sendRate", key == "bytes_in" ? "受信速度" : "送信速度",
-                        value: (batches.count >= 2 || lastStamp != nil) ? numeric : nil, unit: "B/s",
-                        status: (batches.count >= 2 || lastStamp != nil) && numeric != nil ? .derived : (numeric == nil ? .unavailable : .waiting),
+                        value: hasDelta ? numeric : nil, unit: "B/s",
+                        status: hasDelta && numeric != nil ? .derived : (numeric == nil ? .unavailable : .waiting),
                         source: source, detail: "nettopの1秒delta。初回のみの出力から速度を作りません。", interval: 1))
                 }
             }
