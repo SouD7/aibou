@@ -1,4 +1,13 @@
 # Reproducible full-resolution video capture frames; keep metadata and the WebP preview.
 /QA/animated-room/sequence/*.png
 /QA/room-states/captures/*.png
+
+# Reproducible additional-state capture frames; retain timing metadata and report.
+/QA/additional-states/first/*.png
+/QA/additional-states/close-up/*.png
+/QA/additional-states/glitch/*.png
+
 /QA/room-states/book-match/*.png
+
+# Reproducible refinement capture sequences.
+/QA/state-refinements/*/*.png

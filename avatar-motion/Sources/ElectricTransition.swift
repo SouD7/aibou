@@ -19,15 +19,24 @@ struct ElectricTransition {
         let finished: Bool
     }
 
+    var duration: Double { to == .closeUp ? CloseUpEntranceTiming.transitionDuration : Self.duration }
+
+    static func requiresEffect(from: AvatarPoseID, to: AvatarPoseID) -> Bool {
+        guard from != to else { return false }
+        let newStates: Set<AvatarPoseID> = [.writing, .cpuRest, .glitch, .closeUp]
+        return newStates.contains(from) || newStates.contains(to) || !(from.isStanding && to.isStanding)
+    }
+
     func sample(at time: Double) -> Sample {
         // Quantize sub-nanosecond subtraction error at exact phase boundaries.
         let t = (max(0, time - startedAt) * 1e9).rounded() / 1e9
+        let arrivalStartsAt = to == .closeUp ? CloseUpEntranceTiming.startsAt : 0.2
         return Sample(outgoingAlpha: 0,
-                      incomingAlpha: t >= 0.2 ? 1 : 0,
+                      incomingAlpha: t >= arrivalStartsAt ? 1 : 0,
                       departure: t < 0.1 ? 1 - t / 0.1 : 0,
                       beam: (0.1..<0.2).contains(t) ? 1 - (t - 0.1) / 0.1 * 0.7 : 0,
                       noiseProgress: (0.2..<0.5).contains(t) ? (t - 0.2) / 0.3 : nil,
-                      finished: t >= Self.duration)
+                      finished: t >= duration)
     }
 
 }

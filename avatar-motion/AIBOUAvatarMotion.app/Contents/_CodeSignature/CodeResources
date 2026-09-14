@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/Assets/.DS_Store</key>
+		<data>
+		+YGG9+nlEY1LZnMOyKYtclZRrns=
+		</data>
 		<key>Resources/Assets/RoomAnimation/frame-000.png</key>
 		<data>
 		t8KrKUSqcbnbu47DXjUJrpu5hlU=
@@ -400,13 +404,121 @@
 		<data>
 		AZzLukeRhRZXjHtKv5NpkBI0whk=
 		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-000.png</key>
+		<data>
+		47rUgw5YPCox69VPd5Auj8GMfGE=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-001.png</key>
+		<data>
+		47rUgw5YPCox69VPd5Auj8GMfGE=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-002.png</key>
+		<data>
+		47rUgw5YPCox69VPd5Auj8GMfGE=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-003.png</key>
+		<data>
+		47rUgw5YPCox69VPd5Auj8GMfGE=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-004.png</key>
+		<data>
+		ICHkhkKhw6k4Zf9xcMxkMP+nl9Y=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-005.png</key>
+		<data>
+		vzK+VOTXRcphtz25qQLoSDB45yU=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-006.png</key>
+		<data>
+		ELa/YVMmhp0/fEIPGUboWA68pB4=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-007.png</key>
+		<data>
+		U9d4T50aOVhjBmIBm67Lywo9TQ0=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-008.png</key>
+		<data>
+		ILQMEuPLMWaV1Gl8qoBkElquRV8=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-009.png</key>
+		<data>
+		mfahRoqfUzRtSuQKLcknC0x6Y9A=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-010.png</key>
+		<data>
+		Kg1LxXiFGClViNnHUJtnwIyR9WU=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-011.png</key>
+		<data>
+		p2l9FT4BjYXf5JQY9OnmXY4dmwA=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-012.png</key>
+		<data>
+		i2wUg4c2Aqq5Ce5IyVSkUcOvX+w=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-013.png</key>
+		<data>
+		1wLrdO0vIMfnv7Qtn0BHK4Xa95Y=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-014.png</key>
+		<data>
+		pJuhQcWI7Qbm77/r+dqJ6I3K5xQ=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-015.png</key>
+		<data>
+		ez2QHr18ysokuNiphKKoqLqtUT0=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-016.png</key>
+		<data>
+		GU3X49ghNe7C/nM7mk8hyEzE3bg=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-017.png</key>
+		<data>
+		b8kmnW9/MTtRwEWN39owdeoMJ48=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-018.png</key>
+		<data>
+		MzvJqhAUBbkYR8YzxuTeLG8rwtk=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-019.png</key>
+		<data>
+		nnwMcdJxbuwoB2efHdIrEUvT1rw=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-020.png</key>
+		<data>
+		47rUgw5YPCox69VPd5Auj8GMfGE=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-021.png</key>
+		<data>
+		47rUgw5YPCox69VPd5Auj8GMfGE=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-022.png</key>
+		<data>
+		47rUgw5YPCox69VPd5Auj8GMfGE=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/frame-023.png</key>
+		<data>
+		47rUgw5YPCox69VPd5Auj8GMfGE=
+		</data>
+		<key>Resources/Assets/WritingBackdrop/manifest.json</key>
+		<data>
+		HgioKeT1Kqu0zSPAWd/rLEBS1NE=
+		</data>
+		<key>Resources/Assets/cpu-rest-relaxed.png</key>
+		<data>
+		D/K1ZJGyykQrtJZlh1ishqGAESk=
+		</data>
+		<key>Resources/Assets/cpu-rest.png</key>
+		<data>
+		BrSan+PeWeLPVW92e2YkGIgGEUg=
+		</data>
 		<key>Resources/Assets/reading.png</key>
 		<data>
 		i5s+e61lvLgPFa69t9Ga+xWY6vw=
 		</data>
 		<key>Resources/Assets/rig.json</key>
 		<data>
-		tl2f5gGCnftlGp4017t17O6BoW4=
+		xpF2jBHJha5xSMSvZFJu0Qoyxgk=
 		</data>
 		<key>Resources/Assets/room-components.json</key>
 		<data>
@@ -436,9 +548,25 @@
 		<data>
 		LHdCbFOW3nfUF7PDOS0peydKGXs=
 		</data>
+		<key>Resources/Assets/standing-smile-crescent.png</key>
+		<data>
+		nfVi1dEGcd93regCvOIwBj5MBqw=
+		</data>
+		<key>Resources/Assets/standing-smile.png</key>
+		<data>
+		RFe1BNYNzE+WY4KWhJzJCQsRX2M=
+		</data>
 		<key>Resources/Assets/standing.png</key>
 		<data>
 		d0ws4OoInszl4TIMTsii5/Gimn4=
+		</data>
+		<key>Resources/Assets/writing-seated.png</key>
+		<data>
+		jT1BWh8+4X3cMP2oXl2cUy+2sDA=
+		</data>
+		<key>Resources/Assets/writing.png</key>
+		<data>
+		IZgd/YbymukG9Ct4k7OZj4t2f48=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -1136,6 +1264,195 @@
 			bvhM3UpVSqDyUVs7eptiDDRTFkM67klj1DRqP2GbSbc=
 			</data>
 		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-000.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q09xUEFxlLR8pR/6ZOKaMmiGLimt73RJhH/4oifLuZk=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-001.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q09xUEFxlLR8pR/6ZOKaMmiGLimt73RJhH/4oifLuZk=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-002.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q09xUEFxlLR8pR/6ZOKaMmiGLimt73RJhH/4oifLuZk=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-003.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q09xUEFxlLR8pR/6ZOKaMmiGLimt73RJhH/4oifLuZk=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-004.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2VYEWbP0TC13jWZOvkj2pOc5Ayw0e3e3sfMt4D3v0gQ=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-005.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NvpyZ2A+WRyq6XoCtV4AvzoWFm90UqcNRzcis4Opzng=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-006.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3EQIpcaqPcnaWFicIUKgxUb3Kk6wgPQkL0ML60+Gxvs=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-007.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LqGINBDJuHSMhlKjaao9aSJJF+lNVsBpJRkvC8h9Gxs=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-008.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+x0IVN7xLIx5LBODvlZS5cvtKPA27ahf5ifceQsRIcI=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-009.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fihFd6t4m/vXhpoBCGaL5tr9TcVIkZlRCcsf7BkLMLs=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-010.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e9iHMgZ78lFiJoA6bxBekch4tZLqmEk2B5pbx5fWpk8=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-011.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MvAsLDOAb2f7yrBZasLqHvfdKRN5F2OssfUniXOHJe0=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-012.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bbA04oFtN7HpUoO0aVkvy8K8Vk/4l8jZ0h+LG+XJ+kQ=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-013.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wCPB2aXDzAnRdqk72XriiMSD8sr+zt3FSLRBZgHLa+I=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-014.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			U+eO2kUPojay+VTFJq1J6mF5rWn9dIzGl1RjxTXkrzY=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-015.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nLFxCwUNsb3QNgZoXWMpGyAaatbzqdpm274nP1ti70M=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-016.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3v9EqrOceIJTEgICryn1L/XLbHOPtDp7feISTHAcA38=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-017.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gufxrPQdN7f5UYetSWv0lVHxfAGIpIIWbyV59U5V0q0=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-018.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gYAhnrNA8K8csRLc9+JCmokhI1YHaZQsyDLq7NCSeLY=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-019.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BjtRRNuRxaa4LPMJfN5lu6e4vrVSYf9v39W3wtilYDo=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-020.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q09xUEFxlLR8pR/6ZOKaMmiGLimt73RJhH/4oifLuZk=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-021.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q09xUEFxlLR8pR/6ZOKaMmiGLimt73RJhH/4oifLuZk=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-022.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q09xUEFxlLR8pR/6ZOKaMmiGLimt73RJhH/4oifLuZk=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/frame-023.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q09xUEFxlLR8pR/6ZOKaMmiGLimt73RJhH/4oifLuZk=
+			</data>
+		</dict>
+		<key>Resources/Assets/WritingBackdrop/manifest.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			WgN5W35SgxAR0sUnreFmYhHCEi4Pu2DXSq7R6dvQJZs=
+			</data>
+		</dict>
+		<key>Resources/Assets/cpu-rest-relaxed.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			G5rLVZA8MvVoc0ggy5oACBk+IswKSdZ+ErMRr5wgKM0=
+			</data>
+		</dict>
+		<key>Resources/Assets/cpu-rest.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XtdsSgeFUsIGOJGF7Eo69Gr4hSN5YMoKg5eEk4BvOZk=
+			</data>
+		</dict>
 		<key>Resources/Assets/reading.png</key>
 		<dict>
 			<key>hash2</key>
@@ -1147,7 +1464,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kScPzsoibmtvPm/+BCpD8Q6jTrqfTqYubua+a+uwQTc=
+			RVxSr6zJDZScFp5mCcVbsZsvafaB6S7FKOM+v7R6968=
 			</data>
 		</dict>
 		<key>Resources/Assets/room-components.json</key>
@@ -1199,11 +1516,39 @@
 			cw0ruX5iHWexqPkrvC/IZanAuFDFfT6Xkb0RpDH22PM=
 			</data>
 		</dict>
+		<key>Resources/Assets/standing-smile-crescent.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LMrWeLpBdDTuyFojFEo1FkBBmhh7LiCpoidi3OyHmVc=
+			</data>
+		</dict>
+		<key>Resources/Assets/standing-smile.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GnzQM9nuTGcGEBG9o80gm4UT7UTgeFvrk0ZBNG3SQzA=
+			</data>
+		</dict>
 		<key>Resources/Assets/standing.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			97Wwq7AZEf8CeNmvrYTgC7upPfhgqMK82EB2WSiIpKA=
+			</data>
+		</dict>
+		<key>Resources/Assets/writing-seated.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kuuO6xsKEVisvUBbtS/xTNrkU9O4H6EyXZYb7NZ9x8A=
+			</data>
+		</dict>
+		<key>Resources/Assets/writing.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GqjpyQfL3SLD3+gnzSkDZsIDDdMep1tqXfdPkZi+gqQ=
 			</data>
 		</dict>
 	</dict>

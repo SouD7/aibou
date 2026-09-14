@@ -9,9 +9,13 @@ final class RoomStateRenderer: SKNode {
     private var textures: [String: SKTexture] = [:]
     private var nodes: [String: SKSpriteNode] = [:]
     private var lastState: RoomVisualState?
+    private var writingOccupied = false
+    private var writingBackdropTextures: [SKTexture] = []
+    private var writingBackdrop: SKSpriteNode?
     private(set) var fanFrameIndex = 0
     private(set) var computeFrameIndex = 0
     private(set) var displayFrameIndex = 0
+    private(set) var writingBackdropFrameIndex = 0
 
     init(directory: URL, canvas: Point2) throws {
         struct AssetManifest: Decodable { let bounds: [String: [Double]] }
@@ -20,6 +24,25 @@ final class RoomStateRenderer: SKNode {
             from: Data(contentsOf:directory.appendingPathComponent("manifest.json"))).bounds
         super.init()
         name = "room-states"; zPosition = -5
+        let backdropDirectory = directory.deletingLastPathComponent().appendingPathComponent("WritingBackdrop")
+        struct BackdropManifest: Decodable { let bounds: [Double]; let frames: [String] }
+        let backdrop = try JSONDecoder().decode(BackdropManifest.self,
+            from: Data(contentsOf: backdropDirectory.appendingPathComponent("manifest.json")))
+        guard backdrop.bounds.count == 4, backdrop.frames.count == 24 else {
+            throw ManifestError.resourceMissing("WritingBackdrop/manifest.json")
+        }
+        for file in backdrop.frames {
+            guard let image = NSImage(contentsOf: backdropDirectory.appendingPathComponent(file)) else {
+                throw ManifestError.resourceMissing("WritingBackdrop/\(file)")
+            }
+            writingBackdropTextures.append(SKTexture(image: image))
+        }
+        let box = backdrop.bounds
+        let backdropNode = SKSpriteNode(texture: writingBackdropTextures[0],
+            size: CGSize(width: box[2] - box[0], height: box[3] - box[1]))
+        backdropNode.position = CGPoint(x: (box[0] + box[2]) / 2, y: canvas.y - (box[1] + box[3]) / 2)
+        backdropNode.name = "writing-backdrop"; backdropNode.zPosition = -1; backdropNode.isHidden = true
+        addChild(backdropNode); writingBackdrop = backdropNode
         for (key, box) in bounds {
             guard box.count == 4, box.allSatisfy(\.isFinite),
                   box[2] > box[0], box[3] > box[1],
@@ -55,6 +78,12 @@ final class RoomStateRenderer: SKNode {
 
     required init?(coder:NSCoder) { fatalError("init(coder:) has not been implemented") }
 
+    func setWritingOccupied(_ occupied: Bool) {
+        writingOccupied = occupied
+        writingBackdrop?.isHidden = !occupied
+        nodes["chair"]?.isHidden = occupied || lastState?.desk.rawValue == "normal"
+    }
+
     private func requiredTexture(_ key:String) throws -> SKTexture {
         guard let texture = textures[key] else { throw ManifestError.resourceMissing("RoomStates/\(key)") }
         return texture
@@ -71,15 +100,18 @@ final class RoomStateRenderer: SKNode {
         node.isHidden = true; addChild(node); nodes[name] = node
     }
 
-    func apply(state:RoomVisualState,time:Double,reducedMotion:Bool) {
+    func apply(state:RoomVisualState,time:Double,reducedMotion:Bool,roomFrameIndex:Int = 0) {
         let t = reducedMotion || !time.isFinite ? 0 : max(0,time)
+        let frameCount = writingBackdropTextures.count
+        writingBackdropFrameIndex = ((roomFrameIndex % frameCount) + frameCount) % frameCount
+        writingBackdrop?.texture = writingBackdropTextures[writingBackdropFrameIndex]
         if state != lastState {
             for count in 0...4 { nodes["bed-\(count)"]?.isHidden = count != state.bedLights }
             nodes["bookshelf-sparse"]?.isHidden = state.bookshelf.rawValue != "sparse"
             nodes["bookshelf-overflow"]?.isHidden = state.bookshelf.rawValue != "overflow"
             nodes["desk-stacked"]?.isHidden = state.desk.rawValue != "stacked"
             nodes["desk-overflow"]?.isHidden = state.desk.rawValue != "overflow"
-            nodes["chair"]?.isHidden = state.desk.rawValue == "normal"
+            nodes["chair"]?.isHidden = writingOccupied || state.desk.rawValue == "normal"
             nodes["display"]?.isHidden = state.display.rawValue != "staticNoise"
             lastState = state
         }

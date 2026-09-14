@@ -1,0 +1,294 @@
+{
+  "canvas" : [
+    1672,
+    941
+  ],
+  "frames" : [
+    {
+      "blink" : 0,
+      "file" : "standing-t0.00.png",
+      "focus" : false,
+      "pose" : "standing",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-t1.00.png",
+      "focus" : false,
+      "pose" : "standing",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-back-hands-t0.00.png",
+      "focus" : false,
+      "pose" : "standing-back-hands",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-back-hands-t1.00.png",
+      "focus" : false,
+      "pose" : "standing-back-hands",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-front-hands-t0.00.png",
+      "focus" : false,
+      "pose" : "standing-front-hands",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-front-hands-t1.00.png",
+      "focus" : false,
+      "pose" : "standing-front-hands",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "sleeping-t0.00.png",
+      "focus" : false,
+      "pose" : "sleeping",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "sleeping-t1.00.png",
+      "focus" : false,
+      "pose" : "sleeping",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t0.00.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-t1.00.png",
+      "focus" : false,
+      "pose" : "reading",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t0.00.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-t1.00.png",
+      "focus" : false,
+      "pose" : "writing",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "glitch-t0.00.png",
+      "focus" : false,
+      "pose" : "glitch",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "glitch-t1.00.png",
+      "focus" : false,
+      "pose" : "glitch",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "cpu-rest-t0.00.png",
+      "focus" : false,
+      "pose" : "cpu-rest",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "cpu-rest-t1.00.png",
+      "focus" : false,
+      "pose" : "cpu-rest",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "close-up-t0.00.png",
+      "focus" : false,
+      "pose" : "close-up",
+      "roomFrame" : 0,
+      "speech" : 0,
+      "time" : 0
+    },
+    {
+      "blink" : 0,
+      "file" : "close-up-t1.00.png",
+      "focus" : false,
+      "pose" : "close-up",
+      "roomFrame" : 10,
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-focus.png",
+      "focus" : true,
+      "pose" : "standing",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-back-hands-focus.png",
+      "focus" : true,
+      "pose" : "standing-back-hands",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-front-hands-focus.png",
+      "focus" : true,
+      "pose" : "standing-front-hands",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "sleeping-focus.png",
+      "focus" : true,
+      "pose" : "sleeping",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "reading-focus.png",
+      "focus" : true,
+      "pose" : "reading",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "writing-focus.png",
+      "focus" : true,
+      "pose" : "writing",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "glitch-focus.png",
+      "focus" : true,
+      "pose" : "glitch",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "cpu-rest-focus.png",
+      "focus" : true,
+      "pose" : "cpu-rest",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 0,
+      "file" : "close-up-focus.png",
+      "focus" : true,
+      "pose" : "close-up",
+      "speech" : 0,
+      "time" : 1
+    },
+    {
+      "blink" : 1,
+      "file" : "standing-blink.png",
+      "focus" : true,
+      "pose" : "standing",
+      "speech" : 0,
+      "time" : 2
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-speech.png",
+      "focus" : true,
+      "pose" : "standing",
+      "speech" : 0.71999999999999997,
+      "time" : 2
+    },
+    {
+      "blink" : 1,
+      "file" : "standing-back-hands-blink.png",
+      "focus" : true,
+      "pose" : "standing-back-hands",
+      "speech" : 0,
+      "time" : 2
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-back-hands-speech.png",
+      "focus" : true,
+      "pose" : "standing-back-hands",
+      "speech" : 0.71999999999999997,
+      "time" : 2
+    },
+    {
+      "blink" : 1,
+      "file" : "standing-front-hands-blink.png",
+      "focus" : true,
+      "pose" : "standing-front-hands",
+      "speech" : 0,
+      "time" : 2
+    },
+    {
+      "blink" : 0,
+      "file" : "standing-front-hands-speech.png",
+      "focus" : true,
+      "pose" : "standing-front-hands",
+      "speech" : 0.71999999999999997,
+      "time" : 2
+    }
+  ],
+  "renderSize" : [
+    1003,
+    565
+  ]
+}
