@@ -32,3 +32,12 @@
 実モデルへの推論は実施していない。口調、文字数、文末はモデルへの指示であり、生成結果への厳密な強制ではない。この制約は開示済みであり、不具合判定には含めない。
 
 architectから、将来の指示削除を検知する目的で文末指定と1文だけの場合の規則を既存の指示送信テストに加える案があった。任意の改善であり、今回のレビューではコードを変更していない。
+
+## 専用ブランチでの検証
+
+`origin/main` の `e46f706` を基点に `codex/consultation-response-style` を別worktreeで作成。このチャットのソース・テスト・文書・QA記録だけを移し、同梱アプリはそのworktreeで再ビルドした。
+
+- `bash monitor/run.sh --build`: 成功（`consultation-branch-build.log`）。
+- `bash monitor/test.sh`: 全回帰テスト成功（`consultation-branch-tests.log`）。
+- `codesign --verify --strict monitor/AIBOUMonitor.app`: 成功。
+- 元の作業ディレクトリのブランチ・未コミット変更は保持した。
