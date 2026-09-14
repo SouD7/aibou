@@ -151,9 +151,12 @@ private struct DiagnosticCauseCard: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .top) {
                 Toggle(cause.title, isOn: checked).toggleStyle(.checkbox).font(.headline)
-                    .accessibilityLabel("原因候補: \(cause.title)")
+                    .accessibilityLabel(cause.accessibilityLabel)
                 Spacer()
                 Text(cause.isAutomatic ? "自動判定対応" : "手動判定").font(.caption).foregroundStyle(.secondary)
+            }
+            if !cause.isAutomatic {
+                Text(cause.contextLabel).font(.caption).foregroundStyle(.secondary)
             }
             if cause.isAutomatic {
                 HStack {
@@ -185,12 +188,12 @@ private struct DiagnosticCauseCard: View {
                             }.font(.caption)
                         }
                     }
-                    Text("確認すること").font(.subheadline.bold())
+                    Text("この確認対象に共通する確認項目").font(.subheadline.bold())
                     ForEach(Array(cause.context.checks.enumerated()), id: \.offset) { index, item in
                         Toggle(item, isOn: diagnosticMembership("\(cause.context.id).\(index)", in: $store.diagnosticChecks))
                             .toggleStyle(.checkbox).font(.caption)
                     }
-                    Text("上のチェックは確認作業の記録です。原因候補や症状の選択には影響しません。")
+                    Text("上のチェックは同じ確認対象の原因カードで共有する作業記録です。原因候補や症状の選択には影響しません。")
                         .font(.caption2).foregroundStyle(.secondary)
                     Text("対処法").font(.subheadline.bold())
                     ForEach(cause.context.actions, id: \.self) { Text("・\($0)").font(.caption) }

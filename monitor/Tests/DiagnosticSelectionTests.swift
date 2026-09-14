@@ -63,6 +63,32 @@ func runDiagnosticSelectionTests() throws {
     try selectionExpect(autoPresentation.symptoms(in: .all, category: "ネットワーク").allSatisfy { $0.category == "ネットワーク" }, "category filter applies")
     try selectionExpect(autoPresentation.causes(in: .manual, search: "存在しないテスト項目").isEmpty, "empty search result")
 
+    // New symptom wording must work in the reverse (symptom -> cause) direction too.
+    for symptom in DiagnosticCatalog.symptoms {
+        for query in [symptom.title] + symptom.examples {
+            for filter in [DiagnosticFilter.automatic, .manual] {
+                let expected = Set(symptom.causeIDs.filter {
+                    DiagnosticCatalog.causesByID[$0]?.isAutomatic == (filter == .automatic)
+                })
+                let found = autoPresentation.causes(in: filter, search: query)
+                try selectionExpect(expected.isSubset(of: Set(found.map(\.id))), "symptom search misses linked causes: \(query), \(filter)")
+                try selectionExpect(found.allSatisfy { $0.isAutomatic == (filter == .automatic) }, "search must preserve the cause tab")
+                let categoryMatches = autoPresentation.causes(in: filter, search: query, category: symptom.category)
+                let expectedInCategory = expected.filter { DiagnosticCatalog.causesByID[$0]?.context.category == symptom.category }
+                try selectionExpect(expectedInCategory.isSubset(of: Set(categoryMatches.map(\.id))) &&
+                    categoryMatches.allSatisfy { $0.context.category == symptom.category }, "search must preserve category filtering")
+            }
+        }
+    }
+    let duplicateCauses = causes.filter { $0.title == "通常の放電または充電機会不足" }
+    try selectionExpect(duplicateCauses.count == 2, "fixture must contain same-named causes from different contexts")
+    try selectionExpect(Set(duplicateCauses.map(\.contextLabel)).count == 2, "visible context must distinguish duplicate cause titles")
+    try selectionExpect(Set(duplicateCauses.map(\.accessibilityLabel)).count == 2, "VoiceOver must distinguish duplicate cause titles")
+    var duplicateSelection = DiagnosticCauseSelection()
+    duplicateSelection.set(true, for: duplicateCauses[0])
+    try selectionExpect(duplicateSelection.isChecked(duplicateCauses[0], results: [:]) &&
+        !duplicateSelection.isChecked(duplicateCauses[1], results: [:]), "disambiguating labels must not merge independent selections")
+
     selection.set(false, for: heat)
     var presentation = DiagnosticPresentation(results: result(.matched), selection: selection, selectedSymptoms: [])
     try selectionExpect(presentation.symptoms(in: .current).isEmpty, "manual off removes auto candidate from current tab")

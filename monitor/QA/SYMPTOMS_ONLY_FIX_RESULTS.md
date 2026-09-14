@@ -22,6 +22,6 @@
 - 同梱アプリのstrict署名検証、git diff --check成功。
 - 合成データで5タブと詳細を描画。`symptoms-only-preview/diagnostics-0.png`を目視し、症状カードの一覧になっていることを確認。実GUIの全クリック操作は未実施。
 
-更新したアプリ: `/Users/sodaiyamamoto/aibou/monitor/AIBOUMonitor.app`。
+更新したアプリ: `monitor/AIBOUMonitor.app`（リポジトリルートからの相対パス）。
 
 `DIAGNOSTICS_SELECTION_RESULTS.md`は修正前の初版記録。最新の症状件数と分離方法はこの文書を参照する。

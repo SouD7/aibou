@@ -47,7 +47,7 @@
 
 ## 起動と再現
 
-更新したアプリ: `/Users/sodaiyamamoto/aibou/monitor/AIBOUMonitor.app`
+更新したアプリ: `monitor/AIBOUMonitor.app`（リポジトリルートからの相対パス）
 
 プレビューの生成:
 

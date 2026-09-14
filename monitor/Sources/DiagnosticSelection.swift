@@ -16,6 +16,10 @@ struct DiagnosticCause: Identifiable {
     /// Only an observable condition has a rule; its possible physical explanations do not.
     let rule: DiagnosticRule
     var isAutomatic: Bool { rule != .manual }
+    var contextLabel: String { "確認の対象: \(context.title)" }
+    var accessibilityLabel: String {
+        isAutomatic ? "原因候補: \(title)" : "原因候補: \(title)。\(contextLabel)"
+    }
 }
 
 enum DiagnosticFilter: String, CaseIterable, Identifiable {
@@ -65,7 +69,9 @@ struct DiagnosticPresentation {
     func causes(in filter: DiagnosticFilter, search: String = "", category: String? = nil) -> [DiagnosticCause] {
         guard filter.showsCauses else { return [] }
         return DiagnosticCatalog.causes.filter { cause in
-            let text = ([cause.title, cause.context.category] + cause.context.actions + cause.context.symptoms).joined(separator: " ")
+            let related = DiagnosticCatalog.symptomsByCauseID[cause.id] ?? []
+            let symptomText = related.flatMap { [$0.title] + $0.examples }
+            let text = ([cause.title, cause.context.category, cause.context.title] + cause.context.actions + cause.context.symptoms + symptomText).joined(separator: " ")
             return cause.isAutomatic == (filter == .automatic) &&
                 (category == nil || category == cause.context.category) &&
                 (search.isEmpty || text.localizedCaseInsensitiveContains(search))
@@ -87,6 +93,10 @@ extension DiagnosticCatalog {
         return values
     }
     static let causesByID = Dictionary(uniqueKeysWithValues: causes.map { ($0.id, $0) })
+    /// Build once from the explicit symptom catalog, not from the legacy case wording.
+    static let symptomsByCauseID: [String: [DiagnosticSymptom]] = symptoms.reduce(into: [:]) { index, symptom in
+        for causeID in symptom.causeIDs { index[causeID, default: []].append(symptom) }
+    }
 
     // An explicit symptom catalog: never promote a cause/measurement entry into a symptom.
     // Cause IDs and symptom IDs belong to disjoint namespaces.
