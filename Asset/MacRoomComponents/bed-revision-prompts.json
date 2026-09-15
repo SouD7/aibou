@@ -1,0 +1,10 @@
+{
+  "medium": {
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-572ea2c0-a326-44c7-b61d-b9bd19f347af.png",
+    "prompt": "Edit the bed component. On BOTH headboard battery indicator AND left SIDE row of four large glowing battery windows, illuminate only 2 segment(s) in cyan; all remaining segments must be unlit dark neutral gray. For low battery do NOT use a red outline or border around the whole battery icon: retain the normal neutral metal/cyan thin outline; ONLY the individual lit segment itself emits red light. Preserve bed shape, position, scale, canvas, perspective, bedding and all OTHER decorative strips unchanged. Genuine transparent PNG."
+  },
+  "low": {
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-a8e86be1-6c07-4cec-9f19-3f43529e7d26.png",
+    "prompt": "Edit the bed component. On BOTH headboard battery indicator AND left SIDE row of four large glowing battery windows, illuminate only 1 segment(s) in red; all remaining segments must be unlit dark neutral gray. For low battery do NOT use a red outline or border around the whole battery icon: retain the normal neutral metal/cyan thin outline; ONLY the individual lit segment itself emits red light. Preserve bed shape, position, scale, canvas, perspective, bedding and all OTHER decorative strips unchanged. Genuine transparent PNG."
+  }
+}
