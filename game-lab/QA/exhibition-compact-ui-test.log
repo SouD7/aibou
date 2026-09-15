@@ -1,0 +1,210 @@
+Running UI tests on the desktop. Result bundle: /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-200552-22476.xcresult
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/fujishima/aibou/game-lab/AIBOUGameLabUITests.xcodeproj -scheme AIBOUGameLabUITests -destination platform=macOS,arch=arm64 -derivedDataPath /Users/fujishima/aibou/game-lab/.build/ui-tests -parallel-testing-enabled NO -resultBundlePath /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-200552-22476.xcresult test-without-building "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testCompactWindowKeepsAllDoorsAndMapEntrancesOperable"
+
+Writing result bundle at path:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260914-200552-22476.xcresult
+
+2026-09-14 20:05:53.782353+0900 AIBOUGameLabUITests-Runner[22516:33337851] [Default] Running tests...
+Test Suite 'Selected tests' started at 2026-09-14 20:05:53.817.
+Test Suite 'AIBOUGameLabUITests.xctest' started at 2026-09-14 20:05:53.818.
+Test Suite 'ExhibitionUITests' started at 2026-09-14 20:05:53.818.
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testCompactWindowKeepsAllDoorsAndMapEntrancesOperable]' started.
+    t =     0.00s Start Test at 2026-09-14 20:05:53.818
+    t =     0.16s Set Up
+    t =     0.16s     Open local.aibou.gamelab
+    t =     0.17s         Launch local.aibou.gamelab
+    t =     0.51s             Wait for accessibility to load
+    t =     0.99s             Setting up automation session
+    t =     0.99s             Wait for local.aibou.gamelab to idle
+    t =     1.00s     Open local.aibou.gamelab
+    t =     1.00s         Activate local.aibou.gamelab
+    t =     1.04s             Wait for local.aibou.gamelab to idle
+    t =     1.05s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     1.05s     Checking existence of `Window (First Match)`
+    t =     1.18s     Waiting 15.0s for Window (First Match) to exist
+    t =     2.22s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     2.22s             Checking existence of `Window (First Match)`
+    t =     2.23s Find the Window (First Match)
+    t =     2.24s Click and drag from "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window[1.00, 1.00] -> (-1.0, -1.0) to "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window[0.00, 0.00] -> (1099.0, 769.0) with velocity of 500.00 pixels per second, and then hold for 0.0 seconds
+    t =     2.24s     Wait for local.aibou.gamelab to idle
+    t =     2.24s     Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     2.26s     Check for interrupting elements affecting "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     2.36s     Synthesize event
+    t =     2.36s         Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     2.37s         Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     2.38s         Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     2.39s         Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     3.64s     Wait for local.aibou.gamelab to idle
+    t =     4.68s Checking `Expect predicate `BLOCKPREDICATE(0x9274b19e0)` for object "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window`
+    t =     4.68s     Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     4.69s     Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     4.70s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     4.71s Added attachment named 'exhibition-compact-window-dimensions'
+    t =     4.71s Checking existence of `"ex.area.a" Any`
+    t =     4.73s Find the "ex.area.a" Any
+    t =     4.75s Find the "ex.area.a" Button
+    t =     4.78s Find the "ex.area.a" Button
+    t =     4.79s Checking existence of `"ex.area.b" Any`
+    t =     4.79s Find the "ex.area.b" Any
+    t =     4.83s Find the "ex.area.b" Button
+    t =     4.86s Find the "ex.area.b" Button
+    t =     4.87s Checking existence of `"ex.area.c" Any`
+    t =     4.88s Find the "ex.area.c" Any
+    t =     4.90s Find the "ex.area.c" Button
+    t =     4.92s Find the "ex.area.c" Button
+    t =     4.92s Checking existence of `"ex.area.d" Any`
+    t =     4.94s Find the "ex.area.d" Any
+    t =     4.95s Find the "ex.area.d" Button
+    t =     4.97s Find the "ex.area.d" Button
+    t =     4.98s Checking existence of `"ex.area.e" Any`
+    t =     4.99s Find the "ex.area.e" Any
+    t =     5.01s Find the "ex.area.e" Button
+    t =     5.02s Find the "ex.area.e" Button
+    t =     5.04s Get number of matches for: Descendants matching type ScrollView
+    t =     5.54s Checking existence of `Window (First Match)`
+    t =     5.54s Find the Window (First Match)
+    t =     5.66s Added attachment named 'exhibition-compact-lobby'
+    t =     5.66s Checking existence of `"ex.map" Any`
+    t =     5.68s Find the "ex.map" Any
+    t =     5.76s Find the "ex.map" Button
+    t =     6.80s Checking `Expect predicate `hittable == 1` for object "ex.map" Button`
+    t =     6.80s     Find the "ex.map" Button
+    t =     6.82s Click "ex.map" Button
+    t =     6.82s     Wait for local.aibou.gamelab to idle
+    t =     6.82s     Find the "ex.map" Button
+    t =     6.83s     Check for interrupting elements affecting "ex.map" Button
+    t =     6.84s     Synthesize event
+    t =     7.25s     Wait for local.aibou.gamelab to idle
+    t =     7.25s Get number of matches for: Elements matching predicate 'identifier BEGINSWITH "ex.game."'
+    t =     7.30s Checking existence of `"ex.game.bit-art" Any`
+    t =     7.31s Find the "ex.game.bit-art" Any
+    t =     7.32s Find the "ex.game.bit-art" Button
+    t =     7.34s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     7.35s Find the "ex.game.bit-art" Button
+    t =     7.36s Checking existence of `"ex.game.circuit-atelier" Any`
+    t =     7.37s Find the "ex.game.circuit-atelier" Any
+    t =     7.40s Find the "ex.game.circuit-atelier" Button
+    t =     7.43s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     7.43s Find the "ex.game.circuit-atelier" Button
+    t =     7.44s Checking existence of `"ex.game.memory-switch" Any`
+    t =     7.45s Find the "ex.game.memory-switch" Any
+    t =     7.47s Find the "ex.game.memory-switch" Button
+    t =     7.50s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     7.51s Find the "ex.game.memory-switch" Button
+    t =     7.52s Checking existence of `"ex.game.tiny-switch-workshop" Any`
+    t =     7.52s Find the "ex.game.tiny-switch-workshop" Any
+    t =     7.55s Find the "ex.game.tiny-switch-workshop" Button
+    t =     7.57s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     7.57s Find the "ex.game.tiny-switch-workshop" Button
+    t =     7.58s Checking existence of `"ex.game.instruction-atelier" Any`
+    t =     7.59s Find the "ex.game.instruction-atelier" Any
+    t =     7.61s Find the "ex.game.instruction-atelier" Button
+    t =     7.63s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     7.64s Find the "ex.game.instruction-atelier" Button
+    t =     7.65s Checking existence of `"ex.game.work-dispatch" Any`
+    t =     7.66s Find the "ex.game.work-dispatch" Any
+    t =     7.79s Find the "ex.game.work-dispatch" Button
+    t =     7.80s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     7.80s Find the "ex.game.work-dispatch" Button
+    t =     7.81s Checking existence of `"ex.game.parallel-factory" Any`
+    t =     7.82s Find the "ex.game.parallel-factory" Any
+    t =     7.83s Find the "ex.game.parallel-factory" Button
+    t =     7.85s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     7.86s Find the "ex.game.parallel-factory" Button
+    t =     7.87s Checking existence of `"ex.game.pixel-factory" Any`
+    t =     7.89s Find the "ex.game.pixel-factory" Any
+    t =     7.92s Find the "ex.game.pixel-factory" Button
+    t =     7.94s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     7.94s Find the "ex.game.pixel-factory" Button
+    t =     7.95s Checking existence of `"ex.game.memory-dock" Any`
+    t =     7.97s Find the "ex.game.memory-dock" Any
+    t =     8.00s Find the "ex.game.memory-dock" Button
+    t =     8.02s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.02s Find the "ex.game.memory-dock" Button
+    t =     8.04s Checking existence of `"ex.game.cache-delivery" Any`
+    t =     8.06s Find the "ex.game.cache-delivery" Any
+    t =     8.08s Find the "ex.game.cache-delivery" Button
+    t =     8.10s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.11s Find the "ex.game.cache-delivery" Button
+    t =     8.12s Checking existence of `"ex.game.memory-rescue" Any`
+    t =     8.14s Find the "ex.game.memory-rescue" Any
+    t =     8.16s Find the "ex.game.memory-rescue" Button
+    t =     8.18s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.18s Find the "ex.game.memory-rescue" Button
+    t =     8.20s Checking existence of `"ex.game.storage-warehouse" Any`
+    t =     8.20s Find the "ex.game.storage-warehouse" Any
+    t =     8.24s Find the "ex.game.storage-warehouse" Button
+    t =     8.26s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.26s Find the "ex.game.storage-warehouse" Button
+    t =     8.28s Checking existence of `"ex.game.display-studio" Any`
+    t =     8.29s Find the "ex.game.display-studio" Any
+    t =     8.31s Find the "ex.game.display-studio" Button
+    t =     8.33s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.33s Find the "ex.game.display-studio" Button
+    t =     8.34s Checking existence of `"ex.game.packet-express" Any`
+    t =     8.35s Find the "ex.game.packet-express" Any
+    t =     8.37s Find the "ex.game.packet-express" Button
+    t =     8.39s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.39s Find the "ex.game.packet-express" Button
+    t =     8.40s Checking existence of `"ex.game.board-town" Any`
+    t =     8.41s Find the "ex.game.board-town" Any
+    t =     8.44s Find the "ex.game.board-town" Button
+    t =     8.45s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.46s Find the "ex.game.board-town" Button
+    t =     8.47s Checking existence of `"ex.game.connection-lab" Any`
+    t =     8.49s Find the "ex.game.connection-lab" Any
+    t =     8.51s Find the "ex.game.connection-lab" Button
+    t =     8.53s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.53s Find the "ex.game.connection-lab" Button
+    t =     8.54s Checking existence of `"ex.game.pc-day" Any`
+    t =     8.55s Find the "ex.game.pc-day" Any
+    t =     8.57s Find the "ex.game.pc-day" Button
+    t =     8.58s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.59s Find the "ex.game.pc-day" Button
+    t =     8.59s Checking existence of `"ex.game.battery-voyage" Any`
+    t =     8.60s Find the "ex.game.battery-voyage" Any
+    t =     8.62s Find the "ex.game.battery-voyage" Button
+    t =     8.63s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.64s Find the "ex.game.battery-voyage" Button
+    t =     8.65s Checking existence of `"ex.game.cooling-workshop" Any`
+    t =     8.65s Find the "ex.game.cooling-workshop" Any
+    t =     8.67s Find the "ex.game.cooling-workshop" Button
+    t =     8.69s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.70s Find the "ex.game.cooling-workshop" Button
+    t =     8.70s Checking existence of `"ex.game.bottleneck-detective" Any`
+    t =     8.72s Find the "ex.game.bottleneck-detective" Any
+    t =     8.75s Find the "ex.game.bottleneck-detective" Button
+    t =     8.79s Find the "SwiftUI._ConditionalContent<AIBOUGameLab.CircuitLabView, AIBOUGameLab.ExhibitionAppView>-1-AppWindow-1" Window
+    t =     8.80s Find the "ex.game.bottleneck-detective" Button
+    t =     8.81s Checking existence of `"ex.map.close" Any`
+    t =     8.83s Find the "ex.map.close" Any
+    t =     8.84s Find the "ex.map.close" Button
+    t =     8.86s Get number of matches for: Descendants matching type ScrollView
+    t =     9.24s Checking existence of `Window (First Match)`
+    t =     9.25s Find the Window (First Match)
+    t =     9.31s Added attachment named 'exhibition-compact-map'
+    t =     9.32s Tear Down
+    t =     9.32s     Checking existence of `Window (First Match)`
+    t =     9.68s     Checking existence of `Window (First Match)`
+    t =     9.68s     Find the Window (First Match)
+    t =     9.74s     Added attachment named '-[ExhibitionUITests testCompactWindowKeepsAllDoorsAndMapEntrancesOperable]'
+    t =     9.74s     Terminate local.aibou.gamelab:22520
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testCompactWindowKeepsAllDoorsAndMapEntrancesOperable]' passed (10.875 seconds).
+Test Suite 'ExhibitionUITests' passed at 2026-09-14 20:06:04.693.
+	 Executed 1 test, with 0 failures (0 unexpected) in 10.875 (10.876) seconds
+Test Suite 'AIBOUGameLabUITests.xctest' passed at 2026-09-14 20:06:04.694.
+	 Executed 1 test, with 0 failures (0 unexpected) in 10.875 (10.876) seconds
+Test Suite 'Selected tests' passed at 2026-09-14 20:06:04.694.
+	 Executed 1 test, with 0 failures (0 unexpected) in 10.875 (10.877) seconds
+2026-09-14 20:06:04.985 xcodebuild[22511:33337661] [MT] IDETestOperationsObserverDebug: 11.750 elapsed -- Testing started completed.
+2026-09-14 20:06:04.985 xcodebuild[22511:33337661] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-14 20:06:04.985 xcodebuild[22511:33337661] [MT] IDETestOperationsObserverDebug: 11.750 sec, +11.750 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260914-200552-22476.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started
+UI tests passed. Inspect screenshots and diagnostics in: /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-200552-22476.xcresult

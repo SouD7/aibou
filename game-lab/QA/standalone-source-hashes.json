@@ -1,0 +1,671 @@
+{
+  "baseline": "Verified pre-extraction backup, 2026-09-15 13:00:30 JST; local HEAD 0981d84 plus uncommitted learning files",
+  "files": [
+    {
+      "path": "Sources/App/App.swift",
+      "baseline_sha256": "ba436d211fe4e3e2c21a209ad541f1280d73281990d7326e2f291f3f66728421",
+      "standalone_sha256": "ba436d211fe4e3e2c21a209ad541f1280d73281990d7326e2f291f3f66728421",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/CircuitSession.swift",
+      "baseline_sha256": "d1b7ba1e2362a5c5a298fa351c5afd8a4dc632579b7ebfaf2df4c49b4789a6f8",
+      "standalone_sha256": "d1b7ba1e2362a5c5a298fa351c5afd8a4dc632579b7ebfaf2df4c49b4789a6f8",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/ExhibitionCatalog.swift",
+      "baseline_sha256": "c82b8582e9c6e9bb2ac280e11d663da7d56d1c8045547698bc4a7ca5e86e90ea",
+      "standalone_sha256": "c82b8582e9c6e9bb2ac280e11d663da7d56d1c8045547698bc4a7ca5e86e90ea",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/CircuitExperienceModel.swift",
+      "baseline_sha256": "ace921a3ac8889509211f52978bb40e4cba0a9222463a119d680ab6a1587dc11",
+      "standalone_sha256": "ace921a3ac8889509211f52978bb40e4cba0a9222463a119d680ab6a1587dc11",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ExperienceModel.swift",
+      "baseline_sha256": "f4c3712e03ca8acb6120b53cdedd0585b77c295ca4c58052a40d7d07887da5dd",
+      "standalone_sha256": "f4c3712e03ca8acb6120b53cdedd0585b77c295ca4c58052a40d7d07887da5dd",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/LogicBitArt.swift",
+      "baseline_sha256": "8c62297b819e4e53a687fa64290c490b039cdef8aa0e879b273a7ab810362a80",
+      "standalone_sha256": "8c62297b819e4e53a687fa64290c490b039cdef8aa0e879b273a7ab810362a80",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/LogicInstruction.swift",
+      "baseline_sha256": "3e71918d410984b0e0aa4f10b38b96ff9967a00c8faccf13a09f7bf5cac21617",
+      "standalone_sha256": "3e71918d410984b0e0aa4f10b38b96ff9967a00c8faccf13a09f7bf5cac21617",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/LogicMemorySwitch.swift",
+      "baseline_sha256": "82f270051c282a057ca47299597fbcfcf03dce7f8f9a4aada082948a7f971671",
+      "standalone_sha256": "82f270051c282a057ca47299597fbcfcf03dce7f8f9a4aada082948a7f971671",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/LogicTinySwitch.swift",
+      "baseline_sha256": "b2ff5e1729c1b40a76f13895a6b2a9822a9fd5fd4c39abd85974fcf9eef427e5",
+      "standalone_sha256": "b2ff5e1729c1b40a76f13895a6b2a9822a9fd5fd4c39abd85974fcf9eef427e5",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/LogicWorkDispatch.swift",
+      "baseline_sha256": "a08f8a36e2c16cd6989151ddab6cad0594c084ad49ce3d42f4175761f2c3bff0",
+      "standalone_sha256": "a08f8a36e2c16cd6989151ddab6cad0594c084ad49ce3d42f4175761f2c3bff0",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/MemoryBatteryModel.swift",
+      "baseline_sha256": "440d2b909e73e994d93a9532cc50b8f19e976f28d8f354a5f7987edd5fb569eb",
+      "standalone_sha256": "440d2b909e73e994d93a9532cc50b8f19e976f28d8f354a5f7987edd5fb569eb",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/MemoryCacheModel.swift",
+      "baseline_sha256": "c0a81002cc82ec953006c40a87e5c19a882f80b21ff596b3fa8f3dbe02f92721",
+      "standalone_sha256": "c0a81002cc82ec953006c40a87e5c19a882f80b21ff596b3fa8f3dbe02f92721",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/MemoryDockModel.swift",
+      "baseline_sha256": "e0c302589602a08ebcab09e881a6f81cb2a97674751d7d8bf3eec5d44503dd57",
+      "standalone_sha256": "e0c302589602a08ebcab09e881a6f81cb2a97674751d7d8bf3eec5d44503dd57",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/MemoryPCDayModel.swift",
+      "baseline_sha256": "691c90609474f49b87f46a789b2c638a166596dbb196f2b7a7b365d1ea1bc29c",
+      "standalone_sha256": "691c90609474f49b87f46a789b2c638a166596dbb196f2b7a7b365d1ea1bc29c",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/MemoryRescueModel.swift",
+      "baseline_sha256": "681265d58cee64c920676dd577ba8f887a65b7adb1a2cd9a07cd77fc1e1d3afc",
+      "standalone_sha256": "681265d58cee64c920676dd577ba8f887a65b7adb1a2cd9a07cd77fc1e1d3afc",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/MemoryStorageModel.swift",
+      "baseline_sha256": "ca6ea9991bf84b1665bc9b299df666e3aa28cea98f3e5f2ff341dd245b915b01",
+      "standalone_sha256": "ca6ea9991bf84b1665bc9b299df666e3aa28cea98f3e5f2ff341dd245b915b01",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ParallelBoardModel.swift",
+      "baseline_sha256": "a0cea34f53f31ee236b4b2b8566b9cca0214e618646283e4a771dcfb8235e4e6",
+      "standalone_sha256": "a0cea34f53f31ee236b4b2b8566b9cca0214e618646283e4a771dcfb8235e4e6",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ParallelConnectionModel.swift",
+      "baseline_sha256": "03d38fcd3b20cd6a2876edd7c483673f62a4f28cd84377ee4dda9dfed33d3582",
+      "standalone_sha256": "03d38fcd3b20cd6a2876edd7c483673f62a4f28cd84377ee4dda9dfed33d3582",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ParallelDisplayModel.swift",
+      "baseline_sha256": "6becef06e20755acdf29d71f16bcc01f92ce8aa72948d4f8278f127b79073203",
+      "standalone_sha256": "6becef06e20755acdf29d71f16bcc01f92ce8aa72948d4f8278f127b79073203",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ParallelFactoryModel.swift",
+      "baseline_sha256": "853ed1dc792bc89faace472892bdcb4c0100c90ab525d8465da36b67db0fdf85",
+      "standalone_sha256": "853ed1dc792bc89faace472892bdcb4c0100c90ab525d8465da36b67db0fdf85",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ParallelPacketModel.swift",
+      "baseline_sha256": "d73270f0bef9e52d0ef6eb915563243a663916243c659d26aa00b401cf27ab97",
+      "standalone_sha256": "d73270f0bef9e52d0ef6eb915563243a663916243c659d26aa00b401cf27ab97",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ParallelPixelModel.swift",
+      "baseline_sha256": "111d996681b4c3579b0f1909d943d334d8069e9138c7a4d8ba8d9fab03a66f8a",
+      "standalone_sha256": "111d996681b4c3579b0f1909d943d334d8069e9138c7a4d8ba8d9fab03a66f8a",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ParallelValidation.swift",
+      "baseline_sha256": "0ccff110acb1277c6cb62ba88da6608afe3024d95cbd06e0ce9f35ed178aaedc",
+      "standalone_sha256": "0ccff110acb1277c6cb62ba88da6608afe3024d95cbd06e0ce9f35ed178aaedc",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/Experiences/ThermalPipelineModels.swift",
+      "baseline_sha256": "129badb71d7868b66a4a4aa17fee3fa40fd774cb85ee7782285c911b6535bc43",
+      "standalone_sha256": "129badb71d7868b66a4a4aa17fee3fa40fd774cb85ee7782285c911b6535bc43",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/LessonCatalog.swift",
+      "baseline_sha256": "533c9ad9e7f0db5e4c42f1c29f856f40fdf9b87d26d9ee315dee372ac6b8392f",
+      "standalone_sha256": "533c9ad9e7f0db5e4c42f1c29f856f40fdf9b87d26d9ee315dee372ac6b8392f",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/LessonProgress.swift",
+      "baseline_sha256": "77773acf7762a3c008f45b0758cf90c9f56002439eebffe15c4dce58a91faf86",
+      "standalone_sha256": "77773acf7762a3c008f45b0758cf90c9f56002439eebffe15c4dce58a91faf86",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/LobbyMotion.swift",
+      "baseline_sha256": "6a46cbe1ec9a7c50d185c405ebd8bbe714536f0d4789a1da3d0f46bd5110c9a9",
+      "standalone_sha256": "6a46cbe1ec9a7c50d185c405ebd8bbe714536f0d4789a1da3d0f46bd5110c9a9",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/Core/WorkshopSession.swift",
+      "baseline_sha256": "90e96e4dff44d53c3a9a0dfeebe60e21778432c647cc259b4b7085734e4d08ca",
+      "standalone_sha256": "90e96e4dff44d53c3a9a0dfeebe60e21778432c647cc259b4b7085734e4d08ca",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/GameLabCLI/main.swift",
+      "baseline_sha256": "ef8320228897dc5f5a6207b87998cdd436525b3f5a7c23822ef375bbfacc05a2",
+      "standalone_sha256": "ef8320228897dc5f5a6207b87998cdd436525b3f5a7c23822ef375bbfacc05a2",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/CircuitExperienceView.swift",
+      "baseline_sha256": "0124305e5f28350dfbfea024ded6e848ec8d7b2d97c4dabff30f57a3f8040f75",
+      "standalone_sha256": "0124305e5f28350dfbfea024ded6e848ec8d7b2d97c4dabff30f57a3f8040f75",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/CircuitLabStore.swift",
+      "baseline_sha256": "3fcc1dd603cce14968cbceefbd750c6956130943024fedb9a550883a0b3fcf09",
+      "standalone_sha256": "3fcc1dd603cce14968cbceefbd750c6956130943024fedb9a550883a0b3fcf09",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/CircuitLabView.swift",
+      "baseline_sha256": "da920c56b7f57c568f0e4f3d9510d9164916ba5679f25277f22ed4645e856187",
+      "standalone_sha256": "da920c56b7f57c568f0e4f3d9510d9164916ba5679f25277f22ed4645e856187",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/DestinationNavigation.swift",
+      "baseline_sha256": "51f3a600917ee524acaba0e65d9d58320c57d2be7c293007cd30c9c1ee62b28d",
+      "standalone_sha256": "c80884300cd3908b14d25a5fa4efb949ad75f70c3a3efd325e6b43afbbe9350e",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/ExhibitionHomeView.swift",
+      "baseline_sha256": "6e244f47bb89d404e07ab9d3d526333dce2bd71dff88fa9f4ede15ab409eeb9e",
+      "standalone_sha256": "e3c2fdbb49206e12a3ebec55aae3b4c896ef7105a55af94954d7a96c28799c97",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/ExhibitionMapView.swift",
+      "baseline_sha256": "009de68e9b1580312809be1dfcb3e84b4bc6cc6468beefe7b19643fd36028448",
+      "standalone_sha256": "009de68e9b1580312809be1dfcb3e84b4bc6cc6468beefe7b19643fd36028448",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/ExhibitionSceneView.swift",
+      "baseline_sha256": "007855e31dd9e059cbbdf4d786ccf628306749019bffa2a0c4282fce82c47ea9",
+      "standalone_sha256": "007855e31dd9e059cbbdf4d786ccf628306749019bffa2a0c4282fce82c47ea9",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/ExhibitionStore.swift",
+      "baseline_sha256": "b820bd5257e5fb862aa2159fb94e8a12c6836315cc28285ebb1f097337c3649b",
+      "standalone_sha256": "b820bd5257e5fb862aa2159fb94e8a12c6836315cc28285ebb1f097337c3649b",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/CircuitAtelierExperienceView.swift",
+      "baseline_sha256": "02a94c9b10187e6f065d2a2fb4349e02eb36436cd1fed7c08f8b71c62ca3c5d5",
+      "standalone_sha256": "f6dcc90b459fc380a1f26a420f8659603e656c2d13334e65e2ec057b9619b182",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ExperienceChrome.swift",
+      "baseline_sha256": "2b3e7d33f22ce1b7d3119117202711bcdfa0a237842d3c8ef32321832a771438",
+      "standalone_sha256": "2b3e7d33f22ce1b7d3119117202711bcdfa0a237842d3c8ef32321832a771438",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/ExperienceProgressIndex.swift",
+      "baseline_sha256": "5dffdf1d698d6666a8a21d707f761351099d5828780fa5de4cb196172ca64fe5",
+      "standalone_sha256": "5dffdf1d698d6666a8a21d707f761351099d5828780fa5de4cb196172ca64fe5",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/ExperienceReflectionPrompt.swift",
+      "baseline_sha256": "67bd412b0fdcf657082dbabe0ef2991268dd94c07b4dece57018d25d1d1cfb23",
+      "standalone_sha256": "67bd412b0fdcf657082dbabe0ef2991268dd94c07b4dece57018d25d1d1cfb23",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/ExperienceRouterView.swift",
+      "baseline_sha256": "692bafed081a08702d347049c1eb37335b1e8119e46bcedda0cd907822653ced",
+      "standalone_sha256": "359bbae1a6e4477ecf6b7c7a6dc3fd8e85e3e67cc5da5783dd13305598bcecff",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ExperienceScreen.swift",
+      "baseline_sha256": "9ce737bc21ff54d8523a657913b2388945ed1b38c4e8a1f986679b94509a7b88",
+      "standalone_sha256": "e7abaa3bac16b842cfa81dd675c78a50040e2b967dd817ab7ab7cbcfc46d458a",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ExperienceStore.swift",
+      "baseline_sha256": "56d59ffffc5b16e89268f6e17c3a8c77033e13431477ec7624cbfbe8fce5913a",
+      "standalone_sha256": "56d59ffffc5b16e89268f6e17c3a8c77033e13431477ec7624cbfbe8fce5913a",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/ExperienceWorkbookView.swift",
+      "baseline_sha256": "139f30154fac3c49b4884f8fe3d778f5fb0cafc57444a1453d7d29b06e23ab1b",
+      "standalone_sha256": "139f30154fac3c49b4884f8fe3d778f5fb0cafc57444a1453d7d29b06e23ab1b",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/LogicApparatusChrome.swift",
+      "baseline_sha256": "f516aae9a559ec0107becf7abd5a97d0303a69c20e9b47b080db9ae5b9de34ce",
+      "standalone_sha256": "f516aae9a559ec0107becf7abd5a97d0303a69c20e9b47b080db9ae5b9de34ce",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/LogicInstructionView.swift",
+      "baseline_sha256": "dae7ee337a18748b86992148cb002a12d1429e109ed63235fca02d62bfabe137",
+      "standalone_sha256": "e26dd92a8edf70d034987004764c00f13a98dfa92d7d69ac8bcce616f9cf7e54",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/LogicMemoryViews.swift",
+      "baseline_sha256": "e48d193f16fb52fc6c7c047c0606858a9b53d3ca419c9cdea3ec0f736af5eb86",
+      "standalone_sha256": "3198d2743c5fa26df75f8bec15a573dea535bee57a80645fdf3b659a4c97c311",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/LogicSwitchDispatchViews.swift",
+      "baseline_sha256": "62a9a938f605e854d55aa72be308b75bfac63ec5d6a64855e8e677bf0f957b9e",
+      "standalone_sha256": "c43b1e7f2ea41300b07ca4209b5f981287abac16c2ef2f92a47ad33a534dd7aa",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/MemoryDockExperienceView.swift",
+      "baseline_sha256": "3e522b912a837fd53c1735629f7db774555c57586075509c435b6a1a196887f7",
+      "standalone_sha256": "1f0cd3d5ca7ba62840dc81296943cd8c09d2943fb3fd15b6b36748e7b47b3485",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/MemoryMachinery.swift",
+      "baseline_sha256": "670b04b6c26c504cd330b0f652a770ba01e65f883f71a8975fd0a4293716d0be",
+      "standalone_sha256": "670b04b6c26c504cd330b0f652a770ba01e65f883f71a8975fd0a4293716d0be",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/MemoryResourceExperienceViews.swift",
+      "baseline_sha256": "22f61559026c6ed782997e1d507530c7f6751c9e14cf82f3be575c602b1e4d59",
+      "standalone_sha256": "362386281e643289e63b4c5a7990dcc0f82862a0a1c70e49fad60482a0bfd988",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/MemorySystemExperienceViews.swift",
+      "baseline_sha256": "2ef8d5879130ba90781edcae7998d5b9f913e51748b18f222eb3ff1076299850",
+      "standalone_sha256": "da9c7ac002d0b670f55b17b675feb1af88188b4552ff7403f87a2bbec91dbfc5",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ParallelApparatusParts.swift",
+      "baseline_sha256": "998ec716cbfb25f3e9add83d6adc030a25397731b8829d9080f04ec6e9e3074e",
+      "standalone_sha256": "998ec716cbfb25f3e9add83d6adc030a25397731b8829d9080f04ec6e9e3074e",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/ParallelBoardExperienceView.swift",
+      "baseline_sha256": "7ffd2f1272bc14c2e753b0907b501c19ecadc2fd004d67649115f84920244e51",
+      "standalone_sha256": "bd60725939df3a0219e8b496e1145d26d982d2f0a9da505d921b03ff02026e82",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ParallelConnectionExperienceView.swift",
+      "baseline_sha256": "3f29d811e3eba3644d6820be8c5d53ffa47997f473bd666f4c02f77d1bbc2ffa",
+      "standalone_sha256": "b8125b5e9d0b4bae2bd50ccbd49d3d3c24427976de306d3209993bfd79d901e5",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ParallelDisplayExperienceView.swift",
+      "baseline_sha256": "8a2969b8cb63e2f3ac4a7eec9190709bad6d0b842fe033b74b578adfb7c5c6fd",
+      "standalone_sha256": "38a46960f121cb936aecc3be15002bb2af606b0d89b345ff11797acd53999460",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ParallelFactoryExperienceView.swift",
+      "baseline_sha256": "9355a28dddf53c991f3f22785fba3adda46cbbf0812d3fe043d79ff9a7d118bd",
+      "standalone_sha256": "cb39fd0e434673fa99a0f74b513409d8bd252fe61d84d9ee4d695e9b3251ae61",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ParallelMachinery.swift",
+      "baseline_sha256": "69481483c1b3998b5d630a2f3e3ac5725052ec4fb565da01bcea3f1b3a9b9ff9",
+      "standalone_sha256": "69481483c1b3998b5d630a2f3e3ac5725052ec4fb565da01bcea3f1b3a9b9ff9",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/Experiences/ParallelPacketExperienceView.swift",
+      "baseline_sha256": "96b62191f125c22dd601eb6c4bf48fc5e576bb1d12e3cb5a1a4915ac7489e5f7",
+      "standalone_sha256": "a58894778fe8031234ee8cbd36b29d2ed013851c41991c940a528493b8e275b0",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ParallelPixelExperienceView.swift",
+      "baseline_sha256": "649d1d4ee1d91c2cc183deac13fd565c7547c7abbb8a49174b5b27931ebd3dc6",
+      "standalone_sha256": "9ea359ab0a96a95476ac1bd64880dae6169fe047d05663394668a3e0e7b06785",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/Experiences/ThermalPipelineViews.swift",
+      "baseline_sha256": "515afb8d21b025978c814c2159a870e2d4c3be37d6a9c87c7cbbb8820d9a6390",
+      "standalone_sha256": "2cc38905f2f14e450c2735d03c4e389d5ee87d61e10960dd5e4e1fce6cb85e46",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/GuideAvatarView.swift",
+      "baseline_sha256": "4e9db5f510d0ef25b6f6acb3ba73a21e44b8570a6cf799ed6c9ba31ff1bff709",
+      "standalone_sha256": "4e9db5f510d0ef25b6f6acb3ba73a21e44b8570a6cf799ed6c9ba31ff1bff709",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/GuideVoice.swift",
+      "baseline_sha256": "9459f8b9abaab5c377efb1da4aa4bfcc1fa9d93c9b63709cbccafa46eec11d7a",
+      "standalone_sha256": "9459f8b9abaab5c377efb1da4aa4bfcc1fa9d93c9b63709cbccafa46eec11d7a",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/IllustratedGuideView.swift",
+      "baseline_sha256": "ce3614195211d9814c5e868524af68d013e0af1e74c2002318a348a090eb371a",
+      "standalone_sha256": "ce3614195211d9814c5e868524af68d013e0af1e74c2002318a348a090eb371a",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/LessonActivityView.swift",
+      "baseline_sha256": "a288a758f06ca19b5e9426c2e740254839e4743cbb9d1fa5304909bf6e2f728c",
+      "standalone_sha256": "a288a758f06ca19b5e9426c2e740254839e4743cbb9d1fa5304909bf6e2f728c",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/LessonExperienceView.swift",
+      "baseline_sha256": "018b7f8cc347b041b53318de4f342fc03ebc681122859062e8b94513ac04ec6f",
+      "standalone_sha256": "97576750ae1b01b2c54b0b0fb6fb06b7c9f19220d1f20ef849eb2e0eb492d96c",
+      "unchanged": false
+    },
+    {
+      "path": "Sources/UI/LessonStore.swift",
+      "baseline_sha256": "a12e4fcc26f2381e6e8bae849abb6bb7d71a3b62b166d4df73a4cc20577b23d9",
+      "standalone_sha256": "a12e4fcc26f2381e6e8bae849abb6bb7d71a3b62b166d4df73a4cc20577b23d9",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/LobbyAnimatedScene.swift",
+      "baseline_sha256": "91bf075f2c33ec279113044c69c62792b5354bb98ce7d274327016858c260317",
+      "standalone_sha256": "91bf075f2c33ec279113044c69c62792b5354bb98ce7d274327016858c260317",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/LobbyGuideHotspot.swift",
+      "baseline_sha256": "e6cfffdf7e0802f4974b6c105e589b22ef77efb8b8f4f2080b1dc2cc788442a2",
+      "standalone_sha256": "e6cfffdf7e0802f4974b6c105e589b22ef77efb8b8f4f2080b1dc2cc788442a2",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/WorkshopArtifactView.swift",
+      "baseline_sha256": "22306dd51a4b6c677c02f354cabfd860e6dfdf584864cd1eb0a2a9c5906c8fdb",
+      "standalone_sha256": "22306dd51a4b6c677c02f354cabfd860e6dfdf584864cd1eb0a2a9c5906c8fdb",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/WorkshopBoardView.swift",
+      "baseline_sha256": "2fdefa730f6fdd80468b8e6e327afb5ab504c7892366cc8f508a2629ed075d49",
+      "standalone_sha256": "2fdefa730f6fdd80468b8e6e327afb5ab504c7892366cc8f508a2629ed075d49",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/WorkshopChrome.swift",
+      "baseline_sha256": "2bab952dbde59ab4646e83b2b58314757263665016222b761e9e509e5c3ee868",
+      "standalone_sha256": "2bab952dbde59ab4646e83b2b58314757263665016222b761e9e509e5c3ee868",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/WorkshopStore.swift",
+      "baseline_sha256": "0d6270fbd70922e502b32cdeecce1eb213db0c2b851afcc85045a301157293eb",
+      "standalone_sha256": "0d6270fbd70922e502b32cdeecce1eb213db0c2b851afcc85045a301157293eb",
+      "unchanged": true
+    },
+    {
+      "path": "Sources/UI/WorkshopView.swift",
+      "baseline_sha256": "2dcdc01eb351bd038855802af4bbf6edb3aeb029bd3e743a3bfe1d89f66e7184",
+      "standalone_sha256": "2dcdc01eb351bd038855802af4bbf6edb3aeb029bd3e743a3bfe1d89f66e7184",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/LobbyMotion/background.png",
+      "baseline_sha256": "78ab2ca864f6432a3c234e953a326d2add11f764b66b73b59386b2eac1039c19",
+      "standalone_sha256": "78ab2ca864f6432a3c234e953a326d2add11f764b66b73b59386b2eac1039c19",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/LobbyMotion/blink.png",
+      "baseline_sha256": "a33110e38d06dbc6a7c51cbf80d999d868ec8edeb9fa143d6c1accc099fe0486",
+      "standalone_sha256": "a33110e38d06dbc6a7c51cbf80d999d868ec8edeb9fa143d6c1accc099fe0486",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/LobbyMotion/talking.png",
+      "baseline_sha256": "4357a180db75ce16ead7d1aabcf8eb25f4f536578c150f800bde08185b780e35",
+      "standalone_sha256": "4357a180db75ce16ead7d1aabcf8eb25f4f536578c150f800bde08185b780e35",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/area-a.png",
+      "baseline_sha256": "ae3c200ff69629946d7dc830e0dd0b2f8a06f8308ca36f86b33333a670b0d930",
+      "standalone_sha256": "ae3c200ff69629946d7dc830e0dd0b2f8a06f8308ca36f86b33333a670b0d930",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/area-b.png",
+      "baseline_sha256": "de374d05dc80dd4b5edf6fd1078de8b6dda1ffdebb5e3407bb98447d420df2fa",
+      "standalone_sha256": "de374d05dc80dd4b5edf6fd1078de8b6dda1ffdebb5e3407bb98447d420df2fa",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/area-c.png",
+      "baseline_sha256": "f7d1134ccedb65928a59417f5a27b2278eb6fbf166ba8202f92de19b97150b31",
+      "standalone_sha256": "f7d1134ccedb65928a59417f5a27b2278eb6fbf166ba8202f92de19b97150b31",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/area-d.png",
+      "baseline_sha256": "b7ce0b685cebb19bb2da0e47666a8f7bfba03f9cfeed6d8ce6b28f287abf10a7",
+      "standalone_sha256": "b7ce0b685cebb19bb2da0e47666a8f7bfba03f9cfeed6d8ce6b28f287abf10a7",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/area-e.png",
+      "baseline_sha256": "3ecdeb02c1fa66baeabfe04757c03510dc8a5dc84403d8f3ad554f208b6e011f",
+      "standalone_sha256": "3ecdeb02c1fa66baeabfe04757c03510dc8a5dc84403d8f3ad554f208b6e011f",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/circuit-entry.png",
+      "baseline_sha256": "551c8285c7e8fa8a990fe16e923eb714765fb72c5869d100af7f530bc3be9c23",
+      "standalone_sha256": "551c8285c7e8fa8a990fe16e923eb714765fb72c5869d100af7f530bc3be9c23",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/guide-notebook.png",
+      "baseline_sha256": "99bd42cd09dfd87864bc411245d6453f32e47823da8508be6e41eaa6b79db38a",
+      "standalone_sha256": "99bd42cd09dfd87864bc411245d6453f32e47823da8508be6e41eaa6b79db38a",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Exhibition/lobby.png",
+      "baseline_sha256": "c71dda6488947ad82bd11192e3a32a74bc3abeedc238842487a2837510530fff",
+      "standalone_sha256": "c71dda6488947ad82bd11192e3a32a74bc3abeedc238842487a2837510530fff",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Lessons/celebrating.png",
+      "baseline_sha256": "94f49a80ad02835821399c93ff03493580555fad29141e751dbb612b02deff01",
+      "standalone_sha256": "94f49a80ad02835821399c93ff03493580555fad29141e751dbb612b02deff01",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Lessons/explaining.png",
+      "baseline_sha256": "5ce3e93c0f5609a1d201c741b7137b0bee69205b343077cffa1b2f4689632d7e",
+      "standalone_sha256": "5ce3e93c0f5609a1d201c741b7137b0bee69205b343077cffa1b2f4689632d7e",
+      "unchanged": true
+    },
+    {
+      "path": "Art/Lessons/welcome.png",
+      "baseline_sha256": "3913777c001be78489be8602fe43dbb542d0148fcbdb6f9f61e5ee594f401872",
+      "standalone_sha256": "3913777c001be78489be8602fe43dbb542d0148fcbdb6f9f61e5ee594f401872",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/memory-dock-guide-reference.png",
+      "baseline_sha256": "f6c5589fc1a6238afb16dc4373462f7a79fd65d729b9a1847a1f133a601dde43",
+      "standalone_sha256": "f6c5589fc1a6238afb16dc4373462f7a79fd65d729b9a1847a1f133a601dde43",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/signal-workshop-reference.png",
+      "baseline_sha256": "e45fc3951ce89a78b3c3a8c9c066d09ec72cf9921b275be1d100b171b8fd9a60",
+      "standalone_sha256": "e45fc3951ce89a78b3c3a8c9c066d09ec72cf9921b275be1d100b171b8fd9a60",
+      "unchanged": true
+    },
+    {
+      "path": "Art/guide-presenting-v1-alpha-attempt.png",
+      "baseline_sha256": "02254b8f04237aa83cee3d27c6afe67ee7322216df002044054065bb95cc26a0",
+      "standalone_sha256": "02254b8f04237aa83cee3d27c6afe67ee7322216df002044054065bb95cc26a0",
+      "unchanged": true
+    },
+    {
+      "path": "Art/guide-presenting-v1-source.png",
+      "baseline_sha256": "854c9ff6180d5db25a885d239844518a38e5a461aa358e0389778028df7e19f1",
+      "standalone_sha256": "854c9ff6180d5db25a885d239844518a38e5a461aa358e0389778028df7e19f1",
+      "unchanged": true
+    },
+    {
+      "path": "Art/guide-presenting-v1.png",
+      "baseline_sha256": "739a5561c5acadeb658cacc5c67a0284d04a65e2d46693b31c0fdb5f78eb51e1",
+      "standalone_sha256": "739a5561c5acadeb658cacc5c67a0284d04a65e2d46693b31c0fdb5f78eb51e1",
+      "unchanged": true
+    },
+    {
+      "path": "Art/guide-presenting-v1.prompt.json",
+      "baseline_sha256": "e76eaa4f4a57bf56971d41002de86e80ccfd5548427a6420f48d7254429f499c",
+      "standalone_sha256": "e76eaa4f4a57bf56971d41002de86e80ccfd5548427a6420f48d7254429f499c",
+      "unchanged": true
+    },
+    {
+      "path": "Art/workbench-v1.png",
+      "baseline_sha256": "bac378808408cb58a48d194cf925d9d58816408ac721355c30c349ad3f4cb5be",
+      "standalone_sha256": "bac378808408cb58a48d194cf925d9d58816408ac721355c30c349ad3f4cb5be",
+      "unchanged": true
+    },
+    {
+      "path": "Art/workbench-v1.prompt.json",
+      "baseline_sha256": "fccbbb6656d080f5a824ae34b38fba0342105ba0c3a613ad26ce89a4e0c0cd3d",
+      "standalone_sha256": "fccbbb6656d080f5a824ae34b38fba0342105ba0c3a613ad26ce89a4e0c0cd3d",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/CircuitExperienceTests.swift",
+      "baseline_sha256": "ca1c9a4360c283487af3c65df0407a33a7c370645bd9ac8bd74187ea1e1c641b",
+      "standalone_sha256": "ca1c9a4360c283487af3c65df0407a33a7c370645bd9ac8bd74187ea1e1c641b",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/CircuitSessionTests.swift",
+      "baseline_sha256": "78ddc3901e519c12b35891916bf87d073b1ef7bb96baed4287d23e6ed56ed98f",
+      "standalone_sha256": "78ddc3901e519c12b35891916bf87d073b1ef7bb96baed4287d23e6ed56ed98f",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/ExhibitionCatalogTests.swift",
+      "baseline_sha256": "ea52dbdc2e286cdfdda7e73d49acde6592001d7c3c5ff3c0654dd7ab2a44f01f",
+      "standalone_sha256": "ea52dbdc2e286cdfdda7e73d49acde6592001d7c3c5ff3c0654dd7ab2a44f01f",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/LessonCatalogTests.swift",
+      "baseline_sha256": "c94c0019535e7b9f71bffa75a79cc040b338943cdefb247b8871f408e15ea9a3",
+      "standalone_sha256": "c94c0019535e7b9f71bffa75a79cc040b338943cdefb247b8871f408e15ea9a3",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/LessonProgressTests.swift",
+      "baseline_sha256": "0d7b79d185989e4936ff2165b0c3aea6b0f78d3778119e566e0f3709e6a7fa48",
+      "standalone_sha256": "0d7b79d185989e4936ff2165b0c3aea6b0f78d3778119e566e0f3709e6a7fa48",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/LobbyMotionTests.swift",
+      "baseline_sha256": "9883ae1c8a80d1d457e908b1d56d06350551837d16cea9f6bf05420b51ed1907",
+      "standalone_sha256": "9883ae1c8a80d1d457e908b1d56d06350551837d16cea9f6bf05420b51ed1907",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/LogicExperienceTests.swift",
+      "baseline_sha256": "272f67b9e5ac6ca34afc639b3ed8ace7eafe5a31332d526b1b6a8bb4f5cdf7ad",
+      "standalone_sha256": "272f67b9e5ac6ca34afc639b3ed8ace7eafe5a31332d526b1b6a8bb4f5cdf7ad",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/MemoryExperienceTests.swift",
+      "baseline_sha256": "55fc7ca5c86ecb28110ce19e71b7d0050d827e46eea6b46e470de57b76a2291c",
+      "standalone_sha256": "55fc7ca5c86ecb28110ce19e71b7d0050d827e46eea6b46e470de57b76a2291c",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/ParallelExperienceTests.swift",
+      "baseline_sha256": "83f160148ae144910ec74fb3b906f480aa87488c234f3f616426bfbd81a3cb7f",
+      "standalone_sha256": "83f160148ae144910ec74fb3b906f480aa87488c234f3f616426bfbd81a3cb7f",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/ThermalPipelineExperienceTests.swift",
+      "baseline_sha256": "df1b3b34a13ff90ce2629e25d4029023a69dadc2bc117dd88643a6f0481dfed1",
+      "standalone_sha256": "df1b3b34a13ff90ce2629e25d4029023a69dadc2bc117dd88643a6f0481dfed1",
+      "unchanged": true
+    },
+    {
+      "path": "Tests/CoreTests/WorkshopSessionTests.swift",
+      "baseline_sha256": "5817ba56cedd012ebdd2f08c3247d04769cdd32ada19647bb5fe9c7080bfb9fc",
+      "standalone_sha256": "5817ba56cedd012ebdd2f08c3247d04769cdd32ada19647bb5fe9c7080bfb9fc",
+      "unchanged": true
+    },
+    {
+      "path": "Info.plist",
+      "baseline_sha256": "9ff0e10aa827317521bb8908a98cdc1c59db6039aafd500a54074c5fb0e3311d",
+      "standalone_sha256": "9ff0e10aa827317521bb8908a98cdc1c59db6039aafd500a54074c5fb0e3311d",
+      "unchanged": true
+    },
+    {
+      "path": "Package.swift",
+      "baseline_sha256": "c1ebbfb0e91919283deee5caa8fbc02e77c403bbcb8c8dadd25b649c06392964",
+      "standalone_sha256": "c1ebbfb0e91919283deee5caa8fbc02e77c403bbcb8c8dadd25b649c06392964",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/prepare-workshop-sounds.py",
+      "baseline_sha256": "f7d8847db6c8c8600ebc6903d2f41d4273f6933435e97666b2fce9f920fc5df4",
+      "standalone_sha256": "f7d8847db6c8c8600ebc6903d2f41d4273f6933435e97666b2fce9f920fc5df4",
+      "unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+Running UI tests on the desktop. Result bundle: /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-102632-50623.xcresult
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/fujishima/aibou/game-lab/AIBOUGameLabUITests.xcodeproj -scheme AIBOUGameLabUITests -destination platform=macOS,arch=arm64 -derivedDataPath /Users/fujishima/aibou/game-lab/.build/ui-tests -parallel-testing-enabled NO -resultBundlePath /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-102632-50623.xcresult test-without-building "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testAllLessonsCanBeChosenInAnyOrderBeforeCompleting"
+
+Writing result bundle at path:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260915-102632-50623.xcresult
+
+2026-09-15 10:26:33.281312+0900 AIBOUGameLabUITests-Runner[50659:33888741] [Default] Running tests...
+Test Suite 'Selected tests' started at 2026-09-15 10:26:33.307.
+Test Suite 'AIBOUGameLabUITests.xctest' started at 2026-09-15 10:26:33.307.
+Test Suite 'ExhibitionUITests' started at 2026-09-15 10:26:33.307.
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testAllLessonsCanBeChosenInAnyOrderBeforeCompleting]' started.
+    t =     0.00s Start Test at 2026-09-15 10:26:33.308
+    t =     0.10s Set Up
+    t =     0.10s     Open local.aibou.gamelab
+    t =     0.10s         Launch local.aibou.gamelab
+    t =     0.17s             Wait for accessibility to load
+    t =     0.45s             Setting up automation session
+    t =     0.45s             Wait for local.aibou.gamelab to idle
+    t =     0.46s     Open local.aibou.gamelab
+    t =     0.46s         Activate local.aibou.gamelab
+    t =     0.46s             Wait for local.aibou.gamelab to idle
+    t =     0.46s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     0.46s     Checking existence of `Window (First Match)`
+    t =     0.56s     Waiting 2.0s for Window (First Match) to exist
+    t =     1.59s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     1.59s             Checking existence of `Window (First Match)`
+    t =     1.60s     Waiting 15.0s for Window (First Match) to exist
+    t =     2.64s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     2.64s             Checking existence of `Window (First Match)`
+    t =     2.64s Checking existence of `"ex.lessons" Any`
+    t =     2.66s Find the "ex.lessons" Any
+    t =     2.68s Click "ex.lessons" Button
+    t =     2.69s     Wait for local.aibou.gamelab to idle
+    t =     2.69s     Find the "ex.lessons" Button
+    t =     2.69s     Check for interrupting elements affecting "ex.lessons" Button
+    t =     2.71s     Synthesize event
+    t =     3.07s     Wait for local.aibou.gamelab to idle
+    t =     3.07s Checking existence of `"lesson.area.e" Any`
+    t =     3.14s Waiting 5.0s for "lesson.area.e" Any to exist
+    t =     4.17s     Checking `Expect predicate `existsNoRetry == 1` for object "lesson.area.e" Any`
+    t =     4.17s         Checking existence of `"lesson.area.e" Any`
+    t =     4.23s         Capturing element debug description
+    t =     5.17s     Checking `Expect predicate `existsNoRetry == 1` for object "lesson.area.e" Any`
+    t =     5.17s         Checking existence of `"lesson.area.e" Any`
+    t =     5.22s         Capturing element debug description
+    t =     6.15s     Checking `Expect predicate `existsNoRetry == 1` for object "lesson.area.e" Any`
+    t =     6.15s         Checking existence of `"lesson.area.e" Any`
+    t =     6.20s         Capturing element debug description
+    t =     7.14s     Checking `Expect predicate `existsNoRetry == 1` for object "lesson.area.e" Any`
+    t =     7.14s         Checking existence of `"lesson.area.e" Any`
+    t =     7.19s         Capturing element debug description
+    t =     8.14s     Checking `Expect predicate `existsNoRetry == 1` for object "lesson.area.e" Any`
+    t =     8.14s         Checking existence of `"lesson.area.e" Any`
+    t =     8.18s         Capturing element debug description
+    t =     8.19s     Checking existence of `"lesson.area.e" Any`
+    t =     8.23s Collecting debug information to assist test failure triage
+    t =     8.23s     Requesting snapshot of accessibility hierarchy for app with pid 50660
+/Users/fujishima/aibou/game-lab/UITests/GameLabUITests.swift:522: error: -[AIBOUGameLabUITests.ExhibitionUITests testAllLessonsCanBeChosenInAnyOrderBeforeCompleting] : XCTAssertTrue failed - Missing exhibition control: lesson.area.e
+    t =     8.33s Tear Down
+    t =     8.33s     Checking existence of `Window (First Match)`
+    t =     8.69s     Checking existence of `Window (First Match)`
+    t =     8.70s     Find the Window (First Match)
+    t =     8.84s     Added attachment named '-[ExhibitionUITests testAllLessonsCanBeChosenInAnyOrderBeforeCompleting]'
+    t =     8.84s     Terminate local.aibou.gamelab:50660
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testAllLessonsCanBeChosenInAnyOrderBeforeCompleting]' failed (9.980 seconds).
+Test Suite 'ExhibitionUITests' failed at 2026-09-15 10:26:43.288.
+	 Executed 1 test, with 1 failure (0 unexpected) in 9.980 (9.981) seconds
+Test Suite 'AIBOUGameLabUITests.xctest' failed at 2026-09-15 10:26:43.289.
+	 Executed 1 test, with 1 failure (0 unexpected) in 9.980 (9.982) seconds
+Test Suite 'Selected tests' failed at 2026-09-15 10:26:43.289.
+	 Executed 1 test, with 1 failure (0 unexpected) in 9.980 (9.982) seconds
+2026-09-15 10:26:49.400 xcodebuild[50637:33888476] [MT] IDETestOperationsObserverDebug: 16.448 elapsed -- Testing started completed.
+2026-09-15 10:26:49.401 xcodebuild[50637:33888476] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-15 10:26:49.401 xcodebuild[50637:33888476] [MT] IDETestOperationsObserverDebug: 16.448 sec, +16.448 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260915-102632-50623.xcresult
+
+Failing tests:
+	ExhibitionUITests.testAllLessonsCanBeChosenInAnyOrderBeforeCompleting()
+
+** TEST EXECUTE FAILED **
+
+Testing started

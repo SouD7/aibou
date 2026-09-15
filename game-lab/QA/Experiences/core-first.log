@@ -1,0 +1,48 @@
+[0/1] Planning build
+Building for debugging...
+[0/8] Write sources
+[2/8] Write swift-version--58304C5D6DBC2206.txt
+[4/28] Compiling CircuitCore MemoryBatteryModel.swift
+[5/28] Compiling CircuitCore MemoryCacheModel.swift
+[6/28] Compiling CircuitCore LogicInstruction.swift
+[7/28] Compiling CircuitCore LogicMemorySwitch.swift
+[8/28] Compiling CircuitCore ExhibitionCatalog.swift
+[9/28] Compiling CircuitCore ExperienceModel.swift
+[10/28] Compiling CircuitCore LogicBitArt.swift
+[11/28] Emitting module CircuitCore
+[12/28] Compiling CircuitCore ParallelPacketModel.swift
+[13/28] Compiling CircuitCore ParallelPixelModel.swift
+[14/28] Compiling CircuitCore MemoryRescueModel.swift
+[15/28] Compiling CircuitCore MemoryStorageModel.swift
+[16/28] Compiling CircuitCore ParallelBoardModel.swift
+[17/28] Compiling CircuitCore ParallelConnectionModel.swift
+[18/28] Compiling CircuitCore ParallelDisplayModel.swift
+[19/28] Compiling CircuitCore ParallelFactoryModel.swift
+[20/28] Compiling CircuitCore MemoryDockModel.swift
+[21/28] Compiling CircuitCore MemoryPCDayModel.swift
+[22/28] Compiling CircuitCore LogicTinySwitch.swift
+/Users/fujishima/aibou/game-lab/Sources/Core/Experiences/LogicTinySwitch.swift:47:9: error: overlapping accesses to 'self.observations', but modification requires exclusive access; consider copying to a local variable [#ExclusivityViolation]
+45 |     private mutating func addObservation() {
+46 |         guard let output else { message = powered ? "部品を置いて、紫の制御線をつないでね。" : "電源を入れてから確かめよう。"; return }
+47 |         observations.removeAll { $0.a == inputs[0] && (switchCount == 1 || $0.b == inputs[1]) }
+   |         |                                              `- note: conflicting access is here
+   |         `- error: overlapping accesses to 'self.observations', but modification requires exclusive access; consider copying to a local variable [#ExclusivityViolation]
+48 |         let row = Observation(a: inputs[0], b: inputs[1], actual: output, expected: expected(a: inputs[0],b: inputs[1])); observations.append(row)
+49 |         message = row.matches ? "この入力では目標どおりだね。他の条件も見よう。" : "この入力では\(row.expected)にしたいけれど、実際は\(output)だね。止まった道を見よう。"
+
+[#ExclusivityViolation]: <https://docs.swift.org/compiler/documentation/diagnostics/exclusivity-violation>
+[23/28] Compiling CircuitCore LogicWorkDispatch.swift
+/Users/fujishima/aibou/game-lab/Sources/Core/Experiences/LogicTinySwitch.swift:47:9: error: overlapping accesses to 'self.observations', but modification requires exclusive access; consider copying to a local variable [#ExclusivityViolation]
+45 |     private mutating func addObservation() {
+46 |         guard let output else { message = powered ? "部品を置いて、紫の制御線をつないでね。" : "電源を入れてから確かめよう。"; return }
+47 |         observations.removeAll { $0.a == inputs[0] && (switchCount == 1 || $0.b == inputs[1]) }
+   |         |                                              `- note: conflicting access is here
+   |         `- error: overlapping accesses to 'self.observations', but modification requires exclusive access; consider copying to a local variable [#ExclusivityViolation]
+48 |         let row = Observation(a: inputs[0], b: inputs[1], actual: output, expected: expected(a: inputs[0],b: inputs[1])); observations.append(row)
+49 |         message = row.matches ? "この入力では目標どおりだね。他の条件も見よう。" : "この入力では\(row.expected)にしたいけれど、実際は\(output)だね。止まった道を見よう。"
+
+[#ExclusivityViolation]: <https://docs.swift.org/compiler/documentation/diagnostics/exclusivity-violation>
+[24/31] Compiling CircuitCore LessonCatalog.swift
+[25/31] Compiling CircuitCore ParallelValidation.swift
+[26/31] Compiling CircuitCore ThermalPipelineModels.swift
+error: fatalError

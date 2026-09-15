@@ -1,0 +1,92 @@
+Running UI tests on the desktop. Result bundle: /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-005758-33588.xcresult
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/fujishima/aibou/game-lab/AIBOUGameLabUITests.xcodeproj -scheme AIBOUGameLabUITests -destination platform=macOS,arch=arm64 -derivedDataPath /Users/fujishima/aibou/game-lab/.build/ui-tests -parallel-testing-enabled NO -resultBundlePath /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-005758-33588.xcresult test-without-building "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testLobbyNarrationEndsWhenOpeningMap"
+
+Writing result bundle at path:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260915-005758-33588.xcresult
+
+2026-09-15 00:58:00.503972+0900 AIBOUGameLabUITests-Runner[33645:33476232] [Default] Running tests...
+Test Suite 'Selected tests' started at 2026-09-15 00:58:00.543.
+Test Suite 'AIBOUGameLabUITests.xctest' started at 2026-09-15 00:58:00.544.
+Test Suite 'ExhibitionUITests' started at 2026-09-15 00:58:00.544.
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testLobbyNarrationEndsWhenOpeningMap]' started.
+    t =     0.00s Start Test at 2026-09-15 00:58:00.544
+    t =     0.10s Set Up
+    t =     0.10s     Open local.aibou.gamelab
+    t =     0.10s         Launch local.aibou.gamelab
+    t =     1.19s             Wait for accessibility to load
+    t =     1.48s             Setting up automation session
+    t =     1.48s             Wait for local.aibou.gamelab to idle
+    t =     1.48s     Open local.aibou.gamelab
+    t =     1.49s         Activate local.aibou.gamelab
+    t =     1.49s             Wait for local.aibou.gamelab to idle
+    t =     1.49s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     1.49s     Checking existence of `Window (First Match)`
+    t =     1.59s     Waiting 2.0s for Window (First Match) to exist
+    t =     2.62s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     2.62s             Checking existence of `Window (First Match)`
+    t =     2.63s     Waiting 15.0s for Window (First Match) to exist
+    t =     3.68s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     3.68s             Checking existence of `Window (First Match)`
+    t =     3.69s Checking existence of `"ex.guide.speak" Any`
+    t =     3.73s Find the "ex.guide.speak" Any
+    t =     3.76s Click "ex.guide.speak" Button
+    t =     3.76s     Wait for local.aibou.gamelab to idle
+    t =     3.76s     Find the "ex.guide.speak" Button
+    t =     3.77s     Check for interrupting elements affecting "ex.guide.speak" Button
+    t =     3.81s     Synthesize event
+    t =     4.21s     Wait for local.aibou.gamelab to idle
+    t =     4.21s Checking existence of `"ex.guide.speak" Any`
+    t =     4.22s Find the "ex.guide.speak" Any
+    t =     5.28s Checking `Expect predicate `label CONTAINS "音声を止める"` for object "ex.guide.speak" Button`
+    t =     5.28s     Find the "ex.guide.speak" Button
+    t =     5.64s Checking existence of `Window (First Match)`
+    t =     5.64s Find the Window (First Match)
+    t =     5.77s Added attachment named 'lobby-motion-narration'
+    t =     5.77s Checking existence of `"ex.map" Any`
+    t =     5.78s Find the "ex.map" Any
+    t =     5.79s Click "ex.map" Button
+    t =     5.79s     Wait for local.aibou.gamelab to idle
+    t =     5.79s     Find the "ex.map" Button
+    t =     5.79s     Check for interrupting elements affecting "ex.map" Button
+    t =     5.80s     Synthesize event
+    t =     6.24s     Wait for local.aibou.gamelab to idle
+    t =     6.24s Checking existence of `"ex.map.close" Any`
+    t =     6.25s Find the "ex.map.close" Any
+    t =     6.28s Find the "ex.map.close" Button
+    t =     6.30s Checking existence of `"ex.map.close" Any`
+    t =     6.30s Find the "ex.map.close" Any
+    t =     6.32s Click "ex.map.close" Button
+    t =     6.33s     Wait for local.aibou.gamelab to idle
+    t =     6.33s     Find the "ex.map.close" Button
+    t =     6.34s     Check for interrupting elements affecting "ex.map.close" Button
+    t =     6.35s     Synthesize event
+    t =     6.73s     Wait for local.aibou.gamelab to idle
+    t =     6.73s Checking existence of `"ex.guide.speak" Any`
+    t =     6.74s Find the "ex.guide.speak" Any
+    t =     6.77s Find the "ex.guide.speak" Button
+    t =     6.78s Find the "ex.guide.speak" Button
+    t =     6.79s Tear Down
+    t =     6.79s     Checking existence of `Window (First Match)`
+    t =     7.14s     Checking existence of `Window (First Match)`
+    t =     7.15s     Find the Window (First Match)
+    t =     7.27s     Added attachment named '-[ExhibitionUITests testLobbyNarrationEndsWhenOpeningMap]'
+    t =     7.27s     Terminate local.aibou.gamelab:33650
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testLobbyNarrationEndsWhenOpeningMap]' passed (8.393 seconds).
+Test Suite 'ExhibitionUITests' passed at 2026-09-15 00:58:08.937.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.393 (8.394) seconds
+Test Suite 'AIBOUGameLabUITests.xctest' passed at 2026-09-15 00:58:08.938.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.393 (8.394) seconds
+Test Suite 'Selected tests' passed at 2026-09-15 00:58:08.938.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.393 (8.395) seconds
+2026-09-15 00:58:09.210 xcodebuild[33640:33476046] [MT] IDETestOperationsObserverDebug: 10.301 elapsed -- Testing started completed.
+2026-09-15 00:58:09.210 xcodebuild[33640:33476046] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-15 00:58:09.210 xcodebuild[33640:33476046] [MT] IDETestOperationsObserverDebug: 10.301 sec, +10.301 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260915-005758-33588.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started
+UI tests passed. Inspect screenshots and diagnostics in: /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-005758-33588.xcresult

@@ -1,0 +1,171 @@
+Running UI tests on the desktop. Result bundle: /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195123-21130.xcresult
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/fujishima/aibou/game-lab/AIBOUGameLabUITests.xcodeproj -scheme AIBOUGameLabUITests -destination platform=macOS,arch=arm64 -derivedDataPath /Users/fujishima/aibou/game-lab/.build/ui-tests -parallel-testing-enabled NO -resultBundlePath /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195123-21130.xcresult test-without-building "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testEmptyWorkbookClosesToSameRoom" "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testMapClosesToOriginalRoomAndPreparingExhibitCannotStart"
+
+Writing result bundle at path:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195123-21130.xcresult
+
+2026-09-14 19:51:24.297677+0900 AIBOUGameLabUITests-Runner[21180:33310232] [Default] Running tests...
+Test Suite 'Selected tests' started at 2026-09-14 19:51:24.328.
+Test Suite 'AIBOUGameLabUITests.xctest' started at 2026-09-14 19:51:24.329.
+Test Suite 'ExhibitionUITests' started at 2026-09-14 19:51:24.329.
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testEmptyWorkbookClosesToSameRoom]' started.
+    t =     0.00s Start Test at 2026-09-14 19:51:24.329
+    t =     0.12s Set Up
+    t =     0.13s     Open local.aibou.gamelab
+    t =     0.13s         Launch local.aibou.gamelab
+    t =     0.36s             Wait for accessibility to load
+    t =     0.69s             Setting up automation session
+    t =     0.69s             Wait for local.aibou.gamelab to idle
+    t =     0.69s     Open local.aibou.gamelab
+    t =     0.69s         Activate local.aibou.gamelab
+    t =     0.70s             Wait for local.aibou.gamelab to idle
+    t =     0.71s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     0.71s     Checking existence of `Window (First Match)`
+    t =     0.72s     Waiting 15.0s for Window (First Match) to exist
+    t =     1.77s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     1.77s             Checking existence of `Window (First Match)`
+    t =     1.79s Checking existence of `"ex.area.e" Any`
+    t =     1.80s Find the "ex.area.e" Any
+    t =     1.85s Click "ex.area.e" Button
+    t =     1.85s     Wait for local.aibou.gamelab to idle
+    t =     1.85s     Find the "ex.area.e" Button
+    t =     1.86s     Check for interrupting elements affecting "ex.area.e" Button
+    t =     1.92s     Synthesize event
+    t =     2.33s     Wait for local.aibou.gamelab to idle
+    t =     2.33s Checking existence of `"ex.game.cooling-workshop" Any`
+    t =     2.35s Find the "ex.game.cooling-workshop" Any
+    t =     2.38s Find the "ex.game.cooling-workshop" Button
+    t =     2.39s Checking existence of `"ex.workbook" Any`
+    t =     2.40s Find the "ex.workbook" Any
+    t =     2.43s Click "ex.workbook" Button
+    t =     2.43s     Wait for local.aibou.gamelab to idle
+    t =     2.43s     Find the "ex.workbook" Button
+    t =     2.44s     Check for interrupting elements affecting "ex.workbook" Button
+    t =     2.46s     Synthesize event
+    t =     2.84s     Wait for local.aibou.gamelab to idle
+    t =     2.85s Checking existence of `"ex.workbook.close" Any`
+    t =     2.86s Find the "ex.workbook.close" Any
+    t =     2.87s Find the "ex.workbook.close" Button
+    t =     2.89s Checking existence of `"ex.workbook.empty" Any`
+    t =     2.90s Find the "ex.workbook.empty" Any
+    t =     2.92s Checking existence of `"ex.workbook.empty" StaticText`
+    t =     2.93s Checking existence of `Window (First Match)`
+    t =     2.94s Find the Window (First Match)
+    t =     3.03s Added attachment named 'exhibition-empty-workbook'
+    t =     3.04s Checking existence of `"ex.workbook.close" Any`
+    t =     3.04s Find the "ex.workbook.close" Any
+    t =     3.05s Click "ex.workbook.close" Button
+    t =     3.05s     Wait for local.aibou.gamelab to idle
+    t =     3.05s     Find the "ex.workbook.close" Button
+    t =     3.06s     Check for interrupting elements affecting "ex.workbook.close" Button
+    t =     3.07s     Synthesize event
+    t =     3.44s     Wait for local.aibou.gamelab to idle
+    t =     3.44s Checking existence of `"ex.game.cooling-workshop" Any`
+    t =     3.45s Find the "ex.game.cooling-workshop" Any
+    t =     4.51s Checking `Expect predicate `BLOCKPREDICATE(0xb69456c40)` for object "ex.game.cooling-workshop" Button`
+    t =     4.51s     Find the "ex.game.cooling-workshop" Button
+    t =     4.53s Tear Down
+    t =     4.53s     Checking existence of `Window (First Match)`
+    t =     4.54s     Checking existence of `Window (First Match)`
+    t =     4.54s     Find the Window (First Match)
+    t =     4.71s     Added attachment named '-[ExhibitionUITests testEmptyWorkbookClosesToSameRoom]'
+    t =     4.71s     Terminate local.aibou.gamelab:21181
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testEmptyWorkbookClosesToSameRoom]' passed (5.805 seconds).
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testMapClosesToOriginalRoomAndPreparingExhibitCannotStart]' started.
+    t =     0.00s Start Test at 2026-09-14 19:51:30.135
+    t =     0.15s Set Up
+    t =     0.15s     Open local.aibou.gamelab
+    t =     0.15s         Launch local.aibou.gamelab
+    t =     0.28s             Wait for accessibility to load
+    t =     0.69s             Setting up automation session
+    t =     0.69s             Wait for local.aibou.gamelab to idle
+    t =     0.69s     Open local.aibou.gamelab
+    t =     0.70s         Activate local.aibou.gamelab
+    t =     0.71s             Wait for local.aibou.gamelab to idle
+    t =     0.72s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     0.72s     Checking existence of `Window (First Match)`
+    t =     0.73s     Waiting 15.0s for Window (First Match) to exist
+    t =     1.77s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     1.77s             Checking existence of `Window (First Match)`
+    t =     1.79s Checking existence of `"ex.area.c" Any`
+    t =     1.80s Find the "ex.area.c" Any
+    t =     1.85s Click "ex.area.c" Button
+    t =     1.85s     Wait for local.aibou.gamelab to idle
+    t =     1.85s     Find the "ex.area.c" Button
+    t =     1.88s     Check for interrupting elements affecting "ex.area.c" Button
+    t =     1.91s     Synthesize event
+    t =     2.33s     Wait for local.aibou.gamelab to idle
+    t =     2.33s Checking existence of `"ex.game.memory-dock" Any`
+    t =     2.34s Find the "ex.game.memory-dock" Any
+    t =     2.37s Find the "ex.game.memory-dock" Button
+    t =     2.39s Checking existence of `"ex.map" Any`
+    t =     2.40s Find the "ex.map" Any
+    t =     2.42s Click "ex.map" Button
+    t =     2.42s     Wait for local.aibou.gamelab to idle
+    t =     2.42s     Find the "ex.map" Button
+    t =     2.44s     Check for interrupting elements affecting "ex.map" Button
+    t =     2.45s     Synthesize event
+    t =     2.87s     Wait for local.aibou.gamelab to idle
+    t =     2.87s Checking existence of `"ex.map.close" Any`
+    t =     2.89s Find the "ex.map.close" Any
+    t =     2.92s Click "ex.map.close" Button
+    t =     2.92s     Wait for local.aibou.gamelab to idle
+    t =     2.92s     Find the "ex.map.close" Button
+    t =     2.93s     Check for interrupting elements affecting "ex.map.close" Button
+    t =     2.96s     Synthesize event
+    t =     3.34s     Wait for local.aibou.gamelab to idle
+    t =     3.34s Checking existence of `"ex.game.memory-dock" Any`
+    t =     3.35s Find the "ex.game.memory-dock" Any
+    t =     4.41s Checking `Expect predicate `BLOCKPREDICATE(0xb69456bb0)` for object "ex.game.memory-dock" Button`
+    t =     4.41s     Find the "ex.game.memory-dock" Button
+    t =     4.42s Checking existence of `"ex.game.memory-dock" Any`
+    t =     4.43s Find the "ex.game.memory-dock" Any
+    t =     4.46s Click "ex.game.memory-dock" Button
+    t =     4.46s     Wait for local.aibou.gamelab to idle
+    t =     4.47s     Find the "ex.game.memory-dock" Button
+    t =     4.48s     Check for interrupting elements affecting "ex.game.memory-dock" Button
+    t =     4.50s     Synthesize event
+    t =     4.85s     Wait for local.aibou.gamelab to idle
+    t =     4.85s Checking existence of `"ex.entry.preparing" Any`
+    t =     4.87s Find the "ex.entry.preparing" Any
+    t =     4.91s Checking existence of `"ex.entry.preparing" StaticText`
+    t =     4.92s Checking existence of `"ex.entry.start" Any`
+    t =     5.03s Checking existence of `Window (First Match)`
+    t =     5.04s Find the Window (First Match)
+    t =     5.18s Added attachment named 'exhibition-memory-dock-preparing'
+    t =     5.18s Checking existence of `"ex.back" Any`
+    t =     5.19s Find the "ex.back" Any
+    t =     5.21s Click "ex.back" Button
+    t =     5.21s     Wait for local.aibou.gamelab to idle
+    t =     5.21s     Find the "ex.back" Button
+    t =     5.22s     Check for interrupting elements affecting "ex.back" Button
+    t =     5.22s     Synthesize event
+    t =     5.55s     Wait for local.aibou.gamelab to idle
+    t =     5.55s Checking existence of `"ex.game.memory-dock" Any`
+    t =     5.56s Find the "ex.game.memory-dock" Any
+    t =     5.57s Find the "ex.game.memory-dock" Button
+    t =     5.59s Tear Down
+    t =     5.59s     Checking existence of `Window (First Match)`
+    t =     5.60s     Checking existence of `Window (First Match)`
+    t =     5.60s     Find the Window (First Match)
+    t =     5.75s     Added attachment named '-[ExhibitionUITests testMapClosesToOriginalRoomAndPreparingExhibitCannotStart]'
+    t =     5.75s     Terminate local.aibou.gamelab:21185
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testMapClosesToOriginalRoomAndPreparingExhibitCannotStart]' passed (6.851 seconds).
+Test Suite 'ExhibitionUITests' passed at 2026-09-14 19:51:36.987.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 12.657 (12.658) seconds
+Test Suite 'AIBOUGameLabUITests.xctest' passed at 2026-09-14 19:51:36.987.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 12.657 (12.659) seconds
+Test Suite 'Selected tests' passed at 2026-09-14 19:51:36.988.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 12.657 (12.660) seconds
+2026-09-14 19:51:37.274 xcodebuild[21175:33309998] [MT] IDETestOperationsObserverDebug: 13.505 elapsed -- Testing started completed.
+2026-09-14 19:51:37.274 xcodebuild[21175:33309998] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-14 19:51:37.274 xcodebuild[21175:33309998] [MT] IDETestOperationsObserverDebug: 13.505 sec, +13.505 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195123-21130.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started
+UI tests passed. Inspect screenshots and diagnostics in: /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195123-21130.xcresult

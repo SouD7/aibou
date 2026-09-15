@@ -1,0 +1,373 @@
+[0/1] Planning build
+Building for debugging...
+[0/4] Write swift-version--58304C5D6DBC2206.txt
+Build complete! (0.10s)
+Test Suite 'All tests' started at 2026-09-15 11:23:36.407.
+Test Suite 'AibouGameLabPackageTests.xctest' started at 2026-09-15 11:23:36.408.
+Test Suite 'CircuitExperienceTests' started at 2026-09-15 11:23:36.408.
+Test Case '-[CoreTests.CircuitExperienceTests testAllCheckpointsRoundTripThroughValidatedLegacyJournal]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testAllCheckpointsRoundTripThroughValidatedLegacyJournal]' passed (0.003 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testAllTwelveGateResultsUseExistingEvaluator]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testAllTwelveGateResultsUseExistingEvaluator]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testArtifactPreviewIsIndependentAndDoesNotClaimDiskSave]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testArtifactPreviewIsIndependentAndDoesNotClaimDiskSave]' passed (0.001 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testAssemblyRequiresPartAndThreeDistinctConnections]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testAssemblyRequiresPartAndThreeDistinctConnections]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testCounterexampleCheckpointMustBeRepairedAndReverified]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testCounterexampleCheckpointMustBeRepairedAndReverified]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testFourObservationsAcceptAnyOrderAndPreserveMismatchAsDiscovery]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testFourObservationsAcceptAnyOrderAndPreserveMismatchAsDiscovery]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testInputAndCompanionKeepObservationsButEditsInvalidateThem]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testInputAndCompanionKeepObservationsButEditsInvalidateThem]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testInterruptedTestResumesAtNextConditionAndEditResetsCursor]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testInterruptedTestResumesAtNextConditionAndEditResetsCursor]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testIntroductionDistinguishesUnknownAndDoesNotPretendToFinishCircuit]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testIntroductionDistinguishesUnknownAndDoesNotPretendToFinishCircuit]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testMalformedJournalCannotInjectCompletedSnapshot]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testMalformedJournalCannotInjectCompletedSnapshot]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitExperienceTests testWrongOptionalPredictionAndSkippingBothPermitCompletion]' started.
+Test Case '-[CoreTests.CircuitExperienceTests testWrongOptionalPredictionAndSkippingBothPermitCompletion]' passed (0.000 seconds).
+Test Suite 'CircuitExperienceTests' passed at 2026-09-15 11:23:36.414.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.006 (0.006) seconds
+Test Suite 'CircuitSessionTests' started at 2026-09-15 11:23:36.414.
+Test Case '-[CoreTests.CircuitSessionTests testAllMissionsCanBeCompletedAndFinalAdvanceIsAtomic]' started.
+Test Case '-[CoreTests.CircuitSessionTests testAllMissionsCanBeCompletedAndFinalAdvanceIsAtomic]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testAllTruthTablesMatchIndependentExpectations]' started.
+Test Case '-[CoreTests.CircuitSessionTests testAllTruthTablesMatchIndependentExpectations]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testChangingInputsDoesNotInvalidateGateTruthTable]' started.
+Test Case '-[CoreTests.CircuitSessionTests testChangingInputsDoesNotInvalidateGateTruthTable]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testConnectedOutputFollowsInputs]' started.
+Test Case '-[CoreTests.CircuitSessionTests testConnectedOutputFollowsInputs]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testDefaultAppSeedContrastsANDWithORAndXOR]' started.
+Test Case '-[CoreTests.CircuitSessionTests testDefaultAppSeedContrastsANDWithORAndXOR]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testEachCorrectGatePassesAndEachWrongGateFails]' started.
+Test Case '-[CoreTests.CircuitSessionTests testEachCorrectGatePassesAndEachWrongGateFails]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testEveryLinkIsRequiredEvenForShortCircuitBooleanCase]' started.
+Test Case '-[CoreTests.CircuitSessionTests testEveryLinkIsRequiredEvenForShortCircuitBooleanCase]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testGateEditInvalidatesEvidenceAndOptionalPrediction]' started.
+Test Case '-[CoreTests.CircuitSessionTests testGateEditInvalidatesEvidenceAndOptionalPrediction]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testMissionPredictionRemainsDeterministicForEverySeedAndSharesORXORCondition]' started.
+Test Case '-[CoreTests.CircuitSessionTests testMissionPredictionRemainsDeterministicForEverySeedAndSharesORXORCondition]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testNextMissionRequiresVerificationButPredictionIsOptional]' started.
+Test Case '-[CoreTests.CircuitSessionTests testNextMissionRequiresVerificationButPredictionIsOptional]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testPredictionFeedbackIsDerivedAndAllowsRetry]' started.
+Test Case '-[CoreTests.CircuitSessionTests testPredictionFeedbackIsDerivedAndAllowsRetry]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testPredictionRequiresProvenCircuitAndRejectedActionIsAtomic]' started.
+Test Case '-[CoreTests.CircuitSessionTests testPredictionRequiresProvenCircuitAndRejectedActionIsAtomic]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testRemovingAndRestoringLinkDoesNotRestoreStalePass]' started.
+Test Case '-[CoreTests.CircuitSessionTests testRemovingAndRestoringLinkDoesNotRestoreStalePass]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testReplayRejectsImpossibleSequenceAndOversizedActionList]' started.
+Test Case '-[CoreTests.CircuitSessionTests testReplayRejectsImpossibleSequenceAndOversizedActionList]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testReplayRejectsMalformedMissingFieldsUnknownActionAndSnapshotImport]' started.
+Test Case '-[CoreTests.CircuitSessionTests testReplayRejectsMalformedMissingFieldsUnknownActionAndSnapshotImport]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testReplayRejectsUnsupportedSchemaAndModel]' started.
+Test Case '-[CoreTests.CircuitSessionTests testReplayRejectsUnsupportedSchemaAndModel]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testReplayRoundTripMatchesWholeSnapshotAndActionLog]' started.
+Test Case '-[CoreTests.CircuitSessionTests testReplayRoundTripMatchesWholeSnapshotAndActionLog]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testResetClearsProgressAndUsesRequestedSeed]' started.
+Test Case '-[CoreTests.CircuitSessionTests testResetClearsProgressAndUsesRequestedSeed]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testSameSeedHasSamePredictionAndUInt64ExtremesWork]' started.
+Test Case '-[CoreTests.CircuitSessionTests testSameSeedHasSamePredictionAndUInt64ExtremesWork]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testSelectingSameGateDoesNotInvalidateEvidence]' started.
+Test Case '-[CoreTests.CircuitSessionTests testSelectingSameGateDoesNotInvalidateEvidence]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testSnapshotEncodingIsStableAndCodableRoundTrips]' started.
+Test Case '-[CoreTests.CircuitSessionTests testSnapshotEncodingIsStableAndCodableRoundTrips]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testStepIsCanonicalAndCannotPassBeforeFourDifferentRows]' started.
+Test Case '-[CoreTests.CircuitSessionTests testStepIsCanonicalAndCannotPassBeforeFourDifferentRows]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testTickCountsAcceptedActionsAndResetsDeterministically]' started.
+Test Case '-[CoreTests.CircuitSessionTests testTickCountsAcceptedActionsAndResetsDeterministically]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testUnconnectedCircuitIsUnknownAndCannotPassEvenZeroRow]' started.
+Test Case '-[CoreTests.CircuitSessionTests testUnconnectedCircuitIsUnknownAndCannotPassEvenZeroRow]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testWiresWithoutGateAreUnknown]' started.
+Test Case '-[CoreTests.CircuitSessionTests testWiresWithoutGateAreUnknown]' passed (0.000 seconds).
+Test Case '-[CoreTests.CircuitSessionTests testWrongPredictionDoesNotBlockProgress]' started.
+Test Case '-[CoreTests.CircuitSessionTests testWrongPredictionDoesNotBlockProgress]' passed (0.000 seconds).
+Test Suite 'CircuitSessionTests' passed at 2026-09-15 11:23:36.417.
+	 Executed 26 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'ExhibitionCatalogTests' started at 2026-09-15 11:23:36.417.
+Test Case '-[CoreTests.ExhibitionCatalogTests testAllImplementedExperiencesCanBePresentedAsPlayable]' started.
+Test Case '-[CoreTests.ExhibitionCatalogTests testAllImplementedExperiencesCanBePresentedAsPlayable]' passed (0.000 seconds).
+Test Case '-[CoreTests.ExhibitionCatalogTests testAllTwentyLearningThemesHaveOneEntranceAcrossFiveAreas]' started.
+Test Case '-[CoreTests.ExhibitionCatalogTests testAllTwentyLearningThemesHaveOneEntranceAcrossFiveAreas]' passed (0.000 seconds).
+Test Case '-[CoreTests.ExhibitionCatalogTests testInvalidOrFutureProgressNeverSilentlyLoadsAsCurrentVersion]' started.
+Test Case '-[CoreTests.ExhibitionCatalogTests testInvalidOrFutureProgressNeverSilentlyLoadsAsCurrentVersion]' passed (0.000 seconds).
+Test Case '-[CoreTests.ExhibitionCatalogTests testOversizedProgressIsRejectedBeforeDecoding]' started.
+Test Case '-[CoreTests.ExhibitionCatalogTests testOversizedProgressIsRejectedBeforeDecoding]' passed (0.002 seconds).
+Test Case '-[CoreTests.ExhibitionCatalogTests testRestoringOldIdentifiersKeepsKnownVisitsAndReturnsUnknownAreaToLobby]' started.
+Test Case '-[CoreTests.ExhibitionCatalogTests testRestoringOldIdentifiersKeepsKnownVisitsAndReturnsUnknownAreaToLobby]' passed (0.000 seconds).
+Test Case '-[CoreTests.ExhibitionCatalogTests testSavingAndReplacingProgressRestoresLastAreaWithoutAPlayingRoute]' started.
+Test Case '-[CoreTests.ExhibitionCatalogTests testSavingAndReplacingProgressRestoresLastAreaWithoutAPlayingRoute]' passed (0.001 seconds).
+Test Case '-[CoreTests.ExhibitionCatalogTests testVisitCannotBecomeLearningCompletion]' started.
+Test Case '-[CoreTests.ExhibitionCatalogTests testVisitCannotBecomeLearningCompletion]' passed (0.000 seconds).
+Test Case '-[CoreTests.ExhibitionCatalogTests testVisitsAreDeduplicatedAndUnknownGamesDoNotMoveTheVisitor]' started.
+Test Case '-[CoreTests.ExhibitionCatalogTests testVisitsAreDeduplicatedAndUnknownGamesDoNotMoveTheVisitor]' passed (0.000 seconds).
+Test Suite 'ExhibitionCatalogTests' passed at 2026-09-15 11:23:36.421.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'LessonCatalogTests' started at 2026-09-15 11:23:36.421.
+Test Case '-[CoreTests.LessonCatalogTests testCatalogRoundTripsWithoutLosingFeedbackOrSourceAttribution]' started.
+Test Case '-[CoreTests.LessonCatalogTests testCatalogRoundTripsWithoutLosingFeedbackOrSourceAttribution]' passed (0.001 seconds).
+Test Case '-[CoreTests.LessonCatalogTests testEveryExhibitionHasExactlyOneLessonWithoutChangingPlayableGames]' started.
+Test Case '-[CoreTests.LessonCatalogTests testEveryExhibitionHasExactlyOneLessonWithoutChangingPlayableGames]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonCatalogTests testEveryLessonHasACompleteBoundedTeachingSequenceAndValidQuestion]' started.
+Test Case '-[CoreTests.LessonCatalogTests testEveryLessonHasACompleteBoundedTeachingSequenceAndValidQuestion]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonCatalogTests testSourcesUseReviewedPrimaryPublishersAndSecureURLs]' started.
+Test Case '-[CoreTests.LessonCatalogTests testSourcesUseReviewedPrimaryPublishersAndSecureURLs]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonCatalogTests testTeachingExamplesHaveStableArithmeticAnswers]' started.
+Test Case '-[CoreTests.LessonCatalogTests testTeachingExamplesHaveStableArithmeticAnswers]' passed (0.000 seconds).
+Test Suite 'LessonCatalogTests' passed at 2026-09-15 11:23:36.423.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'LessonProgressTests' started at 2026-09-15 11:23:36.423.
+Test Case '-[CoreTests.LessonProgressTests testCorruptRecordsThrowAndRemainAvailableForRecovery]' started.
+Test Case '-[CoreTests.LessonProgressTests testCorruptRecordsThrowAndRemainAvailableForRecovery]' passed (0.001 seconds).
+Test Case '-[CoreTests.LessonProgressTests testEveryLessonRequiresAnExperimentAndCorrectAnswerBeforeReflection]' started.
+Test Case '-[CoreTests.LessonProgressTests testEveryLessonRequiresAnExperimentAndCorrectAnswerBeforeReflection]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonProgressTests testFutureVersionIsRejectedWithoutOverwritingOrDowngradingTheRecord]' started.
+Test Case '-[CoreTests.LessonProgressTests testFutureVersionIsRejectedWithoutOverwritingOrDowngradingTheRecord]' passed (0.001 seconds).
+Test Case '-[CoreTests.LessonProgressTests testGoingBackPreservesExplorationButARevisedWrongAnswerBlocksAdvancing]' started.
+Test Case '-[CoreTests.LessonProgressTests testGoingBackPreservesExplorationButARevisedWrongAnswerBlocksAdvancing]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonProgressTests testInvalidAnswersAndOutOfStepActionsDoNotChangeLearningEvidence]' started.
+Test Case '-[CoreTests.LessonProgressTests testInvalidAnswersAndOutOfStepActionsDoNotChangeLearningEvidence]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonProgressTests testMissingFileAndUnwritableParentReportFailureInsteadOfInventingProgress]' started.
+Test Case '-[CoreTests.LessonProgressTests testMissingFileAndUnwritableParentReportFailureInsteadOfInventingProgress]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonProgressTests testOldIdentifiersAreFilteredWithoutLosingKnownCompletedLessons]' started.
+Test Case '-[CoreTests.LessonProgressTests testOldIdentifiersAreFilteredWithoutLosingKnownCompletedLessons]' passed (0.001 seconds).
+Test Case '-[CoreTests.LessonProgressTests testReadingCannotSkipTheExperimentOrCreateCompletion]' started.
+Test Case '-[CoreTests.LessonProgressTests testReadingCannotSkipTheExperimentOrCreateCompletion]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonProgressTests testRetryStartsFreshWithoutDeletingAnAlreadyEarnedCompletion]' started.
+Test Case '-[CoreTests.LessonProgressTests testRetryStartsFreshWithoutDeletingAnAlreadyEarnedCompletion]' passed (0.000 seconds).
+Test Case '-[CoreTests.LessonProgressTests testSavingAndReplacingProgressRetainsOnlyEarnedCompletionAndLastVisit]' started.
+Test Case '-[CoreTests.LessonProgressTests testSavingAndReplacingProgressRetainsOnlyEarnedCompletionAndLastVisit]' passed (0.001 seconds).
+Test Case '-[CoreTests.LessonProgressTests testUnknownLessonCannotBeVisitedAnsweredOrRecorded]' started.
+Test Case '-[CoreTests.LessonProgressTests testUnknownLessonCannotBeVisitedAnsweredOrRecorded]' passed (0.000 seconds).
+Test Suite 'LessonProgressTests' passed at 2026-09-15 11:23:36.427.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'LobbyMotionTests' started at 2026-09-15 11:23:36.427.
+Test Case '-[CoreTests.LobbyMotionTests testBlinkBrieflyClosesAndReturnsToOpenEyes]' started.
+Test Case '-[CoreTests.LobbyMotionTests testBlinkBrieflyClosesAndReturnsToOpenEyes]' passed (0.001 seconds).
+Test Case '-[CoreTests.LobbyMotionTests testBlinkRepeatsWithoutHoldingEyesClosed]' started.
+Test Case '-[CoreTests.LobbyMotionTests testBlinkRepeatsWithoutHoldingEyesClosed]' passed (0.000 seconds).
+Test Suite 'LobbyMotionTests' passed at 2026-09-15 11:23:36.428.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'LogicExperienceTests' started at 2026-09-15 11:23:36.428.
+Test Case '-[CoreTests.LogicExperienceTests testAllLogicModelsRoundTripAndArtifactIndependence]' started.
+Test Case '-[CoreTests.LogicExperienceTests testAllLogicModelsRoundTripAndArtifactIndependence]' passed (0.001 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testBitComparisonRetainsOriginal]' started.
+Test Case '-[CoreTests.LogicExperienceTests testBitComparisonRetainsOriginal]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testBitNineColorSolutionRequiresFourthBit]' started.
+Test Case '-[CoreTests.LogicExperienceTests testBitNineColorSolutionRequiresFourthBit]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testBitPaletteChangesMeaningWithoutBits]' started.
+Test Case '-[CoreTests.LogicExperienceTests testBitPaletteChangesMeaningWithoutBits]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testBitsOneAndEightStates]' started.
+Test Case '-[CoreTests.LogicExperienceTests testBitsOneAndEightStates]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testDispatchCapacityAndSecondStage]' started.
+Test Case '-[CoreTests.LogicExperienceTests testDispatchCapacityAndSecondStage]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testDispatchComparisonVariesOneFactor]' started.
+Test Case '-[CoreTests.LogicExperienceTests testDispatchComparisonVariesOneFactor]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testDispatchFairnessAndExactRepresentative]' started.
+Test Case '-[CoreTests.LogicExperienceTests testDispatchFairnessAndExactRepresentative]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testDispatchIOWaitStartsAfterTriggerAndOnlyOnce]' started.
+Test Case '-[CoreTests.LogicExperienceTests testDispatchIOWaitStartsAfterTriggerAndOnlyOnce]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testDispatchPauseRetainsMemoryAndCloseResets]' started.
+Test Case '-[CoreTests.LogicExperienceTests testDispatchPauseRetainsMemoryAndCloseResets]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testDispatchPlacementDoesNotComputeAndFirstStage]' started.
+Test Case '-[CoreTests.LogicExperienceTests testDispatchPlacementDoesNotComputeAndFirstStage]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testInstructionAllFiveSolutions]' started.
+Test Case '-[CoreTests.LogicExperienceTests testInstructionAllFiveSolutions]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testInstructionBatchCheckDoesNotReplaceUserMachine]' started.
+Test Case '-[CoreTests.LogicExperienceTests testInstructionBatchCheckDoesNotReplaceUserMachine]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testInstructionFirstStageConsumesBeforeOutput]' started.
+Test Case '-[CoreTests.LogicExperienceTests testInstructionFirstStageConsumesBeforeOutput]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testInstructionMemoryZeroIsNotUnknownAndLoopBound]' started.
+Test Case '-[CoreTests.LogicExperienceTests testInstructionMemoryZeroIsNotUnknownAndLoopBound]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testInstructionMissingValueAndEditedSuccess]' started.
+Test Case '-[CoreTests.LogicExperienceTests testInstructionMissingValueAndEditedSuccess]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testInstructionRepresentativeReadStoreReadState]' started.
+Test Case '-[CoreTests.LogicExperienceTests testInstructionRepresentativeReadStoreReadState]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testMemoryCopyNeedsPowerCycleToDemonstrateSavedRestoration]' started.
+Test Case '-[CoreTests.LogicExperienceTests testMemoryCopyNeedsPowerCycleToDemonstrateSavedRestoration]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testMemoryDirectAndHoldGoals]' started.
+Test Case '-[CoreTests.LogicExperienceTests testMemoryDirectAndHoldGoals]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testMemoryFourBitAtomicWrite]' started.
+Test Case '-[CoreTests.LogicExperienceTests testMemoryFourBitAtomicWrite]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testMemoryPowerLossIsUnknownAndExplicitCopyRestores]' started.
+Test Case '-[CoreTests.LogicExperienceTests testMemoryPowerLossIsUnknownAndExplicitCopyRestores]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testMemoryRepresentativeAndOverwrite]' started.
+Test Case '-[CoreTests.LogicExperienceTests testMemoryRepresentativeAndOverwrite]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testTinyParallelSinglePathAndRevision]' started.
+Test Case '-[CoreTests.LogicExperienceTests testTinyParallelSinglePathAndRevision]' passed (0.000 seconds).
+Test Case '-[CoreTests.LogicExperienceTests testTinyUnknownAndFullLogicSolutions]' started.
+Test Case '-[CoreTests.LogicExperienceTests testTinyUnknownAndFullLogicSolutions]' passed (0.000 seconds).
+Test Suite 'LogicExperienceTests' passed at 2026-09-15 11:23:36.432.
+	 Executed 24 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'MemoryExperienceTests' started at 2026-09-15 11:23:36.432.
+Test Case '-[CoreTests.MemoryExperienceTests testBatteryCanDischargeWhilePluggedIn]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testBatteryCanDischargeWhilePluggedIn]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testBatteryFullChargeMakesOrderMatter]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testBatteryFullChargeMakesOrderMatter]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testBatteryScheduleWithNoClippingHasSameFinalEnergy]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testBatteryScheduleWithNoClippingHasSameFinalEnergy]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testBatteryUnitsAndSameStartingEnergy]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testBatteryUnitsAndSameStartingEnergy]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testCacheDoesNotHelpUniqueRequests]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testCacheDoesNotHelpUniqueRequests]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testCacheFirstAccessAndRepeat]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testCacheFirstAccessAndRepeat]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testCacheRejectsUnknownReplacementAndPausesAtChoice]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testCacheRejectsUnknownReplacementAndPausesAtChoice]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testCacheReplacementChoiceAndOrderComparison]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testCacheReplacementChoiceAndOrderComparison]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testCacheTwoSlotsComparedWithOne]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testCacheTwoSlotsComparedWithOne]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testCorruptSavedQuantitiesAndExecutionPositionsAreRejected]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testCorruptSavedQuantitiesAndExecutionPositionsAreRejected]' passed (0.001 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testEveryInitialStageIsValidAndCodable]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testEveryInitialStageIsValidAndCodable]' passed (0.001 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testMemoryDockCapacityComparisons]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testMemoryDockCapacityComparisons]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testMemoryDockCloseFreesSpaceAndPreservesSavedPhoto]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testMemoryDockCloseFreesSpaceAndPreservesSavedPhoto]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testMemoryDockEditSaveDoesNotFreeRAM]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testMemoryDockEditSaveDoesNotFreeRAM]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testMemoryDockPowerCycleKeepsSavedVersion]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testMemoryDockPowerCycleKeepsSavedVersion]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testPCOpenEditDisplayAndObserve]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testPCOpenEditDisplayAndObserve]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testPCOrderFailureAndSeparateSave]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testPCOrderFailureAndSeparateSave]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testPCSavingSurvivesRestart]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testPCSavingSurvivesRestart]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testRescueCompressionAndSwapCosts]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testRescueCompressionAndSwapCosts]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testRescueExpansionNeedsSpaceAndRetainsIdentity]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testRescueExpansionNeedsSpaceAndRetainsIdentity]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testRescueFullRAMStillReadsWithoutWaiting]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testRescueFullRAMStillReadsWithoutWaiting]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testRescueRepeatedSwapComparedWithEnoughRAM]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testRescueRepeatedSwapComparedWithEnoughRAM]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testRescueSwapIsNotPersistentSave]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testRescueSwapIsNotPersistentSave]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testSavingOnlyAfterRestartDoesNotProveSavedDataSurvived]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testSavingOnlyAfterRestartDoesNotProveSavedDataSurvived]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testStorageCapacityAndReadOnlyOriginals]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testStorageCapacityAndReadOnlyOriginals]' passed (0.000 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testStorageDifferentWorkloadsFavorDifferentChanges]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testStorageDifferentWorkloadsFavorDifferentChanges]' passed (0.001 seconds).
+Test Case '-[CoreTests.MemoryExperienceTests testStorageRateAndRequestBatching]' started.
+Test Case '-[CoreTests.MemoryExperienceTests testStorageRateAndRequestBatching]' passed (0.000 seconds).
+Test Suite 'MemoryExperienceTests' passed at 2026-09-15 11:23:36.439.
+	 Executed 27 tests, with 0 failures (0 unexpected) in 0.005 (0.006) seconds
+Test Suite 'ParallelExperienceTests' started at 2026-09-15 11:23:36.439.
+Test Case '-[CoreTests.ParallelExperienceTests testAllThirtyStageInitialAndMidrunSnapshotsRoundTrip]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testAllThirtyStageInitialAndMidrunSnapshotsRoundTrip]' passed (0.002 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testBandwidthChangesBulkCompletionButNotFirstPacket]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testBandwidthChangesBulkCompletionButNotFirstPacket]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testConnectorUsesFunctionCapacityAndPowerSeparately]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testConnectorUsesFunctionCapacityAndPowerSeparately]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testFactoryEditsResetOnlyCurrentRunAndDependenciesAreNotSameTick]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testFactoryEditsResetOnlyCurrentRunAndDependenciesAreNotSameTick]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testFrameGenerationAndRefreshAreIndependentAndKeepDuplicatedIDs]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testFrameGenerationAndRefreshAreIndependentAndKeepDuplicatedIDs]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testHubSharedBudgetAndUnknownAreNotFalseOrZero]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testHubSharedBudgetAndUnknownAreNotFalseOrZero]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testLogicalFunctionAndPackagingDoNotChangeTransferTime]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testLogicalFunctionAndPackagingDoNotChangeTransferTime]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testMalformedSavedStateRejectedBeforeUIUsesArrays]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testMalformedSavedStateRejectedBeforeUIUsesArrays]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testParallelChainOverheadAndChangedPreparation]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testParallelChainOverheadAndChangedPreparation]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testParallelIndependentAndDependentSchedules]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testParallelIndependentAndDependentSchedules]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testPixelAllWorkloadsIncludePreparationAndReadback]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testPixelAllWorkloadsIncludePreparationAndReadback]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testPixelResidentBatchSavesOnlyTransfers]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testPixelResidentBatchSavesOnlyTransfers]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testResolutionUsesAreaAndDoesNotChangeDisplayClock]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testResolutionUsesAreaAndDoesNotChangeDisplayClock]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testSequentialRoundTripsAndDeterministicRetry]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testSequentialRoundTripsAndDeterministicRetry]' passed (0.000 seconds).
+Test Case '-[CoreTests.ParallelExperienceTests testSharedLaneCountsUnitsAndPhysicalPlacementDoesNotAddSpeed]' started.
+Test Case '-[CoreTests.ParallelExperienceTests testSharedLaneCountsUnitsAndPhysicalPlacementDoesNotAddSpeed]' passed (0.000 seconds).
+Test Suite 'ParallelExperienceTests' passed at 2026-09-15 11:23:36.444.
+	 Executed 15 tests, with 0 failures (0 unexpected) in 0.005 (0.006) seconds
+Test Suite 'ThermalPipelineExperienceTests' started at 2026-09-15 11:23:36.444.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testChangingOnlyBottleneckHelps]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testChangingOnlyBottleneckHelps]' passed (0.000 seconds).
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testCoolingQuietAndWarmConditions]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testCoolingQuietAndWarmConditions]' passed (0.000 seconds).
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testHeatAccumulationAndDelayedProtection]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testHeatAccumulationAndDelayedProtection]' passed (0.000 seconds).
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testInvalidControlsDoNotAdvanceOrChangeConditions]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testInvalidControlsDoNotAdvanceOrChangeConditions]' passed (0.000 seconds).
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testModelAndArtifactRoundTripKeepsSnapshotsIndependent]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testModelAndArtifactRoundTripKeepsSnapshotsIndependent]' passed (0.000 seconds).
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testPipelineSimultaneousStagesConserveJobs]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testPipelineSimultaneousStagesConserveJobs]' passed (0.000 seconds).
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testRAMCapacityAndReadRateAreDistinctBottlenecks]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testRAMCapacityAndReadRateAreDistinctBottlenecks]' passed (0.000 seconds).
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testShortBurstDoesNotGuaranteeSustainedPerformance]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testShortBurstDoesNotGuaranteeSustainedPerformance]' passed (0.000 seconds).
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testTiedBottlenecksRequireThreeControlledComparisons]' started.
+Test Case '-[CoreTests.ThermalPipelineExperienceTests testTiedBottlenecksRequireThreeControlledComparisons]' passed (0.000 seconds).
+Test Suite 'ThermalPipelineExperienceTests' passed at 2026-09-15 11:23:36.446.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'WorkshopSessionTests' started at 2026-09-15 11:23:36.446.
+Test Case '-[CoreTests.WorkshopSessionTests testConnectionEntersObservingWithoutClaimingAnObservation]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testConnectionEntersObservingWithoutClaimingAnObservation]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testEveryGateAndWireChangeInvalidatesNotebookAndVerification]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testEveryGateAndWireChangeInvalidatesNotebookAndVerification]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testFinishIsCheckpointAndLaterEditUndoCannotDeleteWork]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testFinishIsCheckpointAndLaterEditUndoCannotDeleteWork]' passed (0.001 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testHintsEscalateOnlyOnRequestWithoutChangingBoardOrMastery]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testHintsEscalateOnlyOnRequestWithoutChangingBoardOrMastery]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testInputChangesAndCompanionDoNotAutomaticallyClaimObservations]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testInputChangesAndCompanionDoNotAutomaticallyClaimObservations]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testMissingGateOrAnyWireCannotObserveOrVerify]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testMissingGateOrAnyWireCannotObserveOrVerify]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testObservationNotebookDeduplicatesAndSortsActualTestedRows]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testObservationNotebookDeduplicatesAndSortsActualTestedRows]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testOnlyANDMissionAvailableInGuidedWorkshop]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testOnlyANDMissionAvailableInGuidedWorkshop]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testPredictionIsOptionalAndWrongPredictionDoesNotBlockFinish]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testPredictionIsOptionalAndWrongPredictionDoesNotBlockFinish]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testReplayBoundsBytesAndActionCountBeforeExecuting]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testReplayBoundsBytesAndActionCountBeforeExecuting]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testReplayRejectsUnsupportedVersionsAndMalformedData]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testReplayRejectsUnsupportedVersionsAndMalformedData]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testReplayRoundTripReconstructsUndoCompletedWorkAndCurrentAttempt]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testReplayRoundTripReconstructsUndoCompletedWorkAndCurrentAttempt]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testReplayValidatesJournalRatherThanTrustingClaimedSuccess]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testReplayValidatesJournalRatherThanTrustingClaimedSuccess]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testReselectingSameGateAndInputChangesKeepValidNotebook]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testReselectingSameGateAndInputChangesKeepValidNotebook]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testResetBeforeStartRemainsWelcomeAndReplayStable]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testResetBeforeStartRemainsWelcomeAndReplayStable]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testResetCompactsSavedWorkAndBeginsNewUndoHistory]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testResetCompactsSavedWorkAndBeginsNewUndoHistory]' passed (0.001 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testResetKeepsFinishedArtifactButStartsNewCleanAttempt]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testResetKeepsFinishedArtifactButStartsNewCleanAttempt]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testResetRecoversAtJournalLimitWithAndWithoutSavedWork]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testResetRecoversAtJournalLimitWithAndWithoutSavedWork]' passed (0.052 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testSeedsAtUInt64ExtremesAndSnapshotEncodingStayDeterministic]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testSeedsAtUInt64ExtremesAndSnapshotEncodingStayDeterministic]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testSequentialVerificationRequiresFourConditionsAndRecordsEach]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testSequentialVerificationRequiresFourConditionsAndRecordsEach]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testUndoDepthIsBoundedAndEmptyUndoIsAtomic]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testUndoDepthIsBoundedAndEmptyUndoIsAtomic]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testUndoRestoresGateEvidenceHintsAndPredictionAsOneConsistentState]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testUndoRestoresGateEvidenceHintsAndPredictionAsOneConsistentState]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testUnverifiedOrWrongCircuitsCannotCreateCompletedWork]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testUnverifiedOrWrongCircuitsCannotCreateCompletedWork]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testWelcomeRequiresExplicitStartAndRejectedActionsAreAtomic]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testWelcomeRequiresExplicitStartAndRejectedActionsAreAtomic]' passed (0.000 seconds).
+Test Case '-[CoreTests.WorkshopSessionTests testWrongGatesFailWithConcreteValidatedCounterexamples]' started.
+Test Case '-[CoreTests.WorkshopSessionTests testWrongGatesFailWithConcreteValidatedCounterexamples]' passed (0.000 seconds).
+Test Suite 'WorkshopSessionTests' passed at 2026-09-15 11:23:36.504.
+	 Executed 25 tests, with 0 failures (0 unexpected) in 0.057 (0.058) seconds
+Test Suite 'AibouGameLabPackageTests.xctest' passed at 2026-09-15 11:23:36.504.
+	 Executed 163 tests, with 0 failures (0 unexpected) in 0.091 (0.096) seconds
+Test Suite 'All tests' passed at 2026-09-15 11:23:36.504.
+	 Executed 163 tests, with 0 failures (0 unexpected) in 0.091 (0.097) seconds
+◇ Test run started.
+↳ Testing Library Version: 1902
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

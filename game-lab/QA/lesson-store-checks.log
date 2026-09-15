@@ -1,0 +1,44 @@
+PASS corrupt: read failure is visible
+PASS corrupt: unreadable record does not invent completion
+PASS corrupt: construction does not alter source bytes
+PASS corrupt: no backup or overwrite occurs during read
+PASS corrupt: opening creates exactly one recovery copy
+PASS corrupt: recovery copy has a unique UUID name
+PASS corrupt: recovery copy preserves all original bytes
+PASS corrupt: successful replacement clears the error
+PASS corrupt: replacement is a readable current-version record
+PASS corrupt: merely opening does not save a completion
+PASS memory-dock: experiment reached
+PASS memory-dock: completed through experiment and correct answer
+PASS corrupt: subsequent saves do not duplicate the backup
+PASS corrupt: later completion leaves the backup intact
+PASS corrupt: completion survives store reconstruction
+PASS corrupt: reloading does not auto-start or manufacture a session
+PASS future: read failure is visible
+PASS future: unreadable record does not invent completion
+PASS future: construction does not alter source bytes
+PASS future: no backup or overwrite occurs during read
+PASS future: opening creates exactly one recovery copy
+PASS future: recovery copy has a unique UUID name
+PASS future: recovery copy preserves all original bytes
+PASS future: successful replacement clears the error
+PASS future: replacement is a readable current-version record
+PASS future: merely opening does not save a completion
+PASS memory-dock: experiment reached
+PASS memory-dock: completed through experiment and correct answer
+PASS future: subsequent saves do not duplicate the backup
+PASS future: later completion leaves the backup intact
+PASS future: completion survives store reconstruction
+PASS future: reloading does not auto-start or manufacture a session
+PASS write failure: opening exposes save error
+PASS write failure: a session remains usable
+PASS battery-voyage: experiment reached
+PASS battery-voyage: completed through experiment and correct answer
+PASS write failure: earned completion is retained in memory
+PASS write failure: completion does not hide a persistent save error
+PASS write failure: unrelated parent-path bytes are unchanged
+PASS recovery: retry clears the error after destination repair
+PASS recovery: in-memory completion is persisted on retry
+PASS recovery: last lesson also survives reload
+PASS recovery: a persisted completion does not auto-start a lesson
+LessonStore checks passed: 43; all fixtures were isolated under aibou-lesson-store-check-455E7989-BC6E-4454-81E6-AD83356E2978 and removed.
