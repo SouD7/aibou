@@ -10,6 +10,7 @@
 # Keep these built apps under version control
 !/monitor/AIBOUMonitor.app/
 !/avatar-motion/AIBOUAvatarMotion.app/
+!/integrated/AIBOU.app/
 node_modules/
 /.omx/
 

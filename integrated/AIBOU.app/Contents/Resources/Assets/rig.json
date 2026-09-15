@@ -1,0 +1,439 @@
+{
+  "canvas": [
+    1672,
+    941
+  ],
+  "poses": [
+    {
+      "id": "standing",
+      "image": "standing.png",
+      "chromaKey": true,
+      "center": [
+        836,
+        636
+      ],
+      "size": [
+        706.6667,
+        1060
+      ],
+      "head": [
+        0.49,
+        0.113
+      ],
+      "chest": [
+        0.5,
+        0.265
+      ],
+      "hip": [
+        0.5,
+        0.43
+      ],
+      "eyes": [
+        [
+          0.427,
+          0.1,
+          0.055,
+          0.031
+        ],
+        [
+          0.504,
+          0.1,
+          0.055,
+          0.031
+        ]
+      ],
+      "mouth": [
+        0.479,
+        0.137,
+        0.033,
+        0.014
+      ],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        836,
+        1145
+      ],
+      "shadowSize": [
+        280,
+        35
+      ],
+      "shadowOpacity": 0.2,
+      "blinkImage": "standing-blink.png"
+    },
+    {
+      "id": "sleeping",
+      "image": "sleeping.png",
+      "chromaKey": true,
+      "center": [
+        320,
+        516
+      ],
+      "size": [
+        480,
+        160
+      ],
+      "head": [
+        0.13,
+        0.28
+      ],
+      "chest": [
+        0.28,
+        0.405
+      ],
+      "hip": [
+        0.49,
+        0.58
+      ],
+      "eyes": [],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        329,
+        546
+      ],
+      "shadowSize": [
+        420,
+        41
+      ],
+      "shadowOpacity": 0.13
+    },
+    {
+      "id": "reading",
+      "image": "reading.png",
+      "chromaKey": true,
+      "center": [
+        638,
+        440
+      ],
+      "size": [
+        260,
+        390
+      ],
+      "head": [
+        0.483,
+        0.1
+      ],
+      "chest": [
+        0.493,
+        0.335
+      ],
+      "hip": [
+        0.493,
+        0.52
+      ],
+      "eyes": [],
+      "book": [
+        0.644,
+        0.21,
+        0.106,
+        0.082
+      ],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        631,
+        626
+      ],
+      "shadowSize": [
+        98,
+        15
+      ],
+      "shadowOpacity": 0.18
+    },
+    {
+      "id": "standing-back-hands",
+      "image": "standing-back-hands.png",
+      "chromaKey": true,
+      "center": [
+        836,
+        636
+      ],
+      "size": [
+        706.6667,
+        1060
+      ],
+      "head": [
+        0.49,
+        0.113
+      ],
+      "chest": [
+        0.5,
+        0.265
+      ],
+      "hip": [
+        0.5,
+        0.43
+      ],
+      "eyes": [
+        [
+          0.427,
+          0.1,
+          0.055,
+          0.031
+        ],
+        [
+          0.504,
+          0.1,
+          0.055,
+          0.031
+        ]
+      ],
+      "mouth": [
+        0.479,
+        0.137,
+        0.033,
+        0.014
+      ],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        836,
+        1145
+      ],
+      "shadowSize": [
+        280,
+        35
+      ],
+      "shadowOpacity": 0.2,
+      "blinkImage": "standing-blink.png"
+    },
+    {
+      "id": "standing-front-hands",
+      "image": "standing-front-hands.png",
+      "chromaKey": true,
+      "center": [
+        836,
+        636
+      ],
+      "size": [
+        706.6667,
+        1060
+      ],
+      "head": [
+        0.49,
+        0.113
+      ],
+      "chest": [
+        0.5,
+        0.265
+      ],
+      "hip": [
+        0.5,
+        0.43
+      ],
+      "eyes": [
+        [
+          0.427,
+          0.1,
+          0.055,
+          0.031
+        ],
+        [
+          0.504,
+          0.1,
+          0.055,
+          0.031
+        ]
+      ],
+      "mouth": [
+        0.479,
+        0.137,
+        0.033,
+        0.014
+      ],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        836,
+        1145
+      ],
+      "shadowSize": [
+        280,
+        35
+      ],
+      "shadowOpacity": 0.2,
+      "blinkImage": "standing-blink.png"
+    },
+    {
+      "id": "writing",
+      "image": "writing-seated.png",
+      "chromaKey": true,
+      "center": [
+        842,
+        527
+      ],
+      "size": [
+        190,
+        285
+      ],
+      "head": [
+        0.48,
+        0.115
+      ],
+      "chest": [
+        0.61,
+        0.275
+      ],
+      "hip": [
+        0.5,
+        0.6
+      ],
+      "eyes": [],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        835,
+        607
+      ],
+      "shadowSize": [
+        92,
+        15
+      ],
+      "shadowOpacity": 0
+    },
+    {
+      "id": "cpu-rest",
+      "image": "cpu-rest-relaxed.png",
+      "chromaKey": true,
+      "center": [
+        1195,
+        580
+      ],
+      "size": [
+        528,
+        352
+      ],
+      "head": [
+        0.84,
+        0.4
+      ],
+      "chest": [
+        0.65,
+        0.335
+      ],
+      "hip": [
+        0.4,
+        0.48
+      ],
+      "eyes": [],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        1160,
+        730
+      ],
+      "shadowSize": [
+        230,
+        16
+      ],
+      "shadowOpacity": 0.14
+    },
+    {
+      "id": "glitch",
+      "image": "standing.png",
+      "chromaKey": true,
+      "center": [
+        836,
+        636
+      ],
+      "size": [
+        706.6667,
+        1060
+      ],
+      "head": [
+        0.49,
+        0.113
+      ],
+      "chest": [
+        0.5,
+        0.265
+      ],
+      "hip": [
+        0.5,
+        0.43
+      ],
+      "eyes": [
+        [
+          0.427,
+          0.1,
+          0.055,
+          0.031
+        ],
+        [
+          0.504,
+          0.1,
+          0.055,
+          0.031
+        ]
+      ],
+      "mouth": [
+        0.479,
+        0.137,
+        0.033,
+        0.014
+      ],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        836,
+        1145
+      ],
+      "shadowSize": [
+        280,
+        35
+      ],
+      "shadowOpacity": 0.2,
+      "blinkImage": "standing-blink.png"
+    },
+    {
+      "id": "close-up",
+      "image": "standing.png",
+      "chromaKey": true,
+      "center": [
+        893,
+        3860
+      ],
+      "size": [
+        5700,
+        8550
+      ],
+      "head": [
+        0.49,
+        0.113
+      ],
+      "chest": [
+        0.5,
+        0.265
+      ],
+      "hip": [
+        0.5,
+        0.43
+      ],
+      "eyes": [
+        [
+          0.427,
+          0.1,
+          0.055,
+          0.031
+        ],
+        [
+          0.504,
+          0.1,
+          0.055,
+          0.031
+        ]
+      ],
+      "mouth": [
+        0.479,
+        0.137,
+        0.033,
+        0.014
+      ],
+      "skin": "#F9E4D8",
+      "shadowCenter": [
+        836,
+        1145
+      ],
+      "shadowSize": [
+        280,
+        35
+      ],
+      "shadowOpacity": 0,
+      "blinkImage": "standing-blink.png",
+      "entranceImage": "standing-smile-crescent.png"
+    }
+  ]
+}

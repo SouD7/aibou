@@ -1,9 +1,9 @@
 {
-  "recorded_at": "2026-09-15T10:52:30+09:00",
+  "recorded_at": "2026-09-15T11:41:17+09:00",
   "repository": "/Users/sodaiyamamoto/aibou",
-  "branch": "codex/integrated-aibou-app",
+  "branch": "codex/avatar-timing-memory-threshold",
   "base_commit": "19202d55e91efb3f3131442f7adb4653a26c54a2",
-  "scope": "統合版（ボタン1.5倍、PR11の初回・再レビュー修正、部屋上部の選択ボックス削除を含む）。ビルド入力、テスト、文書と検証記録。過去のQAログはその検証時点の記録として保持。",
+  "scope": "統合版（PR11修正、部屋上部の選択ボックス削除、遷移間隔10秒・メモリ閾値99%への変更を含む）。base_commitは統合版作成前の基点、revision_base_commitは今回の作業ブランチの基点。過去のQAログはその検証時点の記録として保持。",
   "counts": {
     "swift_sources": 45,
     "packaged_assets": 140,
@@ -12,8 +12,8 @@
     "scripts": 4,
     "test_sources": 24,
     "documentation": 2,
-    "verification_records": 14,
-    "total_recorded_files": 232,
+    "verification_records": 17,
+    "total_recorded_files": 235,
     "packaged_metadata": 1
   },
   "excluded": [
@@ -29,7 +29,7 @@
       "role": "実測値の閾値判定、家具の表示状態、警告、アバター候補、概要指標の対応",
       "change": "new",
       "bytes": 9094,
-      "sha256": "00b3aca4f8cbe6a912e25bdf5a6f7c107ce755ed90ed436b63a5c01d0635651c",
+      "sha256": "b3e3a21e3790f394c34c8ac9e151ce894feb4df21d66e738ad3bc5c06960a036",
       "build_snapshot_matches_source": true
     },
     {
@@ -44,7 +44,7 @@
     {
       "path": "integrated/Sources/IntegratedStore.swift",
       "category": "swift_source",
-      "role": "Avatar・Monitor・相談の接続、実測更新、30秒タイマー、各モードの切替",
+      "role": "Avatar・Monitor・相談の接続、実測更新、10秒タイマー、各モードの切替",
       "change": "new",
       "bytes": 5122,
       "sha256": "857f4c49b4fb024ff016043b143606de71e5326cafb751fc444ff1b13e6f735d",
@@ -73,8 +73,8 @@
       "category": "swift_source",
       "role": "デモ／相談のセッション状態、次回の姿勢選択時刻、警告の解除履歴",
       "change": "new",
-      "bytes": 1412,
-      "sha256": "f73f8e4854ff23f1d903919c214d1a71a664fa80a395680c3586b057443d573c",
+      "bytes": 1519,
+      "sha256": "c40c8f2f3b5cc951def3548e8350a061050d2ec9eff84454bd8f75bfb669b97b",
       "build_snapshot_matches_source": true
     },
     {
@@ -1911,16 +1911,16 @@
       "category": "test_source",
       "role": "統合機能のテスト",
       "change": "new",
-      "bytes": 10523,
-      "sha256": "56a1e56cefa44bbe12279da181bde430aa549ac95ca0c57a106bac5e09b2f25b"
+      "bytes": 11845,
+      "sha256": "c086bd6749585a566fd5ad200b9546e25c8c9f323f97e772ffd9c87d1319113a"
     },
     {
       "path": "integrated/Tests/RoomSessionTests.swift",
       "category": "test_source",
       "role": "統合機能のテスト",
       "change": "new",
-      "bytes": 2322,
-      "sha256": "6fb556e3e9288e37daf948304bfbee64b6d6b36f98c669360803c0f3eeec596e"
+      "bytes": 2497,
+      "sha256": "2e00f5f9d40d90812206201e3f192da3a998ddebd9146723e9108392471ec1b1"
     },
     {
       "path": "avatar-motion/Tests/AvatarStateTests.swift",
@@ -2088,15 +2088,15 @@
       "role": "統合アプリの対象範囲、採用技術、画面・キーボード操作の設計",
       "change": "modified",
       "bytes": 17614,
-      "sha256": "54c8ce542b19a1e0349484c22404314e01184efe8f5ef5266a84fb1e66c7b9fb"
+      "sha256": "0dbba7c74a0f2ee2692300dddf30b3b8a5b0f445657985eea2b299c81d9ddb71"
     },
     {
       "path": "integrated/README.md",
       "category": "documentation",
       "role": "起動方法、操作、状態の対応、検証手順",
       "change": "new",
-      "bytes": 6067,
-      "sha256": "556e7af98769595939ed603eb8067905499ed6c9cdc92e4595d367de030f2593"
+      "bytes": 6348,
+      "sha256": "ddf9bce6cf8c22a07c71c3222aa40b61d360fa9a02f086a1383f23389b82a0aa"
     },
     {
       "path": "integrated/QA/BUTTON_SIZE_RESULTS.md",
@@ -2176,7 +2176,7 @@
       "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
       "change": "new",
       "bytes": 4750,
-      "sha256": "4b9e8ac06b34d53a7362dfc07ccb4094d4a3e2d010be50eb36f2439ab0b4b6ec"
+      "sha256": "655233f3c35e79916ab6c65a0582ace4e20715d01c329214f8f5f7ec26b62155"
     },
     {
       "path": "integrated/QA/PR11_REVIEW.md",
@@ -2209,6 +2209,31 @@
       "change": "new",
       "bytes": 747,
       "sha256": "7e2069e806dac9924026ee6fc14ce3ec00092c48d59fe2f384738ab7811e93be"
+    },
+    {
+      "path": "integrated/QA/TIMING_MEMORY_RESULTS.md",
+      "category": "verification_record",
+      "role": "10秒の遷移間隔・99%のメモリ閾値の変更内容と検証結果",
+      "change": "new",
+      "bytes": 1436,
+      "sha256": "553af39e8566df4b825bf23f4204a2c05214406f725aa5804f60fcc6e1dd31cb"
+    },
+    {
+      "path": "integrated/QA/timing-memory-tests.log",
+      "category": "verification_record",
+      "role": "遷移間隔・メモリ閾値変更後の全4統合テスト結果",
+      "change": "new",
+      "bytes": 757,
+      "sha256": "6b35fde0a121bf7538f03c7d46544c713913fb83a4581e54ab6e5e965613f782"
+    },
+    {
+      "path": "integrated/QA/timing-memory-build.log",
+      "category": "verification_record",
+      "role": "遷移間隔・メモリ閾値変更後の統合ビルド結果",
+      "change": "new",
+      "bytes": 40,
+      "sha256": "99727af4a46275a570d6af03b3b9c01275f2465eef231553cf19c770431f3778"
     }
-  ]
+  ],
+  "revision_base_commit": "19951f7d691f07e6ee687017ebeaed50d7871833"
 }

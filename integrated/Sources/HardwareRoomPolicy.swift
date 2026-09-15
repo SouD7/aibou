@@ -32,7 +32,7 @@ enum HardwareRoomPolicy {
            occupied >= 0, occupied <= physical {
             let ratio = occupied / physical
             next = next.applying(
-                optionID: ratio >= 0.95 ? "overflow" : (ratio >= 0.80 ? "stacked" : "normal"),
+                optionID: ratio >= 0.99 ? "overflow" : (ratio >= 0.80 ? "stacked" : "normal"),
                 for: "desk"
             ) ?? next
         }
@@ -79,7 +79,7 @@ enum HardwareRoomPolicy {
             result["compute"] = ComponentWarning(message: "CPUアイドル率が10%未満です。")
         }
         if state.desk == .overflow {
-            result["desk"] = ComponentWarning(message: "RAM占有量が物理メモリの95%以上です。")
+            result["desk"] = ComponentWarning(message: "RAM占有量が物理メモリの99%以上です。")
         }
         if state.fans == .fast {
             result["fans"] = ComponentWarning(message: "サーマルプレッシャーが正常ではありません。")
