@@ -10,6 +10,8 @@ final class IntegratedStore: ObservableObject {
     @Published var menuExpanded = false
     @Published var presentation: RoomPanel?
     @Published var showingConnection = false
+    @Published var showingOpening = true
+    @Published var openingReady = false
     private var subscriptions: Set<AnyCancellable> = []
     private var liveState = RoomVisualState()
 
@@ -28,7 +30,7 @@ final class IntegratedStore: ObservableObject {
             self.avatar.replaceComponentWarnings(self.session.visibleWarnings(HardwareRoomPolicy.warnings(for: state)))
         }.store(in: &subscriptions)
         Timer.publish(every: 1, on: .main, in: .common).autoconnect().sink { [weak self] now in
-            guard let self, !self.session.isConsulting, !self.session.isDemo,
+            guard let self, !self.showingOpening, !self.session.isConsulting, !self.session.isDemo,
                   now >= self.session.nextPoseAt, self.session.shouldChoosePose(now: now) else { return }
             self.avatar.selectedPose = HardwareRoomPolicy.avatarCandidates(for: self.avatar.roomVisualState).randomElement() ?? .standingBackHands
         }.store(in: &subscriptions)
@@ -95,6 +97,18 @@ final class IntegratedStore: ObservableObject {
         menuExpanded = false
         avatar.selectComponent(nil)
         presentation = panel
+    }
+
+    func returnToTitle() {
+        guard !showingOpening else { return }
+        if session.isDemo { exitDemo() }
+        if session.isConsulting { endConsultation() }
+        else { session.endConsultation(); resetPose() }
+        menuExpanded = false
+        presentation = nil
+        showingConnection = false
+        avatar.selectComponent(nil)
+        showingOpening = true
     }
 
     private func resetPose() {
