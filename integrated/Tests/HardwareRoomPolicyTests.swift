@@ -71,7 +71,7 @@ private func testBoundaries() throws {
     )
     try expect(state.bookshelf == .normal, "storage 10% is normal")
     try expect(state.compute == .yellow, "CPU idle 10% is yellow")
-    try expect(state.desk == .overflow, "memory 95% overflows")
+    try expect(state.desk == .stacked, "memory 95% remains stacked")
     try expect(state.bedLights == 2, "battery 25% has two lights")
 
     state = HardwareRoomPolicy.visualState(
@@ -84,6 +84,32 @@ private func testBoundaries() throws {
 
     state = HardwareRoomPolicy.visualState(panels: panels(charge: 0.999), previous: state)
     try expect(state.bedLights == 0, "battery below 1% has no lights")
+}
+
+private func testMemoryBoundaries() throws {
+    let cases: [(Double, DeskVisualState)] = [
+        (79.999, .normal), (80, .stacked), (95, .stacked),
+        (98.999, .stacked), (99, .overflow), (100, .overflow),
+        (98.999, .stacked) // Recovery below the overflow threshold.
+    ]
+    var state = RoomVisualState()
+    for (percent, expected) in cases {
+        state = HardwareRoomPolicy.visualState(
+            panels: panels(occupied: percent * 160, physical: 16_000), previous: state
+        )
+        try expect(state.desk == expected, "memory \(percent)% is \(expected)")
+        let warning = HardwareRoomPolicy.warnings(for: state)["desk"]
+        if expected == .overflow {
+            try expect(warning?.message == "RAM占有量が物理メモリの99%以上です。",
+                       "memory warning reports the new 99% threshold")
+            try expect(HardwareRoomPolicy.avatarCandidates(for: state) == [.writing],
+                       "memory at or above 99% forces writing")
+        } else {
+            try expect(warning == nil, "memory below 99% does not warn")
+            try expect(HardwareRoomPolicy.avatarCandidates(for: state) == AvatarPoseID.allCases,
+                       "memory below 99% does not force a pose")
+        }
+    }
 }
 
 private func testInvalidAndStaleRetention() throws {
@@ -204,6 +230,7 @@ private func testMappingAndSummaries() throws {
 struct HardwareRoomPolicyTests {
     static func main() throws {
         try testBoundaries()
+        try testMemoryBoundaries()
         try testInvalidAndStaleRetention()
         try testWarningsAndAvatarCandidates()
         try testMappingAndSummaries()
