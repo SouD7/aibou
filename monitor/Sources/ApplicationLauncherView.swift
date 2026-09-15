@@ -17,20 +17,36 @@ struct ApplicationLauncherView: View {
                 Button("アプリを追加", action: chooseApplication).disabled(launcher.loading)
                 Button("一覧を更新") { Task { await launcher.refresh() } }.disabled(launcher.loading)
             }
+            .monitorCircuitExclusion()
             Text("使いたいアプリをクリックして開けます。起動中のアプリは手前に表示します。")
                 .foregroundStyle(.secondary)
+                .monitorCircuitExclusion()
             HStack {
                 Image(systemName: "magnifyingglass").foregroundStyle(.secondary)
                 TextField("アプリ名で検索", text: $query).textFieldStyle(.roundedBorder)
                 Text("\(filtered.count)件").foregroundStyle(.secondary).monospacedDigit()
             }
-            if launcher.loading { HStack { ProgressView().controlSize(.small); Text("アプリを読み込んでいます…") } }
-            if !launcher.error.isEmpty { Label(launcher.error, systemImage: "exclamationmark.circle").foregroundStyle(.red).textSelection(.enabled) }
-            if !launcher.message.isEmpty { Text(launcher.message).foregroundStyle(.secondary) }
-            ForEach(launcher.notes, id: \.self) { Text($0).font(.caption).foregroundStyle(.secondary) }
+            .monitorCircuitExclusion()
+            if launcher.loading {
+                HStack { ProgressView().controlSize(.small); Text("アプリを読み込んでいます…") }
+                    .monitorCircuitExclusion()
+            }
+            if !launcher.error.isEmpty {
+                Label(launcher.error, systemImage: "exclamationmark.circle").foregroundStyle(.red).textSelection(.enabled)
+                    .monitorCircuitExclusion()
+            }
+            if !launcher.message.isEmpty {
+                Text(launcher.message).foregroundStyle(.secondary)
+                    .monitorCircuitExclusion()
+            }
+            ForEach(launcher.notes, id: \.self) {
+                Text($0).font(.caption).foregroundStyle(.secondary)
+                    .monitorCircuitExclusion()
+            }
             if filtered.isEmpty && !launcher.loading {
                 Text(query.isEmpty ? "アプリが見つかりません。「アプリを追加」から選択してください。" : "一致するアプリがありません。検索語を変えるか、アプリを追加してください。")
                     .foregroundStyle(.secondary).padding(.vertical, 30)
+                    .monitorCircuitExclusion()
             }
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 140, maximum: 190), spacing: 18)], spacing: 22) {
                 ForEach(filtered) { app in
@@ -40,6 +56,7 @@ struct ApplicationLauncherView: View {
             }
             Text("アプリケーションフォルダと標準アプリを表示します。別の場所にあるアプリは手動で追加できます。")
                 .font(.caption).foregroundStyle(.secondary)
+                .monitorCircuitExclusion()
         }.padding(22)
         .task { await launcher.loadIfNeeded() }
         .onReceive(NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didLaunchApplicationNotification)) { _ in launcher.updateRunning() }
@@ -80,7 +97,7 @@ private struct LauncherApplicationTile: View {
                 Text(launching ? "開いています…" : running ? "● 起動中" : "開く")
                     .font(.caption).foregroundStyle(.secondary)
             }.padding(14).frame(maxWidth: .infinity)
-                .background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 14))
+                .monitorCard(cornerRadius: 14)
                 .contentShape(RoundedRectangle(cornerRadius: 14))
         }.buttonStyle(.plain).disabled(launching)
         .help("\(app.name)\n\(app.url.path)")

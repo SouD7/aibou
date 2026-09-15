@@ -23,17 +23,22 @@ struct DiagnosticsView: View {
             let checked = presentation.checkedCauseIDs
             VStack(alignment: .leading, spacing: 16) {
                 Label("このMacの状態チェック", systemImage: "checklist").font(.title2.bold())
+                    .monitorCircuitExclusion()
                 Text("気になる症状を選び、詳細から原因候補を確認できます。症状の選択と原因候補のチェックは別々に管理します。")
+                    .monitorCircuitExclusion()
                 HStack(spacing: 18) {
                     Text("選択した症状 \(store.diagnosticSymptoms.count)")
                     Text("チェック中の原因候補 \(checked.count)")
                     Text("自動条件に該当 \(results.filter { $0.value.state == .matched }.count)")
                 }.font(.callout.monospacedDigit())
+                    .monitorCircuitExclusion()
                 Text("原因候補のチェックは故障や原因の確定ではありません。自動判定を手動で変更すると、その選択を保持します。「自動に戻す」で観測に追従します。チェックは起動中のみ保持します。")
                     .font(.caption).foregroundStyle(.secondary)
+                    .monitorCircuitExclusion()
                 if !store.isRunning {
                     Label("監視停止中 — 自動判定は情報不足です。手動の選択は保持しています。", systemImage: "pause.circle")
                         .foregroundStyle(.orange)
+                        .monitorCircuitExclusion()
                 }
                 HStack {
                     TextField("症状・原因・対処法を検索", text: $search).textFieldStyle(.roundedBorder)
@@ -42,9 +47,11 @@ struct DiagnosticsView: View {
                         ForEach(Array(Set(DiagnosticCatalog.symptoms.map(\.category))).sorted(), id: \.self) { Text($0).tag($0) }
                     }.frame(width: 240)
                 }
+                .monitorCircuitExclusion()
                 Picker("表示する項目", selection: $filter) {
                     ForEach(DiagnosticFilter.allCases) { Text($0.rawValue).tag($0) }
                 }.pickerStyle(.segmented)
+                    .monitorCircuitExclusion()
                 HStack {
                     Text(filter.showsCauses ? "原因候補 \(causes.count)件" : "症状 \(symptoms.count)件")
                         .font(.caption).foregroundStyle(.secondary)
@@ -56,10 +63,13 @@ struct DiagnosticsView: View {
                     }.disabled(store.diagnosticSymptoms.isEmpty && store.diagnosticChecks.isEmpty && store.diagnosticCauseSelection.isEmpty)
                         .help("症状と手動チェックを解除し、自動対応の原因候補は観測結果に戻します。")
                 }
+                .monitorCircuitExclusion()
                 Text(filterExplanation).font(.caption).foregroundStyle(.secondary)
+                    .monitorCircuitExclusion()
                 if symptoms.isEmpty && causes.isEmpty {
                     Text("該当する項目はありません。検索や分類を変更するか、「すべて」から症状を選んでください。項目がないことは正常の証明ではありません。")
                         .padding().frame(maxWidth: .infinity, alignment: .leading)
+                        .monitorCircuitExclusion()
                 }
                 LazyVStack(alignment: .leading, spacing: 12) {
                     if filter.showsCauses {
@@ -102,7 +112,7 @@ struct DiagnosticsView: View {
                     .font(.caption).foregroundStyle(.secondary)
                 Button("詳細") { inspected = symptom }.accessibilityLabel("\(symptom.title)の原因候補を開く")
             }
-        }.padding(16).background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 10))
+        }.padding(16).monitorCard(cornerRadius: 10)
     }
 }
 
@@ -118,10 +128,13 @@ struct DiagnosticSymptomDetail: View {
                 Spacer()
                 Button("閉じる") { dismiss() }.keyboardShortcut(.cancelAction)
             }
+            .monitorCircuitExclusion()
             Toggle("この症状がある", isOn: diagnosticMembership(symptom.id, in: $store.diagnosticSymptoms))
                 .toggleStyle(.checkbox)
+                .monitorCircuitExclusion()
             Text("原因候補のチェックと症状の選択は独立しています。同じ原因候補のチェックは、ほかの症状や原因一覧にも反映されます。")
                 .font(.caption).foregroundStyle(.secondary)
+                .monitorCircuitExclusion()
             ScrollView {
                 TimelineView(.periodic(from: .now, by: 2)) { timeline in
                     let results = Dictionary(uniqueKeysWithValues: store.diagnosticResults(now: timeline.date).map { ($0.id, $0) })
@@ -132,7 +145,7 @@ struct DiagnosticSymptomDetail: View {
                     }
                 }
             }
-        }.padding(22).frame(width: 840, height: 700)
+        }.padding(22).frame(width: 840, height: 700).monitorSurface()
     }
 }
 
@@ -206,7 +219,7 @@ private struct DiagnosticCauseCard: View {
                 }.padding(.top, 10).frame(maxWidth: .infinity, alignment: .leading)
             }
         }.padding(16).frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 10))
+            .monitorCard(cornerRadius: 10)
     }
 }
 

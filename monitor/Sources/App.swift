@@ -138,7 +138,7 @@ struct MonitorWindow: View {
                         }
                     }
                 }
-            }.padding(24).frame(width: 720, height: 570)
+            }.monitorCircuitExclusion().padding(24).frame(width: 720, height: 570).monitorSurface()
         }
         .sheet(isPresented: $showingRelated) {
             VStack(alignment: .leading, spacing: 16) {
@@ -172,7 +172,7 @@ struct MonitorWindow: View {
                         }
                     }
                 }
-            }.padding(24).frame(width: 860, height: 600)
+            }.monitorCircuitExclusion().padding(24).frame(width: 860, height: 600).monitorSurface()
         }
     }
 
@@ -207,7 +207,7 @@ struct MonitorWindow: View {
 
     private var detailContent: some View {
         VStack(spacing: 0) {
-                controlBar
+                controlBar.monitorCircuitExclusion()
                 Divider()
                 ScrollView {
                     if showingApplications {
@@ -225,11 +225,11 @@ struct MonitorWindow: View {
                                 Text("\(date.formatted(date: .omitted, time: .standard)) 計測")
                                     .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                             }
-                        }
+                        }.monitorCircuitExclusion()
                         if !store.isRunning {
                             Label("基本監視停止中 — 最後の値を表示。開始済みの追加電力計測は完了する場合があります", systemImage: "pause.circle.fill")
                                 .foregroundStyle(.orange).padding(10)
-                                .frame(maxWidth: .infinity, alignment: .leading).background(.orange.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
+                                .frame(maxWidth: .infinity, alignment: .leading).background(.orange.opacity(0.08), in: RoundedRectangle(cornerRadius: 8)).monitorCircuitExclusion()
                         }
                         if selectedTab == .storage { storageBrowser }
                         metricCards(panel.metrics)
@@ -246,15 +246,15 @@ struct MonitorWindow: View {
                                     Text("名前順").tag("name")
                                     ForEach(panel.columns) { Text($0.title).tag($0.id) }
                                 }.frame(width: 200)
-                            }
+                            }.monitorCircuitExclusion()
                             ReadingGrid(columns: panel.columns, rows: filteredRows(panel.rows), onSelect: { inspected = $0 },
                                         onRelated: showRelated)
                         } else if [.devices, .display].contains(selectedTab) {
                             Text("今回の列挙では表示できる対象がありません。権限制限や接続状態も確認してください。")
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(.secondary).monitorCircuitExclusion()
                         }
-                        if selectedTab == .network { networkSection }
-                        if [.gpu, .clock, .thermal].contains(selectedTab) { powerSection }
+                        if selectedTab == .network { networkSection.monitorCircuitExclusion() }
+                        if [.gpu, .clock, .thermal].contains(selectedTab) { powerSection.monitorCircuitExclusion() }
                         if selectedTab == .devices, !store.deviceEvents.isEmpty {
                             GroupBox("起動中の接続・切断履歴") {
                                 VStack(alignment: .leading) {
@@ -271,7 +271,7 @@ struct MonitorWindow: View {
                         .lineLimit(2).textSelection(.enabled)
                     Spacer()
                     Text(String(format: "収集 %.0f ms", store.samplingMilliseconds)).monospacedDigit()
-                }.font(.caption).foregroundStyle(.secondary).padding(10)
+                }.font(.caption).foregroundStyle(.secondary).padding(10).monitorCircuitExclusion()
             }
             .task(id: selectedTab) { search = ""; sortKey = ""; chartMetric = "" }
         }
@@ -304,14 +304,13 @@ struct MonitorWindow: View {
                     Text(metric.formatted).font(.system(size: 20, weight: .semibold, design: .monospaced)).lineLimit(2)
                     if metric.value == nil && metric.text == nil { Text(metric.detail).font(.caption2).foregroundStyle(.secondary).lineLimit(3) }
                 }.padding(12).frame(maxWidth: .infinity, minHeight: 70, alignment: .topLeading)
-                    .background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 8))
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.primary.opacity(0.06)))
+                    .monitorCard(cornerRadius: 8, nativeBorder: true)
                     .help("\(metric.source)\n\(metric.detail)\n計測: \(metric.recordedAt.formatted())\n\(metric.interval.map { "計測区間: \($0)秒" } ?? "")")
             }
         }
     }
     private func notes(_ strings: [String]) -> some View {
-        VStack(alignment: .leading, spacing: 4) { ForEach(strings, id: \.self) { Text($0).font(.caption).foregroundStyle(.secondary).textSelection(.enabled) } }
+        VStack(alignment: .leading, spacing: 4) { ForEach(strings, id: \.self) { Text($0).font(.caption).foregroundStyle(.secondary).textSelection(.enabled) } }.monitorCircuitExclusion()
     }
 
     @ViewBuilder private var historyChart: some View {
@@ -438,7 +437,7 @@ struct MonitorWindow: View {
                     }
                 }
             } else { Text("まだ走査していません。監視の軽さを保つため、ファイル調査は上のボタンで開始します。").foregroundStyle(.secondary) }
-        }.padding(14).background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 10))
+        }.padding(14).monitorCard(cornerRadius: 10)
     }
 
     private var networkSection: some View {
@@ -545,7 +544,7 @@ struct ReadingGrid: View {
                         }
                     }.frame(height: 360)
                 }.frame(minWidth: 700)
-            }
+            }.monitorCircuitExclusion()
         }
     }
 }

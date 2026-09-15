@@ -93,7 +93,7 @@ struct ApplicationDetailView: View {
                     }.frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-        }.padding(22).frame(width: 880, height: 740)
+        }.monitorCircuitExclusion().padding(22).frame(width: 880, height: 740).monitorSurface()
         .onAppear { if automaticallyCollect { detail.scan(app: app) } }
         .task {
             guard automaticallyCollect else { return }
@@ -116,7 +116,7 @@ struct ApplicationDetailView: View {
                     Text(metric.formatted).font(.title3.monospacedDigit().bold())
                     Text("\(metric.status.title) • \(metric.recordedAt.formatted(date: .omitted, time: .standard))").font(.caption2).foregroundStyle(.secondary)
                 }.padding(12).frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 8))
+                    .monitorCard(cornerRadius: 8)
                     .help(metric.detail)
             }
         }
