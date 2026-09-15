@@ -262,6 +262,7 @@ final class AvatarScene: SKScene {
     private let warningBadges: RoomWarningBadges
     private(set) var componentWarnings: [String: ComponentWarning] = [:]
     var onWarningsChange: (([String: ComponentWarning]) -> Void)?
+    var onWarningSelection: ((String) -> Void)?
     private(set) var hoveredComponent: RoomComponent?
     private(set) var selectedComponent: RoomComponent?
     var onComponentSelection: ((RoomComponent?) -> Void)?
@@ -358,6 +359,10 @@ final class AvatarScene: SKScene {
 
     func selectRoom(at point: CGPoint) {
         guard !focused else { return }
+        if let id = warningBadges.componentID(at: point), let onWarningSelection {
+            onWarningSelection(id)
+            return
+        }
         let component = roomComponent(at: point)
         selectRoomComponent(component?.id)
     }

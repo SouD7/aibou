@@ -1,0 +1,14 @@
+PASS manifest
+PASS motion
+PASS audio envelope
+PASS room timing
+PASS room validation
+PASS chroma key
+PASS feathered eye crop
+PASS avatar states
+PASS real assets
+PASS room components
+PASS room warnings
+PASS electric transitions
+PASS room visual states
+All 13 tests passed

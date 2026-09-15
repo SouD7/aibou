@@ -24,6 +24,7 @@ final class MonitorDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ notification: Notification) { consultation?.disconnect(); store?.shutdown() }
 }
 
+#if !AIBOU_INTEGRATED
 @main
 struct AIBOUMonitorApp: App {
     @NSApplicationDelegateAdaptor(MonitorDelegate.self) private var delegate
@@ -39,118 +40,86 @@ struct AIBOUMonitorApp: App {
         .commands { CommandGroup(replacing: .newItem) {} }
     }
 }
+#endif
+
+enum MonitorPresentation {
+    case full
+    case hardware(MonitorTab)
+    case diagnostics
+    case applications
+
+    fileprivate var showsSidebar: Bool {
+        if case .full = self { return true }
+        return false
+    }
+}
 
 struct MonitorWindow: View {
     @ObservedObject var store: MonitorStore
     @ObservedObject var consultation: ConsultationModel
+    let presentation: MonitorPresentation
     @StateObject private var launcher = ApplicationLauncher()
     @State private var search = ""
     @State private var sortKey = ""
     @State private var inspected: ReadingRow?
     @State private var showingRelated = false
     @State private var chartMetric = ""
-    @State private var showingDiagnostics = ProcessInfo.processInfo.arguments.contains("--diagnostics")
-    @State private var showingConsultation = ProcessInfo.processInfo.arguments.contains("--consultation")
-    @State private var showingApplications = ProcessInfo.processInfo.arguments.contains("--applications")
+    @State private var showingDiagnostics: Bool
+    @State private var showingConsultation: Bool
+    @State private var showingApplications: Bool
+
+    init(store: MonitorStore, consultation: ConsultationModel, presentation: MonitorPresentation = .full) {
+        self.store = store
+        self.consultation = consultation
+        self.presentation = presentation
+
+        let arguments = ProcessInfo.processInfo.arguments
+        switch presentation {
+        case .full:
+            _showingDiagnostics = State(initialValue: arguments.contains("--diagnostics"))
+            _showingConsultation = State(initialValue: arguments.contains("--consultation"))
+            _showingApplications = State(initialValue: arguments.contains("--applications"))
+        case .hardware:
+            _showingDiagnostics = State(initialValue: false)
+            _showingConsultation = State(initialValue: false)
+            _showingApplications = State(initialValue: false)
+        case .diagnostics:
+            _showingDiagnostics = State(initialValue: true)
+            _showingConsultation = State(initialValue: false)
+            _showingApplications = State(initialValue: false)
+        case .applications:
+            _showingDiagnostics = State(initialValue: false)
+            _showingConsultation = State(initialValue: false)
+            _showingApplications = State(initialValue: true)
+        }
+    }
+
+    private var selectedTab: MonitorTab {
+        if case .hardware(let tab) = presentation { return tab }
+        return store.selectedTab
+    }
 
     private var panel: PanelReading {
-        store.panels[store.selectedTab] ?? PanelReading(tab: store.selectedTab,
+        store.panels[selectedTab] ?? PanelReading(tab: selectedTab,
             metrics: [Metric("awaiting", "基本計測", status: .waiting, source: "AIBOU",
-                             detail: store.selectedTab == .gpu ? "GPUの条件付き指標は下の追加計測で確認します。" : "初回の計測を待っています。")])
+                             detail: selectedTab == .gpu ? "GPUの条件付き指標は下の追加計測で確認します。" : "初回の計測を待っています。")])
     }
     var body: some View {
-        NavigationSplitView {
-            List(selection: Binding<MonitorTab?>(get: { showingDiagnostics || showingConsultation || showingApplications ? nil : store.selectedTab }, set: { if let tab = $0 { store.selectedTab = tab; showingDiagnostics = false; showingConsultation = false; showingApplications = false } })) {
-                Button { showingApplications = true; showingConsultation = false; showingDiagnostics = false } label: {
-                    Label("アプリ", systemImage: "square.grid.2x2").fontWeight(showingApplications ? .bold : .regular)
-                }.buttonStyle(.plain).padding(.vertical, 8)
-                Button { showingConsultation = true; showingDiagnostics = false; showingApplications = false } label: {
-                    Label("相談", systemImage: "bubble.left.and.bubble.right").fontWeight(showingConsultation ? .bold : .regular)
-                }.buttonStyle(.plain).padding(.vertical, 8)
-                Button { showingDiagnostics = true; showingConsultation = false; showingApplications = false } label: {
-                    Label("状態チェック", systemImage: "checklist").fontWeight(showingDiagnostics ? .bold : .regular)
-                }.buttonStyle(.plain).padding(.vertical, 8)
-                ForEach(MonitorTab.allCases) { tab in
-                    Label(tab.title, systemImage: tab.symbol).tag(tab).padding(.vertical, 5)
+        Group {
+            if presentation.showsSidebar {
+                NavigationSplitView {
+                    sidebar
+                } detail: {
+                    detailContent
                 }
+            } else {
+                detailContent
             }
-            .navigationSplitViewColumnWidth(min: 165, ideal: 185, max: 235)
-            .safeAreaInset(edge: .bottom) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("AIBOU Monitor").font(.headline)
-                    Text("このMacの観測データ").font(.caption).foregroundStyle(.secondary)
-                    Text("画面を閉じると監視を終了").font(.caption2).foregroundStyle(.secondary)
-                }.frame(maxWidth: .infinity, alignment: .leading).padding()
+        }
+        .onAppear {
+            if case .hardware(let tab) = presentation, store.selectedTab != tab {
+                store.selectedTab = tab
             }
-        } detail: {
-            VStack(spacing: 0) {
-                controlBar
-                Divider()
-                ScrollView {
-                    if showingApplications {
-                        ApplicationLauncherView(launcher: launcher, store: store)
-                    } else if showingConsultation {
-                        ConsultationView(model: consultation, store: store)
-                    } else if showingDiagnostics {
-                        DiagnosticsView(store: store)
-                    } else {
-                    VStack(alignment: .leading, spacing: 18) {
-                        HStack(alignment: .firstTextBaseline) {
-                            Label(store.selectedTab.title, systemImage: store.selectedTab.symbol).font(.title2.bold())
-                            Spacer()
-                            if let date = store.lastSample {
-                                Text("\(date.formatted(date: .omitted, time: .standard)) 計測")
-                                    .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
-                            }
-                        }
-                        if !store.isRunning {
-                            Label("基本監視停止中 — 最後の値を表示。開始済みの追加電力計測は完了する場合があります", systemImage: "pause.circle.fill")
-                                .foregroundStyle(.orange).padding(10)
-                                .frame(maxWidth: .infinity, alignment: .leading).background(.orange.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
-                        }
-                        if store.selectedTab == .storage { storageBrowser }
-                        metricCards(panel.metrics)
-                        if !panel.notes.isEmpty { notes(panel.notes) }
-                        historyChart
-                        if !panel.rows.isEmpty {
-                            HStack {
-                                Text(store.selectedTab == .storage ? "プロセス別ディスクI/O" : "詳細一覧").font(.headline)
-                                Text("\(panel.rows.count) 件").foregroundStyle(.secondary)
-                                Spacer()
-                                TextField("名前・PID・値で検索", text: $search).textFieldStyle(.roundedBorder).frame(width: 230)
-                                Picker("並べ替え", selection: $sortKey) {
-                                    Text("既定順").tag("")
-                                    Text("名前順").tag("name")
-                                    ForEach(panel.columns) { Text($0.title).tag($0.id) }
-                                }.frame(width: 200)
-                            }
-                            ReadingGrid(columns: panel.columns, rows: filteredRows(panel.rows), onSelect: { inspected = $0 },
-                                        onRelated: showRelated)
-                        } else if [.devices, .display].contains(store.selectedTab) {
-                            Text("今回の列挙では表示できる対象がありません。権限制限や接続状態も確認してください。")
-                                .foregroundStyle(.secondary)
-                        }
-                        if store.selectedTab == .network { networkSection }
-                        if [.gpu, .clock, .thermal].contains(store.selectedTab) { powerSection }
-                        if store.selectedTab == .devices, !store.deviceEvents.isEmpty {
-                            GroupBox("起動中の接続・切断履歴") {
-                                VStack(alignment: .leading) {
-                                    ForEach(Array(store.deviceEvents.enumerated()), id: \.offset) { Text($0.element).font(.caption) }
-                                }.frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                        }
-                    }.padding(22)
-                    }
-                }
-                Divider()
-                HStack {
-                    Text(store.message.isEmpty ? "実測・算出・推定・取得不可を区別。項目にポインタを置くと取得元と定義を確認できます。" : store.message)
-                        .lineLimit(2).textSelection(.enabled)
-                    Spacer()
-                    Text(String(format: "収集 %.0f ms", store.samplingMilliseconds)).monospacedDigit()
-                }.font(.caption).foregroundStyle(.secondary).padding(10)
-            }
-            .task(id: store.selectedTab) { search = ""; sortKey = ""; chartMetric = "" }
         }
         .sheet(item: $inspected) { row in
             VStack(alignment: .leading, spacing: 15) {
@@ -186,13 +155,15 @@ struct MonitorWindow: View {
                                     Text(folder.confirmed ? "確認済み" : "関連候補").font(.caption).foregroundStyle(.secondary)
                                     Spacer()
                                     Button("Finder") { reveal(folder.path) }
-                                    Button("この範囲を調査") {
-                                        showingRelated = false; store.selectedTab = .storage
-                                        var isDirectory: ObjCBool = false
-                                        _ = FileManager.default.fileExists(atPath: folder.path, isDirectory: &isDirectory)
-                                        let url = URL(fileURLWithPath: folder.path)
-                                        store.startScan(root: isDirectory.boolValue ? url : url.deletingLastPathComponent())
-                                    }.disabled(store.scan.status == .scanning || store.scan.status == .paused)
+                                    if presentation.showsSidebar {
+                                        Button("この範囲を調査") {
+                                            showingRelated = false; store.selectedTab = .storage
+                                            var isDirectory: ObjCBool = false
+                                            _ = FileManager.default.fileExists(atPath: folder.path, isDirectory: &isDirectory)
+                                            let url = URL(fileURLWithPath: folder.path)
+                                            store.startScan(root: isDirectory.boolValue ? url : url.deletingLastPathComponent())
+                                        }.disabled(store.scan.status == .scanning || store.scan.status == .paused)
+                                    }
                                 }
                                 Text(folder.path).font(.caption.monospaced()).textSelection(.enabled)
                                 Text(folder.evidence).font(.caption).foregroundStyle(.secondary)
@@ -204,6 +175,106 @@ struct MonitorWindow: View {
             }.padding(24).frame(width: 860, height: 600)
         }
     }
+
+    private var sidebar: some View {
+        List(selection: Binding<MonitorTab?>(get: { showingDiagnostics || showingConsultation || showingApplications ? nil : store.selectedTab }, set: { if let tab = $0 { store.selectedTab = tab; showingDiagnostics = false; showingConsultation = false; showingApplications = false } })) {
+            Button { showingApplications = true; showingConsultation = false; showingDiagnostics = false } label: {
+                Label("アプリ", systemImage: "square.grid.2x2").fontWeight(showingApplications ? .bold : .regular)
+            }.buttonStyle(.plain).padding(.vertical, 8)
+            Button { showingConsultation = true; showingDiagnostics = false; showingApplications = false } label: {
+                Label("相談", systemImage: "bubble.left.and.bubble.right").fontWeight(showingConsultation ? .bold : .regular)
+            }.buttonStyle(.plain).padding(.vertical, 8)
+            Button { showingDiagnostics = true; showingConsultation = false; showingApplications = false } label: {
+                Label("状態チェック", systemImage: "checklist").fontWeight(showingDiagnostics ? .bold : .regular)
+            }.buttonStyle(.plain).padding(.vertical, 8)
+            ForEach(MonitorTab.allCases) { tab in
+                Label(tab.title, systemImage: tab.symbol).tag(tab).padding(.vertical, 5)
+            }
+        }
+        .navigationSplitViewColumnWidth(min: 165, ideal: 185, max: 235)
+        .safeAreaInset(edge: .bottom) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("AIBOU Monitor").font(.headline)
+                Text("このMacの観測データ").font(.caption).foregroundStyle(.secondary)
+                    #if AIBOU_INTEGRATED
+                    Text("部屋に戻っても監視を継続").font(.caption2).foregroundStyle(.secondary)
+                    #else
+                    Text("画面を閉じると監視を終了").font(.caption2).foregroundStyle(.secondary)
+                    #endif
+            }.frame(maxWidth: .infinity, alignment: .leading).padding()
+        }
+    }
+
+    private var detailContent: some View {
+        VStack(spacing: 0) {
+                controlBar
+                Divider()
+                ScrollView {
+                    if showingApplications {
+                        ApplicationLauncherView(launcher: launcher, store: store)
+                    } else if showingConsultation {
+                        ConsultationView(model: consultation, store: store)
+                    } else if showingDiagnostics {
+                        DiagnosticsView(store: store)
+                    } else {
+                    VStack(alignment: .leading, spacing: 18) {
+                        HStack(alignment: .firstTextBaseline) {
+                            Label(selectedTab.title, systemImage: selectedTab.symbol).font(.title2.bold())
+                            Spacer()
+                            if let date = store.lastSample {
+                                Text("\(date.formatted(date: .omitted, time: .standard)) 計測")
+                                    .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                            }
+                        }
+                        if !store.isRunning {
+                            Label("基本監視停止中 — 最後の値を表示。開始済みの追加電力計測は完了する場合があります", systemImage: "pause.circle.fill")
+                                .foregroundStyle(.orange).padding(10)
+                                .frame(maxWidth: .infinity, alignment: .leading).background(.orange.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
+                        }
+                        if selectedTab == .storage { storageBrowser }
+                        metricCards(panel.metrics)
+                        if !panel.notes.isEmpty { notes(panel.notes) }
+                        historyChart
+                        if !panel.rows.isEmpty {
+                            HStack {
+                                Text(selectedTab == .storage ? "プロセス別ディスクI/O" : "詳細一覧").font(.headline)
+                                Text("\(panel.rows.count) 件").foregroundStyle(.secondary)
+                                Spacer()
+                                TextField("名前・PID・値で検索", text: $search).textFieldStyle(.roundedBorder).frame(width: 230)
+                                Picker("並べ替え", selection: $sortKey) {
+                                    Text("既定順").tag("")
+                                    Text("名前順").tag("name")
+                                    ForEach(panel.columns) { Text($0.title).tag($0.id) }
+                                }.frame(width: 200)
+                            }
+                            ReadingGrid(columns: panel.columns, rows: filteredRows(panel.rows), onSelect: { inspected = $0 },
+                                        onRelated: showRelated)
+                        } else if [.devices, .display].contains(selectedTab) {
+                            Text("今回の列挙では表示できる対象がありません。権限制限や接続状態も確認してください。")
+                                .foregroundStyle(.secondary)
+                        }
+                        if selectedTab == .network { networkSection }
+                        if [.gpu, .clock, .thermal].contains(selectedTab) { powerSection }
+                        if selectedTab == .devices, !store.deviceEvents.isEmpty {
+                            GroupBox("起動中の接続・切断履歴") {
+                                VStack(alignment: .leading) {
+                                    ForEach(Array(store.deviceEvents.enumerated()), id: \.offset) { Text($0.element).font(.caption) }
+                                }.frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        }
+                    }.padding(22)
+                    }
+                }
+                Divider()
+                HStack {
+                    Text(store.message.isEmpty ? "実測・算出・推定・取得不可を区別。項目にポインタを置くと取得元と定義を確認できます。" : store.message)
+                        .lineLimit(2).textSelection(.enabled)
+                    Spacer()
+                    Text(String(format: "収集 %.0f ms", store.samplingMilliseconds)).monospacedDigit()
+                }.font(.caption).foregroundStyle(.secondary).padding(10)
+            }
+            .task(id: selectedTab) { search = ""; sortKey = ""; chartMetric = "" }
+        }
 
     private var controlBar: some View {
         HStack(spacing: 14) {
@@ -395,7 +466,7 @@ struct MonitorWindow: View {
             }
             Text("macOS標準のpowermetricsを1回実行します。OSの認証画面が開きます。常駐サービスは導入しません。").font(.caption).foregroundStyle(.secondary)
             Text(PowerDetailCollector.administratorStopLimitation).font(.caption).foregroundStyle(.secondary)
-            if let detail = store.powerDetails[store.selectedTab] {
+            if let detail = store.powerDetails[selectedTab] {
                 Text("\(detail.capturedAt.formatted()) の追加計測").font(.caption).foregroundStyle(.secondary)
                 metricCards(detail.metrics); notes(detail.notes)
                 ReadingGrid(columns: detail.columns, rows: detail.rows, onSelect: { inspected = $0 }, onRelated: showRelated)
