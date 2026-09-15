@@ -25,14 +25,16 @@ struct IntegratedWindow: View {
                         Text(panel.title).font(.headline)
                         Spacer()
                         Button("閉じる") { app.presentation = nil }.keyboardShortcut(.cancelAction)
-                    }.padding(16)
+                    }.padding(16).monitorCircuitExclusion()
                     Divider()
                     MonitorWindow(store: monitor, consultation: app.consultation,
                                   presentation: panel.monitorPresentation)
                 }
                 .frame(width: min(max(geometry.size.width - 80, 900), 1380),
                        height: min(max(geometry.size.height - 70, 600), 920))
-                .preferredColorScheme(.light)
+                .monitorSurface()
+                .environment(\.monitorAppearance, panel.id == "monitor" ? .system : .room)
+                .preferredColorScheme(panel.id == "monitor" ? .light : .dark)
             }
             .sheet(isPresented: $app.showingConnection) {
                 RoomConnectionView(model: app.consultation) {
@@ -164,14 +166,14 @@ struct IntegratedWindow: View {
                             .padding(12)
                     }
                     .buttonStyle(.plain)
-                    .background(Color(red: 0.14, green: 0.48, blue: 0.53), in: RoundedRectangle(cornerRadius: 10))
+                    .background(MonitorAppearance.roomAccent, in: RoundedRectangle(cornerRadius: 10))
                 }
             }.padding(22)
         }
         .frame(width: 320).fixedSize(horizontal: false, vertical: true)
         .foregroundStyle(.white)
-        .background(Color(red: 0.045, green: 0.085, blue: 0.11).opacity(0.97), in: RoundedRectangle(cornerRadius: 20))
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(.white.opacity(0.2)))
+        .background(MonitorAppearance.roomBackground.opacity(0.97), in: RoundedRectangle(cornerRadius: 20))
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(MonitorAppearance.roomBorder))
         .shadow(color: .black.opacity(0.3), radius: 18, y: 8)
     }
 }
