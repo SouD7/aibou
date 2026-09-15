@@ -1,0 +1,70 @@
+{
+  "actions" : [
+    {
+      "selectGate" : {
+        "_0" : "or"
+      }
+    },
+    {
+      "toggleLink" : {
+        "_0" : "inputA"
+      }
+    },
+    {
+      "toggleLink" : {
+        "_0" : "inputB"
+      }
+    },
+    {
+      "toggleLink" : {
+        "_0" : "output"
+      }
+    },
+    {
+      "verify" : {
+
+      }
+    },
+    {
+      "selectGate" : {
+        "_0" : "and"
+      }
+    },
+    {
+      "step" : {
+
+      }
+    },
+    {
+      "step" : {
+
+      }
+    },
+    {
+      "step" : {
+
+      }
+    },
+    {
+      "step" : {
+
+      }
+    },
+    {
+      "setInputs" : {
+        "_0" : {
+          "a" : true,
+          "b" : true
+        }
+      }
+    },
+    {
+      "predict" : {
+        "_0" : false
+      }
+    }
+  ],
+  "initialSeed" : 42,
+  "modelVersion" : "circuit-2",
+  "schemaVersion" : 1
+}

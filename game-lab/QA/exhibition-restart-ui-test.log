@@ -1,0 +1,167 @@
+Running UI tests on the desktop. Result bundle: /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195904-22089.xcresult
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/fujishima/aibou/game-lab/AIBOUGameLabUITests.xcodeproj -scheme AIBOUGameLabUITests -destination platform=macOS,arch=arm64 -derivedDataPath /Users/fujishima/aibou/game-lab/.build/ui-tests -parallel-testing-enabled NO -resultBundlePath /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195904-22089.xcresult test-without-building "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testRestartFromEntryLeavesFreeExperimentAndStartsFreshGuidedWorkshop"
+
+Writing result bundle at path:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195904-22089.xcresult
+
+2026-09-14 19:59:05.628140+0900 AIBOUGameLabUITests-Runner[22129:33331457] [Default] Running tests...
+Test Suite 'Selected tests' started at 2026-09-14 19:59:05.660.
+Test Suite 'AIBOUGameLabUITests.xctest' started at 2026-09-14 19:59:05.660.
+Test Suite 'ExhibitionUITests' started at 2026-09-14 19:59:05.660.
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testRestartFromEntryLeavesFreeExperimentAndStartsFreshGuidedWorkshop]' started.
+    t =     0.00s Start Test at 2026-09-14 19:59:05.661
+    t =     0.12s Set Up
+    t =     0.12s     Open local.aibou.gamelab
+    t =     0.12s         Launch local.aibou.gamelab
+    t =     0.25s             Wait for accessibility to load
+    t =     0.63s             Setting up automation session
+    t =     0.63s             Wait for local.aibou.gamelab to idle
+    t =     0.63s     Open local.aibou.gamelab
+    t =     0.63s         Activate local.aibou.gamelab
+    t =     0.64s             Wait for local.aibou.gamelab to idle
+    t =     0.66s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     0.66s     Checking existence of `Window (First Match)`
+    t =     0.68s     Waiting 15.0s for Window (First Match) to exist
+    t =     1.72s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     1.72s             Checking existence of `Window (First Match)`
+    t =     1.73s Checking existence of `"ex.area.a" Any`
+    t =     1.74s Find the "ex.area.a" Any
+    t =     1.80s Click "ex.area.a" Button
+    t =     1.80s     Wait for local.aibou.gamelab to idle
+    t =     1.80s     Find the "ex.area.a" Button
+    t =     1.80s     Check for interrupting elements affecting "ex.area.a" Button
+    t =     1.83s     Synthesize event
+    t =     2.22s     Wait for local.aibou.gamelab to idle
+    t =     2.22s Checking existence of `"ex.game.circuit-atelier" Any`
+    t =     2.23s Find the "ex.game.circuit-atelier" Any
+    t =     2.25s Click "ex.game.circuit-atelier" Button
+    t =     2.25s     Wait for local.aibou.gamelab to idle
+    t =     2.25s     Find the "ex.game.circuit-atelier" Button
+    t =     2.26s     Check for interrupting elements affecting "ex.game.circuit-atelier" Button
+    t =     2.28s     Synthesize event
+    t =     2.70s     Wait for local.aibou.gamelab to idle
+    t =     2.70s Checking existence of `"ex.entry.start" Any`
+    t =     2.72s Find the "ex.entry.start" Any
+    t =     2.76s Click "ex.entry.start" Button
+    t =     2.76s     Wait for local.aibou.gamelab to idle
+    t =     2.78s     Find the "ex.entry.start" Button
+    t =     2.78s     Check for interrupting elements affecting "ex.entry.start" Button
+    t =     2.81s     Synthesize event
+    t =     3.35s     Wait for local.aibou.gamelab to idle
+    t =     3.35s Checking existence of `"workshop.begin" Any`
+    t =     3.48s Checking existence of `"workshop.resume" Any`
+    t =     3.52s Checking existence of `"w.input.a" Any`
+    t =     3.52s Find the "w.input.a" Any
+    t =     3.55s Checking existence of `"w.input.a" Button`
+    t =     3.56s Checking existence of `"w.gate.and" Any`
+    t =     3.59s Find the "w.gate.and" Any
+    t =     3.61s Click "w.gate.and" Button
+    t =     3.61s     Wait for local.aibou.gamelab to idle
+    t =     3.61s     Find the "w.gate.and" Button
+    t =     3.63s     Check for interrupting elements affecting "w.gate.and" Button
+    t =     3.63s     Synthesize event
+    t =     3.97s     Wait for local.aibou.gamelab to idle
+    t =     3.97s Checking existence of `"w.link.a" Any`
+    t =     3.98s Find the "w.link.a" Any
+    t =     4.01s Click "w.link.a" Button
+    t =     4.01s     Wait for local.aibou.gamelab to idle
+    t =     4.01s     Find the "w.link.a" Button
+    t =     4.02s     Check for interrupting elements affecting "w.link.a" Button
+    t =     4.03s     Synthesize event
+    t =     4.39s     Wait for local.aibou.gamelab to idle
+    t =     4.39s Checking existence of `"w.sandbox" Any`
+    t =     4.41s Find the "w.sandbox" Any
+    t =     4.45s Click "w.sandbox" Button
+    t =     4.45s     Wait for local.aibou.gamelab to idle
+    t =     4.46s     Find the "w.sandbox" Button
+    t =     4.48s     Check for interrupting elements affecting "w.sandbox" Button
+    t =     4.50s     Synthesize event
+    t =     4.93s     Wait for local.aibou.gamelab to idle
+    t =     4.94s Checking existence of `"stage.1" Any`
+    t =     4.96s Find the "stage.1" Any
+    t =     4.99s Click "stage.1" Button
+    t =     4.99s     Wait for local.aibou.gamelab to idle
+    t =     4.99s     Find the "stage.1" Button
+    t =     5.01s     Check for interrupting elements affecting "stage.1" Button
+    t =     5.02s     Synthesize event
+    t =     5.39s     Wait for local.aibou.gamelab to idle
+    t =     5.39s Checking existence of `"gate.or" Any`
+    t =     5.41s Find the "gate.or" Any
+    t =     5.43s Click "gate.or" Button
+    t =     5.43s     Wait for local.aibou.gamelab to idle
+    t =     5.43s     Find the "gate.or" Button
+    t =     5.45s     Check for interrupting elements affecting "gate.or" Button
+    t =     5.47s     Synthesize event
+    t =     5.82s     Wait for local.aibou.gamelab to idle
+    t =     5.82s Checking existence of `"ex.back" Any`
+    t =     5.83s Find the "ex.back" Any
+    t =     5.85s Click "ex.back" Button
+    t =     5.85s     Wait for local.aibou.gamelab to idle
+    t =     5.85s     Find the "ex.back" Button
+    t =     5.86s     Check for interrupting elements affecting "ex.back" Button
+    t =     5.88s     Synthesize event
+    t =     6.22s     Wait for local.aibou.gamelab to idle
+    t =     6.23s Checking existence of `"ex.game.circuit-atelier" Any`
+    t =     6.23s Find the "ex.game.circuit-atelier" Any
+    t =     6.25s Click "ex.game.circuit-atelier" Button
+    t =     6.25s     Wait for local.aibou.gamelab to idle
+    t =     6.26s     Find the "ex.game.circuit-atelier" Button
+    t =     6.27s     Check for interrupting elements affecting "ex.game.circuit-atelier" Button
+    t =     6.36s     Synthesize event
+    t =     6.74s     Wait for local.aibou.gamelab to idle
+    t =     6.74s Checking existence of `"ex.entry.restart" Any`
+    t =     6.76s Find the "ex.entry.restart" Any
+    t =     6.79s Click "ex.entry.restart" Button
+    t =     6.79s     Wait for local.aibou.gamelab to idle
+    t =     6.80s     Find the "ex.entry.restart" Button
+    t =     6.81s     Check for interrupting elements affecting "ex.entry.restart" Button
+    t =     6.84s     Synthesize event
+    t =     7.21s     Wait for local.aibou.gamelab to idle
+    t =     7.49s Waiting 5.0s for "最初から作る" Button to exist
+    t =     8.53s     Checking `Expect predicate `existsNoRetry == 1` for object "最初から作る" Button`
+    t =     8.53s         Checking existence of `"最初から作る" Button`
+    t =     8.54s Click "最初から作る" Button
+    t =     8.54s     Wait for local.aibou.gamelab to idle
+    t =     8.54s     Find the "最初から作る" Button
+    t =     8.55s     Check for interrupting elements affecting "action-button-1" Button
+    t =     8.58s     Synthesize event
+    t =     9.26s     Wait for local.aibou.gamelab to idle
+    t =     9.27s Checking existence of `"w.input.a" Any`
+    t =     9.29s Find the "w.input.a" Any
+    t =     9.34s Checking existence of `"w.input.a" Button`
+    t =     9.35s Checking existence of `"workshop.return" Any`
+    t =     9.44s Checking existence of `"w.test" Any`
+    t =     9.46s Find the "w.test" Any
+    t =     9.48s Find the "w.test" Button
+    t =     9.49s Checking existence of `"w.lamp" Any`
+    t =     9.51s Find the "w.lamp" Any
+    t =     9.53s Find the "w.lamp" Other
+    t =     9.54s Find the "w.lamp" Other
+    t =     9.91s Checking existence of `Window (First Match)`
+    t =     9.92s Find the Window (First Match)
+    t =    10.09s Added attachment named 'exhibition-restart-from-sandbox-opens-guided-workshop'
+    t =    10.09s Tear Down
+    t =    10.09s     Checking existence of `Window (First Match)`
+    t =    10.45s     Checking existence of `Window (First Match)`
+    t =    10.46s     Find the Window (First Match)
+    t =    10.66s     Added attachment named '-[ExhibitionUITests testRestartFromEntryLeavesFreeExperimentAndStartsFreshGuidedWorkshop]'
+    t =    10.66s     Terminate local.aibou.gamelab:22130
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testRestartFromEntryLeavesFreeExperimentAndStartsFreshGuidedWorkshop]' passed (11.810 seconds).
+Test Suite 'ExhibitionUITests' passed at 2026-09-14 19:59:17.471.
+	 Executed 1 test, with 0 failures (0 unexpected) in 11.810 (11.811) seconds
+Test Suite 'AIBOUGameLabUITests.xctest' passed at 2026-09-14 19:59:17.471.
+	 Executed 1 test, with 0 failures (0 unexpected) in 11.810 (11.811) seconds
+Test Suite 'Selected tests' passed at 2026-09-14 19:59:17.472.
+	 Executed 1 test, with 0 failures (0 unexpected) in 11.810 (11.812) seconds
+2026-09-14 19:59:17.757 xcodebuild[22124:33331283] [MT] IDETestOperationsObserverDebug: 12.687 elapsed -- Testing started completed.
+2026-09-14 19:59:17.757 xcodebuild[22124:33331283] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-14 19:59:17.757 xcodebuild[22124:33331283] [MT] IDETestOperationsObserverDebug: 12.687 sec, +12.687 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195904-22089.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started
+UI tests passed. Inspect screenshots and diagnostics in: /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-195904-22089.xcresult

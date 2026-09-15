@@ -1,0 +1,145 @@
+Running UI tests on the desktop. Result bundle: /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-010836-34247.xcresult
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/fujishima/aibou/game-lab/AIBOUGameLabUITests.xcodeproj -scheme AIBOUGameLabUITests -destination platform=macOS,arch=arm64 -derivedDataPath /Users/fujishima/aibou/game-lab/.build/ui-tests -parallel-testing-enabled NO -resultBundlePath /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-010836-34247.xcresult test-without-building "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testLobbyAnimationPauseAndNavigation"
+
+Writing result bundle at path:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260915-010836-34247.xcresult
+
+2026-09-15 01:08:37.812742+0900 AIBOUGameLabUITests-Runner[34289:33487311] [Default] Running tests...
+Test Suite 'Selected tests' started at 2026-09-15 01:08:37.836.
+Test Suite 'AIBOUGameLabUITests.xctest' started at 2026-09-15 01:08:37.837.
+Test Suite 'ExhibitionUITests' started at 2026-09-15 01:08:37.837.
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testLobbyAnimationPauseAndNavigation]' started.
+    t =     0.00s Start Test at 2026-09-15 01:08:37.837
+    t =     0.10s Set Up
+    t =     0.11s     Open local.aibou.gamelab
+    t =     0.11s         Launch local.aibou.gamelab
+    t =     0.60s             Wait for accessibility to load
+    t =     0.93s             Setting up automation session
+    t =     0.94s             Wait for local.aibou.gamelab to idle
+    t =     0.94s     Open local.aibou.gamelab
+    t =     0.94s         Activate local.aibou.gamelab
+    t =     0.95s             Wait for local.aibou.gamelab to idle
+    t =     0.99s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     0.99s     Checking existence of `Window (First Match)`
+    t =     1.02s     Waiting 15.0s for Window (First Match) to exist
+    t =     2.06s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     2.06s             Checking existence of `Window (First Match)`
+    t =     2.07s Checking existence of `"ex.lobby.motion" Any`
+    t =     2.08s Find the "ex.lobby.motion" Any
+    t =     2.10s Find the "ex.lobby.motion" Button
+    t =     2.10s Find the "ex.lobby.motion" Button
+    t =     2.11s Click "ex.lobby.motion" Button
+    t =     2.11s     Wait for local.aibou.gamelab to idle
+    t =     2.11s     Find the "ex.lobby.motion" Button
+    t =     2.12s     Check for interrupting elements affecting "ex.lobby.motion" Button
+    t =     2.13s     Synthesize event
+    t =     2.47s     Wait for local.aibou.gamelab to idle
+    t =     2.47s Checking existence of `"ex.lobby.motion" Any`
+    t =     2.49s Find the "ex.lobby.motion" Any
+    t =     2.50s Find the "ex.lobby.motion" Button
+    t =     2.50s Find the "ex.lobby.motion" Button
+    t =     2.91s Checking existence of `Window (First Match)`
+    t =     2.92s Find the Window (First Match)
+    t =     3.46s Checking existence of `Window (First Match)`
+    t =     3.46s Find the Window (First Match)
+    t =     3.59s Checking existence of `"ex.lobby.motion" Any`
+    t =     3.60s Find the "ex.lobby.motion" Any
+    t =     3.61s Click "ex.lobby.motion" Button
+    t =     3.61s     Wait for local.aibou.gamelab to idle
+    t =     3.61s     Find the "ex.lobby.motion" Button
+    t =     3.62s     Check for interrupting elements affecting "ex.lobby.motion" Button
+    t =     3.63s     Synthesize event
+    t =     3.97s     Wait for local.aibou.gamelab to idle
+    t =     3.97s Checking existence of `"ex.lobby.motion" Any`
+    t =     3.98s Find the "ex.lobby.motion" Any
+    t =     4.00s Find the "ex.lobby.motion" Button
+    t =     4.01s Find the "ex.lobby.motion" Button
+    t =     4.42s Checking existence of `Window (First Match)`
+    t =     4.43s Find the Window (First Match)
+    t =     5.17s Checking existence of `Window (First Match)`
+    t =     5.17s Find the Window (First Match)
+    t =     5.65s Checking existence of `Window (First Match)`
+    t =     5.65s Find the Window (First Match)
+    t =     5.78s Added attachment named 'lobby-motion-running'
+    t =     5.78s Checking existence of `"ex.area.a" Any`
+    t =     5.79s Find the "ex.area.a" Any
+    t =     5.79s Find the "ex.area.a" Button
+    t =     5.91s Checking existence of `"ex.area.b" Any`
+    t =     5.92s Find the "ex.area.b" Any
+    t =     5.93s Find the "ex.area.b" Button
+    t =     5.94s Checking existence of `"ex.area.c" Any`
+    t =     5.95s Find the "ex.area.c" Any
+    t =     5.95s Find the "ex.area.c" Button
+    t =     5.96s Checking existence of `"ex.area.d" Any`
+    t =     5.97s Find the "ex.area.d" Any
+    t =     5.98s Find the "ex.area.d" Button
+    t =     6.00s Checking existence of `"ex.area.e" Any`
+    t =     6.00s Find the "ex.area.e" Any
+    t =     6.01s Find the "ex.area.e" Button
+    t =     6.04s Checking existence of `"ex.map" Any`
+    t =     6.04s Find the "ex.map" Any
+    t =     6.05s Click "ex.map" Button
+    t =     6.05s     Wait for local.aibou.gamelab to idle
+    t =     6.06s     Find the "ex.map" Button
+    t =     6.06s     Check for interrupting elements affecting "ex.map" Button
+    t =     6.07s     Synthesize event
+    t =     6.46s     Wait for local.aibou.gamelab to idle
+    t =     6.46s Get number of matches for: Elements matching predicate 'identifier BEGINSWITH "ex.game."'
+    t =     6.53s Checking existence of `"ex.map.close" Any`
+    t =     6.54s Find the "ex.map.close" Any
+    t =     6.56s Click "ex.map.close" Button
+    t =     6.56s     Wait for local.aibou.gamelab to idle
+    t =     6.56s     Find the "ex.map.close" Button
+    t =     6.58s     Check for interrupting elements affecting "ex.map.close" Button
+    t =     6.63s     Synthesize event
+    t =     6.97s     Wait for local.aibou.gamelab to idle
+    t =     6.98s Checking existence of `"ex.lobby.motion" Any`
+    t =     6.98s Find the "ex.lobby.motion" Any
+    t =     7.01s Find the "ex.lobby.motion" Button
+    t =     7.02s Find the "ex.lobby.motion" Button
+    t =     7.03s Checking existence of `"ex.area.a" Any`
+    t =     7.03s Find the "ex.area.a" Any
+    t =     7.06s Click "ex.area.a" Button
+    t =     7.06s     Wait for local.aibou.gamelab to idle
+    t =     7.06s     Find the "ex.area.a" Button
+    t =     7.06s     Check for interrupting elements affecting "ex.area.a" Button
+    t =     7.08s     Synthesize event
+    t =     7.44s     Wait for local.aibou.gamelab to idle
+    t =     7.45s Checking existence of `"ex.lobby.motion" Any`
+    t =     7.48s Checking existence of `"ex.back" Any`
+    t =     7.49s Find the "ex.back" Any
+    t =     7.51s Click "ex.back" Button
+    t =     7.51s     Wait for local.aibou.gamelab to idle
+    t =     7.52s     Find the "ex.back" Button
+    t =     7.52s     Check for interrupting elements affecting "ex.back" Button
+    t =     7.54s     Synthesize event
+    t =     7.90s     Wait for local.aibou.gamelab to idle
+    t =     7.91s Checking existence of `"ex.lobby.motion" Any`
+    t =     7.92s Find the "ex.lobby.motion" Any
+    t =     7.94s Find the "ex.lobby.motion" Button
+    t =     7.96s Get number of matches for: Descendants matching type ScrollView
+    t =     7.99s Tear Down
+    t =     7.99s     Checking existence of `Window (First Match)`
+    t =     8.35s     Checking existence of `Window (First Match)`
+    t =     8.36s     Find the Window (First Match)
+    t =     8.49s     Added attachment named '-[ExhibitionUITests testLobbyAnimationPauseAndNavigation]'
+    t =     8.49s     Terminate local.aibou.gamelab:34290
+Test Case '-[AIBOUGameLabUITests.ExhibitionUITests testLobbyAnimationPauseAndNavigation]' passed (9.617 seconds).
+Test Suite 'ExhibitionUITests' passed at 2026-09-15 01:08:47.455.
+	 Executed 1 test, with 0 failures (0 unexpected) in 9.617 (9.618) seconds
+Test Suite 'AIBOUGameLabUITests.xctest' passed at 2026-09-15 01:08:47.455.
+	 Executed 1 test, with 0 failures (0 unexpected) in 9.617 (9.618) seconds
+Test Suite 'Selected tests' passed at 2026-09-15 01:08:47.455.
+	 Executed 1 test, with 0 failures (0 unexpected) in 9.617 (9.619) seconds
+2026-09-15 01:08:47.733 xcodebuild[34260:33487058] [MT] IDETestOperationsObserverDebug: 10.237 elapsed -- Testing started completed.
+2026-09-15 01:08:47.733 xcodebuild[34260:33487058] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-15 01:08:47.733 xcodebuild[34260:33487058] [MT] IDETestOperationsObserverDebug: 10.237 sec, +10.237 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260915-010836-34247.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started
+UI tests passed. Inspect screenshots and diagnostics in: /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-010836-34247.xcresult

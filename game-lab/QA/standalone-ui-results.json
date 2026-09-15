@@ -1,0 +1,81 @@
+{
+  "runs": [
+    {
+      "log": "standalone-ui-initial.log",
+      "results": [
+        {
+          "test": "ExhibitionUITests/testAllTwentyGamesStartAndReturnToTheirRoomWithoutLabControls",
+          "status": "passed",
+          "seconds": 45.892
+        },
+        {
+          "test": "ExhibitionUITests/testCompactWindowKeepsAllDoorsAndMapEntrancesOperable",
+          "status": "passed",
+          "seconds": 9.217
+        },
+        {
+          "test": "ExhibitionUITests/testGirlOpensLessonsAndAllTwentyExperimentsComplete",
+          "status": "failed",
+          "seconds": 8.383
+        },
+        {
+          "test": "ExhibitionUITests/testLobbyAnimationPauseAndNavigation",
+          "status": "passed",
+          "seconds": 9.459
+        },
+        {
+          "test": "ExhibitionUITests/testLobbyNarrationEndsWhenOpeningMap",
+          "status": "passed",
+          "seconds": 6.233
+        },
+        {
+          "test": "WorkshopUITests/testRelaunchResumesSavedCircuitAndInputState",
+          "status": "passed",
+          "seconds": 16.517
+        }
+      ]
+    },
+    {
+      "log": "standalone-ui-lessons.log",
+      "results": [
+        {
+          "test": "ExhibitionUITests/testGirlOpensLessonsAndAllTwentyExperimentsComplete",
+          "status": "passed",
+          "seconds": 136.203
+        }
+      ]
+    }
+  ],
+  "final_results": [
+    {
+      "test": "ExhibitionUITests/testAllTwentyGamesStartAndReturnToTheirRoomWithoutLabControls",
+      "status": "passed",
+      "seconds": 45.892
+    },
+    {
+      "test": "ExhibitionUITests/testCompactWindowKeepsAllDoorsAndMapEntrancesOperable",
+      "status": "passed",
+      "seconds": 9.217
+    },
+    {
+      "test": "ExhibitionUITests/testGirlOpensLessonsAndAllTwentyExperimentsComplete",
+      "status": "passed",
+      "seconds": 136.203
+    },
+    {
+      "test": "ExhibitionUITests/testLobbyAnimationPauseAndNavigation",
+      "status": "passed",
+      "seconds": 9.459
+    },
+    {
+      "test": "ExhibitionUITests/testLobbyNarrationEndsWhenOpeningMap",
+      "status": "passed",
+      "seconds": 6.233
+    },
+    {
+      "test": "WorkshopUITests/testRelaunchResumesSavedCircuitAndInputState",
+      "status": "passed",
+      "seconds": 16.517
+    }
+  ]
+}

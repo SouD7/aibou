@@ -1,0 +1,8 @@
+QA/results/
+QA/profiles/
+QA/captures/
+QA/Experiences/rendered/
+.swiftpm/
+.build/
+*.app/
+.DS_Store

@@ -1,0 +1,433 @@
+--- before/Sources/UI/DestinationNavigation.swift
++++ standalone/Sources/UI/DestinationNavigation.swift
+@@ -1,22 +1,14 @@
+ import SwiftUI
+ 
+-/// Shared destination controls keep the lab and exhibition headers identical.
++/// The exhibition destination control.
+ struct DestinationNavigation: View {
+-    enum Location { case lab, exhibition }
++    enum Location { case exhibition }
+     var current: Location
+-    var onLab: (() -> Void)?
+     var onExhibition: () -> Void
+-    var labIdentifier: String
+     var exhibitionIdentifier: String
+ 
+     var body: some View {
+         HStack(spacing: 22) {
+-            if let onLab {
+-                Button(action: onLab) { Label("ラボ", systemImage: "house.fill") }
+-                    .buttonStyle(DestinationTabStyle(selected: current == .lab))
+-                    .accessibilityValue(current == .lab ? "現在の場所" : "")
+-                    .accessibilityIdentifier(labIdentifier)
+-            }
+             Button(action: onExhibition) { Label("学習", systemImage: "building.2") }
+                 .buttonStyle(DestinationTabStyle(selected: current == .exhibition))
+                 .accessibilityValue(current == .exhibition ? "現在の場所" : "")
+--- before/Sources/UI/ExhibitionHomeView.swift
++++ standalone/Sources/UI/ExhibitionHomeView.swift
+@@ -4,15 +4,13 @@
+ #endif
+ 
+ /// Exhibition navigation owns no duplicate game state. Leaving a workbench
+-/// retains the same CircuitLabStore used by the monitor and the saved work.
++/// retains the same CircuitLabStore and the saved work.
+ struct ExhibitionHomeView: View {
+     @ObservedObject var gameStore: CircuitLabStore
+     @ObservedObject var exhibition: ExhibitionStore
+     @ObservedObject private var workshop: WorkshopStore
+     @StateObject private var narrator = GuideVoice()
+     @StateObject private var lessons = LessonStore()
+-    var onMonitor: (() -> Void)?
+-    var onLabTopic: ((String) -> Void)?
+     @State private var overlay: Overlay?
+     @State private var hoveredGame: String?
+     @State private var hoveredArea: ExhibitionAreaID?
+@@ -25,9 +23,9 @@
+     @Environment(\.scenePhase) private var scenePhase
+     private enum Overlay { case map, workbook, lessons }
+ 
+-    init(gameStore: CircuitLabStore, exhibition: ExhibitionStore, onLabTopic: ((String) -> Void)? = nil, onMonitor: (() -> Void)? = nil) {
++    init(gameStore: CircuitLabStore, exhibition: ExhibitionStore) {
+         self.gameStore = gameStore; self.exhibition = exhibition
+-        self.workshop = gameStore.workshop; self.onMonitor = onMonitor; self.onLabTopic = onLabTopic
++        self.workshop = gameStore.workshop
+     }
+ 
+     private var playing: Bool { if case .playing = exhibition.route { return true }; return false }
+@@ -63,8 +61,7 @@
+                 Group {
+                     if playing {
+                         if let game = currentGame, !legacyCircuit || game.id != ExhibitionCatalog.circuitGameID {
+-                            ExperienceRouterView(gameID: game.id, onExit: { navigate { exhibition.goBack() } },
+-                                onLab: onLabTopic.map { callback in { callback(game.id) } } ?? onMonitor)
++                            ExperienceRouterView(gameID: game.id, onExit: { navigate { exhibition.goBack() } })
+                         } else {
+                             CircuitLabView(store: gameStore, embeddedInExhibition: true)
+                         }
+@@ -89,10 +86,7 @@
+                                 openLegacyArtifact: { showingArtifact = true })
+                         case .lessons:
+                             LessonExperienceView(store: lessons, close: dismissOverlay,
+-                                openExhibit: { id in dismissOverlay(); navigate { exhibition.openGame(id) } },
+-                                openLab: onMonitor.map { action in
+-                                    { dismissOverlay(); narrator.stop(); workshop.disappear(); action() }
+-                                })
++                                openExhibit: { id in dismissOverlay(); navigate { exhibition.openGame(id) } })
+                         }
+                     }.transition(.opacity).zIndex(2)
+                 }
+@@ -127,10 +121,9 @@
+                 Text("aibou").font(.system(size: 24, weight: .bold, design: .rounded)).tracking(-1)
+             }.buttonStyle(.plain).accessibilityLabel("展示館のロビーへ").accessibilityIdentifier("ex.lobby")
+             Rectangle().fill(ExhibitionStyle.ink.opacity(0.15)).frame(width: 1, height: 25)
+-            DestinationNavigation(current: .exhibition, onLab: onMonitor.map { action in
+-                { narrator.stop(); workshop.disappear(); action() }
+-            }, onExhibition: { dismissOverlay(); navigate { exhibition.goToLobby() } },
+-                labIdentifier: "ex.lab", exhibitionIdentifier: "ex.exhibition")
++            DestinationNavigation(current: .exhibition,
++                onExhibition: { dismissOverlay(); navigate { exhibition.goToLobby() } },
++                exhibitionIdentifier: "ex.exhibition")
+             if exhibition.route != .lobby {
+                 Button { dismissOverlay(); navigate { exhibition.goBack() } } label: {
+                     Label(playing || currentGame != nil ? "展示室へ" : "ロビー", systemImage: "chevron.left")
+--- before/Sources/UI/Experiences/CircuitAtelierExperienceView.swift
++++ standalone/Sources/UI/Experiences/CircuitAtelierExperienceView.swift
+@@ -6,10 +6,9 @@
+ 
+ struct CircuitExperienceView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(CircuitExperienceModel(stage: 1))
+     var body: some View {
+-        ExperienceScreen(store: store, onExit: onExit, onLab: onLab) { model, send in
++        ExperienceScreen(store: store, onExit: onExit) { model, send in
+             CircuitExperienceApparatus(model: model, send: send)
+         }
+     }
+--- before/Sources/UI/Experiences/ExperienceRouterView.swift
++++ standalone/Sources/UI/Experiences/ExperienceRouterView.swift
+@@ -3,30 +3,29 @@
+ struct ExperienceRouterView: View {
+     var gameID: String
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     var body: some View {
+         Group {
+             switch gameID {
+-            case "circuit-atelier": CircuitExperienceView(onExit: onExit, onLab: onLab)
+-            case "bit-art": LogicBitArtView(onExit: onExit, onLab: onLab)
+-            case "memory-switch": LogicMemorySwitchView(onExit: onExit, onLab: onLab)
+-            case "tiny-switch-workshop": LogicTinySwitchView(onExit: onExit, onLab: onLab)
+-            case "instruction-atelier": LogicInstructionView(onExit: onExit, onLab: onLab)
+-            case "work-dispatch": LogicWorkDispatchView(onExit: onExit, onLab: onLab)
+-            case "parallel-factory": ParallelFactoryExperienceView(onExit: onExit, onLab: onLab)
+-            case "pixel-factory": ParallelPixelExperienceView(onExit: onExit, onLab: onLab)
+-            case "memory-dock": MemoryDockExperienceView(onExit: onExit, onLab: onLab)
+-            case "cache-delivery": MemoryCacheExperienceView(onExit: onExit, onLab: onLab)
+-            case "memory-rescue": MemoryRescueExperienceView(onExit: onExit, onLab: onLab)
+-            case "storage-warehouse": MemoryStorageExperienceView(onExit: onExit, onLab: onLab)
+-            case "display-studio": ParallelDisplayExperienceView(onExit: onExit, onLab: onLab)
+-            case "packet-express": ParallelPacketExperienceView(onExit: onExit, onLab: onLab)
+-            case "board-town": ParallelBoardExperienceView(onExit: onExit, onLab: onLab)
+-            case "connection-lab": ParallelConnectionExperienceView(onExit: onExit, onLab: onLab)
+-            case "pc-day": MemoryPCDayExperienceView(onExit: onExit, onLab: onLab)
+-            case "battery-voyage": MemoryBatteryExperienceView(onExit: onExit, onLab: onLab)
+-            case "cooling-workshop": CoolingExperienceView(onExit: onExit, onLab: onLab)
+-            case "bottleneck-detective": BottleneckExperienceView(onExit: onExit, onLab: onLab)
++            case "circuit-atelier": CircuitExperienceView(onExit: onExit)
++            case "bit-art": LogicBitArtView(onExit: onExit)
++            case "memory-switch": LogicMemorySwitchView(onExit: onExit)
++            case "tiny-switch-workshop": LogicTinySwitchView(onExit: onExit)
++            case "instruction-atelier": LogicInstructionView(onExit: onExit)
++            case "work-dispatch": LogicWorkDispatchView(onExit: onExit)
++            case "parallel-factory": ParallelFactoryExperienceView(onExit: onExit)
++            case "pixel-factory": ParallelPixelExperienceView(onExit: onExit)
++            case "memory-dock": MemoryDockExperienceView(onExit: onExit)
++            case "cache-delivery": MemoryCacheExperienceView(onExit: onExit)
++            case "memory-rescue": MemoryRescueExperienceView(onExit: onExit)
++            case "storage-warehouse": MemoryStorageExperienceView(onExit: onExit)
++            case "display-studio": ParallelDisplayExperienceView(onExit: onExit)
++            case "packet-express": ParallelPacketExperienceView(onExit: onExit)
++            case "board-town": ParallelBoardExperienceView(onExit: onExit)
++            case "connection-lab": ParallelConnectionExperienceView(onExit: onExit)
++            case "pc-day": MemoryPCDayExperienceView(onExit: onExit)
++            case "battery-voyage": MemoryBatteryExperienceView(onExit: onExit)
++            case "cooling-workshop": CoolingExperienceView(onExit: onExit)
++            case "bottleneck-detective": BottleneckExperienceView(onExit: onExit)
+             default: VStack { Text("この体験を開けませんでした"); Button("展示室へ", action: onExit) }
+             }
+         }.id(gameID)
+--- before/Sources/UI/Experiences/ExperienceScreen.swift
++++ standalone/Sources/UI/Experiences/ExperienceScreen.swift
+@@ -6,7 +6,6 @@
+ struct ExperienceScreen<M: ExperienceModel, Content: View>: View {
+     @ObservedObject var store: ExperienceStore<M>
+     var onExit: () -> Void
+-    var onLab: (() -> Void)?
+     @ViewBuilder var content: (M, @escaping (M.Action) -> Void) -> Content
+     @StateObject private var voice = GuideVoice()
+     @State private var panel: Panel?
+@@ -130,7 +129,6 @@
+             } else {
+                 Text(store.message).font(.system(size: 14)).foregroundStyle(ExperienceStyle.ink).lineLimit(1)
+             }
+-            if let onLab { Button { voice.stop(); onLab() } label: { Label("ラボで見る", systemImage: "house") } }
+         }.buttonStyle(ExperienceButtonStyle())
+     }
+     private func open(_ value: Panel) { voice.stop(); preview = nil; previewOriginal = nil; panel = value }
+--- before/Sources/UI/Experiences/LogicInstructionView.swift
++++ standalone/Sources/UI/Experiences/LogicInstructionView.swift
+@@ -2,10 +2,9 @@
+ 
+ struct LogicInstructionView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(LogicInstructionModel(stage: 1))
+     var body: some View {
+-        ExperienceScreen(store: store, onExit: onExit, onLab: onLab) { model, send in
++        ExperienceScreen(store: store, onExit: onExit) { model, send in
+             LogicInstructionApparatus(model: model, send: send)
+         }
+     }
+--- before/Sources/UI/Experiences/LogicMemoryViews.swift
++++ standalone/Sources/UI/Experiences/LogicMemoryViews.swift
+@@ -2,9 +2,8 @@
+ 
+ struct LogicBitArtView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(LogicBitArtModel(stage: 1))
+-    var body: some View { ExperienceScreen(store: store, onExit: onExit, onLab: onLab) { model, send in LogicBitArtApparatus(model: model, send: send) } }
++    var body: some View { ExperienceScreen(store: store, onExit: onExit) { model, send in LogicBitArtApparatus(model: model, send: send) } }
+ }
+ 
+ struct LogicBitArtApparatus: View {
+@@ -137,9 +136,8 @@
+ 
+ struct LogicMemorySwitchView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(LogicMemorySwitchModel(stage: 1))
+-    var body: some View { ExperienceScreen(store: store, onExit: onExit, onLab: onLab) { model,send in LogicMemorySwitchApparatus(model: model,send: send) } }
++    var body: some View { ExperienceScreen(store: store, onExit: onExit) { model,send in LogicMemorySwitchApparatus(model: model,send: send) } }
+ }
+ 
+ struct LogicMemorySwitchApparatus: View {
+--- before/Sources/UI/Experiences/LogicSwitchDispatchViews.swift
++++ standalone/Sources/UI/Experiences/LogicSwitchDispatchViews.swift
+@@ -2,9 +2,8 @@
+ 
+ struct LogicTinySwitchView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(LogicTinySwitchModel(stage: 1))
+-    var body: some View { ExperienceScreen(store: store,onExit: onExit,onLab: onLab) { model,send in LogicTinySwitchApparatus(model: model,send: send) } }
++    var body: some View { ExperienceScreen(store: store,onExit: onExit) { model,send in LogicTinySwitchApparatus(model: model,send: send) } }
+ }
+ 
+ struct LogicTinySwitchApparatus: View {
+@@ -110,9 +109,8 @@
+ 
+ struct LogicWorkDispatchView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(LogicWorkDispatchModel(stage: 1))
+-    var body: some View { ExperienceScreen(store: store,onExit: onExit,onLab: onLab) { model,send in LogicWorkDispatchApparatus(model: model,send: send) } }
++    var body: some View { ExperienceScreen(store: store,onExit: onExit) { model,send in LogicWorkDispatchApparatus(model: model,send: send) } }
+ }
+ 
+ struct LogicWorkDispatchApparatus: View {
+--- before/Sources/UI/Experiences/MemoryDockExperienceView.swift
++++ standalone/Sources/UI/Experiences/MemoryDockExperienceView.swift
+@@ -5,8 +5,7 @@
+ struct MemoryDockExperienceView: View {
+     @StateObject private var store = ExperienceStore(MemoryDockModel(stage: 1))
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+-    var body: some View { ExperienceScreen(store: store, onExit: onExit, onLab: onLab) { model, send in MemoryDockApparatus(model: model, send: send) } }
++    var body: some View { ExperienceScreen(store: store, onExit: onExit) { model, send in MemoryDockApparatus(model: model, send: send) } }
+ }
+ 
+ struct MemoryDockApparatus: View {
+--- before/Sources/UI/Experiences/MemoryResourceExperienceViews.swift
++++ standalone/Sources/UI/Experiences/MemoryResourceExperienceViews.swift
+@@ -3,8 +3,8 @@
+ 
+ struct MemoryCacheExperienceView: View {
+     @StateObject private var store=ExperienceStore(MemoryCacheModel(stage:1))
+-    var onExit:()->Void; var onLab:(()->Void)?=nil
+-    var body:some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in MemoryCacheApparatus(model:model,send:send) } }
++    var onExit:()->Void
++    var body:some View { ExperienceScreen(store:store,onExit:onExit) { model,send in MemoryCacheApparatus(model:model,send:send) } }
+ }
+ struct MemoryCacheApparatus:View {
+     let model:MemoryCacheModel;let send:(MemoryCacheModel.Action)->Void
+@@ -79,8 +79,8 @@
+ 
+ struct MemoryRescueExperienceView:View {
+     @StateObject private var store=ExperienceStore(MemoryRescueModel(stage:1))
+-    var onExit:()->Void;var onLab:(()->Void)?=nil
+-    var body:some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in MemoryRescueApparatus(model:model,send:send) } }
++    var onExit:()->Void
++    var body:some View { ExperienceScreen(store:store,onExit:onExit) { model,send in MemoryRescueApparatus(model:model,send:send) } }
+ }
+ struct MemoryRescueApparatus:View {
+     let model:MemoryRescueModel;let send:(MemoryRescueModel.Action)->Void
+@@ -145,8 +145,8 @@
+ 
+ struct MemoryStorageExperienceView:View {
+     @StateObject private var store=ExperienceStore(MemoryStorageModel(stage:1))
+-    var onExit:()->Void;var onLab:(()->Void)?=nil
+-    var body:some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in MemoryStorageApparatus(model:model,send:send) } }
++    var onExit:()->Void
++    var body:some View { ExperienceScreen(store:store,onExit:onExit) { model,send in MemoryStorageApparatus(model:model,send:send) } }
+ }
+ struct MemoryStorageApparatus:View {
+     let model:MemoryStorageModel;let send:(MemoryStorageModel.Action)->Void
+--- before/Sources/UI/Experiences/MemorySystemExperienceViews.swift
++++ standalone/Sources/UI/Experiences/MemorySystemExperienceViews.swift
+@@ -3,8 +3,8 @@
+ 
+ struct MemoryPCDayExperienceView:View {
+     @StateObject private var store=ExperienceStore(MemoryPCDayModel(stage:1))
+-    var onExit:()->Void;var onLab:(()->Void)?=nil
+-    var body:some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in MemoryPCDayApparatus(model:model,send:send) } }
++    var onExit:()->Void
++    var body:some View { ExperienceScreen(store:store,onExit:onExit) { model,send in MemoryPCDayApparatus(model:model,send:send) } }
+ }
+ struct MemoryPCDayApparatus:View {
+     let model:MemoryPCDayModel;let send:(MemoryPCDayModel.Action)->Void
+@@ -126,8 +126,8 @@
+ 
+ struct MemoryBatteryExperienceView:View {
+     @StateObject private var store=ExperienceStore(MemoryBatteryModel(stage:1))
+-    var onExit:()->Void;var onLab:(()->Void)?=nil
+-    var body:some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in MemoryBatteryApparatus(model:model,send:send) } }
++    var onExit:()->Void
++    var body:some View { ExperienceScreen(store:store,onExit:onExit) { model,send in MemoryBatteryApparatus(model:model,send:send) } }
+ }
+ struct MemoryBatteryApparatus:View {
+     let model:MemoryBatteryModel;let send:(MemoryBatteryModel.Action)->Void
+--- before/Sources/UI/Experiences/ParallelBoardExperienceView.swift
++++ standalone/Sources/UI/Experiences/ParallelBoardExperienceView.swift
+@@ -2,9 +2,8 @@
+ 
+ struct ParallelBoardExperienceView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(ParallelBoardModel(stage:1))
+-    var body: some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in ParallelBoardApparatus(model:model,send:send) } }
++    var body: some View { ExperienceScreen(store:store,onExit:onExit) { model,send in ParallelBoardApparatus(model:model,send:send) } }
+ }
+ 
+ struct ParallelBoardApparatus: View {
+--- before/Sources/UI/Experiences/ParallelConnectionExperienceView.swift
++++ standalone/Sources/UI/Experiences/ParallelConnectionExperienceView.swift
+@@ -3,9 +3,8 @@
+ 
+ struct ParallelConnectionExperienceView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(ParallelConnectionModel(stage:1))
+-    var body: some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in ParallelConnectionApparatus(model:model,send:send) } }
++    var body: some View { ExperienceScreen(store:store,onExit:onExit) { model,send in ParallelConnectionApparatus(model:model,send:send) } }
+ }
+ 
+ struct ParallelConnectionApparatus: View {
+--- before/Sources/UI/Experiences/ParallelDisplayExperienceView.swift
++++ standalone/Sources/UI/Experiences/ParallelDisplayExperienceView.swift
+@@ -2,9 +2,8 @@
+ 
+ struct ParallelDisplayExperienceView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(ParallelDisplayModel(stage:1))
+-    var body: some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in ParallelDisplayApparatus(model:model,send:send) } }
++    var body: some View { ExperienceScreen(store:store,onExit:onExit) { model,send in ParallelDisplayApparatus(model:model,send:send) } }
+ }
+ 
+ struct ParallelDisplayApparatus: View {
+--- before/Sources/UI/Experiences/ParallelFactoryExperienceView.swift
++++ standalone/Sources/UI/Experiences/ParallelFactoryExperienceView.swift
+@@ -3,9 +3,8 @@
+ 
+ struct ParallelFactoryExperienceView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(ParallelFactoryModel(stage:1))
+-    var body: some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in ParallelFactoryApparatus(model:model,send:send) } }
++    var body: some View { ExperienceScreen(store:store,onExit:onExit) { model,send in ParallelFactoryApparatus(model:model,send:send) } }
+ }
+ 
+ struct ParallelFactoryApparatus: View {
+--- before/Sources/UI/Experiences/ParallelPacketExperienceView.swift
++++ standalone/Sources/UI/Experiences/ParallelPacketExperienceView.swift
+@@ -2,9 +2,8 @@
+ 
+ struct ParallelPacketExperienceView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(ParallelPacketModel(stage:1))
+-    var body: some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in ParallelPacketApparatus(model:model,send:send) } }
++    var body: some View { ExperienceScreen(store:store,onExit:onExit) { model,send in ParallelPacketApparatus(model:model,send:send) } }
+ }
+ 
+ struct ParallelPacketApparatus: View {
+--- before/Sources/UI/Experiences/ParallelPixelExperienceView.swift
++++ standalone/Sources/UI/Experiences/ParallelPixelExperienceView.swift
+@@ -2,9 +2,8 @@
+ 
+ struct ParallelPixelExperienceView: View {
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+     @StateObject private var store = ExperienceStore(ParallelPixelModel(stage:1))
+-    var body: some View { ExperienceScreen(store:store,onExit:onExit,onLab:onLab) { model,send in ParallelPixelApparatus(model:model,send:send) } }
++    var body: some View { ExperienceScreen(store:store,onExit:onExit) { model,send in ParallelPixelApparatus(model:model,send:send) } }
+ }
+ 
+ struct ParallelPixelApparatus: View {
+--- before/Sources/UI/Experiences/ThermalPipelineViews.swift
++++ standalone/Sources/UI/Experiences/ThermalPipelineViews.swift
+@@ -3,8 +3,7 @@
+ struct CoolingExperienceView: View {
+     @StateObject private var store = ExperienceStore(CoolingModel(stage: 1))
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+-    var body: some View { ExperienceScreen(store: store, onExit: onExit, onLab: onLab) { model, send in CoolingApparatus(model: model, send: send) } }
++    var body: some View { ExperienceScreen(store: store, onExit: onExit) { model, send in CoolingApparatus(model: model, send: send) } }
+ }
+ struct CoolingApparatus: View {
+     @Environment(\.accessibilityReduceMotion) private var reduced
+@@ -98,8 +97,7 @@
+ struct BottleneckExperienceView: View {
+     @StateObject private var store = ExperienceStore(BottleneckModel(stage: 1))
+     var onExit: () -> Void
+-    var onLab: (() -> Void)? = nil
+-    var body: some View { ExperienceScreen(store: store, onExit: onExit, onLab: onLab) { model, send in BottleneckApparatus(model: model, send: send) } }
++    var body: some View { ExperienceScreen(store: store, onExit: onExit) { model, send in BottleneckApparatus(model: model, send: send) } }
+ }
+ struct BottleneckApparatus: View {
+     @State private var runEpoch = 0
+--- before/Sources/UI/LessonExperienceView.swift
++++ standalone/Sources/UI/LessonExperienceView.swift
+@@ -9,7 +9,6 @@
+     @ObservedObject var store: LessonStore
+     var close: () -> Void
+     var openExhibit: (String) -> Void
+-    var openLab: (() -> Void)?
+     @StateObject private var voice = GuideVoice()
+     @State private var showingSources = false
+ 
+@@ -359,10 +358,6 @@
+                 Button { voice.stop(); openExhibit(lesson.id) } label: {
+                     Label(ExhibitionCatalog.game(lesson.id)?.isPlayable == true ? "ゲームの入口へ" : "関連する展示を見る", systemImage: "arrow.up.right")
+                 }.buttonStyle(ExhibitionButtonStyle(accent: accent)).accessibilityIdentifier("lesson.exhibit")
+-                if let openLab {
+-                    Button { voice.stop(); openLab() } label: { Label("ラボへ", systemImage: "laptopcomputer") }
+-                        .buttonStyle(ExhibitionButtonStyle()).accessibilityIdentifier("lesson.lab")
+-                }
+             }
+             if ExhibitionCatalog.game(lesson.id)?.isPlayable != true {
+                 Text("このテーマのミニゲームは準備中です。授業の実験は何度でも試せます。")

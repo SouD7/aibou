@@ -1,0 +1,32 @@
+Building for debugging...
+[0/6] Write sources
+[2/6] Write swift-version--58304C5D6DBC2206.txt
+[4/8] Compiling CircuitCore LobbyMotion.swift
+[5/8] Emitting module CircuitCore
+[5/10] Write Objects.LinkFileList
+[6/12] Linking GameLabCLI
+[7/12] Applying GameLabCLI
+[9/12] Emitting module CoreTests
+[10/12] Compiling CoreTests LobbyMotionTests.swift
+[10/12] Write Objects.LinkFileList
+[11/12] Linking AibouGameLabPackageTests
+Build complete! (0.82s)
+Test Suite 'Selected tests' started at 2026-09-15 01:02:53.970.
+Test Suite 'AibouGameLabPackageTests.xctest' started at 2026-09-15 01:02:53.970.
+Test Suite 'LobbyMotionTests' started at 2026-09-15 01:02:53.970.
+Test Case '-[CoreTests.LobbyMotionTests testBlinkClosesBrieflyAndMotionRemainsSmall]' started.
+Test Case '-[CoreTests.LobbyMotionTests testBlinkClosesBrieflyAndMotionRemainsSmall]' passed (0.001 seconds).
+Test Case '-[CoreTests.LobbyMotionTests testHandsBookAndDeskContactNeverMove]' started.
+Test Case '-[CoreTests.LobbyMotionTests testHandsBookAndDeskContactNeverMove]' passed (0.001 seconds).
+Test Case '-[CoreTests.LobbyMotionTests testIdleAndSpeechHaveDifferentMouthBehavior]' started.
+Test Case '-[CoreTests.LobbyMotionTests testIdleAndSpeechHaveDifferentMouthBehavior]' passed (0.000 seconds).
+Test Suite 'LobbyMotionTests' passed at 2026-09-15 01:02:53.973.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'AibouGameLabPackageTests.xctest' passed at 2026-09-15 01:02:53.973.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'Selected tests' passed at 2026-09-15 01:02:53.973.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+◇ Test run started.
+↳ Testing Library Version: 1902
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

@@ -1,0 +1,283 @@
+Running UI tests on the desktop. Result bundle: /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-190638-18034.xcresult
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/fujishima/aibou/game-lab/AIBOUGameLabUITests.xcodeproj -scheme AIBOUGameLabUITests -destination platform=macOS,arch=arm64 -derivedDataPath /Users/fujishima/aibou/game-lab/.build/ui-tests -parallel-testing-enabled NO -resultBundlePath /Users/fujishima/aibou/game-lab/QA/results/ui-20260914-190638-18034.xcresult test-without-building "-only-testing:AIBOUGameLabUITests/WorkshopUITests/testWorkbenchStaysFixedWhenShowingInstructionsAndResults" "-only-testing:AIBOUGameLabUITests/WorkshopUITests/testNativeWireDragConnectsTheTwoATerminals"
+
+Writing result bundle at path:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260914-190638-18034.xcresult
+
+2026-09-14 19:06:39.846699+0900 AIBOUGameLabUITests-Runner[18073:33235522] [Default] Running tests...
+Test Suite 'Selected tests' started at 2026-09-14 19:06:39.881.
+Test Suite 'AIBOUGameLabUITests.xctest' started at 2026-09-14 19:06:39.881.
+Test Suite 'WorkshopUITests' started at 2026-09-14 19:06:39.881.
+Test Case '-[AIBOUGameLabUITests.WorkshopUITests testNativeWireDragConnectsTheTwoATerminals]' started.
+    t =     0.00s Start Test at 2026-09-14 19:06:39.881
+    t =     0.12s Set Up
+    t =     0.12s     Open local.aibou.gamelab
+    t =     0.12s         Launch local.aibou.gamelab
+    t =     0.45s             Wait for accessibility to load
+    t =     0.76s             Setting up automation session
+    t =     0.77s             Wait for local.aibou.gamelab to idle
+    t =     0.77s     Open local.aibou.gamelab
+    t =     0.77s         Activate local.aibou.gamelab
+    t =     0.77s             Wait for local.aibou.gamelab to idle
+    t =     0.78s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     0.78s     Checking existence of `Window (First Match)`
+    t =     0.86s     Waiting 2.0s for Window (First Match) to exist
+    t =     1.89s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     1.89s             Checking existence of `Window (First Match)`
+    t =     1.91s     Waiting 15.0s for Window (First Match) to exist
+    t =     2.93s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     2.94s             Checking existence of `Window (First Match)`
+    t =     2.98s             Capturing element debug description
+    t =     3.91s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     3.91s             Checking existence of `Window (First Match)`
+    t =     3.94s             Capturing element debug description
+    t =     4.98s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     4.98s             Checking existence of `Window (First Match)`
+    t =     5.02s             Capturing element debug description
+    t =     5.95s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     5.95s             Checking existence of `Window (First Match)`
+    t =     5.98s             Capturing element debug description
+    t =     6.92s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     6.92s             Checking existence of `Window (First Match)`
+    t =     6.95s             Capturing element debug description
+    t =     7.99s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     7.99s             Checking existence of `Window (First Match)`
+    t =     8.03s             Capturing element debug description
+    t =     8.96s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     8.96s             Checking existence of `Window (First Match)`
+    t =     8.99s             Capturing element debug description
+    t =     9.92s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     9.92s             Checking existence of `Window (First Match)`
+    t =     9.96s             Capturing element debug description
+    t =    10.99s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =    10.99s             Checking existence of `Window (First Match)`
+    t =    11.02s             Capturing element debug description
+    t =    11.96s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =    11.96s             Checking existence of `Window (First Match)`
+    t =    11.98s             Capturing element debug description
+    t =    12.99s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =    12.99s             Checking existence of `Window (First Match)`
+    t =    13.02s             Capturing element debug description
+    t =    13.95s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =    13.95s             Checking existence of `Window (First Match)`
+    t =    13.98s             Capturing element debug description
+    t =    14.91s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =    14.92s             Checking existence of `Window (First Match)`
+    t =    14.95s             Capturing element debug description
+    t =    15.98s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =    15.99s             Checking existence of `Window (First Match)`
+    t =    16.02s             Capturing element debug description
+    t =    16.92s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =    16.92s             Checking existence of `Window (First Match)`
+    t =    16.94s             Capturing element debug description
+    t =    16.95s         Checking existence of `Window (First Match)`
+    t =    16.97s     Collecting debug information to assist test failure triage
+    t =    16.97s         Requesting snapshot of accessibility hierarchy for app with pid 18074
+/Users/fujishima/aibou/game-lab/UITests/GameLabUITests.swift:192: error: -[AIBOUGameLabUITests.WorkshopUITests testNativeWireDragConnectsTheTwoATerminals] : XCTAssertTrue failed
+    t =    17.07s Tear Down
+    t =    17.07s     Checking existence of `Window (First Match)`
+    t =    17.10s     Terminate local.aibou.gamelab:18074
+Test Case '-[AIBOUGameLabUITests.WorkshopUITests testNativeWireDragConnectsTheTwoATerminals]' failed (18.232 seconds).
+Test Case '-[AIBOUGameLabUITests.WorkshopUITests testWorkbenchStaysFixedWhenShowingInstructionsAndResults]' started.
+    t =     0.00s Start Test at 2026-09-14 19:06:58.114
+    t =     0.12s Set Up
+    t =     0.12s     Open local.aibou.gamelab
+    t =     0.12s         Launch local.aibou.gamelab
+    t =     0.20s             Wait for accessibility to load
+    t =     0.44s             Setting up automation session
+    t =     0.44s             Wait for local.aibou.gamelab to idle
+    t =     0.44s     Open local.aibou.gamelab
+    t =     0.44s         Activate local.aibou.gamelab
+    t =     0.45s             Wait for local.aibou.gamelab to idle
+    t =     0.45s     Wait for local.aibou.gamelab to become Running Foreground
+    t =     0.45s     Checking existence of `Window (First Match)`
+    t =     0.55s     Waiting 2.0s for Window (First Match) to exist
+    t =     1.60s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     1.60s             Checking existence of `Window (First Match)`
+    t =     1.62s     Waiting 15.0s for Window (First Match) to exist
+    t =     2.66s         Checking `Expect predicate `existsNoRetry == 1` for object Window (First Match)`
+    t =     2.66s             Checking existence of `Window (First Match)`
+    t =     2.67s Checking existence of `"workshop.begin" Any`
+    t =     2.69s Find the "workshop.begin" Any
+    t =     2.72s Find the "workshop.begin" Button
+    t =     2.74s Find the "workshop.begin" Button
+    t =     2.77s Click "workshop.begin" Button
+    t =     2.77s     Wait for local.aibou.gamelab to idle
+    t =     2.77s     Find the "workshop.begin" Button
+    t =     2.78s     Check for interrupting elements affecting "workshop.begin" Button
+    t =     2.79s     Synthesize event
+    t =     3.26s     Wait for local.aibou.gamelab to idle
+    t =     3.26s Checking existence of `"w.phase" Any`
+    t =     4.34s Checking `Expect predicate `value CONTAINS "作る" OR label CONTAINS "作る"` for object "w.phase" Any`
+    t =     4.34s     Find the "w.phase" Any
+    t =     4.35s     Find the "w.phase" Other
+    t =     4.38s Get number of matches for: Descendants matching type ScrollView
+    t =     4.44s Checking existence of `"w.gate.and" Any`
+    t =     4.45s Find the "w.gate.and" Any
+    t =     4.50s Find the "w.gate.and" Button
+    t =     4.53s Find the "w.gate.and" Button
+    t =     4.55s Click "w.gate.and" Button
+    t =     4.55s     Wait for local.aibou.gamelab to idle
+    t =     4.55s     Find the "w.gate.and" Button
+    t =     4.56s     Check for interrupting elements affecting "w.gate.and" Button
+    t =     4.58s     Synthesize event
+    t =     4.97s     Wait for local.aibou.gamelab to idle
+    t =     4.98s Checking existence of `"w.link.a" Any`
+    t =     5.00s Find the "w.link.a" Any
+    t =     5.03s Find the "w.link.a" Button
+    t =     5.04s Find the "w.link.a" Button
+    t =     5.06s Click "w.link.a" Button
+    t =     5.06s     Wait for local.aibou.gamelab to idle
+    t =     5.06s     Find the "w.link.a" Button
+    t =     5.08s     Check for interrupting elements affecting "w.link.a" Button
+    t =     5.10s     Synthesize event
+    t =     5.48s     Wait for local.aibou.gamelab to idle
+    t =     5.48s Checking existence of `"w.link.b" Any`
+    t =     5.50s Find the "w.link.b" Any
+    t =     5.53s Find the "w.link.b" Button
+    t =     5.55s Find the "w.link.b" Button
+    t =     5.56s Click "w.link.b" Button
+    t =     5.56s     Wait for local.aibou.gamelab to idle
+    t =     5.56s     Find the "w.link.b" Button
+    t =     5.58s     Check for interrupting elements affecting "w.link.b" Button
+    t =     5.60s     Synthesize event
+    t =     6.01s     Wait for local.aibou.gamelab to idle
+    t =     6.02s Checking existence of `"w.link.output" Any`
+    t =     6.02s Find the "w.link.output" Any
+    t =     6.07s Find the "w.link.output" Button
+    t =     6.10s Find the "w.link.output" Button
+    t =     6.12s Click "w.link.output" Button
+    t =     6.12s     Wait for local.aibou.gamelab to idle
+    t =     6.12s     Find the "w.link.output" Button
+    t =     6.13s     Check for interrupting elements affecting "w.link.output" Button
+    t =     6.18s     Synthesize event
+    t =     6.57s     Wait for local.aibou.gamelab to idle
+    t =     6.57s Checking existence of `"w.phase" Any`
+    t =     7.63s Checking `Expect predicate `value CONTAINS "観察する" OR label CONTAINS "観察する"` for object "w.phase" Any`
+    t =     7.63s     Find the "w.phase" Any
+    t =     7.65s     Find the "w.phase" Other
+    t =     7.67s Find the "w.slot" Any
+    t =     7.68s Find the "w.gate.and" Any
+    t =     7.71s Find the Window (First Match)
+    t =     7.73s Find the "w.undo" Any
+    t =     7.76s Checking existence of `"w.instructions" Any`
+    t =     7.76s Find the "w.instructions" Any
+    t =     7.81s Find the "w.instructions" Button
+    t =     7.83s Find the "w.instructions" Button
+    t =     7.86s Click "w.instructions" Button
+    t =     7.86s     Wait for local.aibou.gamelab to idle
+    t =     7.86s     Find the "w.instructions" Button
+    t =     7.89s     Check for interrupting elements affecting "w.instructions" Button
+    t =     7.92s     Synthesize event
+    t =     8.29s     Wait for local.aibou.gamelab to idle
+    t =     8.29s Waiting 5.0s for "w.panel.close" Any to exist
+    t =     9.33s     Checking `Expect predicate `existsNoRetry == 1` for object "w.panel.close" Any`
+    t =     9.33s         Checking existence of `"w.panel.close" Any`
+    t =     9.35s Checking existence of `"w.panel.close" Any`
+    t =     9.37s Find the "w.panel.close" Any
+    t =     9.40s Find the "w.panel.close" Button
+    t =     9.41s Find the "w.panel.close" Button
+    t =     9.43s Click "w.panel.close" Button
+    t =     9.43s     Wait for local.aibou.gamelab to idle
+    t =     9.43s     Find the "w.panel.close" Button
+    t =     9.45s     Check for interrupting elements affecting "w.panel.close" Button
+    t =     9.47s     Synthesize event
+    t =     9.83s     Wait for local.aibou.gamelab to idle
+    t =     9.83s Find the "w.slot" Any
+    t =     9.84s Find the "w.gate.and" Any
+    t =     9.87s Checking existence of `"w.test" Any`
+    t =     9.89s Find the "w.test" Any
+    t =     9.92s Find the "w.test" Button
+    t =     9.95s Find the "w.test" Button
+    t =     9.97s Click "w.test" Button
+    t =     9.98s     Wait for local.aibou.gamelab to idle
+    t =     9.98s     Find the "w.test" Button
+    t =     9.98s     Check for interrupting elements affecting "w.test" Button
+    t =    10.01s     Synthesize event
+    t =    10.36s     Wait for local.aibou.gamelab to idle
+    t =    10.36s Waiting 12.0s for "w.success" Any to exist
+    t =    11.40s     Checking `Expect predicate `existsNoRetry == 1` for object "w.success" Any`
+    t =    11.40s         Checking existence of `"w.success" Any`
+    t =    11.49s         Capturing element debug description
+    t =    12.40s     Checking `Expect predicate `existsNoRetry == 1` for object "w.success" Any`
+    t =    12.40s         Checking existence of `"w.success" Any`
+    t =    12.45s         Capturing element debug description
+    t =    13.38s     Checking `Expect predicate `existsNoRetry == 1` for object "w.success" Any`
+    t =    13.38s         Checking existence of `"w.success" Any`
+    t =    13.44s         Capturing element debug description
+    t =    14.36s     Checking `Expect predicate `existsNoRetry == 1` for object "w.success" Any`
+    t =    14.37s         Checking existence of `"w.success" Any`
+    t =    14.38s Checking existence of `"w.phase" Any`
+    t =    15.44s Checking `Expect predicate `value CONTAINS "できあがり" OR label CONTAINS "できあがり"` for object "w.phase" Any`
+    t =    15.44s     Find the "w.phase" Any
+    t =    15.46s     Find the "w.phase" Other
+    t =    15.49s Checking existence of `"w.panel.close" Any`
+    t =    15.50s Checking existence of `"w.panel.close" Any`
+    t =    15.52s Find the "w.panel.close" Any
+    t =    15.54s Find the "w.panel.close" Button
+    t =    15.58s Find the "w.panel.close" Button
+    t =    15.61s Click "w.panel.close" Button
+    t =    15.61s     Wait for local.aibou.gamelab to idle
+    t =    15.61s     Find the "w.panel.close" Button
+    t =    15.63s     Check for interrupting elements affecting "w.panel.close" Button
+    t =    15.66s     Synthesize event
+    t =    16.03s     Wait for local.aibou.gamelab to idle
+    t =    16.03s Get number of matches for: Descendants matching type ScrollView
+    t =    16.12s Find the "w.slot" Any
+    t =    16.14s Find the "w.gate.and" Any
+    t =    16.17s Checking existence of `"w.results" Any`
+    t =    16.19s Find the "w.results" Any
+    t =    16.22s Find the "w.results" Button
+    t =    16.25s Find the "w.results" Button
+    t =    16.28s Click "w.results" Button
+    t =    16.28s     Wait for local.aibou.gamelab to idle
+    t =    16.28s     Find the "w.results" Button
+    t =    16.28s     Check for interrupting elements affecting "w.results" Button
+    t =    16.31s     Synthesize event
+    t =    16.69s     Wait for local.aibou.gamelab to idle
+    t =    16.69s Checking existence of `"w.finish" Any`
+    t =    16.70s Find the "w.finish" Any
+    t =    16.74s Find the "w.finish" Button
+    t =    16.77s Find the "w.finish" Button
+    t =    16.79s Click "w.finish" Button
+    t =    16.79s     Wait for local.aibou.gamelab to idle
+    t =    16.79s     Find the "w.finish" Button
+    t =    16.81s     Check for interrupting elements affecting "w.finish" Button
+    t =    16.82s     Synthesize event
+    t =    17.24s     Wait for local.aibou.gamelab to idle
+    t =    17.24s Checking existence of `"w.phase" Any`
+    t =    18.30s Checking `Expect predicate `value CONTAINS "作品完成" OR label CONTAINS "作品完成"` for object "w.phase" Any`
+    t =    18.30s     Find the "w.phase" Any
+    t =    18.33s     Find the "w.phase" Other
+    t =    18.36s Checking existence of `"w.panel.close" Any`
+    t =    18.48s Find the "w.slot" Any
+    t =    18.49s Checking existence of `Window (First Match)`
+    t =    18.51s Find the Window (First Match)
+    t =    18.69s Added attachment named 'workshop-fixed-board-after-completion'
+    t =    18.69s Tear Down
+    t =    18.69s     Checking existence of `Window (First Match)`
+    t =    18.70s     Checking existence of `Window (First Match)`
+    t =    18.70s     Find the Window (First Match)
+    t =    18.82s     Added attachment named '-[WorkshopUITests testWorkbenchStaysFixedWhenShowingInstructionsAndResults]'
+    t =    18.82s     Terminate local.aibou.gamelab:18083
+Test Case '-[AIBOUGameLabUITests.WorkshopUITests testWorkbenchStaysFixedWhenShowingInstructionsAndResults]' passed (20.011 seconds).
+Test Suite 'WorkshopUITests' failed at 2026-09-14 19:07:18.124.
+	 Executed 2 tests, with 1 failure (0 unexpected) in 38.243 (38.244) seconds
+Test Suite 'AIBOUGameLabUITests.xctest' failed at 2026-09-14 19:07:18.125.
+	 Executed 2 tests, with 1 failure (0 unexpected) in 38.243 (38.244) seconds
+Test Suite 'Selected tests' failed at 2026-09-14 19:07:18.125.
+	 Executed 2 tests, with 1 failure (0 unexpected) in 38.243 (38.245) seconds
+2026-09-14 19:07:23.439 xcodebuild[18050:33235280] [MT] IDETestOperationsObserverDebug: 43.926 elapsed -- Testing started completed.
+2026-09-14 19:07:23.439 xcodebuild[18050:33235280] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-14 19:07:23.439 xcodebuild[18050:33235280] [MT] IDETestOperationsObserverDebug: 43.926 sec, +43.926 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260914-190638-18034.xcresult
+
+Failing tests:
+	WorkshopUITests.testNativeWireDragConnectsTheTwoATerminals()
+
+** TEST EXECUTE FAILED **
+
+Testing started

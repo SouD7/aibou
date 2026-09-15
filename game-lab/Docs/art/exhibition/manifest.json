@@ -1,0 +1,85 @@
+{
+  "mode": "built-in imagegen",
+  "assets": [
+    {
+      "file": "game-lab/Art/Exhibition/lobby.png",
+      "promptKey": "lobby",
+      "editSource": "00-lobby.png",
+      "generatedSource": "/Users/fujishima/.codex/generated_images/01a09f7e-fb1c-7093-87ff-3150af6fe463/exec-96d535cc-a329-41b1-88a1-073155a3c47c.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1452053,
+      "sha256": "c71dda6488947ad82bd11192e3a32a74bc3abeedc238842487a2837510530fff"
+    },
+    {
+      "file": "game-lab/Art/Exhibition/area-a.png",
+      "promptKey": "area-a",
+      "editSource": "02-area-a.png",
+      "generatedSource": "/Users/fujishima/.codex/generated_images/01a09f7e-fb1c-7093-87ff-3150af6fe463/exec-64464f5c-68b0-441d-aa70-d1f013f5091b.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1570217,
+      "sha256": "ae3c200ff69629946d7dc830e0dd0b2f8a06f8308ca36f86b33333a670b0d930"
+    },
+    {
+      "file": "game-lab/Art/Exhibition/area-b.png",
+      "promptKey": "area-b-clean-cards",
+      "editSource": "area-b-correction.png",
+      "generatedSource": "/Users/fujishima/.codex/generated_images/01a09f7e-fb1c-7093-87ff-3150af6fe463/exec-c9e8355e-44ac-4bcc-bc19-45ddaac884ba.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1627626,
+      "sha256": "de374d05dc80dd4b5edf6fd1078de8b6dda1ffdebb5e3407bb98447d420df2fa"
+    },
+    {
+      "file": "game-lab/Art/Exhibition/area-c.png",
+      "promptKey": "area-c",
+      "editSource": "04-area-c.png",
+      "generatedSource": "/Users/fujishima/.codex/generated_images/01a09f7e-fb1c-7093-87ff-3150af6fe463/exec-eeda6b05-8457-45cc-afc3-4d70ed51f35a.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1525687,
+      "sha256": "f7d1134ccedb65928a59417f5a27b2278eb6fbf166ba8202f92de19b97150b31"
+    },
+    {
+      "file": "game-lab/Art/Exhibition/area-d.png",
+      "promptKey": "area-d",
+      "editSource": "05-area-d.png",
+      "generatedSource": "/Users/fujishima/.codex/generated_images/01a09f7e-fb1c-7093-87ff-3150af6fe463/exec-6ccc629a-3da6-40bc-afde-3e0db821a97e.png",
+      "width": 1671,
+      "height": 941,
+      "bytes": 1516292,
+      "sha256": "b7ce0b685cebb19bb2da0e47666a8f7bfba03f9cfeed6d8ce6b28f287abf10a7"
+    },
+    {
+      "file": "game-lab/Art/Exhibition/area-e.png",
+      "promptKey": "area-e",
+      "editSource": "06-area-e.png",
+      "generatedSource": "/Users/fujishima/.codex/generated_images/01a09f7e-fb1c-7093-87ff-3150af6fe463/exec-0b9ce72e-3754-4408-abae-46bdb31bea9c.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1565247,
+      "sha256": "3ecdeb02c1fa66baeabfe04757c03510dc8a5dc84403d8f3ad554f208b6e011f"
+    },
+    {
+      "file": "game-lab/Art/Exhibition/circuit-entry.png",
+      "promptKey": "circuit-entry",
+      "editSource": "07-circuit-entry.png",
+      "generatedSource": "/Users/fujishima/.codex/generated_images/01a09f7e-fb1c-7093-87ff-3150af6fe463/exec-8631af75-0601-4dd2-976e-6bd11097227b.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1511751,
+      "sha256": "551c8285c7e8fa8a990fe16e923eb714765fb72c5869d100af7f530bc3be9c23"
+    },
+    {
+      "file": "game-lab/Art/Exhibition/guide-notebook.png",
+      "promptKey": "guide-notebook-chroma",
+      "editSource": "guide-notebook-alpha-attempt.png",
+      "generatedSource": "/Users/fujishima/.codex/generated_images/01a09f7e-fb1c-7093-87ff-3150af6fe463/exec-617b65d5-352b-4f57-9a55-321a3c32cdd5.png",
+      "width": 1145,
+      "height": 1374,
+      "bytes": 1490650,
+      "sha256": "99bd42cd09dfd87864bc411245d6453f32e47823da8508be6e41eaa6b79db38a"
+    }
+  ]
+}

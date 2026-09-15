@@ -1,0 +1,2741 @@
+{
+  "captures" : [
+    {
+      "complete" : false,
+      "gameID" : "bit-art",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "選んだ点",
+          "value" : "0 = 0"
+        },
+        {
+          "detail" : "",
+          "label" : "色",
+          "value" : "白"
+        },
+        {
+          "detail" : "圧縮や見出しを含まない教材内の量",
+          "label" : "画素データ",
+          "value" : "1 × 1 = 1 bit"
+        },
+        {
+          "detail" : "",
+          "label" : "観察",
+          "value" : "0 通り"
+        }
+      ],
+      "name" : "01-bit-art-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "bit-art",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "選んだ点",
+          "value" : "1 = 1"
+        },
+        {
+          "detail" : "",
+          "label" : "色",
+          "value" : "灰"
+        },
+        {
+          "detail" : "圧縮や見出しを含まない教材内の量",
+          "label" : "画素データ",
+          "value" : "1 × 1 = 1 bit"
+        },
+        {
+          "detail" : "",
+          "label" : "観察",
+          "value" : "2 通り"
+        }
+      ],
+      "name" : "01-bit-art-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "bit-art",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "選んだ点",
+          "value" : "1 = 1"
+        },
+        {
+          "detail" : "",
+          "label" : "色",
+          "value" : "灰"
+        },
+        {
+          "detail" : "圧縮や見出しを含まない教材内の量",
+          "label" : "画素データ",
+          "value" : "1 × 1 = 1 bit"
+        },
+        {
+          "detail" : "",
+          "label" : "観察",
+          "value" : "2 通り"
+        }
+      ],
+      "name" : "01-bit-art-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "circuit-atelier",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "入力 A \/ B",
+          "value" : "0 \/ 0"
+        },
+        {
+          "detail" : "未接続は0ではなく未確定",
+          "label" : "出力",
+          "value" : "?"
+        },
+        {
+          "detail" : "",
+          "label" : "つながった道",
+          "value" : "0 \/ 3"
+        },
+        {
+          "detail" : "部品・配線を変えると観察を取り直す",
+          "label" : "同じ回路の観察",
+          "value" : "0 \/ 4"
+        },
+        {
+          "detail" : "目標: 両方が1のときだけ1",
+          "label" : "目標との一致",
+          "value" : "0 \/ 4"
+        }
+      ],
+      "name" : "02-circuit-atelier-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "circuit-atelier",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "入力 A \/ B",
+          "value" : "0 \/ 0"
+        },
+        {
+          "detail" : "未接続は0ではなく未確定",
+          "label" : "出力",
+          "value" : "?"
+        },
+        {
+          "detail" : "",
+          "label" : "つながった道",
+          "value" : "0 \/ 3"
+        },
+        {
+          "detail" : "部品・配線を変えると観察を取り直す",
+          "label" : "同じ回路の観察",
+          "value" : "0 \/ 4"
+        },
+        {
+          "detail" : "目標: 両方が1のときだけ1",
+          "label" : "目標との一致",
+          "value" : "0 \/ 4"
+        }
+      ],
+      "name" : "02-circuit-atelier-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "circuit-atelier",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "入力 A \/ B",
+          "value" : "0 \/ 0"
+        },
+        {
+          "detail" : "未接続は0ではなく未確定",
+          "label" : "出力",
+          "value" : "?"
+        },
+        {
+          "detail" : "",
+          "label" : "つながった道",
+          "value" : "0 \/ 3"
+        },
+        {
+          "detail" : "部品・配線を変えると観察を取り直す",
+          "label" : "同じ回路の観察",
+          "value" : "0 \/ 4"
+        },
+        {
+          "detail" : "目標: 両方が1のときだけ1",
+          "label" : "目標との一致",
+          "value" : "0 \/ 4"
+        }
+      ],
+      "name" : "02-circuit-atelier-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "memory-switch",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "入力 D",
+          "value" : "0"
+        },
+        {
+          "detail" : "",
+          "label" : "記憶 Q",
+          "value" : "記憶なし"
+        },
+        {
+          "detail" : "",
+          "label" : "保存コピー",
+          "value" : "なし"
+        },
+        {
+          "detail" : "",
+          "label" : "比較記録",
+          "value" : "0 件"
+        }
+      ],
+      "name" : "03-memory-switch-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "memory-switch",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "入力 D",
+          "value" : "1"
+        },
+        {
+          "detail" : "",
+          "label" : "記憶 Q",
+          "value" : "記憶なし"
+        },
+        {
+          "detail" : "",
+          "label" : "保存コピー",
+          "value" : "なし"
+        },
+        {
+          "detail" : "",
+          "label" : "比較記録",
+          "value" : "2 件"
+        }
+      ],
+      "name" : "03-memory-switch-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "memory-switch",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "入力 D",
+          "value" : "1"
+        },
+        {
+          "detail" : "",
+          "label" : "記憶 Q",
+          "value" : "記憶なし"
+        },
+        {
+          "detail" : "",
+          "label" : "保存コピー",
+          "value" : "なし"
+        },
+        {
+          "detail" : "",
+          "label" : "比較記録",
+          "value" : "2 件"
+        }
+      ],
+      "name" : "03-memory-switch-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "tiny-switch-workshop",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "つなぎ方",
+          "value" : "1つのスイッチ"
+        },
+        {
+          "detail" : "",
+          "label" : "入力",
+          "value" : "A 0"
+        },
+        {
+          "detail" : "",
+          "label" : "ランプ",
+          "value" : "? 未接続"
+        },
+        {
+          "detail" : "",
+          "label" : "一致した条件",
+          "value" : "0 \/ 2"
+        }
+      ],
+      "name" : "04-tiny-switch-workshop-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "tiny-switch-workshop",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "つなぎ方",
+          "value" : "1つのスイッチ"
+        },
+        {
+          "detail" : "",
+          "label" : "入力",
+          "value" : "A 1"
+        },
+        {
+          "detail" : "",
+          "label" : "ランプ",
+          "value" : "1"
+        },
+        {
+          "detail" : "",
+          "label" : "一致した条件",
+          "value" : "2 \/ 2"
+        }
+      ],
+      "name" : "04-tiny-switch-workshop-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "tiny-switch-workshop",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "つなぎ方",
+          "value" : "1つのスイッチ"
+        },
+        {
+          "detail" : "",
+          "label" : "入力",
+          "value" : "A 1"
+        },
+        {
+          "detail" : "",
+          "label" : "ランプ",
+          "value" : "1"
+        },
+        {
+          "detail" : "",
+          "label" : "一致した条件",
+          "value" : "2 \/ 2"
+        }
+      ],
+      "name" : "04-tiny-switch-workshop-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "instruction-atelier",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "実行",
+          "value" : "0命令"
+        },
+        {
+          "detail" : "",
+          "label" : "残りの入力",
+          "value" : "1枚"
+        },
+        {
+          "detail" : "",
+          "label" : "確認",
+          "value" : "0 \/ 1"
+        }
+      ],
+      "name" : "05-instruction-atelier-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "instruction-atelier",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "実行",
+          "value" : "2命令"
+        },
+        {
+          "detail" : "",
+          "label" : "残りの入力",
+          "value" : "0枚"
+        },
+        {
+          "detail" : "",
+          "label" : "確認",
+          "value" : "1 \/ 1"
+        }
+      ],
+      "name" : "05-instruction-atelier-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "instruction-atelier",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "実行",
+          "value" : "2命令"
+        },
+        {
+          "detail" : "",
+          "label" : "残りの入力",
+          "value" : "0枚"
+        },
+        {
+          "detail" : "",
+          "label" : "確認",
+          "value" : "1 \/ 1"
+        }
+      ],
+      "name" : "05-instruction-atelier-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "work-dispatch",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "作業場所",
+          "value" : "0 \/ 4 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "CPU",
+          "value" : "1台 · 0 コマ"
+        },
+        {
+          "detail" : "",
+          "label" : "最初の応答",
+          "value" : "写真: まだ"
+        },
+        {
+          "detail" : "",
+          "label" : "完了",
+          "value" : "0 \/ 1"
+        },
+        {
+          "detail" : "",
+          "label" : "比較",
+          "value" : "0試行"
+        }
+      ],
+      "name" : "06-work-dispatch-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "work-dispatch",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "作業場所",
+          "value" : "0 \/ 4 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "CPU",
+          "value" : "1台 · 3 コマ"
+        },
+        {
+          "detail" : "",
+          "label" : "最初の応答",
+          "value" : "写真: 1"
+        },
+        {
+          "detail" : "",
+          "label" : "完了",
+          "value" : "1 \/ 1"
+        },
+        {
+          "detail" : "",
+          "label" : "比較",
+          "value" : "0試行"
+        }
+      ],
+      "name" : "06-work-dispatch-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "work-dispatch",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "作業場所",
+          "value" : "0 \/ 4 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "CPU",
+          "value" : "1台 · 3 コマ"
+        },
+        {
+          "detail" : "",
+          "label" : "最初の応答",
+          "value" : "写真: 1"
+        },
+        {
+          "detail" : "",
+          "label" : "完了",
+          "value" : "1 \/ 1"
+        },
+        {
+          "detail" : "",
+          "label" : "比較",
+          "value" : "0試行"
+        }
+      ],
+      "name" : "06-work-dispatch-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "parallel-factory",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "働き手",
+          "value" : "1人"
+        },
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "0手"
+        },
+        {
+          "detail" : "",
+          "label" : "完了",
+          "value" : "0 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "比べた条件",
+          "value" : "0"
+        }
+      ],
+      "name" : "07-parallel-factory-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "parallel-factory",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "働き手",
+          "value" : "2人"
+        },
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "4手"
+        },
+        {
+          "detail" : "",
+          "label" : "完了",
+          "value" : "4 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "比べた条件",
+          "value" : "2"
+        }
+      ],
+      "name" : "07-parallel-factory-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "parallel-factory",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "働き手",
+          "value" : "2人"
+        },
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "4手"
+        },
+        {
+          "detail" : "",
+          "label" : "完了",
+          "value" : "4 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "比べた条件",
+          "value" : "2"
+        }
+      ],
+      "name" : "07-parallel-factory-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "pixel-factory",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "実行",
+          "value" : "0手"
+        },
+        {
+          "detail" : "",
+          "label" : "加工済み",
+          "value" : "0 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "段階",
+          "value" : "計算"
+        },
+        {
+          "detail" : "",
+          "label" : "加工",
+          "value" : "1 \/ 1回"
+        }
+      ],
+      "name" : "08-pixel-factory-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "pixel-factory",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "実行",
+          "value" : "4手"
+        },
+        {
+          "detail" : "",
+          "label" : "加工済み",
+          "value" : "4 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "段階",
+          "value" : "完成"
+        },
+        {
+          "detail" : "",
+          "label" : "加工",
+          "value" : "1 \/ 1回"
+        }
+      ],
+      "name" : "08-pixel-factory-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "pixel-factory",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "実行",
+          "value" : "4手"
+        },
+        {
+          "detail" : "",
+          "label" : "加工済み",
+          "value" : "4 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "段階",
+          "value" : "完成"
+        },
+        {
+          "detail" : "",
+          "label" : "加工",
+          "value" : "1 \/ 1回"
+        }
+      ],
+      "name" : "08-pixel-factory-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "memory-dock",
+      "metrics" : [
+        {
+          "detail" : "空き 6 枠",
+          "label" : "RAM",
+          "value" : "0 \/ 6 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "保存庫",
+          "value" : "3 \/ 12 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "作業版",
+          "value" : "なし"
+        },
+        {
+          "detail" : "",
+          "label" : "保存版",
+          "value" : "v1"
+        }
+      ],
+      "name" : "09-memory-dock-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "memory-dock",
+      "metrics" : [
+        {
+          "detail" : "空き 3 枠",
+          "label" : "RAM",
+          "value" : "3 \/ 6 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "保存庫",
+          "value" : "3 \/ 12 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "作業版",
+          "value" : "v2"
+        },
+        {
+          "detail" : "",
+          "label" : "保存版",
+          "value" : "v2"
+        }
+      ],
+      "name" : "09-memory-dock-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "memory-dock",
+      "metrics" : [
+        {
+          "detail" : "空き 3 枠",
+          "label" : "RAM",
+          "value" : "3 \/ 6 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "保存庫",
+          "value" : "3 \/ 12 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "作業版",
+          "value" : "v2"
+        },
+        {
+          "detail" : "",
+          "label" : "保存版",
+          "value" : "v2"
+        }
+      ],
+      "name" : "09-memory-dock-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "cache-delivery",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "0 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "届いた注文",
+          "value" : "0 \/ 2"
+        },
+        {
+          "detail" : "",
+          "label" : "近い棚",
+          "value" : "0 \/ 1"
+        },
+        {
+          "detail" : "",
+          "label" : "手元から",
+          "value" : "0 回"
+        },
+        {
+          "detail" : "",
+          "label" : "次の便",
+          "value" : "A"
+        }
+      ],
+      "name" : "10-cache-delivery-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "cache-delivery",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "5 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "届いた注文",
+          "value" : "2 \/ 2"
+        },
+        {
+          "detail" : "",
+          "label" : "近い棚",
+          "value" : "1 \/ 1"
+        },
+        {
+          "detail" : "",
+          "label" : "手元から",
+          "value" : "1 回"
+        },
+        {
+          "detail" : "",
+          "label" : "次の便",
+          "value" : "完了"
+        }
+      ],
+      "name" : "10-cache-delivery-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "cache-delivery",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "5 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "届いた注文",
+          "value" : "2 \/ 2"
+        },
+        {
+          "detail" : "",
+          "label" : "近い棚",
+          "value" : "1 \/ 1"
+        },
+        {
+          "detail" : "",
+          "label" : "手元から",
+          "value" : "1 回"
+        },
+        {
+          "detail" : "",
+          "label" : "次の便",
+          "value" : "完了"
+        }
+      ],
+      "name" : "10-cache-delivery-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "memory-rescue",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "RAM",
+          "value" : "6 \/ 6 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "一時退避",
+          "value" : "0 \/ 12 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "0 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "CPUの仕事",
+          "value" : "0 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "移動の待ち",
+          "value" : "0 拍"
+        }
+      ],
+      "name" : "11-memory-rescue-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "memory-rescue",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "RAM",
+          "value" : "6 \/ 6 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "一時退避",
+          "value" : "0 \/ 12 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "4 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "CPUの仕事",
+          "value" : "0 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "移動の待ち",
+          "value" : "0 拍"
+        }
+      ],
+      "name" : "11-memory-rescue-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "memory-rescue",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "RAM",
+          "value" : "6 \/ 6 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "一時退避",
+          "value" : "0 \/ 12 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "4 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "CPUの仕事",
+          "value" : "0 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "移動の待ち",
+          "value" : "0 拍"
+        }
+      ],
+      "name" : "11-memory-rescue-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "storage-warehouse",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "保存庫",
+          "value" : "8 \/ 12 MB"
+        },
+        {
+          "detail" : "準備 1 秒\/件",
+          "label" : "転送",
+          "value" : "4 MB\/s"
+        },
+        {
+          "detail" : "",
+          "label" : "到着",
+          "value" : "0 \/ 8 MB"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "0 秒"
+        },
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "待機"
+        }
+      ],
+      "name" : "12-storage-warehouse-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "storage-warehouse",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "保存庫",
+          "value" : "16 \/ 16 MB"
+        },
+        {
+          "detail" : "準備 1 秒\/件",
+          "label" : "転送",
+          "value" : "4 MB\/s"
+        },
+        {
+          "detail" : "",
+          "label" : "到着",
+          "value" : "8 \/ 8 MB"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "3 秒"
+        },
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "完了"
+        }
+      ],
+      "name" : "12-storage-warehouse-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "storage-warehouse",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "保存庫",
+          "value" : "16 \/ 16 MB"
+        },
+        {
+          "detail" : "準備 1 秒\/件",
+          "label" : "転送",
+          "value" : "4 MB\/s"
+        },
+        {
+          "detail" : "",
+          "label" : "到着",
+          "value" : "8 \/ 8 MB"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "3 秒"
+        },
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "完了"
+        }
+      ],
+      "name" : "12-storage-warehouse-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "display-studio",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "生成",
+          "value" : "15 FPS"
+        },
+        {
+          "detail" : "",
+          "label" : "更新",
+          "value" : "60 Hz"
+        },
+        {
+          "detail" : "",
+          "label" : "作った絵",
+          "value" : "0枚"
+        },
+        {
+          "detail" : "",
+          "label" : "画面更新",
+          "value" : "0回"
+        },
+        {
+          "detail" : "",
+          "label" : "異なる絵",
+          "value" : "0枚"
+        }
+      ],
+      "name" : "13-display-studio-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "display-studio",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "生成",
+          "value" : "30 FPS"
+        },
+        {
+          "detail" : "",
+          "label" : "更新",
+          "value" : "60 Hz"
+        },
+        {
+          "detail" : "",
+          "label" : "作った絵",
+          "value" : "30枚"
+        },
+        {
+          "detail" : "",
+          "label" : "画面更新",
+          "value" : "60回"
+        },
+        {
+          "detail" : "",
+          "label" : "異なる絵",
+          "value" : "30枚"
+        }
+      ],
+      "name" : "13-display-studio-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "display-studio",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "生成",
+          "value" : "30 FPS"
+        },
+        {
+          "detail" : "",
+          "label" : "更新",
+          "value" : "60 Hz"
+        },
+        {
+          "detail" : "",
+          "label" : "作った絵",
+          "value" : "30枚"
+        },
+        {
+          "detail" : "",
+          "label" : "画面更新",
+          "value" : "60回"
+        },
+        {
+          "detail" : "",
+          "label" : "異なる絵",
+          "value" : "30枚"
+        }
+      ],
+      "name" : "13-display-studio-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "packet-express",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "0手"
+        },
+        {
+          "detail" : "",
+          "label" : "到着",
+          "value" : "0 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "初便",
+          "value" : "未到着"
+        },
+        {
+          "detail" : "",
+          "label" : "全便",
+          "value" : "未完了"
+        }
+      ],
+      "name" : "14-packet-express-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "packet-express",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "5手"
+        },
+        {
+          "detail" : "",
+          "label" : "到着",
+          "value" : "4 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "初便",
+          "value" : "2手"
+        },
+        {
+          "detail" : "",
+          "label" : "全便",
+          "value" : "5手"
+        }
+      ],
+      "name" : "14-packet-express-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "packet-express",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "5手"
+        },
+        {
+          "detail" : "",
+          "label" : "到着",
+          "value" : "4 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "初便",
+          "value" : "2手"
+        },
+        {
+          "detail" : "",
+          "label" : "全便",
+          "value" : "5手"
+        }
+      ],
+      "name" : "14-packet-express-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "board-town",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "0手"
+        },
+        {
+          "detail" : "",
+          "label" : "工程",
+          "value" : "0 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "配置",
+          "value" : "別パッケージ"
+        },
+        {
+          "detail" : "",
+          "label" : "メモリ",
+          "value" : "条件カード"
+        }
+      ],
+      "name" : "15-board-town-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "board-town",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "6手"
+        },
+        {
+          "detail" : "",
+          "label" : "工程",
+          "value" : "6 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "配置",
+          "value" : "別パッケージ"
+        },
+        {
+          "detail" : "",
+          "label" : "メモリ",
+          "value" : "条件カード"
+        }
+      ],
+      "name" : "15-board-town-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "board-town",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "6手"
+        },
+        {
+          "detail" : "",
+          "label" : "工程",
+          "value" : "6 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "配置",
+          "value" : "別パッケージ"
+        },
+        {
+          "detail" : "",
+          "label" : "メモリ",
+          "value" : "条件カード"
+        }
+      ],
+      "name" : "15-board-town-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "connection-lab",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "接続",
+          "value" : "0 \/ 1"
+        },
+        {
+          "detail" : "",
+          "label" : "検査",
+          "value" : "未検査"
+        },
+        {
+          "detail" : "",
+          "label" : "条件",
+          "value" : "架空の機器"
+        }
+      ],
+      "name" : "16-connection-lab-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "connection-lab",
+      "metrics" : [
+        {
+          "detail" : "架空C形・適合",
+          "label" : "形",
+          "value" : "✓"
+        },
+        {
+          "detail" : "4 \/ 必要3",
+          "label" : "容量",
+          "value" : "✓"
+        },
+        {
+          "detail" : "15W \/ 必要5W",
+          "label" : "給電",
+          "value" : "✓"
+        }
+      ],
+      "name" : "16-connection-lab-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "connection-lab",
+      "metrics" : [
+        {
+          "detail" : "架空C形・適合",
+          "label" : "形",
+          "value" : "✓"
+        },
+        {
+          "detail" : "4 \/ 必要3",
+          "label" : "容量",
+          "value" : "✓"
+        },
+        {
+          "detail" : "15W \/ 必要5W",
+          "label" : "給電",
+          "value" : "✓"
+        }
+      ],
+      "name" : "16-connection-lab-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "pc-day",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "0 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "作業版",
+          "value" : "なし"
+        },
+        {
+          "detail" : "",
+          "label" : "表示",
+          "value" : "なし"
+        },
+        {
+          "detail" : "",
+          "label" : "元の保存版",
+          "value" : "v1"
+        },
+        {
+          "detail" : "",
+          "label" : "別名の保存版",
+          "value" : "なし"
+        }
+      ],
+      "name" : "17-pc-day-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "pc-day",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "3 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "作業版",
+          "value" : "v1"
+        },
+        {
+          "detail" : "",
+          "label" : "表示",
+          "value" : "v1"
+        },
+        {
+          "detail" : "",
+          "label" : "元の保存版",
+          "value" : "v1"
+        },
+        {
+          "detail" : "",
+          "label" : "別名の保存版",
+          "value" : "なし"
+        }
+      ],
+      "name" : "17-pc-day-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "pc-day",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "3 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "作業版",
+          "value" : "v1"
+        },
+        {
+          "detail" : "",
+          "label" : "表示",
+          "value" : "v1"
+        },
+        {
+          "detail" : "",
+          "label" : "元の保存版",
+          "value" : "v1"
+        },
+        {
+          "detail" : "",
+          "label" : "別名の保存版",
+          "value" : "なし"
+        }
+      ],
+      "name" : "17-pc-day-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "battery-voyage",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "残量",
+          "value" : "30 Wh"
+        },
+        {
+          "detail" : "",
+          "label" : "消費 \/ 給電",
+          "value" : "12 \/ 0 W"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "0 分"
+        },
+        {
+          "detail" : "",
+          "label" : "仕事",
+          "value" : "0 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "この区間",
+          "value" : "0 Wh"
+        }
+      ],
+      "name" : "18-battery-voyage-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "battery-voyage",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "残量",
+          "value" : "18 Wh"
+        },
+        {
+          "detail" : "",
+          "label" : "消費 \/ 給電",
+          "value" : "12 \/ 0 W"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "60 分"
+        },
+        {
+          "detail" : "",
+          "label" : "仕事",
+          "value" : "6 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "この区間",
+          "value" : "-2 Wh"
+        }
+      ],
+      "name" : "18-battery-voyage-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "battery-voyage",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "残量",
+          "value" : "18 Wh"
+        },
+        {
+          "detail" : "",
+          "label" : "消費 \/ 給電",
+          "value" : "12 \/ 0 W"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "60 分"
+        },
+        {
+          "detail" : "",
+          "label" : "仕事",
+          "value" : "6 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "この区間",
+          "value" : "-2 Wh"
+        }
+      ],
+      "name" : "18-battery-voyage-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "cooling-workshop",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "刻み",
+          "value" : "0 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "完成",
+          "value" : "0 個"
+        },
+        {
+          "detail" : "",
+          "label" : "熱",
+          "value" : "0 ポイント"
+        },
+        {
+          "detail" : "",
+          "label" : "音の合計",
+          "value" : "0"
+        },
+        {
+          "detail" : "",
+          "label" : "動作",
+          "value" : "ゆっくり · 1個ずつ"
+        }
+      ],
+      "name" : "19-cooling-workshop-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "cooling-workshop",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "刻み",
+          "value" : "4 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "完成",
+          "value" : "8 個"
+        },
+        {
+          "detail" : "",
+          "label" : "熱",
+          "value" : "8 ポイント"
+        },
+        {
+          "detail" : "",
+          "label" : "音の合計",
+          "value" : "4"
+        },
+        {
+          "detail" : "",
+          "label" : "動作",
+          "value" : "速く · 2個ずつ"
+        }
+      ],
+      "name" : "19-cooling-workshop-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "cooling-workshop",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "刻み",
+          "value" : "4 \/ 4"
+        },
+        {
+          "detail" : "",
+          "label" : "完成",
+          "value" : "8 個"
+        },
+        {
+          "detail" : "",
+          "label" : "熱",
+          "value" : "8 ポイント"
+        },
+        {
+          "detail" : "",
+          "label" : "音の合計",
+          "value" : "4"
+        },
+        {
+          "detail" : "",
+          "label" : "動作",
+          "value" : "速く · 2個ずつ"
+        }
+      ],
+      "name" : "19-cooling-workshop-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "bottleneck-detective",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "今回",
+          "value" : "0 刻み"
+        },
+        {
+          "detail" : "",
+          "label" : "完成",
+          "value" : "0 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "RAM使用",
+          "value" : "0 \/ 8"
+        },
+        {
+          "detail" : "",
+          "label" : "比較記録",
+          "value" : "0 本"
+        },
+        {
+          "detail" : "",
+          "label" : "目標",
+          "value" : "3刻み目を観察"
+        }
+      ],
+      "name" : "20-bottleneck-detective-stage1-initial",
+      "phase" : "initial",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "bottleneck-detective",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "今回",
+          "value" : "8 刻み"
+        },
+        {
+          "detail" : "",
+          "label" : "完成",
+          "value" : "6 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "RAM使用",
+          "value" : "0 \/ 8"
+        },
+        {
+          "detail" : "",
+          "label" : "比較記録",
+          "value" : "1 本"
+        },
+        {
+          "detail" : "",
+          "label" : "目標",
+          "value" : "3刻み目を観察"
+        }
+      ],
+      "name" : "20-bottleneck-detective-stage1-complete",
+      "phase" : "complete",
+      "stage" : 1
+    },
+    {
+      "complete" : true,
+      "gameID" : "bottleneck-detective",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "今回",
+          "value" : "8 刻み"
+        },
+        {
+          "detail" : "",
+          "label" : "完成",
+          "value" : "6 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "RAM使用",
+          "value" : "0 \/ 8"
+        },
+        {
+          "detail" : "",
+          "label" : "比較記録",
+          "value" : "1 本"
+        },
+        {
+          "detail" : "",
+          "label" : "目標",
+          "value" : "3刻み目を観察"
+        }
+      ],
+      "name" : "20-bottleneck-detective-stage1-resumed",
+      "phase" : "resumed",
+      "stage" : 1
+    },
+    {
+      "complete" : false,
+      "gameID" : "bit-art",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "選んだ点",
+          "value" : "101 = 5"
+        },
+        {
+          "detail" : "",
+          "label" : "色",
+          "value" : "紫"
+        },
+        {
+          "detail" : "圧縮や見出しを含まない教材内の量",
+          "label" : "画素データ",
+          "value" : "16 × 3 = 48 bit"
+        },
+        {
+          "detail" : "",
+          "label" : "観察",
+          "value" : "0 \/ 2"
+        }
+      ],
+      "name" : "01-bit-art-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "circuit-atelier",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "入力 A \/ B",
+          "value" : "1 \/ 0"
+        },
+        {
+          "detail" : "ランプ消灯",
+          "label" : "出力",
+          "value" : "0"
+        },
+        {
+          "detail" : "",
+          "label" : "つながった道",
+          "value" : "3 \/ 3"
+        },
+        {
+          "detail" : "部品・配線を変えると観察を取り直す",
+          "label" : "同じ回路の観察",
+          "value" : "1 \/ 4"
+        },
+        {
+          "detail" : "目標: 両方が1のときだけ1",
+          "label" : "目標との一致",
+          "value" : "1 \/ 4"
+        }
+      ],
+      "name" : "02-circuit-atelier-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "memory-switch",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "入力 D",
+          "value" : "0"
+        },
+        {
+          "detail" : "",
+          "label" : "記憶 Q",
+          "value" : "1"
+        },
+        {
+          "detail" : "",
+          "label" : "保存コピー",
+          "value" : "なし"
+        },
+        {
+          "detail" : "",
+          "label" : "比較記録",
+          "value" : "0 件"
+        }
+      ],
+      "name" : "03-memory-switch-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "tiny-switch-workshop",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "つなぎ方",
+          "value" : "並列"
+        },
+        {
+          "detail" : "",
+          "label" : "入力",
+          "value" : "A 1 · B 0"
+        },
+        {
+          "detail" : "",
+          "label" : "ランプ",
+          "value" : "1"
+        },
+        {
+          "detail" : "",
+          "label" : "一致した条件",
+          "value" : "0 \/ 4"
+        }
+      ],
+      "name" : "04-tiny-switch-workshop-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "instruction-atelier",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "実行",
+          "value" : "3命令"
+        },
+        {
+          "detail" : "",
+          "label" : "残りの入力",
+          "value" : "0枚"
+        },
+        {
+          "detail" : "",
+          "label" : "確認",
+          "value" : "0 \/ 1"
+        }
+      ],
+      "name" : "05-instruction-atelier-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "work-dispatch",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "作業場所",
+          "value" : "5 \/ 6 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "CPU",
+          "value" : "1台 · 1 コマ"
+        },
+        {
+          "detail" : "",
+          "label" : "最初の応答",
+          "value" : "写真: 1 \/ 音楽: まだ"
+        },
+        {
+          "detail" : "",
+          "label" : "完了",
+          "value" : "0 \/ 2"
+        },
+        {
+          "detail" : "",
+          "label" : "比較",
+          "value" : "0試行"
+        }
+      ],
+      "name" : "06-work-dispatch-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "parallel-factory",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "働き手",
+          "value" : "2人"
+        },
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "4手"
+        },
+        {
+          "detail" : "",
+          "label" : "完了",
+          "value" : "3 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "比べた条件",
+          "value" : "1"
+        }
+      ],
+      "name" : "07-parallel-factory-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "pixel-factory",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "実行",
+          "value" : "4手"
+        },
+        {
+          "detail" : "",
+          "label" : "加工済み",
+          "value" : "8 \/ 16"
+        },
+        {
+          "detail" : "",
+          "label" : "段階",
+          "value" : "計算"
+        },
+        {
+          "detail" : "",
+          "label" : "加工",
+          "value" : "1 \/ 1回"
+        }
+      ],
+      "name" : "08-pixel-factory-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "memory-dock",
+      "metrics" : [
+        {
+          "detail" : "空き 0 枠",
+          "label" : "RAM",
+          "value" : "8 \/ 8 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "保存庫",
+          "value" : "8 \/ 12 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "作業版",
+          "value" : "v2"
+        },
+        {
+          "detail" : "",
+          "label" : "保存版",
+          "value" : "v2"
+        }
+      ],
+      "name" : "09-memory-dock-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "cache-delivery",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "9 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "届いた注文",
+          "value" : "3 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "近い棚",
+          "value" : "2 \/ 2"
+        },
+        {
+          "detail" : "",
+          "label" : "手元から",
+          "value" : "1 回"
+        },
+        {
+          "detail" : "",
+          "label" : "次の便",
+          "value" : "C"
+        }
+      ],
+      "name" : "10-cache-delivery-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "memory-rescue",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "RAM",
+          "value" : "6 \/ 6 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "一時退避",
+          "value" : "0 \/ 12 枠"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "2 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "CPUの仕事",
+          "value" : "2 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "移動の待ち",
+          "value" : "0 拍"
+        }
+      ],
+      "name" : "11-memory-rescue-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "storage-warehouse",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "保存庫",
+          "value" : "16 \/ 32 MB"
+        },
+        {
+          "detail" : "準備 1 秒\/件",
+          "label" : "転送",
+          "value" : "4 MB\/s"
+        },
+        {
+          "detail" : "",
+          "label" : "到着",
+          "value" : "4 \/ 16 MB"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "2 秒"
+        },
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "待機"
+        }
+      ],
+      "name" : "12-storage-warehouse-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "display-studio",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "生成",
+          "value" : "30 FPS"
+        },
+        {
+          "detail" : "",
+          "label" : "更新",
+          "value" : "60 Hz"
+        },
+        {
+          "detail" : "",
+          "label" : "作った絵",
+          "value" : "30枚"
+        },
+        {
+          "detail" : "",
+          "label" : "画面更新",
+          "value" : "60回"
+        },
+        {
+          "detail" : "",
+          "label" : "異なる絵",
+          "value" : "30枚"
+        }
+      ],
+      "name" : "13-display-studio-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "packet-express",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "4手"
+        },
+        {
+          "detail" : "",
+          "label" : "到着",
+          "value" : "4 \/ 8"
+        },
+        {
+          "detail" : "",
+          "label" : "初便",
+          "value" : "4手"
+        },
+        {
+          "detail" : "",
+          "label" : "全便",
+          "value" : "未完了"
+        }
+      ],
+      "name" : "14-packet-express-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "board-town",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "いま",
+          "value" : "2手"
+        },
+        {
+          "detail" : "",
+          "label" : "CPU",
+          "value" : "1 \/ 2"
+        },
+        {
+          "detail" : "",
+          "label" : "GPU",
+          "value" : "1 \/ 2"
+        },
+        {
+          "detail" : "",
+          "label" : "待ち",
+          "value" : "2個"
+        }
+      ],
+      "name" : "15-board-town-stage4-representative",
+      "phase" : "representative",
+      "stage" : 4
+    },
+    {
+      "complete" : false,
+      "gameID" : "connection-lab",
+      "metrics" : [
+        {
+          "detail" : "映像の対応なし",
+          "label" : "映像",
+          "value" : "× 不足"
+        },
+        {
+          "detail" : "4 \/ 必要6",
+          "label" : "容量",
+          "value" : "× 不足"
+        },
+        {
+          "detail" : "架空C形・適合",
+          "label" : "形",
+          "value" : "✓"
+        },
+        {
+          "detail" : "60W \/ 必要30W",
+          "label" : "給電",
+          "value" : "✓"
+        }
+      ],
+      "name" : "16-connection-lab-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "pc-day",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "5 拍"
+        },
+        {
+          "detail" : "",
+          "label" : "作業版",
+          "value" : "v2"
+        },
+        {
+          "detail" : "",
+          "label" : "表示",
+          "value" : "v2"
+        },
+        {
+          "detail" : "",
+          "label" : "元の保存版",
+          "value" : "v1"
+        },
+        {
+          "detail" : "",
+          "label" : "別名の保存版",
+          "value" : "なし"
+        }
+      ],
+      "name" : "17-pc-day-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "battery-voyage",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "残量",
+          "value" : "28 Wh"
+        },
+        {
+          "detail" : "",
+          "label" : "消費 \/ 給電",
+          "value" : "30 \/ 18 W"
+        },
+        {
+          "detail" : "",
+          "label" : "経過",
+          "value" : "10 分"
+        },
+        {
+          "detail" : "",
+          "label" : "仕事",
+          "value" : "2 \/ 12"
+        },
+        {
+          "detail" : "",
+          "label" : "この区間",
+          "value" : "-2 Wh"
+        }
+      ],
+      "name" : "18-battery-voyage-stage3-representative",
+      "phase" : "representative",
+      "stage" : 3
+    },
+    {
+      "complete" : false,
+      "gameID" : "cooling-workshop",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "刻み",
+          "value" : "8 \/ 12"
+        },
+        {
+          "detail" : "",
+          "label" : "完成",
+          "value" : "16 個"
+        },
+        {
+          "detail" : "",
+          "label" : "熱",
+          "value" : "16 ポイント"
+        },
+        {
+          "detail" : "",
+          "label" : "音の合計",
+          "value" : "8"
+        },
+        {
+          "detail" : "",
+          "label" : "動作",
+          "value" : "速く · 2個ずつ"
+        }
+      ],
+      "name" : "19-cooling-workshop-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    },
+    {
+      "complete" : false,
+      "gameID" : "bottleneck-detective",
+      "metrics" : [
+        {
+          "detail" : "",
+          "label" : "今回",
+          "value" : "3 刻み"
+        },
+        {
+          "detail" : "",
+          "label" : "完成",
+          "value" : "2 \/ 6"
+        },
+        {
+          "detail" : "",
+          "label" : "RAM使用",
+          "value" : "4 \/ 8"
+        },
+        {
+          "detail" : "",
+          "label" : "比較記録",
+          "value" : "1 本"
+        },
+        {
+          "detail" : "",
+          "label" : "目標",
+          "value" : "5刻み以内"
+        }
+      ],
+      "name" : "20-bottleneck-detective-stage2-representative",
+      "phase" : "representative",
+      "stage" : 2
+    }
+  ],
+  "contactSheets" : [
+    "contact-stage1.png",
+    "contact-all-initial.png",
+    "contact-complete.png",
+    "contact-representative.png"
+  ],
+  "height" : 900,
+  "limitations" : "Offline 1600×900 layout and model\/store evidence. Does not exercise physical mouse\/keyboard input, native popovers, voice output, app routing, frame pacing, or user progress. Persistence uses actual ExperienceStore and deletes only this run's temporary directory. Source hashes are recorded in source-snapshot.sha256.",
+  "method" : "NSHostingView offscreen native bitmap in an unshown window (supports macOS drag\/drop representables) of production ExperienceScreen and 20 actual apparatus views; 3 production girl poses; in-memory initial stores and disposable real-file persistence stores",
+  "persistence" : [
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "bit-art",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "circuit-atelier",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "memory-switch",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "tiny-switch-workshop",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "instruction-atelier",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "work-dispatch",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "parallel-factory",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "pixel-factory",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "memory-dock",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "cache-delivery",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "memory-rescue",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "storage-warehouse",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "display-studio",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "packet-express",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "board-town",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "connection-lab",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "pc-day",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "battery-voyage",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "cooling-workshop",
+      "passed" : true
+    },
+    {
+      "checks" : [
+        "stage 1 starts incomplete",
+        "model actions reach success",
+        "real ExperienceStore saves artifact, comparison, prediction and discovery",
+        "new store restores equal model, artifacts, comparison, reflection and completion",
+        "replay actions change only the copied model",
+        "working-stage edits preserve immutable artifact across another reload"
+      ],
+      "gameID" : "bottleneck-detective",
+      "passed" : true
+    }
+  ],
+  "width" : 1600
+}

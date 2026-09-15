@@ -1,0 +1,65 @@
+{
+  "checks" : [
+    {
+      "actual" : "low",
+      "expected" : false,
+      "inputs" : {
+        "a" : false,
+        "b" : false
+      }
+    },
+    {
+      "actual" : "low",
+      "expected" : false,
+      "inputs" : {
+        "a" : false,
+        "b" : true
+      }
+    },
+    {
+      "actual" : "low",
+      "expected" : false,
+      "inputs" : {
+        "a" : true,
+        "b" : false
+      }
+    },
+    {
+      "actual" : "high",
+      "expected" : true,
+      "inputs" : {
+        "a" : true,
+        "b" : true
+      }
+    }
+  ],
+  "completedMissions" : [
+    "and"
+  ],
+  "inputs" : {
+    "a" : true,
+    "b" : true
+  },
+  "links" : [
+    "inputA",
+    "inputB",
+    "output"
+  ],
+  "mission" : "and",
+  "modelVersion" : "circuit-2",
+  "nextCheckIndex" : 0,
+  "output" : "high",
+  "prediction" : {
+    "answer" : false,
+    "inputs" : {
+      "a" : true,
+      "b" : false
+    },
+    "isCorrect" : true
+  },
+  "schemaVersion" : 1,
+  "seed" : 42,
+  "selectedGate" : "and",
+  "tick" : 12,
+  "verification" : "passed"
+}

@@ -1,0 +1,36 @@
+{
+  "baseline_count": 26,
+  "standalone_count": 23,
+  "changed": [],
+  "missing": [
+    "ExhibitionArt/LobbyMotion/talking.png",
+    "WorkshopArt/guide-presenting-v1-alpha-attempt.png",
+    "WorkshopArt/guide-presenting-v1-source.png"
+  ],
+  "extra": [],
+  "sha256": {
+    "WorkshopSounds/connect.wav": "febb2961d8e6d25cf649cea3eab2e84c8c7a792aead5c3d61b5dcf676a3ef6fb",
+    "WorkshopSounds/success.wav": "51c6bb43797b8f27725feda5ee1f28410e382280436804597b6de3d213892022",
+    "WorkshopSounds/switch.wav": "9490ccdfd69702057687d687f6eb9637e5c0cd0b21f8d6ca299834784181ce5d",
+    "LessonArt/explaining.png": "5ce3e93c0f5609a1d201c741b7137b0bee69205b343077cffa1b2f4689632d7e",
+    "LessonArt/celebrating.png": "94f49a80ad02835821399c93ff03493580555fad29141e751dbb612b02deff01",
+    "LessonArt/welcome.png": "3913777c001be78489be8602fe43dbb542d0148fcbdb6f9f61e5ee594f401872",
+    "WorkshopArt/guide-presenting-v1.png": "739a5561c5acadeb658cacc5c67a0284d04a65e2d46693b31c0fdb5f78eb51e1",
+    "WorkshopArt/workbench-v1.png": "bac378808408cb58a48d194cf925d9d58816408ac721355c30c349ad3f4cb5be",
+    "ExhibitionArt/area-d.png": "b7ce0b685cebb19bb2da0e47666a8f7bfba03f9cfeed6d8ce6b28f287abf10a7",
+    "ExhibitionArt/area-e.png": "3ecdeb02c1fa66baeabfe04757c03510dc8a5dc84403d8f3ad554f208b6e011f",
+    "ExhibitionArt/lobby.png": "c71dda6488947ad82bd11192e3a32a74bc3abeedc238842487a2837510530fff",
+    "ExhibitionArt/area-b.png": "de374d05dc80dd4b5edf6fd1078de8b6dda1ffdebb5e3407bb98447d420df2fa",
+    "ExhibitionArt/area-c.png": "f7d1134ccedb65928a59417f5a27b2278eb6fbf166ba8202f92de19b97150b31",
+    "ExhibitionArt/area-a.png": "ae3c200ff69629946d7dc830e0dd0b2f8a06f8308ca36f86b33333a670b0d930",
+    "ExhibitionArt/circuit-entry.png": "551c8285c7e8fa8a990fe16e923eb714765fb72c5869d100af7f530bc3be9c23",
+    "ExhibitionArt/guide-notebook.png": "99bd42cd09dfd87864bc411245d6453f32e47823da8508be6e41eaa6b79db38a",
+    "ExhibitionArt/LobbyMotion/background.png": "78ab2ca864f6432a3c234e953a326d2add11f764b66b73b59386b2eac1039c19",
+    "ExhibitionArt/LobbyMotion/blink.png": "a33110e38d06dbc6a7c51cbf80d999d868ec8edeb9fa143d6c1accc099fe0486",
+    "GuideAssets/rig.json": "91270fceca226e6b6f3e6ffe042a43f10ea34eba9f4ea62e6ee6be6bebb04137",
+    "GuideAssets/standing-front-hands.png": "730d2bb97e621d67b1a8f92bbc2fc865a9c0b850c57d3e9791bd11a431f6d8f3",
+    "GuideAssets/standing.png": "f7b5b0abb01911ff0278d9afad84e00bbba93df860a8c2bcd84076592888a4a0",
+    "GuideAssets/standing-back-hands.png": "78a8632035e5d80c0c736310e87af28c4b0f06f20ad4209b29fef075cb0bd2c2",
+    "GuideAssets/standing-blink.png": "83d1c886cb5df9208051ed5e4018e5cfe5ed55fd8294d803bb75213bebbc4410"
+  }
+}

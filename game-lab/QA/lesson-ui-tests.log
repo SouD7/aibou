@@ -1,0 +1,26 @@
+Running UI tests on the desktop. Result bundle: /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-041822-43886.xcresult
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/fujishima/aibou/game-lab/AIBOUGameLabUITests.xcodeproj -scheme AIBOUGameLabUITests -destination platform=macOS,arch=arm64 -derivedDataPath /Users/fujishima/aibou/game-lab/.build/ui-tests -parallel-testing-enabled NO -resultBundlePath /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-041822-43886.xcresult test-without-building "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testGirlOpensLessonsAndAllTwentyExperimentsComplete" "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testLessonWrongAnswerRetryPersistenceAndExhibitReturn" "-only-testing:AIBOUGameLabUITests/ExhibitionUITests/testLessonsPreserveWorkingCircuitAndRoom"
+
+Writing result bundle at path:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260915-041822-43886.xcresult
+
+2026-09-15 04:18:28.272889+0900 AIBOUGameLabUITests-Runner[43929:33660415] [Default] Running tests...
+2026-09-15 04:19:28.329077+0900 AIBOUGameLabUITests-Runner[43929:33660415] [Default] Failed to initialize for UI testing: Error Domain=com.apple.dt.XCTest.XCTFuture Code=1000 "Timed out while enabling automation mode." UserInfo={NSLocalizedDescription=Timed out while enabling automation mode.}
+
+
+*** If you believe this error represents a bug, please attach the result bundle at /Users/fujishima/aibou/game-lab/QA/results/ui-20260915-041822-43886.xcresult
+
+2026-09-15 04:19:34.980 xcodebuild[43924:33660153] [MT] IDETestOperationsObserverDebug: 71.372 elapsed -- Testing started completed.
+2026-09-15 04:19:34.981 xcodebuild[43924:33660153] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-15 04:19:34.981 xcodebuild[43924:33660153] [MT] IDETestOperationsObserverDebug: 71.372 sec, +71.372 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/fujishima/aibou/game-lab/QA/results/ui-20260915-041822-43886.xcresult
+
+Testing failed:
+	AIBOUGameLabUITests-Runner (43929) encountered an error (The test runner failed to initialize for UI testing. (Underlying Error: Timed out while enabling automation mode.))
+
+** TEST EXECUTE FAILED **
+
+Testing started
