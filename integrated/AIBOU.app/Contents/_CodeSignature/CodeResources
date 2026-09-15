@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/Assets/.DS_Store</key>
-		<data>
-		+YGG9+nlEY1LZnMOyKYtclZRrns=
-		</data>
 		<key>Resources/Assets/RoomAnimation/frame-000.png</key>
 		<data>
 		t8KrKUSqcbnbu47DXjUJrpu5hlU=
@@ -568,6 +564,78 @@
 		<data>
 		IZgd/YbymukG9Ct4k7OZj4t2f48=
 		</data>
+		<key>Resources/ExhibitionArt/LobbyMotion/background.png</key>
+		<data>
+		VISm5cYjSZ17ZajaNtX6sAmqEvw=
+		</data>
+		<key>Resources/ExhibitionArt/LobbyMotion/blink.png</key>
+		<data>
+		jbrPRfHc+vMgeQUK2PSy1eqISio=
+		</data>
+		<key>Resources/ExhibitionArt/area-a.png</key>
+		<data>
+		qymPlaECQOr311XyxpYfbctpEuA=
+		</data>
+		<key>Resources/ExhibitionArt/area-b.png</key>
+		<data>
+		ppgvo56qLGtvlMqcMzCfYCfX/Yg=
+		</data>
+		<key>Resources/ExhibitionArt/area-c.png</key>
+		<data>
+		mn6XwdWfNoWeLc3RQAjzBfsFXh4=
+		</data>
+		<key>Resources/ExhibitionArt/area-d.png</key>
+		<data>
+		YpRKrSUA7GW//gTe4OKXIk4uIk4=
+		</data>
+		<key>Resources/ExhibitionArt/area-e.png</key>
+		<data>
+		VU4M9EiuAg5huJIyMMXbPwmOe5A=
+		</data>
+		<key>Resources/ExhibitionArt/circuit-entry.png</key>
+		<data>
+		poaaJTMA8VU5dREF3ZHR3C7+ZpE=
+		</data>
+		<key>Resources/ExhibitionArt/guide-notebook.png</key>
+		<data>
+		OS3g8M0UgRZ/8ihc9dWUFQiqv9U=
+		</data>
+		<key>Resources/ExhibitionArt/lobby.png</key>
+		<data>
+		EQoMINpxLCDruO6nkNo6/v2R0Ss=
+		</data>
+		<key>Resources/GuideAssets/rig.json</key>
+		<data>
+		tl2f5gGCnftlGp4017t17O6BoW4=
+		</data>
+		<key>Resources/GuideAssets/standing-back-hands.png</key>
+		<data>
+		wXkj3PWjiRPeMJGP25sy9yQd+Ak=
+		</data>
+		<key>Resources/GuideAssets/standing-blink.png</key>
+		<data>
+		k/HpWAAd1OwMbKKcEFOmGRtcMrE=
+		</data>
+		<key>Resources/GuideAssets/standing-front-hands.png</key>
+		<data>
+		LHdCbFOW3nfUF7PDOS0peydKGXs=
+		</data>
+		<key>Resources/GuideAssets/standing.png</key>
+		<data>
+		d0ws4OoInszl4TIMTsii5/Gimn4=
+		</data>
+		<key>Resources/LessonArt/celebrating.png</key>
+		<data>
+		ZEl2rbghlbcapBeyFzHjdLyZ86I=
+		</data>
+		<key>Resources/LessonArt/explaining.png</key>
+		<data>
+		/k/Th1pA8DuQ4Galb1q/nLXhAEw=
+		</data>
+		<key>Resources/LessonArt/welcome.png</key>
+		<data>
+		Z4a1cnGMGJ1n82dGh6zke3sQk5k=
+		</data>
 		<key>Resources/PrivacyInfo.xcprivacy</key>
 		<data>
 		87pBRAdH/1bmFc4m49vXo0HNNeo=
@@ -791,6 +859,26 @@
 		<key>Resources/StartupMotion/sequence.json</key>
 		<data>
 		m7AYK0Lu3OOQe1sIUJjirnOvXT0=
+		</data>
+		<key>Resources/WorkshopArt/guide-presenting-v1.png</key>
+		<data>
+		Ni8+/3ixy8d2+HbnOHyryDb+xHQ=
+		</data>
+		<key>Resources/WorkshopArt/workbench-v1.png</key>
+		<data>
+		1OCWrsAZDytwZM67jqrxZixL2Y0=
+		</data>
+		<key>Resources/WorkshopSounds/connect.wav</key>
+		<data>
+		c5lLugX6EfJQz0RX+O9CjUdwHLU=
+		</data>
+		<key>Resources/WorkshopSounds/success.wav</key>
+		<data>
+		8oiGXZnFPWpf7nwnGfn3WjW5cto=
+		</data>
+		<key>Resources/WorkshopSounds/switch.wav</key>
+		<data>
+		+Zn61ufB7R8pkfm0e76KhjF2Th8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -1775,6 +1863,132 @@
 			GqjpyQfL3SLD3+gnzSkDZsIDDdMep1tqXfdPkZi+gqQ=
 			</data>
 		</dict>
+		<key>Resources/ExhibitionArt/LobbyMotion/background.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			eKssqGT2Qyo8I06VOjJtKt0R92S2a3O1k4ay6sEDnBk=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/LobbyMotion/blink.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ozEQ440G28anxRy/gNmZ2Gjsjt65+hQ9bBrMwJn+BIY=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/area-a.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rjwgD/aWKZRtfcgw4N0LL4oG+DCMo2+GszMzpnCw2TA=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/area-b.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3jdNBdyA3Ute32/RB43ott2h/967XjQHu5hEfUIN8vo=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/area-c.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			99ETTM7bZZKKWUF/WieyJ462+/FmuoIC+S3hm5cVCzE=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/area-d.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			t84LaFzrsZuy2g5HZmqPe/ugP5z+7W2M5rKPKHq/EKc=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/area-e.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Ps3rAsH6Zrrqv+BHV8A1ENyKXchEA9jzrVVPIItuAR8=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/circuit-entry.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VRyChcfo+oqZD+Fukj63FHZftyxYadEAr39TC8O+nCM=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/guide-notebook.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mb1CzQnf2HhkvEESRdZFPzLkeCPahQi+bkHqpreds4o=
+			</data>
+		</dict>
+		<key>Resources/ExhibitionArt/lobby.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xx3aZIiUetgr0RGS46MqdLw6vu3COIQkh6KDdRBTD/8=
+			</data>
+		</dict>
+		<key>Resources/GuideAssets/rig.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kScPzsoibmtvPm/+BCpD8Q6jTrqfTqYubua+a+uwQTc=
+			</data>
+		</dict>
+		<key>Resources/GuideAssets/standing-back-hands.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			eKhjIDXl2AwMc2MQ6HryjEsPBvIK1CCbKf7wdcsL0sI=
+			</data>
+		</dict>
+		<key>Resources/GuideAssets/standing-blink.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			g9HIhstd+SCAUe1eQBjlz+XtVf2ClNgDu3UhO+u8RBA=
+			</data>
+		</dict>
+		<key>Resources/GuideAssets/standing-front-hands.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cw0ruX5iHWexqPkrvC/IZanAuFDFfT6Xkb0RpDH22PM=
+			</data>
+		</dict>
+		<key>Resources/GuideAssets/standing.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			97Wwq7AZEf8CeNmvrYTgC7upPfhgqMK82EB2WSiIpKA=
+			</data>
+		</dict>
+		<key>Resources/LessonArt/celebrating.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lPSagK0Cg1ghOZyT/wNJNYBVX60pFB51HbthKwLe/wE=
+			</data>
+		</dict>
+		<key>Resources/LessonArt/explaining.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XOPpPA9WCaHSAcdBtxN7C+5pIFs0MHfP+hsvRoljLX4=
+			</data>
+		</dict>
+		<key>Resources/LessonArt/welcome.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ORN3fAAb54SJvoYC/kPbtULQFI/L22+fYeXuWU9AGHI=
+			</data>
+		</dict>
 		<key>Resources/PrivacyInfo.xcprivacy</key>
 		<dict>
 			<key>hash2</key>
@@ -2165,6 +2379,41 @@
 			<key>hash2</key>
 			<data>
 			txJPDiFhlucTZle9u6ExXlokJaj42wKkmuWY3nje6sE=
+			</data>
+		</dict>
+		<key>Resources/WorkshopArt/guide-presenting-v1.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			c5pVYcWsretljKzFxnoChNBKZeLUZpOzHA/bX3jrUeE=
+			</data>
+		</dict>
+		<key>Resources/WorkshopArt/workbench-v1.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			usN4gIQIy1ikjRlM+SXZ1YgWQIrHITVcMMNJrT9Mtb4=
+			</data>
+		</dict>
+		<key>Resources/WorkshopSounds/connect.wav</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/rspYdjm0lz2Sc6j6rLoTIx6eSrq1cPWG13PZ2o+9vs=
+			</data>
+		</dict>
+		<key>Resources/WorkshopSounds/success.wav</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Uca7Q3l7jydyX+2l7h8oQQ44IoBDaARZe23j0hOJICI=
+			</data>
+		</dict>
+		<key>Resources/WorkshopSounds/switch.wav</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lJDM39aXAgV2h9aH9uuWN+XAzQsh+NbKKZg0eEGBzl0=
 			</data>
 		</dict>
 	</dict>

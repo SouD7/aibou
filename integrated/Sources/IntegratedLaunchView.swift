@@ -10,7 +10,7 @@ struct IntegratedLaunchView: View {
 
     var body: some View {
         ZStack {
-            IntegratedWindow(app: app)
+            IntegratedDestinationsView(app: app)
                 .opacity(showRoom || !app.showingOpening ? 1 : 0)
                 .allowsHitTesting(!app.showingOpening)
                 .disabled(app.showingOpening)

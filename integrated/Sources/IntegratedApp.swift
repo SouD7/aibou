@@ -38,7 +38,7 @@ struct AIBOUApp: App {
             CommandGroup(replacing: .newItem) {}
             CommandMenu("コンポーネント") {
                 RoomComponentMenuItems(app: app, avatar: app.avatar)
-                    .disabled(app.showingOpening || app.session.isDemo || app.presentation != nil || app.showingConnection)
+                    .disabled(app.showingOpening || app.showingLearning || app.session.isDemo || app.presentation != nil || app.showingConnection)
             }
         }
     }

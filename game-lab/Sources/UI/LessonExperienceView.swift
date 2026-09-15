@@ -9,6 +9,7 @@ struct LessonExperienceView: View {
     @ObservedObject var store: LessonStore
     var close: () -> Void
     var openExhibit: (String) -> Void
+    var isActive: Bool = true
     @StateObject private var voice = GuideVoice()
     @State private var showingSources = false
 
@@ -53,6 +54,7 @@ struct LessonExperienceView: View {
             .foregroundStyle(ExhibitionStyle.ink)
             .onChange(of: phase) { _ in voice.stop() }
             .onChange(of: store.session?.lessonID) { _ in voice.stop() }
+            .onChange(of: isActive) { if !$0 { voice.stop() } }
             .onDisappear { voice.stop() }
     }
 

@@ -19,3 +19,6 @@ node_modules/
 .env.*
 !.env.example
 !.env.sample
+
+# Native UI test diagnostics remain local
+/integrated/QA/results/

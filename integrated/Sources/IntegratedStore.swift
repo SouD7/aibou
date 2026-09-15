@@ -12,6 +12,9 @@ final class IntegratedStore: ObservableObject {
     @Published var showingConnection = false
     @Published var showingOpening = true
     @Published var openingReady = false
+    @Published private(set) var showingLearning = false
+    @Published private(set) var hasOpenedLearning = false
+    private var avatarWasPausedBeforeLearning: Bool?
     private var subscriptions: Set<AnyCancellable> = []
     private var liveState = RoomVisualState()
 
@@ -30,7 +33,7 @@ final class IntegratedStore: ObservableObject {
             self.avatar.replaceComponentWarnings(self.session.visibleWarnings(HardwareRoomPolicy.warnings(for: state)))
         }.store(in: &subscriptions)
         Timer.publish(every: 1, on: .main, in: .common).autoconnect().sink { [weak self] now in
-            guard let self, !self.showingOpening, !self.session.isConsulting, !self.session.isDemo,
+            guard let self, !self.showingOpening, !self.showingLearning, !self.session.isConsulting, !self.session.isDemo,
                   now >= self.session.nextPoseAt, self.session.shouldChoosePose(now: now) else { return }
             self.avatar.selectedPose = HardwareRoomPolicy.avatarCandidates(for: self.avatar.roomVisualState).randomElement() ?? .standingBackHands
         }.store(in: &subscriptions)
@@ -97,6 +100,22 @@ final class IntegratedStore: ObservableObject {
         menuExpanded = false
         avatar.selectComponent(nil)
         presentation = panel
+    }
+
+    func openLearning() {
+        guard !showingOpening, !showingLearning else { return }
+        avatarWasPausedBeforeLearning = avatar.paused
+        avatar.paused = true
+        menuExpanded = false
+        hasOpenedLearning = true
+        showingLearning = true
+    }
+
+    func returnFromLearning() {
+        guard showingLearning else { return }
+        showingLearning = false
+        if let paused = avatarWasPausedBeforeLearning { avatar.paused = paused }
+        avatarWasPausedBeforeLearning = nil
     }
 
     func returnToTitle() {

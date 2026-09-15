@@ -67,7 +67,7 @@ struct IntegratedWindow: View {
             // Release local editor/confirmation state while a panel can edit the shared model.
             // Dismissal rebuilds the room surface from the latest question and conversation.
             RoomConsultationSurface(model: consultation, store: monitor, addQuestionRequest: addQuestionRequest,
-                                    isVisible: app.session.isConsulting && app.presentation == nil)
+                                    isVisible: app.session.isConsulting && app.presentation == nil && !app.showingLearning)
                 .frame(maxWidth: min(980, size.width - 380))
                 .frame(maxHeight: min(440, size.height * 0.5))
                 .padding(.bottom, 24)
@@ -116,7 +116,8 @@ struct IntegratedWindow: View {
                 roundButton("メンテナンス", symbol: "wrench.and.screwdriver", size: 84) { app.open(.maintenance) }
                 roundButton("アプリ", symbol: "square.grid.2x2", size: 84) { app.open(.applications) }
                 roundButton("モニター", symbol: "waveform.path.ecg", size: 84) { app.open(.monitor) }
-                roundButton("学習", symbol: "book", size: 84) { }
+                roundButton("学習", symbol: "book", size: 84) { app.openLearning() }
+                    .accessibilityIdentifier("lab.learning")
                 roundButton("デモ", symbol: "slider.horizontal.3", size: 84) { app.enterDemo() }
                 roundButton("タイトルへ", symbol: "arrow.uturn.backward", size: 84) { app.returnToTitle() }
             }

@@ -11,6 +11,7 @@ struct ExhibitionHomeView: View {
     @ObservedObject private var workshop: WorkshopStore
     @StateObject private var narrator = GuideVoice()
     @StateObject private var lessons = LessonStore()
+    var onReturnToLab: (() -> Void)?
     @State private var overlay: Overlay?
     @State private var hoveredGame: String?
     @State private var hoveredArea: ExhibitionAreaID?
@@ -23,9 +24,10 @@ struct ExhibitionHomeView: View {
     @Environment(\.scenePhase) private var scenePhase
     private enum Overlay { case map, workbook, lessons }
 
-    init(gameStore: CircuitLabStore, exhibition: ExhibitionStore) {
+    init(gameStore: CircuitLabStore, exhibition: ExhibitionStore, onReturnToLab: (() -> Void)? = nil) {
         self.gameStore = gameStore; self.exhibition = exhibition
         self.workshop = gameStore.workshop
+        self.onReturnToLab = onReturnToLab
     }
 
     private var playing: Bool { if case .playing = exhibition.route { return true }; return false }
@@ -86,7 +88,8 @@ struct ExhibitionHomeView: View {
                                 openLegacyArtifact: { showingArtifact = true })
                         case .lessons:
                             LessonExperienceView(store: lessons, close: dismissOverlay,
-                                openExhibit: { id in dismissOverlay(); navigate { exhibition.openGame(id) } })
+                                openExhibit: { id in dismissOverlay(); navigate { exhibition.openGame(id) } },
+                                isActive: onReturnToLab == nil || scenePhase == .active)
                         }
                     }.transition(.opacity).zIndex(2)
                 }
@@ -121,6 +124,16 @@ struct ExhibitionHomeView: View {
                 Text("aibou").font(.system(size: 24, weight: .bold, design: .rounded)).tracking(-1)
             }.buttonStyle(.plain).accessibilityLabel("展示館のロビーへ").accessibilityIdentifier("ex.lobby")
             Rectangle().fill(ExhibitionStyle.ink.opacity(0.15)).frame(width: 1, height: 25)
+            if let onReturnToLab {
+                Button {
+                    narrator.stop()
+                    workshop.cancelTest(announce: false)
+                    workshop.stopSpeech()
+                    onReturnToLab()
+                } label: { Label("ラボへ戻る", systemImage: "house") }
+                    .buttonStyle(ExhibitionButtonStyle(compact: true))
+                    .accessibilityIdentifier("ex.lab")
+            }
             DestinationNavigation(current: .exhibition,
                 onExhibition: { dismissOverlay(); navigate { exhibition.goToLobby() } },
                 exhibitionIdentifier: "ex.exhibition")
