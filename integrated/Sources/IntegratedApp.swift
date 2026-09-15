@@ -27,9 +27,9 @@ struct AIBOUApp: App {
 
     var body: some Scene {
         WindowGroup("AIBOU") {
-            IntegratedWindow(app: app)
+            IntegratedLaunchView(app: app)
                 .frame(minWidth: 960, minHeight: 660)
-                .background(RoomWindowSetup())
+                .background(RoomWindowSetup(ready: { app.openingReady = true }))
                 .onAppear { delegate.app = app }
         }
         .windowStyle(.hiddenTitleBar)
@@ -38,7 +38,7 @@ struct AIBOUApp: App {
             CommandGroup(replacing: .newItem) {}
             CommandMenu("コンポーネント") {
                 RoomComponentMenuItems(app: app, avatar: app.avatar)
-                    .disabled(app.session.isDemo || app.presentation != nil || app.showingConnection)
+                    .disabled(app.showingOpening || app.session.isDemo || app.presentation != nil || app.showingConnection)
             }
         }
     }
@@ -46,12 +46,30 @@ struct AIBOUApp: App {
 #endif
 
 struct RoomWindowSetup: NSViewRepresentable {
-    func makeNSView(context: Context) -> RoomWindowSetupView { RoomWindowSetupView() }
+    let ready: () -> Void
+    func makeNSView(context: Context) -> RoomWindowSetupView {
+        let view = RoomWindowSetupView()
+        view.ready = ready
+        return view
+    }
     func updateNSView(_ view: RoomWindowSetupView, context: Context) {}
 }
 
 final class RoomWindowSetupView: NSView {
+    var ready: () -> Void = {}
     private var configured = false
+    private var observers: [NSObjectProtocol] = []
+    private var readinessFallback: DispatchWorkItem?
+
+    deinit { observers.forEach(NotificationCenter.default.removeObserver) }
+
+    private func completeSetup() {
+        readinessFallback?.cancel()
+        readinessFallback = nil
+        observers.forEach(NotificationCenter.default.removeObserver)
+        observers.removeAll()
+        ready()
+    }
     override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
         guard let window, !configured else { return }
@@ -59,9 +77,24 @@ final class RoomWindowSetupView: NSView {
         window.title = "AIBOU"
         window.titlebarAppearsTransparent = true
         window.collectionBehavior.insert(.fullScreenPrimary)
-        guard !CommandLine.arguments.contains("--windowed") else { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak window] in
-            guard let window, !window.styleMask.contains(.fullScreen) else { return }
+        guard !CommandLine.arguments.contains("--windowed"), !window.styleMask.contains(.fullScreen) else {
+            DispatchQueue.main.async { [weak self] in self?.completeSetup() }
+            return
+        }
+        observers.append(NotificationCenter.default.addObserver(forName: NSWindow.didEnterFullScreenNotification, object: window, queue: .main) { [weak self] _ in
+            self?.completeSetup()
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self, weak window] in
+            guard let self, let window else { return }
+            guard !window.styleMask.contains(.fullScreen) else { self.completeSetup(); return }
+            // SwiftUI owns the window delegate, including the fullscreen failure callback.
+            // Bound the wait if AppKit never posts a successful transition notification.
+            let fallback = DispatchWorkItem { [weak self] in
+                NSLog("AIBOU opening: fullscreen readiness timed out; continuing in the current window")
+                self?.completeSetup()
+            }
+            self.readinessFallback = fallback
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: fallback)
             window.toggleFullScreen(nil)
         }
     }

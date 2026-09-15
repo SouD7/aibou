@@ -2,6 +2,10 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 mkdir -p .build/module-cache
+xcrun swiftc -warnings-as-errors -parse-as-library -swift-version 5 \
+  -module-cache-path "$PWD/.build/module-cache" -target "$(uname -m)-apple-macosx13.0" \
+  Sources/StartupSequence.swift Tests/StartupSequenceTests.swift -o .build/StartupSequenceTests
+.build/StartupSequenceTests
 sources=(../monitor/Sources/Common.swift)
 for source in ../avatar-motion/Sources/*.swift; do
   if [[ "$(basename "$source")" != "App.swift" ]]; then sources+=("$source"); fi

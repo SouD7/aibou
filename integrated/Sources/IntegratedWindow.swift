@@ -53,7 +53,7 @@ struct IntegratedWindow: View {
         .overlay(alignment: .topLeading) {
             if !app.session.isDemo {
                 ScrollView(.vertical) { menu }
-                    .frame(width: 114, height: min(app.menuExpanded ? 659 : 114, size.height - 145))
+                    .frame(width: 114, height: min(app.menuExpanded ? 678 : 114, size.height - 145))
                     .padding(22)
             }
         }
@@ -113,20 +113,21 @@ struct IntegratedWindow: View {
                 withAnimation(.easeInOut(duration: 0.18)) { app.menuExpanded.toggle() }
             }
             if app.menuExpanded {
-                roundButton("メンテナンス", symbol: "wrench.and.screwdriver", size: 99) { app.open(.maintenance) }
-                roundButton("アプリ", symbol: "square.grid.2x2", size: 99) { app.open(.applications) }
-                roundButton("モニター", symbol: "waveform.path.ecg", size: 99) { app.open(.monitor) }
-                roundButton("学習", symbol: "book", size: 99) { }
-                roundButton("デモ", symbol: "slider.horizontal.3", size: 99) { app.enterDemo() }
+                roundButton("メンテナンス", symbol: "wrench.and.screwdriver", size: 84) { app.open(.maintenance) }
+                roundButton("アプリ", symbol: "square.grid.2x2", size: 84) { app.open(.applications) }
+                roundButton("モニター", symbol: "waveform.path.ecg", size: 84) { app.open(.monitor) }
+                roundButton("学習", symbol: "book", size: 84) { }
+                roundButton("デモ", symbol: "slider.horizontal.3", size: 84) { app.enterDemo() }
+                roundButton("タイトルへ", symbol: "arrow.uturn.backward", size: 84) { app.returnToTitle() }
             }
         }
     }
 
     private func roundButton(_ title: String, symbol: String, size: CGFloat, action: @escaping () -> Void) -> some View {
         Button(action: action) {
-            VStack(spacing: 7.5) {
-                Image(systemName: symbol).font(.system(size: size == 114 ? 30 : 25.5, weight: .medium))
-                Text(title).font(.system(size: title.count > 5 ? 13.5 : 16.5, weight: .semibold))
+            VStack(spacing: size == 114 ? 7.5 : 6) {
+                Image(systemName: symbol).font(.system(size: size == 114 ? 30 : 22, weight: .medium))
+                Text(title).font(.system(size: size == 114 ? 16.5 : (title.count > 5 ? 12 : 14), weight: .semibold))
                     .lineLimit(1).minimumScaleFactor(0.8)
             }.frame(width: size, height: size)
                 .contentShape(Circle())
