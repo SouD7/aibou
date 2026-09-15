@@ -1,0 +1,62 @@
+[
+  {
+    "id": "background",
+    "prompt": "Use case: precise-object-edit. Source: provided full room PNG. Remove ALL furniture and devices: bed, bookshelf and books, desk and desk accessories, chair, monitor, wall control box and its cable, both wall fans, clock, antenna tower and stand, CPU box and hose. Reconstruct the bare walls and floor behind them. Keep exact camera, room dimensions, wall corner, ceiling, floor circuit patterns and architectural lighting. Opaque empty room background. Preserve original design, colors, materials, lighting and exact perspective.  Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-2164cad2-4d43-4507-ba0f-3bf785fe1302.png"
+  },
+  {
+    "id": "bed",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the entire bed on the left, including headboard, pillow, bedding and feet. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-ee6f9052-38a4-42d1-89e2-9e9c8344764a.png"
+  },
+  {
+    "id": "bookshelf",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the tall bookshelf with all books. Reconstruct its lower left part hidden behind bed. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-d11819ae-54bf-4b7c-bb84-ef8ee66179a2.png"
+  },
+  {
+    "id": "desk",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the desk with desk accessories and drawers, exclude monitor, chair and wall-mounted control box/cables. Complete the desk areas occluded by chair and monitor. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-4373b332-9535-4285-bb32-53b69f4808b8.png"
+  },
+  {
+    "id": "chair",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the office chair including all wheels. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-ca7efb2a-7d79-4838-9512-0688deed08f3.png"
+  },
+  {
+    "id": "display",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the monitor with its stand AND associated wall mounted rectangular control box and curved black connecting cable to its right, retaining their relative positions. No desk. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-fb92728f-587d-4989-8a55-9c07fa4d3ff9.png"
+  },
+  {
+    "id": "fan-1",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the LEFT of the two wall fans including its square metal mounting frame. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-23f0af2e-c91e-4306-b0ce-65d76167afb7.png"
+  },
+  {
+    "id": "fan-2",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the RIGHT of the two wall fans including its square metal mounting frame. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-d73a08df-5340-44d5-b63b-4b26315a3791.png"
+  },
+  {
+    "id": "clock",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the blue round wall clock. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-e8c2bb91-ad2b-41d3-b95d-591e678fad67.png"
+  },
+  {
+    "id": "network",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the antenna tower and its small support table, complete parts hidden by CPU box. No CPU box and no hose. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-a96b0fd5-ac3f-4c2d-bda9-f83a796c8d37.png"
+  },
+  {
+    "id": "compute",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the large foreground right CPU box with brain emblem and glowing top surface. Exclude the external black hose and floor plug, and exclude antenna and antenna table. Complete the box behind the hose. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-ec50a204-b0c3-422b-9e77-4f3afbeb05cf.png"
+  },
+  {
+    "id": "external",
+    "prompt": "Use case: background-extraction. Source: provided full room PNG. Extract only the black ribbed hose and circular floor connector attached to right side of CPU box. No CPU box. Preserve curvature. Preserve original design, colors, materials, lighting and exact perspective. Transparent alpha background, no checkerboard, no floor or cast shadow. Keep original object scale and position on the SAME 1672x941 full-room canvas, with all other pixels transparent. Do not center or enlarge object. Reconstruct hidden object surfaces conservatively. Output one PNG, no labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-85753458-0447-497e-a1f7-adaa45cc41f1.png"
+  }
+]

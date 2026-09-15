@@ -1,0 +1,22 @@
+[
+  {
+    "id": "bookshelf-empty",
+    "prompt": "Edit this transparent PNG component. Remove almost all books: leave only 3 to 5 individual books total across three shelves, so storage looks approximately 90% empty. Reveal matching backing panels. Keep shelf structure. Preserve EXACT object position, size, camera angle, silhouette (except added papers), texture, and canvas dimensions. Genuine transparent alpha background. Do not zoom or reframe. No labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-6e357f91-10f2-4572-9d71-3cf888abea95.png"
+  },
+  {
+    "id": "bed-medium",
+    "prompt": "Edit this transparent PNG component. Change only the battery indicator on headboard: exactly two cyan segments illuminated, remaining three segments dark unlit gray. Keep other decorative bed illumination unchanged. Preserve EXACT object position, size, camera angle, silhouette (except added papers), texture, and canvas dimensions. Genuine transparent alpha background. Do not zoom or reframe. No labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-51de44c6-b3f1-4edb-9e7b-4707aec9a782.png"
+  },
+  {
+    "id": "bed-low",
+    "prompt": "Edit this transparent PNG component. Change only the battery indicator on headboard: exactly ONE RED segment illuminated, remaining four segments dark unlit gray, battery icon outline red. Clearly low battery. Keep other decorative bed illumination unchanged. Preserve EXACT object position, size, camera angle, silhouette (except added papers), texture, and canvas dimensions. Genuine transparent alpha background. Do not zoom or reframe. No labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-880ef7c4-265a-4b9e-a3e0-3000af8e08a7.png"
+  },
+  {
+    "id": "desk-stacked",
+    "prompt": "Edit this transparent PNG component. Add many tall piles of white paper documents on both sides and rear of desktop. Dense mountainous stacks, visibly overloaded with work, retain a central opening for monitor placement. Keep desk geometry and existing details. No monitor or chair. Preserve EXACT object position, size, camera angle, silhouette (except added papers), texture, and canvas dimensions. Genuine transparent alpha background. Do not zoom or reframe. No labels.",
+    "path": "C:\\Users\\namba\\.codex\\generated_images\\01a09f61-d2b4-7933-8585-b7de535a54db\\exec-d0c1f8e9-6e80-4609-b237-4eb75256d10f.png"
+  }
+]

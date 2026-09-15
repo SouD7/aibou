@@ -1,0 +1,438 @@
+{
+  "canvas": [
+    1672,
+    941
+  ],
+  "background": "background.png",
+  "source": "source-room.png",
+  "note": "Generated extraction with reconstructed occluded surfaces. sourceRect maps to targetRect; state variants use the same base transform. Not pixel-identical to source.",
+  "components": [
+    {
+      "id": "bookshelf",
+      "title": "本棚",
+      "category": "ストレージ",
+      "z": 10,
+      "file": "bookshelf.png",
+      "sourceRect": [
+        348,
+        191,
+        381,
+        537
+      ],
+      "targetRect": [
+        364,
+        226,
+        279,
+        374
+      ],
+      "variants": [
+        "bookshelf-empty.png"
+      ]
+    },
+    {
+      "id": "network",
+      "title": "電波塔",
+      "category": "ネットワーク",
+      "z": 10,
+      "file": "network.png",
+      "sourceRect": [
+        1272,
+        107,
+        245,
+        644
+      ],
+      "targetRect": [
+        1302,
+        299,
+        130,
+        333
+      ],
+      "variants": []
+    },
+    {
+      "id": "clock",
+      "title": "時計",
+      "category": "システムクロック",
+      "z": 10,
+      "file": "clock.png",
+      "sourceRect": [
+        599,
+        282,
+        150,
+        176
+      ],
+      "targetRect": [
+        638,
+        291,
+        70,
+        81
+      ],
+      "variants": []
+    },
+    {
+      "id": "fan-1",
+      "title": "ファン 1",
+      "category": "冷却",
+      "z": 10,
+      "file": "fan-1.png",
+      "sourceRect": [
+        1075,
+        224,
+        121,
+        146
+      ],
+      "targetRect": [
+        1080,
+        236,
+        85,
+        97
+      ],
+      "variants": []
+    },
+    {
+      "id": "fan-2",
+      "title": "ファン 2",
+      "category": "冷却",
+      "z": 10,
+      "file": "fan-2.png",
+      "sourceRect": [
+        1150,
+        211,
+        154,
+        182
+      ],
+      "targetRect": [
+        1170,
+        218,
+        96,
+        102
+      ],
+      "variants": []
+    },
+    {
+      "id": "bed",
+      "title": "ベッド",
+      "category": "バッテリー",
+      "z": 20,
+      "file": "bed.png",
+      "sourceRect": [
+        42,
+        320,
+        1001,
+        516
+      ],
+      "targetRect": [
+        14,
+        435,
+        588,
+        299
+      ],
+      "variants": [
+        "bed-medium.png",
+        "bed-low.png"
+      ]
+    },
+    {
+      "id": "desk",
+      "title": "デスク",
+      "category": "メモリ",
+      "z": 20,
+      "file": "desk.png",
+      "sourceRect": [
+        167,
+        303,
+        1345,
+        506
+      ],
+      "targetRect": [
+        653,
+        449,
+        494,
+        168
+      ],
+      "variants": [
+        "desk-stacked.png"
+      ]
+    },
+    {
+      "id": "compute",
+      "title": "演算ユニット",
+      "category": "CPU / GPU",
+      "z": 45,
+      "file": "compute.png",
+      "sourceRect": [
+        978,
+        357,
+        656,
+        538
+      ],
+      "targetRect": [
+        1345,
+        508,
+        307,
+        249
+      ],
+      "variants": []
+    },
+    {
+      "id": "display",
+      "title": "モニター",
+      "category": "ディスプレイ",
+      "z": 30,
+      "file": "display.png",
+      "sourceRect": [
+        765,
+        253,
+        650,
+        294
+      ],
+      "targetRect": [
+        860,
+        350,
+        371,
+        150
+      ],
+      "variants": []
+    },
+    {
+      "id": "external",
+      "title": "外部接続",
+      "category": "周辺機器",
+      "z": 50,
+      "file": "external.png",
+      "sourceRect": [
+        1352,
+        531,
+        292,
+        353
+      ],
+      "targetRect": [
+        1477,
+        606,
+        175,
+        212
+      ],
+      "variants": []
+    },
+    {
+      "id": "chair",
+      "title": "チェア",
+      "category": "メモリ",
+      "z": 40,
+      "file": "chair.png",
+      "sourceRect": [
+        628,
+        169,
+        446,
+        677
+      ],
+      "targetRect": [
+        742,
+        395,
+        179,
+        230
+      ],
+      "variants": []
+    }
+  ],
+  "assets": {
+    "background": {
+      "rect": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": false
+    },
+    "bed-low": {
+      "rect": [
+        40,
+        319,
+        1004,
+        520
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "bed-medium": {
+      "rect": [
+        41,
+        318,
+        1003,
+        520
+      ],
+      "width": 1671,
+      "height": 941,
+      "transparent": true
+    },
+    "bed-perspective-v2-cutout": {
+      "rect": [
+        35,
+        76,
+        1576,
+        820
+      ],
+      "width": 1648,
+      "height": 954,
+      "transparent": true
+    },
+    "bed": {
+      "rect": [
+        42,
+        320,
+        1001,
+        516
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "bookshelf-empty": {
+      "rect": [
+        346,
+        189,
+        386,
+        540
+      ],
+      "width": 1671,
+      "height": 941,
+      "transparent": true
+    },
+    "bookshelf": {
+      "rect": [
+        348,
+        191,
+        381,
+        537
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "chair": {
+      "rect": [
+        628,
+        169,
+        446,
+        677
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "clock": {
+      "rect": [
+        599,
+        282,
+        150,
+        176
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "compute": {
+      "rect": [
+        978,
+        357,
+        656,
+        538
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "desk-stacked": {
+      "rect": [
+        124,
+        82,
+        1409,
+        730
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "desk": {
+      "rect": [
+        167,
+        303,
+        1345,
+        506
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "display": {
+      "rect": [
+        765,
+        253,
+        650,
+        294
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "external": {
+      "rect": [
+        1352,
+        531,
+        292,
+        353
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "fan-1": {
+      "rect": [
+        1075,
+        224,
+        121,
+        146
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "fan-2": {
+      "rect": [
+        1150,
+        211,
+        154,
+        182
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "network": {
+      "rect": [
+        1272,
+        107,
+        245,
+        644
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": true
+    },
+    "source-room": {
+      "rect": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "width": 1672,
+      "height": 941,
+      "transparent": false
+    }
+  }
+}
