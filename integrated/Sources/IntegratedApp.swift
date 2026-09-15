@@ -34,7 +34,13 @@ struct AIBOUApp: App {
         }
         .windowStyle(.hiddenTitleBar)
         .defaultSize(width: 1280, height: 850)
-        .commands { CommandGroup(replacing: .newItem) {} }
+        .commands {
+            CommandGroup(replacing: .newItem) {}
+            CommandMenu("コンポーネント") {
+                RoomComponentMenuItems(app: app, avatar: app.avatar)
+                    .disabled(app.session.isDemo || app.presentation != nil || app.showingConnection)
+            }
+        }
     }
 }
 #endif

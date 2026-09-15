@@ -1,8 +1,8 @@
 # AIBOU統合版の作成に用いたファイル一覧
 
-記録日時: 2026-09-15T07:02:22+09:00。ブランチ: `codex/integrated-aibou-app`。基点: `19202d55e91efb3f3131442f7adb4653a26c54a2`。
+記録日時: 2026-09-15T10:52:30+09:00。ブランチ: `codex/integrated-aibou-app`。基点: `19202d55e91efb3f3131442f7adb4653a26c54a2`。
 
-ボタンを約1.5倍に拡大した版までを対象とする。ファイル名はリポジトリルートからの相対パス。新規作成・既存変更・既存再利用は記録時点のGit差分に基づく。
+ボタンを約1.5倍に拡大し、PR11の初回・再レビュー指摘を修正し、部屋上部の選択ボックスを削除した版までを対象とする。過去のQAログは、それぞれの検証時点の記録として保持する。ファイル名はリポジトリルートからの相対パス。新規作成・既存変更・既存再利用は記録時点のGit差分に基づく。
 
 ## 集計
 
@@ -16,8 +16,8 @@
 | ビルド・テストスクリプト | 4 |
 | テスト用Swiftソース | 24 |
 | 設計・利用説明 | 2 |
-| 検証記録・ログ・ソースハッシュ | 10 |
-| 本一覧に記録したファイル総数 | 228 |
+| 検証記録・ログ・ソースハッシュ | 14 |
+| 本一覧に記録したファイル総数 | 232 |
 
 ## ビルドへの取り込み方
 
@@ -32,8 +32,8 @@
 | [integrated/Sources/HardwareRoomPolicy.swift](Sources/HardwareRoomPolicy.swift) | 新規作成 | 実測値の閾値判定、家具の表示状態、警告、アバター候補、概要指標の対応 |
 | [integrated/Sources/IntegratedApp.swift](Sources/IntegratedApp.swift) | 新規作成 | 統合アプリの起動・終了、全画面ウィンドウ、終了時の監視停止と保存待ち |
 | [integrated/Sources/IntegratedStore.swift](Sources/IntegratedStore.swift) | 新規作成 | Avatar・Monitor・相談の接続、実測更新、30秒タイマー、各モードの切替 |
-| [integrated/Sources/IntegratedWindow.swift](Sources/IntegratedWindow.swift) | 新規作成 | 部屋の統合UI、拡大したメニュー・相談ボタン、概要・詳細・接続案内 |
-| [integrated/Sources/RoomConsultationView.swift](Sources/RoomConsultationView.swift) | 新規作成 | 部屋下部の質問・回答表示、送信確認、追加質問、エラー回復 |
+| [integrated/Sources/IntegratedWindow.swift](Sources/IntegratedWindow.swift) | 新規作成 | 部屋の統合UI、拡大したメニュー・相談ボタン、概要・詳細・接続案内、macOSメニューバーの家具選択、モニター表示中の相談ビュー切替 |
+| [integrated/Sources/RoomConsultationView.swift](Sources/RoomConsultationView.swift) | 新規作成 | 部屋下部の質問・回答表示、送信確認、追加質問、下書き復元、モニター往復時の表示再生成、エラー回復 |
 | [integrated/Sources/RoomSession.swift](Sources/RoomSession.swift) | 新規作成 | デモ／相談のセッション状態、次回の姿勢選択時刻、警告の解除履歴 |
 
 ## AvatarMotionから共有したソース
@@ -306,6 +306,10 @@
 | [integrated/QA/monitor-tests.log](QA/monitor-tests.log) | 新規作成 | 実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ |
 | [integrated/QA/policy-session-tests.log](QA/policy-session-tests.log) | 新規作成 | 実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ |
 | [integrated/QA/source-sha256.txt](QA/source-sha256.txt) | 新規作成 | 実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ |
+| [integrated/QA/PR11_REVIEW.md](QA/PR11_REVIEW.md) | 新規作成 | PR11の独立レビュー結果（修正前のコミットに対する記録） |
+| [integrated/QA/PR11_FIXES.md](QA/PR11_FIXES.md) | 新規作成 | PR11レビュー指摘の修正内容、回帰テスト、実機キーボード確認 |
+| [integrated/QA/pr11-fix-build.log](QA/pr11-fix-build.log) | 新規作成 | PR11修正後の統合ビルド結果 |
+| [integrated/QA/pr11-fix-tests.log](QA/pr11-fix-tests.log) | 新規作成 | PR11修正後の全4統合テスト結果 |
 
 ## 生成物と完全性の確認
 

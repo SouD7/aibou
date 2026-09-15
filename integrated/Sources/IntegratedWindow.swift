@@ -62,12 +62,13 @@ struct IntegratedWindow: View {
             }
         }
         .overlay(alignment: .bottom) {
-            if app.session.isConsulting {
-                RoomConsultationView(model: consultation, store: monitor, addQuestionRequest: addQuestionRequest)
-                    .frame(maxWidth: min(980, size.width - 380))
-                    .frame(maxHeight: min(440, size.height * 0.5))
-                    .padding(.bottom, 24)
-            }
+            // Release local editor/confirmation state while a panel can edit the shared model.
+            // Dismissal rebuilds the room surface from the latest question and conversation.
+            RoomConsultationSurface(model: consultation, store: monitor, addQuestionRequest: addQuestionRequest,
+                                    isVisible: app.session.isConsulting && app.presentation == nil)
+                .frame(maxWidth: min(980, size.width - 380))
+                .frame(maxHeight: min(440, size.height * 0.5))
+                .padding(.bottom, 24)
         }
         .overlay(alignment: .bottomLeading) {
             if !app.session.isDemo {
@@ -96,8 +97,9 @@ struct IntegratedWindow: View {
                 .buttonStyle(.plain).foregroundStyle(.white)
                 .background(Color(red: 0.08, green: 0.22, blue: 0.27).opacity(0.96), in: Capsule())
                 .overlay(Capsule().stroke(.white.opacity(0.3)))
-                .disabled(!RoomConsultationFlow.canAddQuestion(messages: consultation.messages, busy: consultation.busy)
-                          || !consultation.signedIn || !consultation.question.isEmpty)
+                .disabled(!RoomConsultationFlow.canAddQuestion(messages: consultation.messages, busy: consultation.busy,
+                                                               question: consultation.question)
+                          || !consultation.signedIn)
                 .shadow(radius: 8, y: 3).padding(24)
             }
         }
@@ -171,6 +173,38 @@ struct IntegratedWindow: View {
         .background(Color(red: 0.045, green: 0.085, blue: 0.11).opacity(0.97), in: RoundedRectangle(cornerRadius: 20))
         .overlay(RoundedRectangle(cornerRadius: 20).stroke(.white.opacity(0.2)))
         .shadow(color: .black.opacity(0.3), radius: 18, y: 8)
+    }
+}
+
+/// Native menu actions keep the room accessible without adding controls over the artwork.
+struct RoomComponentMenuItems: View {
+    @ObservedObject var app: IntegratedStore
+    @ObservedObject var avatar: AvatarStore
+
+    var body: some View {
+        if let scene = avatar.scene {
+            ForEach(Array(scene.componentCatalog.selectionComponents.enumerated()), id: \.element.id) { index, component in
+                Button {
+                    app.menuExpanded = false
+                    avatar.selectComponent(component.id)
+                } label: {
+                    Label("\(component.title)（\(component.category)）", systemImage: component.symbol)
+                }
+                .keyboardShortcut(index < 10
+                                  ? KeyboardShortcut(KeyEquivalent(Character(String((index + 1) % 10))),
+                                                     modifiers: [.command, .option]) : nil)
+            }
+            Divider()
+            Button("選択した家具の詳細を見る") {
+                if let id = avatar.selectedComponent?.id, let tab = HardwareRoomPolicy.tab(for: id) {
+                    app.open(.hardware(tab))
+                }
+            }
+            .keyboardShortcut("d", modifiers: [.command, .option])
+            .disabled(avatar.selectedComponent.flatMap { HardwareRoomPolicy.tab(for: $0.id) } == nil)
+            Button("選択を解除") { avatar.selectComponent(nil) }
+                .disabled(avatar.selectedComponent == nil)
+        }
     }
 }
 

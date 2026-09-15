@@ -2,12 +2,12 @@ import AppKit
 import SwiftUI
 
 enum RoomConsultationFlow {
-    static func startsComposing(messages: [ConsultationMessage]) -> Bool {
-        messages.isEmpty
+    static func startsComposing(messages: [ConsultationMessage], question: String) -> Bool {
+        messages.isEmpty || !question.isEmpty
     }
 
-    static func canAddQuestion(messages: [ConsultationMessage], busy: Bool) -> Bool {
-        !busy && hasAnswerAfterLastQuestion(messages)
+    static func canAddQuestion(messages: [ConsultationMessage], busy: Bool, question: String) -> Bool {
+        question.isEmpty && !busy && hasAnswerAfterLastQuestion(messages)
     }
 
     static func needsUnansweredRecovery(messages: [ConsultationMessage], busy: Bool) -> Bool {
@@ -22,6 +22,26 @@ enum RoomConsultationFlow {
         guard let questionIndex = messages.lastIndex(where: \.isUser) else { return false }
         return messages[messages.index(after: questionIndex)...]
             .contains { !$0.isUser && !$0.text.isEmpty }
+    }
+}
+
+/// Owns the room-only editor state for as long as the room consultation UI is
+/// actually visible. Monitor sheets keep the shared model alive while removing
+/// this subtree, so stale confirmations and preparation errors cannot reappear
+/// when the sheet closes.
+struct RoomConsultationSurface: View {
+    @ObservedObject var model: ConsultationModel
+    @ObservedObject var store: MonitorStore
+    var addQuestionRequest: Int = 0
+    var isVisible: Bool
+
+    @ViewBuilder
+    var body: some View {
+        if isVisible {
+            RoomConsultationView(model: model,
+                                 store: store,
+                                 addQuestionRequest: addQuestionRequest)
+        }
     }
 }
 
@@ -119,11 +139,14 @@ struct RoomConsultationView: View {
         .padding(.horizontal, 24)
         .padding(.bottom, 22)
         .onAppear {
-            composing = RoomConsultationFlow.startsComposing(messages: model.messages)
+            // `question` belongs to the long-lived model, while this view's state is
+            // recreated whenever consultation mode closes. Reopen any unsent text
+            // as an editable question; a lost confirmation must be prepared again.
+            composing = RoomConsultationFlow.startsComposing(messages: model.messages,
+                                                              question: model.question)
         }
         .onChange(of: addQuestionRequest) { _ in
             guard canAddQuestion else { return }
-            model.question = ""
             draft = nil
             preparationError = ""
             composing = true
@@ -257,7 +280,9 @@ struct RoomConsultationView: View {
     }
 
     private var canAddQuestion: Bool {
-        RoomConsultationFlow.canAddQuestion(messages: model.messages, busy: model.busy)
+        RoomConsultationFlow.canAddQuestion(messages: model.messages,
+                                            busy: model.busy,
+                                            question: model.question)
     }
 
     private var needsUnansweredRecovery: Bool {

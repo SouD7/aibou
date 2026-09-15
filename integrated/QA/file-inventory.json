@@ -1,9 +1,9 @@
 {
-  "recorded_at": "2026-09-15T07:02:22+09:00",
+  "recorded_at": "2026-09-15T10:52:30+09:00",
   "repository": "/Users/sodaiyamamoto/aibou",
   "branch": "codex/integrated-aibou-app",
   "base_commit": "19202d55e91efb3f3131442f7adb4653a26c54a2",
-  "scope": "現在の統合版（ボタン1.5倍対応を含む）。アプリのビルド入力、テスト、作成・更新した文書と検証記録。資料作成のみでアプリの再ビルドはしていない。",
+  "scope": "統合版（ボタン1.5倍、PR11の初回・再レビュー修正、部屋上部の選択ボックス削除を含む）。ビルド入力、テスト、文書と検証記録。過去のQAログはその検証時点の記録として保持。",
   "counts": {
     "swift_sources": 45,
     "packaged_assets": 140,
@@ -12,8 +12,8 @@
     "scripts": 4,
     "test_sources": 24,
     "documentation": 2,
-    "verification_records": 10,
-    "total_recorded_files": 228,
+    "verification_records": 14,
+    "total_recorded_files": 232,
     "packaged_metadata": 1
   },
   "excluded": [
@@ -35,10 +35,10 @@
     {
       "path": "integrated/Sources/IntegratedApp.swift",
       "category": "swift_source",
-      "role": "統合アプリの起動・終了、全画面ウィンドウ、終了時の監視停止と保存待ち",
+      "role": "統合アプリの起動・終了、全画面ウィンドウ、macOSメニューバー、終了時の監視停止と保存待ち",
       "change": "new",
-      "bytes": 2300,
-      "sha256": "4a60e7ad82e3ded63f4eaf6a33a6a5e0b0877f42b8db87bc606c24581b421200",
+      "bytes": 2556,
+      "sha256": "f1daba680abd1610aa1388a19fadd0d50469f5c8f0a62467c19d018d27fd6e4d",
       "build_snapshot_matches_source": true
     },
     {
@@ -53,19 +53,19 @@
     {
       "path": "integrated/Sources/IntegratedWindow.swift",
       "category": "swift_source",
-      "role": "部屋の統合UI、拡大したメニュー・相談ボタン、概要・詳細・接続案内",
+      "role": "部屋の統合UI、拡大したメニュー・相談ボタン、概要・詳細・接続案内、macOSメニューバーの家具選択、パネル表示中の相談ビュー切替",
       "change": "new",
-      "bytes": 11400,
-      "sha256": "84a588e0930cb674f0fdcc9465402d5a677f4a4e2f6e967f590e4b0719b0a745",
+      "bytes": 13203,
+      "sha256": "80eb9a2fa8747e36e05746a28836d2401fe67d1cefaba1d00a20afaf910ce958",
       "build_snapshot_matches_source": true
     },
     {
       "path": "integrated/Sources/RoomConsultationView.swift",
       "category": "swift_source",
-      "role": "部屋下部の質問・回答表示、送信確認、追加質問、エラー回復",
+      "role": "部屋下部の質問・回答表示、送信確認、追加質問、下書き復元、パネル往復時の表示再生成、エラー回復",
       "change": "new",
-      "bytes": 14332,
-      "sha256": "af3d271ce01313b9b54645d418286580b104770755ac6304f8411aa5a61f0264",
+      "bytes": 15543,
+      "sha256": "a9a99d553f8f7f5cf0fff3559e0811955faab37a703033b00f58190048bc9216",
       "build_snapshot_matches_source": true
     },
     {
@@ -1901,10 +1901,10 @@
     {
       "path": "integrated/Tests/ConsultationIntegrationTests.swift",
       "category": "test_source",
-      "role": "統合機能のテスト",
+      "role": "模擬RPCによる相談処理、終了・再開と実際のモニターシート往復での下書き・空欄復元",
       "change": "new",
-      "bytes": 7939,
-      "sha256": "86f18f7ada30d75401ae8c1edc65bba4e4c483fe17ec7b9a6246eb9df430070e"
+      "bytes": 19308,
+      "sha256": "37792b76717a08dd0bacd2cb3a9400e0f321e5140efab4f56d0006508d7dc7f6"
     },
     {
       "path": "integrated/Tests/HardwareRoomPolicyTests.swift",
@@ -2085,18 +2085,18 @@
     {
       "path": "DESIGN.md",
       "category": "documentation",
-      "role": "既存の設計資料に統合画面とボタン拡大の仕様を追記",
+      "role": "統合アプリの対象範囲、採用技術、画面・キーボード操作の設計",
       "change": "modified",
-      "bytes": 16697,
-      "sha256": "e9fc6d2ccd826c715cbb24ff4b7132c938e8041c2c1b0bd338bcc0f17b81ac14"
+      "bytes": 17614,
+      "sha256": "54c8ce542b19a1e0349484c22404314e01184efe8f5ef5266a84fb1e66c7b9fb"
     },
     {
       "path": "integrated/README.md",
       "category": "documentation",
       "role": "起動方法、操作、状態の対応、検証手順",
       "change": "new",
-      "bytes": 5076,
-      "sha256": "e7b7bb10b539c3decf0ac0a969f2e4e7d6f8f2d14614beb4a099571a1633a565"
+      "bytes": 6067,
+      "sha256": "556e7af98769595939ed603eb8067905499ed6c9cdc92e4595d367de030f2593"
     },
     {
       "path": "integrated/QA/BUTTON_SIZE_RESULTS.md",
@@ -2176,7 +2176,39 @@
       "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
       "change": "new",
       "bytes": 4750,
-      "sha256": "5d133fbfa5a604966fd079a7ebcea9370a9cd1ac672431e25d0ad1c9430ee3e6"
+      "sha256": "4b9e8ac06b34d53a7362dfc07ccb4094d4a3e2d010be50eb36f2439ab0b4b6ec"
+    },
+    {
+      "path": "integrated/QA/PR11_REVIEW.md",
+      "category": "verification_record",
+      "role": "PR11の初回・再レビュー結果（各修正前の記録）",
+      "change": "new",
+      "bytes": 9130,
+      "sha256": "9a411face344ee7696d0c31b39e7277f38eeaad39416bd523a246224c5277e6c"
+    },
+    {
+      "path": "integrated/QA/PR11_FIXES.md",
+      "category": "verification_record",
+      "role": "初回・再レビュー指摘の修正と上部選択ボックス削除、回帰テスト・実機キーボード確認",
+      "change": "new",
+      "bytes": 6387,
+      "sha256": "5abba2f86c9d4e1f7fb5721b8c6eeb00079b6f82ccb70555c190d09b535a4ffd"
+    },
+    {
+      "path": "integrated/QA/pr11-fix-build.log",
+      "category": "verification_record",
+      "role": "PR11修正後の統合ビルド結果",
+      "change": "new",
+      "bytes": 40,
+      "sha256": "99727af4a46275a570d6af03b3b9c01275f2465eef231553cf19c770431f3778"
+    },
+    {
+      "path": "integrated/QA/pr11-fix-tests.log",
+      "category": "verification_record",
+      "role": "PR11修正後の全4統合テスト結果",
+      "change": "new",
+      "bytes": 747,
+      "sha256": "7e2069e806dac9924026ee6fc14ce3ec00092c48d59fe2f384738ab7811e93be"
     }
   ]
 }
