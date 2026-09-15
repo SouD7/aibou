@@ -1,0 +1,2182 @@
+{
+  "recorded_at": "2026-09-15T07:02:22+09:00",
+  "repository": "/Users/sodaiyamamoto/aibou",
+  "branch": "codex/integrated-aibou-app",
+  "base_commit": "19202d55e91efb3f3131442f7adb4653a26c54a2",
+  "scope": "現在の統合版（ボタン1.5倍対応を含む）。アプリのビルド入力、テスト、作成・更新した文書と検証記録。資料作成のみでアプリの再ビルドはしていない。",
+  "counts": {
+    "swift_sources": 45,
+    "packaged_assets": 140,
+    "packaged_configurations": 2,
+    "direct_app_inputs": 188,
+    "scripts": 4,
+    "test_sources": 24,
+    "documentation": 2,
+    "verification_records": 10,
+    "total_recorded_files": 228,
+    "packaged_metadata": 1
+  },
+  "excluded": [
+    "この一覧文書とJSON自身（自己参照ハッシュを避ける）",
+    ".build内のコンパイラキャッシュ・中間生成物",
+    "AIBOU.app内のバイナリ・署名などの生成物",
+    "既存AIBOUAvatarMotion.appとAIBOUMonitor.app（統合ビルドの入力には使用しない）"
+  ],
+  "files": [
+    {
+      "path": "integrated/Sources/HardwareRoomPolicy.swift",
+      "category": "swift_source",
+      "role": "実測値の閾値判定、家具の表示状態、警告、アバター候補、概要指標の対応",
+      "change": "new",
+      "bytes": 9094,
+      "sha256": "00b3aca4f8cbe6a912e25bdf5a6f7c107ce755ed90ed436b63a5c01d0635651c",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "integrated/Sources/IntegratedApp.swift",
+      "category": "swift_source",
+      "role": "統合アプリの起動・終了、全画面ウィンドウ、終了時の監視停止と保存待ち",
+      "change": "new",
+      "bytes": 2300,
+      "sha256": "4a60e7ad82e3ded63f4eaf6a33a6a5e0b0877f42b8db87bc606c24581b421200",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "integrated/Sources/IntegratedStore.swift",
+      "category": "swift_source",
+      "role": "Avatar・Monitor・相談の接続、実測更新、30秒タイマー、各モードの切替",
+      "change": "new",
+      "bytes": 5122,
+      "sha256": "857f4c49b4fb024ff016043b143606de71e5326cafb751fc444ff1b13e6f735d",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "integrated/Sources/IntegratedWindow.swift",
+      "category": "swift_source",
+      "role": "部屋の統合UI、拡大したメニュー・相談ボタン、概要・詳細・接続案内",
+      "change": "new",
+      "bytes": 11400,
+      "sha256": "84a588e0930cb674f0fdcc9465402d5a677f4a4e2f6e967f590e4b0719b0a745",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "integrated/Sources/RoomConsultationView.swift",
+      "category": "swift_source",
+      "role": "部屋下部の質問・回答表示、送信確認、追加質問、エラー回復",
+      "change": "new",
+      "bytes": 14332,
+      "sha256": "af3d271ce01313b9b54645d418286580b104770755ac6304f8411aa5a61f0264",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "integrated/Sources/RoomSession.swift",
+      "category": "swift_source",
+      "role": "デモ／相談のセッション状態、次回の姿勢選択時刻、警告の解除履歴",
+      "change": "new",
+      "bytes": 1412,
+      "sha256": "f73f8e4854ff23f1d903919c214d1a71a664fa80a395680c3586b057443d573c",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/App.swift",
+      "category": "swift_source",
+      "role": "既存の状態管理とデモ操作UIを共有。統合時のエントリーポイント切替、操作枠の表示切替、ウィンドウ通知を修正",
+      "change": "modified",
+      "bytes": 18785,
+      "sha256": "2a772d64b8a525b906ad3f2126ebcaf6e9361681214aad4621b121d0b18489f1",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/Audio.swift",
+      "category": "swift_source",
+      "role": "音声の再生と音量からの口の動き",
+      "change": "reused",
+      "bytes": 4685,
+      "sha256": "36acc745d880bbc1b53bbdcdd2b40d9a82c0f9fcbaa9398b23f33e271a912419",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/AvatarScene.swift",
+      "category": "swift_source",
+      "role": "部屋とアバターのSpriteKit描画、姿勢遷移、家具選択。警告クリックのコールバックを追加",
+      "change": "modified",
+      "bytes": 27822,
+      "sha256": "70d82b0f21f4fb2692f7b11a36e78b3b79d02053a450868e59980cc27ea659fa",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/AvatarStateMotion.swift",
+      "category": "swift_source",
+      "role": "ノイズや顔アップなど姿勢別の動作タイミング",
+      "change": "reused",
+      "bytes": 3157,
+      "sha256": "e01ed7dbda1ce48428a05ec9d3611e38d2d2a22917ee2cdac24edaed172697ee",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/Capture.swift",
+      "category": "swift_source",
+      "role": "既存のキャプチャ・QA補助（ビルド対象。通常起動でキャプチャは実行しない）",
+      "change": "reused",
+      "bytes": 7360,
+      "sha256": "8cf7f284c7c24fd63753586ed690d97cb4522734ae07fcaef69f6e0f381831ec",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/ElectricTransition.swift",
+      "category": "swift_source",
+      "role": "姿勢切替時の電気エフェクト",
+      "change": "reused",
+      "bytes": 3683,
+      "sha256": "026a6422ed661498c5f99e6ada716e54ca9baff24910e46470404525fe20137a",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/ImageProcessing.swift",
+      "category": "swift_source",
+      "role": "透過処理、画像の切り出しと境界処理",
+      "change": "reused",
+      "bytes": 4905,
+      "sha256": "515b37c16f56e40ac9d39101542fe99e312f4a76dc4f87c41074110a6e68ff7a",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/InteractiveRoomView.swift",
+      "category": "swift_source",
+      "role": "SwiftUIとSKViewの接続、マウス・ホバー・クリック入力",
+      "change": "reused",
+      "bytes": 2594,
+      "sha256": "7bb485d94e1cde52d39cacb0899c4978239d4b946ec964c1603bc797091dcba2",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/Manifest.swift",
+      "category": "swift_source",
+      "role": "姿勢ID、画像・位置・サイズなどのリグ定義の読込",
+      "change": "reused",
+      "bytes": 6023,
+      "sha256": "0b33acfe9677b7b895b15effb48cb14c1e458689b3473c63a8884736d448af75",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/Motion.swift",
+      "category": "swift_source",
+      "role": "アバターの基本的な動きの計算",
+      "change": "reused",
+      "bytes": 7865,
+      "sha256": "d2aef111405d7c2221ae004da0aa7ab7c8737ebffeca911fc66d78ecf8e5ba16",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/RoomAnimation.swift",
+      "category": "swift_source",
+      "role": "部屋の連番アニメーションの読込と再生",
+      "change": "reused",
+      "bytes": 5426,
+      "sha256": "6a7fc27290880bca3d1e602435f13a3bf1fc79b269169f36d150bf71b7f6bcca",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/RoomComponentDetail.swift",
+      "category": "swift_source",
+      "role": "デモで使用する家具説明と表示状態の編集UI",
+      "change": "reused",
+      "bytes": 5232,
+      "sha256": "333ee56468420a1f490a58fc83c509f15bad01e705e4b1d256833c6c2d2611b3",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/RoomComponents.swift",
+      "category": "swift_source",
+      "role": "家具のカタログ、クリック領域、選択・ホバーの表示",
+      "change": "reused",
+      "bytes": 6984,
+      "sha256": "7c87c7f6bed5732ffb400a9e44d461aa155e5eef280652c503ae4eaa61278db6",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/RoomStateArtwork.swift",
+      "category": "swift_source",
+      "role": "点灯数など、家具の状態を示す追加描画",
+      "change": "reused",
+      "bytes": 10002,
+      "sha256": "f973b2614ca6c780aee2ede9101b26eec2f4986d500fe64a566b892f3c603133",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/RoomStateRenderer.swift",
+      "category": "swift_source",
+      "role": "家具の状態別画像とエフェクトの描画",
+      "change": "reused",
+      "bytes": 9345,
+      "sha256": "1c2e3b95b484ba7a00641fd2ee089779c1f0400080a4c4a846c73814b974ffc0",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/RoomVisualState.swift",
+      "category": "swift_source",
+      "role": "本棚・メモリ・ファン・バッテリーなどの表示状態と選択肢",
+      "change": "reused",
+      "bytes": 6602,
+      "sha256": "a8253759344b195214abb0a72d49d146e3eb389a2943d39651a64915ff99773b",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Sources/RoomWarnings.swift",
+      "category": "swift_source",
+      "role": "警告データと家具上の警告マークの描画・判定",
+      "change": "reused",
+      "bytes": 3143,
+      "sha256": "f7555019333862148cfd58319576833ea3735e0b3753c99638fa5ebfff45bb08",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/AdditionalCollectors.swift",
+      "category": "swift_source",
+      "role": "追加のネットワーク・電力等の計測",
+      "change": "reused",
+      "bytes": 26560,
+      "sha256": "81c2ad29681ad1350527a12d5f68be383c750140d716329153ca84bcd0d20c1a",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/App.swift",
+      "category": "swift_source",
+      "role": "既存Monitorのカード・表・グラフと全タブUI。統合時のエントリーポイント切替、サイドバーなしの固定表示を追加",
+      "change": "modified",
+      "bytes": 35608,
+      "sha256": "55321e5b7e4b59d4f3dc31f603772cf7dfdc758193bad73132e22ec963e6c83f",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/ApplicationDetailView.swift",
+      "category": "swift_source",
+      "role": "アプリ詳細画面",
+      "change": "reused",
+      "bytes": 11642,
+      "sha256": "9af3638c4b0aded531cb6e2e13e35597ed5ea37c6edf8c128e18987f953a27cb",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/ApplicationLauncher.swift",
+      "category": "swift_source",
+      "role": "アプリの列挙と起動処理",
+      "change": "reused",
+      "bytes": 8236,
+      "sha256": "d418f1dfe1951f0bd279e0c3ed0fd52d773a1c436b6ce19ecf5ea20bdf9f6e42",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/ApplicationLauncherView.swift",
+      "category": "swift_source",
+      "role": "アプリ一覧・検索・起動UI",
+      "change": "reused",
+      "bytes": 5511,
+      "sha256": "720f58b225d6788c004d3c00c9ba3b01a01d70a6e9f344679759817cfc7d639f",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/ApplicationStorage.swift",
+      "category": "swift_source",
+      "role": "アプリに関連するストレージ情報",
+      "change": "reused",
+      "bytes": 18949,
+      "sha256": "662c99c7129941eb68b19909c77e42e0492408059c80fae136154ba3b167c1dd",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/ApplicationUsage.swift",
+      "category": "swift_source",
+      "role": "アプリ単位の使用量の集計",
+      "change": "reused",
+      "bytes": 6594,
+      "sha256": "0497fb4a466f445b4d62a6a6750ec27e019b3a193f0c37295999bfbc03abcf70",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/CodexRPC.swift",
+      "category": "swift_source",
+      "role": "相談用Codex CLIプロセスとRPC通信、接続環境",
+      "change": "reused",
+      "bytes": 11008,
+      "sha256": "14b1cc347ed10252ad9008fd8c7335c2c22c6b6ab522d79306bc839a16630811",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/Common.swift",
+      "category": "swift_source",
+      "role": "MonitorTab、Metric、PanelReadingなどの共通データ型",
+      "change": "reused",
+      "bytes": 5450,
+      "sha256": "29b2168bf30f8830f1a372bad00d082a9a0b8febe8d23f5e1203798ffdc635b5",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/ConsultationModel.swift",
+      "category": "swift_source",
+      "role": "ChatGPT認証状態、会話、送受信、停止・再接続の管理",
+      "change": "reused",
+      "bytes": 19317,
+      "sha256": "995c45ca2af94530e7de11f2e18e1d3115578de1669d97b6e3b1157533915ad3",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/ConsultationPayload.swift",
+      "category": "swift_source",
+      "role": "送信内容と回答長、添付する観測情報の組立",
+      "change": "reused",
+      "bytes": 4071,
+      "sha256": "9898c2ab68931f369b8e6825fd97f17444f6753b3f9dd64715e2cb849379e85f",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/ConsultationView.swift",
+      "category": "swift_source",
+      "role": "モニター内の相談タブ、接続と回答長の設定UI",
+      "change": "reused",
+      "bytes": 9182,
+      "sha256": "3e526d3c806df9a9deaaf1d1414c92ce78673f81c9803102e089a8e180c71946",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/CoreSampler.swift",
+      "category": "swift_source",
+      "role": "CPU・メモリ・クロック・ストレージ・ネットワーク等の基本計測",
+      "change": "reused",
+      "bytes": 58647,
+      "sha256": "d677ce0a1a5259a04992067deb7dd101ecacafcb7660daee8f763a5b7c427f07",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/DeviceSampler.swift",
+      "category": "swift_source",
+      "role": "バッテリー・熱状態・ディスプレイ・外部機器等の列挙",
+      "change": "reused",
+      "bytes": 31800,
+      "sha256": "c1926b1ee9f14a0e933577b9a417808124e17a7f36f3fedd5f7141130926605e",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/DiagnosticCatalog.swift",
+      "category": "swift_source",
+      "role": "状態チェックの項目・説明データ",
+      "change": "reused",
+      "bytes": 33479,
+      "sha256": "1b6ec8686bf9955b2bbaee4c20482ae972ffefa9702cd81cc630bb20fac0fd11",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/DiagnosticSelection.swift",
+      "category": "swift_source",
+      "role": "症状・原因候補の選択と表示状態",
+      "change": "reused",
+      "bytes": 17456,
+      "sha256": "99ccd9657d6187906e8a01c1d4cecd1b032b2550746cd56bfde33713ea6a0a53",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/Diagnostics.swift",
+      "category": "swift_source",
+      "role": "観測値に基づく状態チェックの判定",
+      "change": "reused",
+      "bytes": 13556,
+      "sha256": "3afb7d0041d3190f299d52aa3239f38d0c7257a6fbd4628985e0b8be411f31b0",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/DiagnosticsView.swift",
+      "category": "swift_source",
+      "role": "状態チェックUI（メンテナンスで再利用）",
+      "change": "reused",
+      "bytes": 13407,
+      "sha256": "15359d9c83b51a96d5607f0ccb38d9340852daed24c6efa56b3cc7cc388f7908",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/History.swift",
+      "category": "swift_source",
+      "role": "監視履歴の蓄積・保存・読込",
+      "change": "reused",
+      "bytes": 6553,
+      "sha256": "0e46d83d6ad6dff43b070dd8531741809604894ddb8190dcc53da580911ba2d3",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/MonitorStore.swift",
+      "category": "swift_source",
+      "role": "監視の実行、計測結果・履歴・スキャン等の状態管理",
+      "change": "reused",
+      "bytes": 23040,
+      "sha256": "97c0465835e620beda5f1ec7643c2c4741c8f0c9f8971cea2cae84b0df80c7a3",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/Observations.swift",
+      "category": "swift_source",
+      "role": "観測結果の共通スナップショット定義",
+      "change": "reused",
+      "bytes": 9534,
+      "sha256": "085dfeb045f26f1631655054740b22b30e12405a21314edfe23f4d8a1a709d59",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "monitor/Sources/StorageScanner.swift",
+      "category": "swift_source",
+      "role": "ストレージのスキャンとファイルツリーの処理",
+      "change": "reused",
+      "bytes": 31747,
+      "sha256": "2d8ae3834f6fbc171cb0bcdada3a8187795af7df3e6981ba0f4e878f8d446238",
+      "build_snapshot_matches_source": true
+    },
+    {
+      "path": "integrated/Info.plist",
+      "category": "bundle_config",
+      "role": "統合アプリの名前・識別子・実行ファイル・OS要件・利用目的",
+      "change": "new",
+      "bytes": 896,
+      "sha256": "a1ddd24d880375f759f229da050e632983efa5bf1f81e0a60b1abcceb0dbc938",
+      "bundle_path": "integrated/AIBOU.app/Contents/Info.plist",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "monitor/PrivacyInfo.xcprivacy",
+      "category": "bundle_config",
+      "role": "既存Monitorから共有するプライバシー宣言",
+      "change": "reused",
+      "bytes": 1778,
+      "sha256": "4b4d3798451527698becb93e5195dda6971453190b395e23aa78d7f94b961736",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/PrivacyInfo.xcprivacy",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/.DS_Store",
+      "category": "packaged_metadata",
+      "role": "macOSのフォルダ管理メタデータ。素材フォルダと一緒にコピーされるが、アプリ処理には未使用",
+      "change": "reused",
+      "bytes": 8196,
+      "sha256": "5a7abd65a5eccedde949254929b671da3ad954ec49b9f82334ba1e3246da71da",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/.DS_Store",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-000.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1216423,
+      "sha256": "b6d097990bcb2f482c74b191e08fe1b2d1369a71950de9ca1705a73541b2d73b",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-000.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-001.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1217932,
+      "sha256": "6000e750bf62ff82e76b9686308f312df1e488ab2f1e696a375a8dbc7020d386",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-001.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-002.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1218938,
+      "sha256": "dbd841005607d648ac6eddfb52705e05917396137b917cee27a55b2294b56319",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-002.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-003.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1219157,
+      "sha256": "dc1df7a9533468fac2fbcdf50fff9698b00c40cb27ee304304a12fb4e90606eb",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-003.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-004.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1219926,
+      "sha256": "196a7c5ec3080de8c415ccdc282447713d18302b2635cb9d5cdb4e4e49b9b79c",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-004.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-005.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1217520,
+      "sha256": "37ae6fa06bea56ddc725ca5eea3e3303533d5cc9ffaff4802d10aad80aaed21d",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-005.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-006.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1218717,
+      "sha256": "befb08ca6fa2b576513ef8f2ded092df63986a94e47f618110b5362bce863e89",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-006.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-007.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1217844,
+      "sha256": "0da866d859244044fe11bf2cf06075b8d76f2b95871df6ea4d871618432b8493",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-007.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-008.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1216419,
+      "sha256": "a2b96e18a7bb61ddcf31f3ad0cf3605fa5241f6527f6e65d3727f206db47b56a",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-008.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-009.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1216108,
+      "sha256": "678b8fc63579f0a51f85979204679e4a57eb159da7b72685b8acd89b5659cdea",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-009.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-010.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1212022,
+      "sha256": "d47622c25aca28ff737997e6ea09261e109e93474e4aad5d8a96917493bab77f",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-010.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-011.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1212703,
+      "sha256": "58dd2ee4e693466ec8e219c9447b90a5ab94330e8d7e54339878ceda17e46393",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-011.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-012.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1210673,
+      "sha256": "4cdb889e0c093261629b4cc4e100fa0c9130ea1b2ba275d0782b28cb4f99d9e2",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-012.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-013.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1212579,
+      "sha256": "2824450ef6b90cdb52899c27c85119086c6c49c60c8b11e34f0aa9b525251135",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-013.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-014.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1212983,
+      "sha256": "b573a810fbb505c81f31a91b74a31093816fdbfba84a7602b158e0900ebc768a",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-014.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-015.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1211718,
+      "sha256": "7e84c4bf1fef10eedf80eb3641639052dbb084a32bf5a1f4d6b255df8da2847f",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-015.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-016.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1214298,
+      "sha256": "3b1abe23b3edee79ca42ca76754addbd6e9f62b7cc615692ad75ed34f924d44d",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-016.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-017.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1219662,
+      "sha256": "b16175e3bb94ed112e5142148813e7b55ed558b4ac0fa1a1e2ccda5859d71936",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-017.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-018.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1222060,
+      "sha256": "993c6d80de0efb4e7beaf0fdb35a34e8dce9ff2eed2d689a7fedb49cda714c4d",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-018.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-019.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1219088,
+      "sha256": "59464f3ec6d72db9d07003cfea4e25bddfd88913a98e8f08613bcd1d8ed81685",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-019.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-020.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1218364,
+      "sha256": "1250a883c004f7ca72b959cc1b0e653615cda00354a9d4227bf782d3e93f6d40",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-020.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-021.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1218790,
+      "sha256": "b9a1fc439b0592dc7b66f03287035fc23440a6ec0cd017dac359158a9bafbea7",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-021.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-022.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1219198,
+      "sha256": "f8cc47b1c4e137a49b0ab390c6dceb347cab751fc9ab2c027edfbb75b268df5b",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-022.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/frame-023.png",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 1219144,
+      "sha256": "46e2a390465884f301b079746371f162678218044bfedbae76dcc8f23d57da21",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/frame-023.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomAnimation/manifest.json",
+      "category": "asset",
+      "role": "部屋背景の連番フレーム・再生定義",
+      "change": "reused",
+      "bytes": 950,
+      "sha256": "d58a4d9f9573759d2fcfbc8cdfb677202decd6276b04984d16d029754abd0662",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomAnimation/manifest.json",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-horizontal.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 2347,
+      "sha256": "e0960a417d41e1296de1ae7465e1110458e97d53a969472f295c5134557c56de",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-horizontal.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-lower-right.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 1824,
+      "sha256": "588950fb96253da447079ceb1ecefa6ececd83ddb3abb4115ac22c2b84a1cf35",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-lower-right.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-lower-white.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 1802,
+      "sha256": "c4920494eae14e61f3c5b37b7dcb7a2723639f60ddb563c98c0333fedb3b1ee6",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-lower-white.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-lower.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 2355,
+      "sha256": "3b2e9a0c669c7bed1a55b6ca0eb54f4cdc4550b8c8df58951a524379aef49724",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-lower.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-middle-short.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 1582,
+      "sha256": "d7de144e38822c68e0f431f059df45872f2ff9970a26cf9525e03494241c1292",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-middle-short.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-middle-white.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 1800,
+      "sha256": "0b01635d8aa7d92a5c12bcee25642bbe1bded25e34af3d065adc663ea89eaa8e",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-middle-white.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-middle.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 2277,
+      "sha256": "bfaae43321f092a816976bac033bc25be569cc1602ce34405ed99e97f0f7317f",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-middle.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-short.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 1608,
+      "sha256": "eff56c09fd1a7f752f8f0624a27f572828c8192c40663585d4bb890a5f590190",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-short.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-small.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 877,
+      "sha256": "694a5f1e4ee84364b55712c0e29ca3fa3f73509a347ee04c115779d449325d12",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-small.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-tall.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 2982,
+      "sha256": "a59ad2c8761c6498d4a3e04a7b6c6677e89779c5aa8ba851fb19dc53655959a6",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-tall.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/book-white.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 1902,
+      "sha256": "14e24b56f83d08d48e0db53ee4eb1160a878d10ef937c4b20f512baeef6683ce",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/book-white.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/chair.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 68850,
+      "sha256": "2fccef6a0d577dd81885425c46852885c8fe84fccd14766742236da7211de7ed",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/chair.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-00.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 13936,
+      "sha256": "d0b8b80358ee83da544040e09ec1a719dd3b42e222bcc4c046dec7fca0949a6e",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-00.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-01.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 13883,
+      "sha256": "586e9b49f737071070094ce58dd4c505445e14d2ca356e5ddabe6f63ebf972c2",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-01.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-02.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 14142,
+      "sha256": "ba5576410af913e76c38d1b04db063a20da6980b649a2b422febdace88a1cad5",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-02.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-03.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 14404,
+      "sha256": "d7d9dc8b359a0ea4b85da7adcfe43854b0ffac4441684bb94ee10aa8f5c93cda",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-03.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-04.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 13876,
+      "sha256": "02e355a3fbe321c9da9b5fd44cbc15f36ba972e87e65ef074e4af382d5c80719",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-04.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-05.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 13930,
+      "sha256": "0b399039345cdbee7b72ca5746bc307848451e5e0dddea694cc65b2a744db1f6",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-05.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-06.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 14312,
+      "sha256": "edf84a731a572b35333fadfcd97f75125b07260dbbb7065cce5a564c783b3bdf",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-06.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-07.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 13942,
+      "sha256": "5577bd51d6352b22ed0cc1c0a8ced92352f7bdd3c9c0c58c5087e640d436bb83",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-07.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-08.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 14098,
+      "sha256": "e5d385fc765bc187d2fe8fe4a3829b06794199584d74599d6d766c5d1d46e655",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-08.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-09.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 14132,
+      "sha256": "1c80050395aa0d890879787e0cdd597db325951f451c4102d1433beedabcaa10",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-09.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-10.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 14579,
+      "sha256": "32cb56ff78146a790330b3629303c2639e6482a72338a296cc501f9257ccc7ca",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-10.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/compute-11.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 15059,
+      "sha256": "b7c2a9c441cf91a1645dee9a54b223bfdfe71cf5844aac901b1516513ebce8b5",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/compute-11.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-00.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19390,
+      "sha256": "5d918ed382d4d37e9b12cf5ae1000906cf8df8834348fe630462af42896a1af3",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-00.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-01.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19355,
+      "sha256": "11fb1f1fe899caa6c11b879e6ad4d3bd6abbc26fdec38dfd03ec58ea9fa8f5f5",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-01.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-02.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19336,
+      "sha256": "0a0d039d3f912ee55aca399171e7fe1867713445a2c9b63d95a5b2a2778d6f3d",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-02.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-03.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19383,
+      "sha256": "960ef3fdd780e03d049e253a3b2692fbd71fc8e4cdbb99abc1b65729221db4e0",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-03.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-04.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19308,
+      "sha256": "21c91d3c86208b5a89ee97a9c128efddeae78340329412b8ffdb2f905cf5116d",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-04.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-05.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19315,
+      "sha256": "9fd59680e1c0814c7356f22b37c921ec65db1abede12cd662d088e4ec0a76111",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-05.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-06.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19430,
+      "sha256": "76461e884ed0081b59e86e3cab473e12acd5af394c0cae83cbc07cf165233035",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-06.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-07.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19342,
+      "sha256": "f7ff74bde6c146538f6464de3cf6cb90bff0be577edbb2bae2b975982ef3a8ed",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-07.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-08.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19342,
+      "sha256": "2717e2b5a42a5bf181055b96e9967e2db61c0b77455b504fccdd3adfa7c13a62",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-08.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-09.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19461,
+      "sha256": "1686de6115532cacd7a1ed13cb2fa3aee3b6aa4ae96b5b904d33f347cf1c4f77",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-09.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-10.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19335,
+      "sha256": "c2a6d60afb99b01964e624e1851b8b3cd226c5f944037964b95d4f19610cc6a9",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-10.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-11.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19353,
+      "sha256": "fdd8cead3c8ee0f9c855ba9979f49bbf08c9e8c413845a4a96c567790bcc0b06",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-11.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-00.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19926,
+      "sha256": "28597caf6aa8a4c1e84e9fe8d32a14bfab6c6eddcf2f295158f61bf315ef63e1",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-00.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-01.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19948,
+      "sha256": "91638152591a5a39e745fa00acc7648e911366d96dab76e62ebf26f9364d11ba",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-01.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-02.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19874,
+      "sha256": "c5f486d72c2ff301c2fd87f341a69c407cffb92c6f2fb391c7904b8985aee844",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-02.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-03.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19905,
+      "sha256": "9db34a8825d0985175a0643fb3e2d86fca98672310257abc0ff903576558d017",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-03.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-04.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19893,
+      "sha256": "37554b7d23cc1d0b6e9fab67e4e38d9e4ea5fac814be4fab884024838b875ae0",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-04.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-05.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19906,
+      "sha256": "765f3f1c3e9716578cf377f75940ef62c41ea7a301f9a8e3a502e7df597e8c58",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-05.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-06.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19896,
+      "sha256": "e9d6884da1176a7a75756e776775f41b05fb4b966fe32898f2c4f477e303be95",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-06.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-07.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19918,
+      "sha256": "bd0fc6542cf2550837009dcfbfb228fb2db8732ab12f17d40f56bee2a3b8c000",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-07.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-08.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19914,
+      "sha256": "e489517804d1556df4b8a82f8c4c4611bd63729fe23476eb4bfbdb7ed88dea99",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-08.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-09.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19929,
+      "sha256": "dc045a7a4d4cb42f0c589f909b1ceee51c39a72cfcb26fa107c87b4e88e65e29",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-09.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-10.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19933,
+      "sha256": "4b4bc870b337a781c9f99d689fccdcf9b756c133f32fdcca1a81f8309b65dfc9",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-10.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-1-fast-11.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 19944,
+      "sha256": "9b17e3f7cde481a07b23f530d55b4860616c740092038c4077b69a53131056f1",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-1-fast-11.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-00.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22898,
+      "sha256": "4db8a5d5312f0cac96cf073b1a30c4b52350237bea25af76658fc82c49e7d234",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-00.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-01.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22986,
+      "sha256": "c4dd7af304f1c9c2e369335e9c874592049d1a75e124ced5336ba09d44f66ddb",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-01.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-02.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22958,
+      "sha256": "4297ef5e65c58bf2b43b7ec71e4d88b90a7aad7727563c16fb6c96bd5095fce3",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-02.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-03.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22889,
+      "sha256": "c85fe8dc5097f79efbbcbbccc0326a4ebcaebf4b2e799e7fa9b33b5c734c5f0c",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-03.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-04.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22915,
+      "sha256": "926abad35d8826cfbdd399cca4edb864514351b3cab0f3bb9982cbd134cd993d",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-04.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-05.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22878,
+      "sha256": "273edb3ba00a0665b77c29f112e7ca11d4bd95bb6495968fc96d6c66882dd3bd",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-05.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-06.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22941,
+      "sha256": "4690d5c41fa655dce169b26836b83b85f6e8e1930782b4bba14e8bde196b67b7",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-06.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-07.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22957,
+      "sha256": "094c493930eb4651d2e91815554b9539af6bd3e7595466e638d28796ba39f6ef",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-07.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-08.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22883,
+      "sha256": "c0b002c1cd558adea5f38db7021dbc7f858ecd0d502cd1681ed3a1abd3686440",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-08.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-09.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22931,
+      "sha256": "8dd003305ef88d82330cb13c134c2f6fe39258d5c50bf845d5997386a3f2c7e0",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-09.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-10.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22942,
+      "sha256": "6e2400c41928988f24d5e57389f4e9b51d7e0f7527107229814030fcc7a23390",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-10.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-11.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 22875,
+      "sha256": "7f8c6bd42756f36641ba3bb5a13123aad898e43e8fafbbf649ae4c2083d004f1",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-11.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-00.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23523,
+      "sha256": "0111746f957938bc41048a475ed3a0ed1a0e77d5634c89d1a80a803aa5ac5dd1",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-00.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-01.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23495,
+      "sha256": "8a5e7e0e60d7bf551c3eb796ad1eb2a3618e3ae7ea7b6debe6be185d3cd75332",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-01.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-02.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23494,
+      "sha256": "812440f57e39ed8c050de7f45a5c33a40c8695ae2416f2c5859ddf5849c14020",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-02.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-03.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23475,
+      "sha256": "2580e6a6e08ac57b3315e368fc3bdc4b8b0c7bb5da8a2c1865cd2efea2483db3",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-03.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-04.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23549,
+      "sha256": "5f88c20780402394a89473fc901a04fbf4702f5a2c9ea20ba220161158862226",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-04.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-05.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23458,
+      "sha256": "06408b1e43ca7eedbc8ee17adc1da280c11792793dc1fe1bbc9352c8550c7d69",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-05.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-06.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23481,
+      "sha256": "e3124c17a697c9ac196938ef1583622da467cac9ee0a8ae93d9acbdce677f7e7",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-06.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-07.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23489,
+      "sha256": "3bc885fda7e7e5deffbcc5dbd44166b83fb7f37121c149fed9e9991f623d6522",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-07.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-08.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23512,
+      "sha256": "ad1d29bebd742eb4c6e1bab4dcdac3de3c84a058ae145ffac2cb96097037d2cc",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-08.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-09.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23490,
+      "sha256": "3c8896a832bf4a3166c7ba9e56a4800d2477f17bdc8b2c0fc2259cc544ddab2f",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-09.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-10.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23528,
+      "sha256": "c8c8ba4d66ddad0dcf79bfc02b6703908638ec42245c08f2e8efd4940ab26ebf",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-10.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/fan-2-fast-11.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 23528,
+      "sha256": "efe31d3ed48f78805850bd9b83f81bdb0223ca7cc4df0df7124b2dc2dee92e48",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/fan-2-fast-11.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/manifest.json",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 5338,
+      "sha256": "82817582229a2f1dddaf3ef66ea63ff36b7c40c1620d6c93a6c52bf63a2b6b8e",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/manifest.json",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/RoomStates/network-lamp.png",
+      "category": "asset",
+      "role": "家具の状態別素材・配置定義",
+      "change": "reused",
+      "bytes": 2010,
+      "sha256": "6ef84cdd4a554aa0f2515b3b7a9b620c345316433aee4963d4346a3f619b49b7",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/RoomStates/network-lamp.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-000.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53591,
+      "sha256": "434f7150417194b47ca51ffa64e29a3268862e29adef7449847ff8a227cbb999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-000.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-001.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53591,
+      "sha256": "434f7150417194b47ca51ffa64e29a3268862e29adef7449847ff8a227cbb999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-001.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-002.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53591,
+      "sha256": "434f7150417194b47ca51ffa64e29a3268862e29adef7449847ff8a227cbb999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-002.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-003.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53591,
+      "sha256": "434f7150417194b47ca51ffa64e29a3268862e29adef7449847ff8a227cbb999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-003.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-004.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53737,
+      "sha256": "d9560459b3f44c2d778d664ebe48f6a4e739032c347b77b7b1f32de03defd204",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-004.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-005.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53996,
+      "sha256": "36fa7267603e591caae97a02b55e00bf3a16166f7452a70d473722b383a9ce78",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-005.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-006.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 54008,
+      "sha256": "dc4408a5c6aa3dc9da58589c2142a0c546f72a4eb080f4242f430beb4f86c6fb",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-006.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-007.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53698,
+      "sha256": "2ea1883410c9b8748c8652a369aa3d69224917e94d56c06925192f0bc87d1b1b",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-007.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-008.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53655,
+      "sha256": "fb1d0854def12c8c792c1383be5652e5cbed28f036eda85fe627dc790b1121c2",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-008.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-009.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53624,
+      "sha256": "7e284577ab789bfbd7869a0108668be6dafd4dc54891995109cb1fec190b30bb",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-009.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-010.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53842,
+      "sha256": "7bd88732067bf2516226803a6f105e91c878b592ea984936079a5bc797d6a64f",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-010.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-011.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53782,
+      "sha256": "32f02c2c33806f67fbcab0596ac2ea1ef7dd2913791763acb1f52789738725ed",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-011.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-012.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53656,
+      "sha256": "6db034e2816d37b1e95283b469592fcbc2bc564ff897c8d9d21f8b1be5c9fa44",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-012.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-013.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53649,
+      "sha256": "c023c1d9a5c3cc09d176a93bd97ae288c483f2cafeceddc548b4416601cb6be2",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-013.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-014.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53773,
+      "sha256": "53e78eda450fa236b2f954c526ad49ea6179ad69fd748cc6975463c535e4af36",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-014.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-015.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53853,
+      "sha256": "9cb1710b050db1bdd03606685d63291b201a6ad6f3a9da66dbbe273f5b62ef43",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-015.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-016.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 54197,
+      "sha256": "deff44aab39c788253120202af29f52ff5cb6c738fb43a7b7de2124c701c037f",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-016.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-017.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 54019,
+      "sha256": "82e7f1acf41d37b7f95187ad496bf49551f17c0188a482166f2579f54e55d2ad",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-017.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-018.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 54007,
+      "sha256": "8180219eb340f0af1cb112dcf7e2429a892123560769942cc832eaecd09278b6",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-018.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-019.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53601,
+      "sha256": "063b5144db91c5a6b82cf3097cde65bba7b8beb55261ff6fdfd5b7c2d8a5603a",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-019.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-020.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53591,
+      "sha256": "434f7150417194b47ca51ffa64e29a3268862e29adef7449847ff8a227cbb999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-020.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-021.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53591,
+      "sha256": "434f7150417194b47ca51ffa64e29a3268862e29adef7449847ff8a227cbb999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-021.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-022.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53591,
+      "sha256": "434f7150417194b47ca51ffa64e29a3268862e29adef7449847ff8a227cbb999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-022.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/frame-023.png",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 53591,
+      "sha256": "434f7150417194b47ca51ffa64e29a3268862e29adef7449847ff8a227cbb999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/frame-023.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/WritingBackdrop/manifest.json",
+      "category": "asset",
+      "role": "書く姿勢の背面・前景合成用フレームと定義",
+      "change": "reused",
+      "bytes": 598,
+      "sha256": "5a03795b7e52831011d2c527ade1666211c2122e0fbb60d74aaed1e9dbd0259b",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/WritingBackdrop/manifest.json",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/cpu-rest-relaxed.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1541188,
+      "sha256": "1b9acb55903c32f568734820cb9a0008193e22cc0a49d67e12b311af9c2028cd",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/cpu-rest-relaxed.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/cpu-rest.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1432808,
+      "sha256": "5ed76c4a078552c206389185ec4a3af46af885237960ca0a83978493806f3999",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/cpu-rest.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/reading.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1373771,
+      "sha256": "62bf6607309c864bdfbd8082e49990a8be1633d4c2df7a8432bc0707f45a085e",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/reading.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/rig.json",
+      "category": "asset",
+      "role": "アバターの画像・配置・顔パーツなどの定義",
+      "change": "reused",
+      "bytes": 6614,
+      "sha256": "455c52afacc90d949c169e6609c55bb19b2f69f681e92ec528e33ebfb47af7af",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/rig.json",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/room-components.json",
+      "category": "asset",
+      "role": "家具の説明とクリック領域の定義",
+      "change": "reused",
+      "bytes": 19127,
+      "sha256": "563f3110b6203c5d55e3686b56ef0d371ef5ee9342a80efeac6b33984338735f",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/room-components.json",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/room.png",
+      "category": "asset",
+      "role": "部屋の静止背景",
+      "change": "reused",
+      "bytes": 1882704,
+      "sha256": "09cda84fedbb78b2e9ff0af2fbee6af3efe2d6ae746b95157ae88c6a76f7abbd",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/room.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/sample.aiff",
+      "category": "asset",
+      "role": "デモのサンプル音声",
+      "change": "reused",
+      "bytes": 347438,
+      "sha256": "a033793312abaf3e33742b293a09492c22610d01f1b4189c952f211e8096696f",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/sample.aiff",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/sleeping.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1368299,
+      "sha256": "b98429b2aef9dfa18be3cbdf3feb92a6710c68bfdc83709197b283023cd39c4b",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/sleeping.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/standing-back-hands.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1389061,
+      "sha256": "78a8632035e5d80c0c736310e87af28c4b0f06f20ad4209b29fef075cb0bd2c2",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/standing-back-hands.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/standing-blink.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1449678,
+      "sha256": "83d1c886cb5df9208051ed5e4018e5cfe5ed55fd8294d803bb75213bebbc4410",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/standing-blink.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/standing-front-hands.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1385689,
+      "sha256": "730d2bb97e621d67b1a8f92bbc2fc865a9c0b850c57d3e9791bd11a431f6d8f3",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/standing-front-hands.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/standing-smile-crescent.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1457458,
+      "sha256": "2ccad678ba417434eec85a23144a351640419a187b2e20a9a22762dcec879957",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/standing-smile-crescent.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/standing-smile.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1442454,
+      "sha256": "1a7cd033d9ee4c67061011bda3cd209b8513ed44e0785beb934641346dd24330",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/standing-smile.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/standing.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1433349,
+      "sha256": "f7b5b0abb01911ff0278d9afad84e00bbba93df860a8c2bcd84076592888a4a0",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/standing.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/writing-seated.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1670398,
+      "sha256": "92eb8eeb1b0a1158acbd405bb52ff14cdae453d3b81fa1325d961becd67dc7c0",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/writing-seated.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "avatar-motion/Assets/writing.png",
+      "category": "asset",
+      "role": "アバターの姿勢・表情画像",
+      "change": "reused",
+      "bytes": 1468207,
+      "sha256": "1aa8e9c907cbdd22c3dfe827cd290366c2030dd31ea75b6a5df74f9198be82a4",
+      "bundle_path": "integrated/AIBOU.app/Contents/Resources/Assets/writing.png",
+      "bundle_matches_source": true
+    },
+    {
+      "path": "integrated/run.sh",
+      "category": "build_or_test_script",
+      "role": "統合アプリのコンパイル・素材コピー・署名・起動",
+      "change": "new",
+      "bytes": 1011,
+      "sha256": "a868f5023b59d7250f8235f30e3e9ebe4e6d6e79bfc4c139529cfa19400db69a"
+    },
+    {
+      "path": "integrated/test.sh",
+      "category": "build_or_test_script",
+      "role": "統合版の4テストスイートの実行",
+      "change": "new",
+      "bytes": 1431,
+      "sha256": "2481d7f3f029a36df7d08c578f98da833b6c751d46ae6f1a2ba6a7fec5b793da"
+    },
+    {
+      "path": "avatar-motion/test.sh",
+      "category": "build_or_test_script",
+      "role": "既存AvatarMotionの回帰テスト実行",
+      "change": "reused",
+      "bytes": 452,
+      "sha256": "07a3d76c670bb53f61ef5b35bf27f0d1445fc77cc80cb77aa56da7fe3b0207d5"
+    },
+    {
+      "path": "monitor/test.sh",
+      "category": "build_or_test_script",
+      "role": "既存Monitorの回帰テスト実行",
+      "change": "reused",
+      "bytes": 442,
+      "sha256": "a9dc741fe51e3b5aefaae1f05d300389a69dd47df1891aff5e3230dc36371add"
+    },
+    {
+      "path": "integrated/Tests/AvatarWindowEventTests.swift",
+      "category": "test_source",
+      "role": "統合機能のテスト",
+      "change": "new",
+      "bytes": 1574,
+      "sha256": "f1eaae213d7b15d583415fbffa33fc4a9f64c1eab22cf494ce4e0f8de9f5cf7c"
+    },
+    {
+      "path": "integrated/Tests/ConsultationIntegrationTests.swift",
+      "category": "test_source",
+      "role": "統合機能のテスト",
+      "change": "new",
+      "bytes": 7939,
+      "sha256": "86f18f7ada30d75401ae8c1edc65bba4e4c483fe17ec7b9a6246eb9df430070e"
+    },
+    {
+      "path": "integrated/Tests/HardwareRoomPolicyTests.swift",
+      "category": "test_source",
+      "role": "統合機能のテスト",
+      "change": "new",
+      "bytes": 10523,
+      "sha256": "56a1e56cefa44bbe12279da181bde430aa549ac95ca0c57a106bac5e09b2f25b"
+    },
+    {
+      "path": "integrated/Tests/RoomSessionTests.swift",
+      "category": "test_source",
+      "role": "統合機能のテスト",
+      "change": "new",
+      "bytes": 2322,
+      "sha256": "6fb556e3e9288e37daf948304bfbee64b6d6b36f98c669360803c0f3eeec596e"
+    },
+    {
+      "path": "avatar-motion/Tests/AvatarStateTests.swift",
+      "category": "test_source",
+      "role": "既存アバター・部屋機能の回帰テスト",
+      "change": "reused",
+      "bytes": 13124,
+      "sha256": "f4adeb71a5d9070ec0503e4c33352bac733367a906177f17557c70e526a9ec39"
+    },
+    {
+      "path": "avatar-motion/Tests/ElectricTransitionTests.swift",
+      "category": "test_source",
+      "role": "既存アバター・部屋機能の回帰テスト",
+      "change": "reused",
+      "bytes": 6443,
+      "sha256": "de2db5ead65d76ff5610a9d012cd207342f59c90d97b73a04b341a3e5617bd72"
+    },
+    {
+      "path": "avatar-motion/Tests/RoomComponentTests.swift",
+      "category": "test_source",
+      "role": "既存アバター・部屋機能の回帰テスト",
+      "change": "reused",
+      "bytes": 3601,
+      "sha256": "50eb23a1b76fc8db929fcb823ed2dba087d2dcaaaae6456f629145702916c681"
+    },
+    {
+      "path": "avatar-motion/Tests/RoomVisualStateTests.swift",
+      "category": "test_source",
+      "role": "既存アバター・部屋機能の回帰テスト",
+      "change": "reused",
+      "bytes": 5117,
+      "sha256": "9ed6029632e8a77b615ea5b664f772d474adbebee3732489006eef9b0b7ea52b"
+    },
+    {
+      "path": "avatar-motion/Tests/RoomWarningTests.swift",
+      "category": "test_source",
+      "role": "既存アバター・部屋機能の回帰テスト",
+      "change": "reused",
+      "bytes": 3962,
+      "sha256": "72275c7e78366f38b0240d5ed14b98ab13e4f50aeb5dd3b33c58455d66dd1f69"
+    },
+    {
+      "path": "avatar-motion/Tests/TestMain.swift",
+      "category": "test_source",
+      "role": "既存アバター・部屋機能の回帰テスト",
+      "change": "reused",
+      "bytes": 17463,
+      "sha256": "0ef009975aed637d22d331c9162737eab61d2c60a186760fc99478d32f618499"
+    },
+    {
+      "path": "monitor/Tests/AdditionalTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 18557,
+      "sha256": "1cd1f58025f64bf3fb7badd2eabe9b1a70f5f0320c79b273f3e3e96f26adae9b"
+    },
+    {
+      "path": "monitor/Tests/ApplicationLauncherTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 9415,
+      "sha256": "abcade3c5001077b8824966e579f022334dec5320f57049c3f63439cb838d0c8"
+    },
+    {
+      "path": "monitor/Tests/ApplicationStorageTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 9019,
+      "sha256": "38cafe8370ce6ddddbbdd6bddb92fad921c76385ab9140f1c94e21d987b90624"
+    },
+    {
+      "path": "monitor/Tests/ApplicationUsageTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 10493,
+      "sha256": "d7cce70d2b11d62c14402c17b5fe7e8c9ac242e50e9adab1ab10f5b035205bc4"
+    },
+    {
+      "path": "monitor/Tests/ConsultationTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 21506,
+      "sha256": "518f1ca8d131bbbeeba765861ff1874bf86c5ee0f8d91d0e955204e718cfd717"
+    },
+    {
+      "path": "monitor/Tests/CoreTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 20541,
+      "sha256": "90e26fa791aeda7a57474582399ff48687299e981b648ad82775d8b7324fe7d9"
+    },
+    {
+      "path": "monitor/Tests/DeviceTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 13687,
+      "sha256": "226a1db5b5bd235b6da796b63cdb74eefabe4b079ece3da3bdb3a40527fb1b28"
+    },
+    {
+      "path": "monitor/Tests/DiagnosticSelectionTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 11370,
+      "sha256": "cf9bca6a0e36c63e313f37f89cdf9063170b4db4a05e918e555cc6ea0fcc1940"
+    },
+    {
+      "path": "monitor/Tests/DiagnosticTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 9678,
+      "sha256": "5ae32b98d61fdc8c793d060f845155a4578f4af1a02dc69e9a587a361a6e270e"
+    },
+    {
+      "path": "monitor/Tests/HistoryTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 3092,
+      "sha256": "b9814480573a8137f3098b6e49f23bd854f1a00e1a61f1d6e26a35593c66e465"
+    },
+    {
+      "path": "monitor/Tests/ObservationTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 5937,
+      "sha256": "b8e1714c4588cf1a05be6c5140fde5fe12d87ed01d911695072a68334713665a"
+    },
+    {
+      "path": "monitor/Tests/StorageTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 16071,
+      "sha256": "087a77737204344857f37c5b0ef9f72e1e106d89ad2b1475a8c11dab24ebcaee"
+    },
+    {
+      "path": "monitor/Tests/StoreTests.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 8804,
+      "sha256": "2417870d61e831b0524fa6df35c6937916b63c23991835d6e0ad2faae01e84c7"
+    },
+    {
+      "path": "monitor/Tests/TestMain.swift",
+      "category": "test_source",
+      "role": "既存監視・相談・診断・アプリ機能の回帰テスト",
+      "change": "reused",
+      "bytes": 2485,
+      "sha256": "0b4b9f553b423b8600f8d9a27f8f6b2fa6a8be0a9d66f5f1ea2196b7b3a173fc"
+    },
+    {
+      "path": "DESIGN.md",
+      "category": "documentation",
+      "role": "既存の設計資料に統合画面とボタン拡大の仕様を追記",
+      "change": "modified",
+      "bytes": 16697,
+      "sha256": "e9fc6d2ccd826c715cbb24ff4b7132c938e8041c2c1b0bd338bcc0f17b81ac14"
+    },
+    {
+      "path": "integrated/README.md",
+      "category": "documentation",
+      "role": "起動方法、操作、状態の対応、検証手順",
+      "change": "new",
+      "bytes": 5076,
+      "sha256": "e7b7bb10b539c3decf0ac0a969f2e4e7d6f8f2d14614beb4a099571a1633a565"
+    },
+    {
+      "path": "integrated/QA/BUTTON_SIZE_RESULTS.md",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 658,
+      "sha256": "28f5ad4b6f7aea915b54d76eed525ad51118c6f95859a3d271d31b555f769115"
+    },
+    {
+      "path": "integrated/QA/RESULTS.md",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 3448,
+      "sha256": "04d9a4eefcfc981492234885ccfdc31622fa7db3d1f88ae260290085b043fbfb"
+    },
+    {
+      "path": "integrated/QA/avatar-tests.log",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 270,
+      "sha256": "b46f1d9683811d22d8d19b2e7e0d53bc1f87c4174e71f7be7af99a953fd69a5c"
+    },
+    {
+      "path": "integrated/QA/avatar-typecheck.log",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "integrated/QA/build.log",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 40,
+      "sha256": "99727af4a46275a570d6af03b3b9c01275f2465eef231553cf19c770431f3778"
+    },
+    {
+      "path": "integrated/QA/button-size-build.log",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 40,
+      "sha256": "99727af4a46275a570d6af03b3b9c01275f2465eef231553cf19c770431f3778"
+    },
+    {
+      "path": "integrated/QA/integration-tests.log",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 481,
+      "sha256": "b12a458ac5032d0cbc750a0744c4d823ae90657ebcb4526103d0503168a4c531"
+    },
+    {
+      "path": "integrated/QA/monitor-tests.log",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 780,
+      "sha256": "07c9895552eae1d4307c6580ea654ed3dee1ac5c5650d21ed75c2d7dfc72b021"
+    },
+    {
+      "path": "integrated/QA/policy-session-tests.log",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 104,
+      "sha256": "2014a254f928ce38384397230cd6891d9be4a0e9130b1862cef921267677472e"
+    },
+    {
+      "path": "integrated/QA/source-sha256.txt",
+      "category": "verification_record",
+      "role": "実装・ボタン拡大の検証結果、ログ、または最終Swiftソースのハッシュ",
+      "change": "new",
+      "bytes": 4750,
+      "sha256": "5d133fbfa5a604966fd079a7ebcea9370a9cd1ac672431e25d0ad1c9430ee3e6"
+    }
+  ]
+}

@@ -65,17 +65,20 @@ final class AvatarStore: ObservableObject {
         voice.$amplitude.sink { [weak self] value in self?.scene?.speechAmplitude = value }.store(in: &subscriptions)
         voice.$isPlaying.sink { [weak self] _ in self?.objectWillChange.send() }.store(in: &subscriptions)
         voice.$errorMessage.compactMap { $0 }.sink { [weak self] in self?.errorMessage = $0 }.store(in: &subscriptions)
-        NotificationCenter.default.publisher(for: NSWindow.didMiniaturizeNotification).sink { [weak self] _ in
-            self?.windowVisible = false; self?.voice.stop(); self?.updatePause()
+        NotificationCenter.default.publisher(for: NSWindow.didMiniaturizeNotification).sink { [weak self] note in
+            guard let self, let window = note.object as? NSWindow, window === self.scene?.view?.window else { return }
+            self.windowVisible = false; self.voice.stop(); self.updatePause()
         }.store(in: &subscriptions)
-        NotificationCenter.default.publisher(for: NSWindow.didDeminiaturizeNotification).sink { [weak self] _ in
-            self?.windowVisible = true; self?.updatePause()
+        NotificationCenter.default.publisher(for: NSWindow.didDeminiaturizeNotification).sink { [weak self] note in
+            guard let self, let window = note.object as? NSWindow, window === self.scene?.view?.window else { return }
+            self.windowVisible = true; self.updatePause()
         }.store(in: &subscriptions)
         NotificationCenter.default.publisher(for: NSWindow.didChangeOcclusionStateNotification).sink { [weak self] note in
-            guard let window = note.object as? NSWindow, !window.isMiniaturized else { return }
-            self?.windowVisible = window.occlusionState.contains(.visible)
-            if self?.windowVisible == false { self?.voice.stop() }
-            self?.updatePause()
+            guard let self, let window = note.object as? NSWindow,
+                  window === self.scene?.view?.window, !window.isMiniaturized else { return }
+            self.windowVisible = window.occlusionState.contains(.visible)
+            if !self.windowVisible { self.voice.stop() }
+            self.updatePause()
         }.store(in: &subscriptions)
         NotificationCenter.default.publisher(for: NSApplication.didHideNotification).sink { [weak self] _ in
             self?.windowVisible = false; self?.voice.stop(); self?.updatePause()
@@ -148,16 +151,22 @@ final class AvatarStore: ObservableObject {
 }
 
 struct AvatarWindow: View {
-    @StateObject var store: AvatarStore
+    @ObservedObject var store: AvatarStore
+    var exitDemo: (() -> Void)? = nil
+    var showsControls = true
     @State private var importingAudio = false
 
     var body: some View {
         VStack(spacing: 0) {
-            header
-            Divider().opacity(0.45)
+            if showsControls {
+                header
+                Divider().opacity(0.45)
+            }
             stage
-            Divider().opacity(0.45)
-            controls
+            if showsControls {
+                Divider().opacity(0.45)
+                controls
+            }
         }
         .background(Color(nsColor: NSColor(red: 0.09, green: 0.082, blue: 0.10, alpha: 1)))
         .foregroundStyle(.white)
@@ -185,6 +194,9 @@ struct AvatarWindow: View {
                 Text(statusText).font(.caption).foregroundStyle(.white.opacity(0.58))
             }
             Spacer()
+            if let exitDemo {
+                Button("デモを終了", action: exitDemo).keyboardShortcut(.escape, modifiers: [])
+            }
             if let scene = store.scene {
                 Menu {
                     ForEach(scene.componentCatalog.selectionComponents) { component in
@@ -233,7 +245,7 @@ struct AvatarWindow: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color(red: 0.075, green: 0.068, blue: 0.085))
                 .overlay(alignment: .topTrailing) {
-                    if let component = store.selectedComponent {
+                    if showsControls, let component = store.selectedComponent {
                         RoomComponentDetail(component: component,
                                             warning: store.componentWarning(for: component.id),
                                             visualState: store.roomVisualState,
@@ -332,6 +344,7 @@ struct PoseButtonStyle: ButtonStyle {
     }
 }
 
+#if !AIBOU_INTEGRATED
 @main
 struct AvatarMotionApp: App {
     @NSApplicationDelegateAdaptor(AvatarAppDelegate.self) private var delegate
@@ -345,3 +358,4 @@ struct AvatarMotionApp: App {
         .commands { CommandGroup(replacing: .newItem) {} }
     }
 }
+#endif

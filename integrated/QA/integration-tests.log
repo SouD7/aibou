@@ -1,0 +1,6 @@
+2026-09-15 06:00:42.602 ConsultationIntegrationTests[46294:4138685] IOPMScheduleUserActivityLevelNotification returned 0
+2026-09-15 06:00:42.602 ConsultationIntegrationTests[46294:4138685] IOPMScheduleUserActivityLevelNotification returned 0
+ConsultationIntegrationTests: OK (fixture only; no login or inference)
+HardwareRoomPolicyTests: OK
+RoomSessionTests: OK (timer, consultation, demo, acknowledgement, relaunch)
+AvatarWindowEventTests: OK (sheet events do not pause the room)
